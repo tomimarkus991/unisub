@@ -65,7 +65,6 @@
     "eject": "react-scripts eject",
     "lint:fix": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
     "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
-    "format": "npm run prettier -- --write",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
