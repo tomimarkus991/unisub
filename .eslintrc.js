@@ -1,24 +1,8 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    es6: true,
-    jest: true,
-  },
+  env: { browser: true, es2021: true, es6: true, jest: true },
   parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 13,
-    sourceType: "module",
-  },
-  settings: {
-    react: { version: "detect" },
-    "import/resolver": {
-      typescript: {},
-    },
-  },
+  parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 13, sourceType: "module" },
+  settings: { react: { version: "detect" }, "import/resolver": { typescript: {} } },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -38,7 +22,7 @@ module.exports = {
       "error",
       { namedComponents: "arrow-function", unnamedComponents: "arrow-function" },
     ],
-    "linebreak-style": ["error", process.platform === "win32" ? "windows" : "unix"],
+    "linebreak-style": ["error", "windows"],
     "react/prop-types": "off",
     "import/order": [
       "error",
@@ -51,17 +35,13 @@ module.exports = {
     "import/default": "off",
     "import/no-named-as-default-member": "off",
     "import/no-named-as-default": "off",
-
     "react/react-in-jsx-scope": "off",
-
     "jsx-a11y/anchor-is-valid": "off",
-
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "@typescript-eslint/no-empty-function": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
-
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
   },
 };
