@@ -22,7 +22,7 @@ module.exports = {
       "error",
       { namedComponents: "arrow-function", unnamedComponents: "arrow-function" },
     ],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", process.platform === "win32" ? "windows" : "unix"],
     "react/prop-types": "off",
     "import/order": [
       "error",
