@@ -1,2 +1,2 @@
 export * from "./GreenButton";
-export * from "./PrimaryButton";
+export * from "./Button";
