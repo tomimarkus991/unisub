@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Button } from "..";
+
 export const ColorModeButton = () => {
   const [isDark, setIsDark] = useState(false);
   const root = document.documentElement;
@@ -14,5 +16,9 @@ export const ColorModeButton = () => {
       localStorage.theme = "dark";
     }
   };
-  return <button onClick={changeColorMode}>{isDark ? "Light" : "Dark"}</button>;
+  return (
+    <Button variant="dark" onClick={changeColorMode}>
+      {isDark ? "Light" : "Dark"}
+    </Button>
+  );
 };

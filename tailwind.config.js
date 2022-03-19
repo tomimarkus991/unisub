@@ -1,8 +1,17 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./src/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: "400px",
+      },
+    },
+
+    fontFamily: {
+      // sans: ["Varela Round", "sans-serif"],
+      sans: ["Rubik", "sans-serif"],
+    },
   },
   plugins: [],
 };
