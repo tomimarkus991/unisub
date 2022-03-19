@@ -56,27 +56,3 @@ export const Button = ({
     </button>
   );
 };
-
-// span .inline-block text-center rounded-lg px-5 py-2 -translate-y-1.5 hover:-translate-y-2.5 duration-300
-//   text-white bg-accent-primary
-//  {	/* Font & Text */	font-family: Saira;	font-size: 16px;	font-style: normal;	font-variant: normal;
-//   	font-weight: 400;	letter-spacing: normal;	line-height: 24px;	text-decoration: rgb(255, 255, 255);
-//     	text-align: center;	text-indent: 0px;	text-transform: none;	vertical-align: baseline;
-// white-space: normal;	word-spacing: 0px;	/* Color & Background */	background-attachment: scroll;
-// 	background-color: rgb(77, 88, 111);	background-image: none;	background-position: 0% 0%;
-//   	background-repeat: repeat;	color: rgb(255, 255, 255);	/* Box */	height: 40px;
-//     	width: 100.983px;	border: 0px solid rgb(229, 231, 235);
-//       	border-top: 0px solid rgb(229, 231, 235);	border-right: 0px solid rgb(229, 231, 235);
-//   border-bottom: 0px solid rgb(229, 231, 235);	border-left: 0px solid rgb(229, 231, 235);
-//   margin: 0px;	padding: 8px 24px;	max-height: none;	min-height: 0px;	max-width: none;
-//   min-width: 0px;	/* Positioning */	position: static;	top: auto;	bottom: auto;	right: auto;
-//   left: auto;	float: none;	display: inline-block;	clear: none;	z-index: auto;
-//   /* List */	list-style-image: none;	list-style-type: disc;	list-style-position: outside;
-//   	/* Table */	border-collapse: separate;	border-spacing: 0px 0px;	caption-side: top;
-//     	empty-cells: show;	table-layout: auto;	/* Miscellaneous */	overflow: visible;
-//       	cursor: pointer;	visibility: visible;	/* Effects */	transform: matrix(1, 0, 0, 1, 0, -6);
-//         	transition: all 0.3s ease 0s;	outline: rgb(255, 255, 255) dashed 0px;	outline-offset: 0px;
-//           	box-sizing: border-box;	resize: none;	text-shadow: none;	text-overflow: clip;
-//             	word-wrap: normal;	box-shadow: none;	border-top-left-radius: 8px;
-//               	border-top-right-radius: 8px;	border-bottom-left-radius: 8px;
-//                 	border-bottom-right-radius: 8px;}
