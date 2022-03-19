@@ -15,7 +15,7 @@ export const cardColors = {
   red: "bg-red-600",
   yellow: "bg-yellow-600",
   gray: "bg-gray-600",
-  white: "bg-white",
+  white: "bg-slate-200",
 };
 
 export type CardColorType = keyof typeof cardColors;
@@ -87,8 +87,7 @@ export const AddSubscriptionModal = () => {
                                 className={clsx(
                                   "w-8 h-8 inline-block rounded-full cursor-pointer",
                                   cardColors[color as CardColorType],
-                                  checked ? "scale-125" : "",
-                                  color === "white" && "border-2 border-gray-500 w-[7.5] h-[7.5]"
+                                  checked ? "scale-125" : ""
                                 )}
                               />
                             )}
