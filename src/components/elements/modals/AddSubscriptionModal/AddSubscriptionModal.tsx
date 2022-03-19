@@ -85,9 +85,10 @@ export const AddSubscriptionModal = () => {
                             {({ checked }) => (
                               <span
                                 className={clsx(
-                                  "px-4 py-4 inline-block rounded-full",
+                                  "w-8 h-8 inline-block rounded-full cursor-pointer",
                                   cardColors[color as CardColorType],
-                                  checked ? "scale-125" : ""
+                                  checked ? "scale-125" : "",
+                                  color === "white" && "border-2 border-gray-500 w-[7.5] h-[7.5]"
                                 )}
                               />
                             )}
