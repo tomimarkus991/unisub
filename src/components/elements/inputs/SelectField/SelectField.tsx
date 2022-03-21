@@ -20,12 +20,12 @@ export const SelectField = ({ options, value, setValue }: Props) => {
     <Listbox value={value} onChange={setValue}>
       {({ open }) => (
         <div className="relative mt-1">
-          <div className="mt-2 xs:mt-0 mb-2">
+          <div className="mt-0 mb-2">
             <label htmlFor="select-input">Category</label>
           </div>
           <Listbox.Button
             id="select-input"
-            className="relative w-full xs:w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 
+            className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 
         focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500"
           >
             <span className="block truncate">{t(value.name)}</span>

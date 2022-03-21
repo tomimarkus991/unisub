@@ -95,18 +95,18 @@ export const AddSubscriptionModal = () => {
                         General
                       </Dialog.Title>
                       <div className="mt-4">
-                        <div className="flex flex-col xs:flex-row">
-                          <div className="xs:w-6/12 sm:w-full">
+                        <div className="flex flex-row">
+                          <div className="w-6/12 sm:w-full">
                             <div className="mb-2">
                               <label htmlFor="name-input">Name</label>
                             </div>
                             <Input
                               id="name-input"
-                              className="px-6 w-full xs:w-11/12"
+                              className="px-6 w-11/12"
                               onChange={e => setTitle(e.target.value)}
                             />
                           </div>
-                          <div className="xs:w-6/12 sm:w-full">
+                          <div className="w-6/12 sm:w-full">
                             <SelectField
                               options={categories}
                               value={selectedCategory}
