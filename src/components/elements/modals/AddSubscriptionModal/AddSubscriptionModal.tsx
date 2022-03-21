@@ -1,28 +1,33 @@
-import { Dialog, RadioGroup, Transition } from "@headlessui/react";
-// import clsx from "clsx";
-import clsx from "clsx";
+import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-import { Button } from "components/elements";
+import { Button, Input, SelectField } from "components/elements";
 
-import { SubscriptionCard } from "./components";
+import { ColorPicker, SubscriptionCard } from "./components";
 
 export const cardColors = {
   green: "bg-green-600",
-  orange: "bg-orange-600",
+  orange: "bg-orange-500",
   blue: "bg-blue-600",
   purple: "bg-purple-600",
-  red: "bg-red-600",
-  yellow: "bg-yellow-600",
+  red: "bg-red-500",
+  yellow: "bg-yellow-400",
   gray: "bg-gray-600",
   white: "bg-slate-200",
 };
+
+const categories = [
+  { id: 1, name: "Entertainment" },
+  { id: 2, name: "Gaming" },
+  { id: 3, name: "Sport" },
+];
 
 export type CardColorType = keyof typeof cardColors;
 
 export const AddSubscriptionModal = () => {
   const [open, setOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
+  const [title, setTitle] = useState("");
 
   return (
     <>
@@ -69,31 +74,23 @@ export const AddSubscriptionModal = () => {
                         Add a new Subscription
                       </Dialog.Title>
                       <SubscriptionCard
-                        title="Spotify"
+                        title={title}
                         category="Entertainment"
                         price="7€ per month"
                         cardColor={selectedColor}
                         imageUrl={""}
                       />
-                      <RadioGroup
-                        className="flex flex-row mt-4"
-                        value={selectedColor}
-                        onChange={setSelectedColor}
-                      >
-                        {Object.keys(cardColors).map(color => (
-                          <RadioGroup.Option className="mr-2" value={color} key={color}>
-                            {({ checked }) => (
-                              <span
-                                className={clsx(
-                                  "w-8 h-8 inline-block rounded-full cursor-pointer",
-                                  cardColors[color as CardColorType],
-                                  checked ? "scale-125" : ""
-                                )}
-                              />
-                            )}
-                          </RadioGroup.Option>
-                        ))}
-                      </RadioGroup>
+                      <ColorPicker
+                        selectedColor={selectedColor}
+                        setSelectedColor={setSelectedColor}
+                      />
+                      <div className="mt-4">
+                        <Input
+                          className="max-w-screen-sm px-6"
+                          onChange={e => setTitle(e.target.value)}
+                        />
+                        <SelectField options={categories} />
+                      </div>
                     </div>
                   </div>
                 </div>
