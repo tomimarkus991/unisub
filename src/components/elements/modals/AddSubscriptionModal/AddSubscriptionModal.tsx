@@ -31,7 +31,7 @@ export type CardColorType = keyof typeof cardColors;
 export const AddSubscriptionModal = () => {
   const [open, setOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
-  const [title, setTitle] = useState("Subscription");
+  const [title, setTitle] = useState("Sub name");
   const [selectedCategory, setSelectedCategory] = useState<SelectOption>(categories[0]);
 
   return (
@@ -103,6 +103,7 @@ export const AddSubscriptionModal = () => {
                             <Input
                               id="name-input"
                               className="px-6 w-11/12"
+                              maxLength={30}
                               onChange={e => setTitle(e.target.value)}
                             />
                           </div>
