@@ -18,6 +18,9 @@ const variants = {
     hover:text-white
     active:border-gray-700
     dark:bg-gray-700 dark:border-gray-900 dark:active:border-gray-700`,
+  light: `bg-slate-50 text-slate-700 border-slate-200
+    hover:text-gray-800
+    active:border-slate-50`,
   blue: `bg-blue-700 text-[#f3f2f0] border-blue-900
     hover:text-white
     active:border-blue-700
@@ -52,7 +55,7 @@ export const Button = ({
       )}
       {...props}
     >
-      <span className="mx-4">{t(children)}</span>
+      <span>{t(children)}</span>
     </button>
   );
 };

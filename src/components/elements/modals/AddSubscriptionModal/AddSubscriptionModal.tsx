@@ -1,11 +1,9 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-import { Button, Input, SelectField } from "components/elements";
+import { Button, Input } from "components/elements";
 
-import { SelectOption } from "../../inputs";
-
-import { ColorPicker, SubscriptionCard } from "./components";
+import { ColorPicker, SelectCategoryModal, SubscriptionCard } from "./components";
 
 export const cardColors = {
   green: "bg-green-600",
@@ -19,11 +17,16 @@ export const cardColors = {
   // white: "bg-white",
 };
 
-const categories: SelectOption[] = [
-  { id: 1, name: "Other" },
-  { id: 2, name: "Entertainment" },
-  { id: 3, name: "Gaming" },
-  { id: 4, name: "Sport" },
+export interface CategoryCardItem {
+  name: string;
+  icon: string;
+}
+
+export const categories: CategoryCardItem[] = [
+  { name: "Other", icon: "test-icon" },
+  { name: "Entertainment", icon: "test-icon" },
+  { name: "Gaming", icon: "test-icon" },
+  { name: "Sport", icon: "test-icon" },
 ];
 
 export type CardColorType = keyof typeof cardColors;
@@ -32,7 +35,7 @@ export const AddSubscriptionModal = () => {
   const [open, setOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
   const [title, setTitle] = useState("Sub name");
-  const [selectedCategory, setSelectedCategory] = useState<SelectOption>(categories[0]);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   return (
     <>
@@ -108,10 +111,11 @@ export const AddSubscriptionModal = () => {
                             />
                           </div>
                           <div className="w-6/12 sm:w-full">
-                            <SelectField
+                            <SelectCategoryModal
                               options={categories}
                               value={selectedCategory}
                               setValue={setSelectedCategory}
+                              selectedColor={selectedColor}
                             />
                           </div>
                         </div>
