@@ -26,7 +26,7 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
           </div>
         </div>
         <div className="flex flex-col w-6/12">
-          <div className="mb-2 sm:mb-4 text-ellipsis whitespace-nowrap overflow-scroll">
+          <div className="mb-2 sm:mb-4 text-ellipsis whitespace-nowrap overflow-x-auto scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600">
             <p className={clsx("font-semibold text-lg xs:text-2xl", textColor)}>{title}</p>
           </div>
           <div className="flex flex-row justify-start">

@@ -82,7 +82,7 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
                               <div
                                 onClick={() => setOpen(false)}
                                 className={clsx(
-                                  "mr-3 mb-2 rounded-md cursor-pointer text-sm py-4 ring-2 ring-black ring-opacity-5 text-center text-ellipsis whitespace-nowrap overflow-scroll",
+                                  "mr-3 mb-2 rounded-md cursor-pointer text-sm py-4 ring-2 ring-black ring-opacity-5 text-center text-ellipsis whitespace-nowrap overflow-x-auto scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
                                   checked
                                     ? `${cardColors[selectedColor]} ${
                                         selectedColor === "white" ? "text-slate-800" : "text-white"

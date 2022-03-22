@@ -15,5 +15,5 @@ module.exports = {
       sans: ["Rubik", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
