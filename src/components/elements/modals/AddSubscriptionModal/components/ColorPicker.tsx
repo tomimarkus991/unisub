@@ -11,7 +11,7 @@ interface Props {
 export const ColorPicker = ({ selectedColor, setSelectedColor }: Props) => {
   return (
     <RadioGroup
-      className="flex flex-row mt-10 flex-wrap"
+      className="flex flex-row flex-wrap mt-10"
       value={selectedColor}
       onChange={setSelectedColor}
     >
@@ -20,7 +20,7 @@ export const ColorPicker = ({ selectedColor, setSelectedColor }: Props) => {
           {({ checked }) => (
             <span
               className={clsx(
-                "mr-3 mb-2 w-8 h-8 inline-block rounded-full cursor-pointer ring-1 ring-black ring-opacity-20",
+                "inline-block mr-3 mb-2 w-8 h-8 rounded-full ring-1 ring-black ring-opacity-20 cursor-pointer",
                 cardColors[color as CardColorType],
                 checked ? "scale-125" : ""
               )}

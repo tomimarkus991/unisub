@@ -4,6 +4,7 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 13, sourceType: "module" },
   settings: { react: { version: "detect" }, "import/resolver": { typescript: {} } },
+  plugins: ["react", "react-hooks", "import", "@typescript-eslint", "prettier", "tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -17,6 +18,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:storybook/recommended",
     "plugin:testing-library/react",
+    "plugin:tailwindcss/recommended",
   ],
   rules: {
     "react/function-component-definition": [
@@ -43,6 +45,11 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": ["off"],
     "@typescript-eslint/no-empty-function": ["off"],
     "@typescript-eslint/no-explicit-any": ["off"],
+
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/enforces-negative-arbitrary-values": "off",
+    "tailwindcss/migration-from-tailwind-2": "off",
+
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
   },
 };

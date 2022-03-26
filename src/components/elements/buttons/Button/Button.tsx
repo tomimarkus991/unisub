@@ -46,8 +46,8 @@ export const Button = ({
     <button
       type={type}
       className={clsx(
-        `transition-all duration-300 rounded-2xl font-medium tracking-wider text-center border-b-[6px] 
-          uppercase select-none touch-manipulation m-0 hover:-translate-y-[0.15rem] active:translate-y-[0.2rem] active:duration-75
+        `m-0 font-medium tracking-wider text-center uppercase rounded-2xl border-b-[6px] 
+          transition-all duration-300 active:duration-75 hover:-translate-y-[0.15rem] active:translate-y-[0.2rem] touch-manipulation select-none
           `,
         variants[variant],
         sizes[size],

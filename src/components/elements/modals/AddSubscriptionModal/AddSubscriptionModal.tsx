@@ -47,8 +47,8 @@ export const AddSubscriptionModal = () => {
         Add subscription
       </Button>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen}>
-          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 p-0">
+        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
+          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -62,7 +62,7 @@ export const AddSubscriptionModal = () => {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span className="hidden align-middle h-screen" aria-hidden="true">
+            <span className="hidden h-screen align-middle" aria-hidden="true">
               &#8203;
             </span>
             <Transition.Child
@@ -74,13 +74,13 @@ export const AddSubscriptionModal = () => {
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-4 scale-95"
             >
-              <div className="inline-block align-bottom bg-white rounded-xl shadow-xl transform transition-all my-8 max-w-xl w-full">
-                <div className="px-4 pt-5 p-6 pb-4">
+              <div className="inline-block my-8 w-full max-w-xl align-bottom bg-white rounded-xl shadow-xl transition-all transform">
+                <div className="p-6 px-4 pt-5 pb-4">
                   <div className="flex items-start">
                     <div className="mt-0 w-full">
                       <Dialog.Title
                         as="h3"
-                        className="text-center text-lg mb-3 leading-6 font-medium text-gray-700 uppercase"
+                        className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                       >
                         Add a new Subscription
                       </Dialog.Title>
@@ -93,7 +93,7 @@ export const AddSubscriptionModal = () => {
                       />
                       <Dialog.Title
                         as="h3"
-                        className="mt-4 text-left text-lg leading-6 font-medium text-gray-700"
+                        className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
                       >
                         General
                       </Dialog.Title>
@@ -126,14 +126,14 @@ export const AddSubscriptionModal = () => {
                       </div>
                       <Dialog.Title
                         as="h3"
-                        className="mt-4 text-left text-lg leading-6 font-medium text-gray-700"
+                        className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
                       >
                         Billing
                       </Dialog.Title>
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-6 py-3 flex flex-row-reverse rounded-b-xl">
+                <div className="flex flex-row-reverse py-3 px-6 bg-gray-50 rounded-b-xl">
                   <p>bottom</p>
                 </div>
               </div>

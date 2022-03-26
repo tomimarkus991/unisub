@@ -14,8 +14,8 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="min-w-full min-h-screen bg-slate-50 dark:bg-slate-800 flex justify-center">
-      <div className="pt-24 flex flex-col space-y-5 w-80">
+    <div className="flex justify-center min-w-full min-h-screen bg-slate-50 dark:bg-slate-800">
+      <div className="flex flex-col pt-24 space-y-5 w-80">
         <AddSubscriptionModal />
         <ColorModeButton />
       </div>

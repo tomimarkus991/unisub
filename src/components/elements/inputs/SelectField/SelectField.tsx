@@ -25,11 +25,11 @@ export const SelectField = ({ options, value, setValue }: Props) => {
           </div>
           <Listbox.Button
             id="select-input"
-            className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 
-        focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500"
+            className="relative py-2 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white 
+        focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 shadow-md cursor-default"
           >
             <span className="block truncate">{t(value.name)}</span>
-            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+            <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <SelectorIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
@@ -44,7 +44,7 @@ export const SelectField = ({ options, value, setValue }: Props) => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Listbox.Options className="absolute z-20 w-full py-1 mt-1 overflow-y-scroll text-base bg-white rounded-md shadow-lg max-h-52 ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Listbox.Options className="overflow-y-scroll absolute z-20 py-1 mt-1 w-full max-h-52 text-base bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg">
               {options.map((option, optionIdx) => (
                 <Listbox.Option
                   key={optionIdx}
@@ -63,7 +63,7 @@ export const SelectField = ({ options, value, setValue }: Props) => {
                         {t(option.name)}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                        <span className="flex absolute inset-y-0 left-0 items-center pl-3 text-amber-600">
                           <CheckIcon className="w-5 h-5" aria-hidden="true" />
                         </span>
                       ) : null}

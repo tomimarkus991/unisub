@@ -26,7 +26,7 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
       <Button
         id="category-input"
         variant="light"
-        className="text-sm px-0 w-full py-2"
+        className="py-2 px-0 w-full text-sm"
         onClick={() => {
           setOpen(true);
         }}
@@ -34,8 +34,8 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
         {value.name}
       </Button>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen}>
-          <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 p-0">
+        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
+          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -49,7 +49,7 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span className="hidden align-middle h-screen" aria-hidden="true">
+            <span className="hidden h-screen align-middle" aria-hidden="true">
               &#8203;
             </span>
             <Transition.Child
@@ -61,13 +61,13 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-4 scale-95"
             >
-              <div className="inline-block align-bottom bg-white rounded-xl shadow-xl transform transition-all my-8 max-w-xl w-full">
-                <div className="px-4 pt-5 p-6 pb-4">
+              <div className="inline-block my-8 w-full max-w-xl align-bottom bg-white rounded-xl shadow-xl transition-all transform">
+                <div className="p-6 px-4 pt-5 pb-4">
                   <div className="flex items-start">
                     <div className="mt-0 w-full">
                       <Dialog.Title
                         as="h3"
-                        className="text-center text-lg mb-3 leading-6 font-medium text-gray-700 uppercase"
+                        className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                       >
                         Select category
                       </Dialog.Title>
@@ -82,7 +82,7 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
                               <div
                                 onClick={() => setOpen(false)}
                                 className={clsx(
-                                  "mr-3 mb-2 rounded-md cursor-pointer text-sm py-4 ring-2 ring-black ring-opacity-5 text-center text-ellipsis whitespace-nowrap overflow-x-auto scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
+                                  "overflow-x-auto py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
                                   checked
                                     ? `${cardColors[selectedColor]} ${
                                         selectedColor === "white" ? "text-slate-800" : "text-white"
@@ -101,7 +101,7 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-50 px-6 py-3 flex flex-row-reverse rounded-b-xl">
+                <div className="flex flex-row-reverse py-3 px-6 bg-gray-50 rounded-b-xl">
                   <p>bottom</p>
                 </div>
               </div>
