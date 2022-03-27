@@ -1,4 +1,4 @@
-import { CategoryCardItem } from "types";
+import { CategoryCardItem, CurrencyModalType, SelectOption } from "types";
 
 export const cardColors = {
   green: "bg-green-600",
@@ -27,4 +27,14 @@ export const categories: CategoryCardItem[] = [
   { name: "Home", icon: "test-icon" },
   { name: "Work", icon: "test-icon" },
   { name: "Family", icon: "test-icon" },
+];
+export const currencies: CurrencyModalType[] = [
+  { name: "EUR", icon: "european-union.svg" },
+  { name: "USD", icon: "united-states.svg" },
+];
+export const subscriptionTypeAsSelectValues: SelectOption[] = [
+  { id: 1, name: "monthly" },
+  { id: 2, name: "daily" },
+  { id: 3, name: "weekly" },
+  { id: 4, name: "yearly" },
 ];

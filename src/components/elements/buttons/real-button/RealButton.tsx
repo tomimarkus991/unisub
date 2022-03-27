@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React from "react";
-import { useTranslation } from "react-i18next";
 
 const sizes = {
   sm: "py-2 px-10 text-sm",
@@ -30,7 +29,7 @@ const variants = {
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
-  children: string;
+  children: string | React.ReactNode;
 };
 
 export const RealButton = ({
@@ -41,7 +40,6 @@ export const RealButton = ({
   children,
   ...props
 }: ButtonProps) => {
-  const { t } = useTranslation();
   return (
     <button
       type={type}
@@ -55,7 +53,7 @@ export const RealButton = ({
       )}
       {...props}
     >
-      <span>{t(children)}</span>
+      <span>{children}</span>
     </button>
   );
 };

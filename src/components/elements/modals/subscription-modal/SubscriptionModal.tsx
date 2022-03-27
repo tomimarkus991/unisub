@@ -3,17 +3,30 @@ import clsx from "clsx";
 import moment from "moment";
 import { Fragment, useState } from "react";
 
-import { categories } from "app-constants";
-import { RealButton, Input, Button } from "components/elements";
-import { CardColorType, CategoryCardItem, Subscription } from "types";
+import { subscriptionTypeAsSelectValues, categories } from "app-constants";
+import { RealButton, Input, Button, SelectField } from "components/elements";
+import { CardColorType, CategoryCardItem, BillingType, Subscription, SelectOption } from "types";
 
-import { ColorPicker, SelectCategoryModal, SubscriptionCard } from "./components";
+import {
+  ColorPicker,
+  SelectCategoryModal,
+  SelectCurrencyModal,
+  SubscriptionCard,
+} from "./components";
 
 export const SubscriptionModal = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
   const [title, setTitle] = useState<string>("Sub name");
   const [selectedCategory, setSelectedCategory] = useState<CategoryCardItem>(categories[0]);
+  const [billing, setBilling] = useState<BillingType>({
+    cost: 0,
+    currency: "EUR",
+    billingType: "monthly",
+  });
+  const [selectedBillingType, setSelectedBillingType] = useState<SelectOption>(
+    subscriptionTypeAsSelectValues[0]
+  );
 
   const handleSubscriptionSubmit = () => {
     const subscription: Subscription = {
@@ -21,11 +34,11 @@ export const SubscriptionModal = () => {
       title,
       color: selectedColor,
       category: selectedCategory,
-      currency: "EUR",
       startDate: moment().unix(),
+      currency: billing.currency,
       icon: "",
-      price: 10,
-      type: "monthly",
+      cost: billing.cost,
+      type: billing.billingType,
     };
     console.log("subscription", subscription);
 
@@ -110,7 +123,6 @@ export const SubscriptionModal = () => {
                           </div>
                           <div className="w-6/12 sm:w-full">
                             <SelectCategoryModal
-                              options={categories}
                               value={selectedCategory}
                               setValue={setSelectedCategory}
                               selectedColor={selectedColor}
@@ -128,6 +140,39 @@ export const SubscriptionModal = () => {
                       >
                         Billing
                       </Dialog.Title>
+                      <div className="mt-4">
+                        <div className="flex flex-row">
+                          <div className="w-4/12">
+                            <div className="mb-2">
+                              <label htmlFor="cost-input">Cost</label>
+                            </div>
+                            <Input
+                              id="cost-input"
+                              className={clsx(
+                                "px-3 w-10/12 font-semibold outline-none focus:ring-2"
+                              )}
+                              maxLength={6}
+                              onChange={e =>
+                                setBilling((prevState: BillingType) => ({
+                                  ...prevState,
+                                  cost: Number(e.target.value),
+                                }))
+                              }
+                            />
+                          </div>
+                          <div className="w-4/12">
+                            <SelectCurrencyModal value={billing.currency} setValue={setBilling} />
+                          </div>
+                          <div className="w-6/12">
+                            <SelectField
+                              title="Type"
+                              options={subscriptionTypeAsSelectValues}
+                              value={selectedBillingType}
+                              setValue={setSelectedBillingType}
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -2,35 +2,50 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Dialog, RadioGroup, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
-import { cardColors, categories } from "app-constants";
+import { currencies } from "app-constants";
 import { RealButton } from "components/elements";
-import { CategoryCardItem, CardColorType } from "types";
+import { BillingType, CurrencyCardItem, CurrencyModalType } from "types";
 
 interface Props {
-  value: CategoryCardItem;
-  setValue: React.Dispatch<React.SetStateAction<CategoryCardItem>>;
-  selectedColor: CardColorType;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<BillingType>>;
 }
 
-export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) => {
+export const SelectCurrencyModal = ({ value, setValue }: Props) => {
   const [open, setOpen] = useState(false);
+  const [activeCurrency, setActiveCurrency] = useState<CurrencyModalType>(
+    currencies.find(currency => currency.name === value) as CurrencyModalType
+  );
+
+  useEffect(() => {
+    setActiveCurrency(currencies.find(currency => currency.name === value) as CurrencyModalType);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   return (
     <>
       <div className="mb-2">
-        <label htmlFor="category-input">Category</label>
+        <label htmlFor="currency-input">Currency</label>
       </div>
       <RealButton
-        id="category-input"
+        id="currency-input"
         variant="light"
-        className="py-3 px-0 w-full text-sm"
+        className="py-3 px-2 w-9/12 text-sm rounded-lg"
         onClick={() => {
           setOpen(true);
         }}
       >
-        {value.name}
+        <div className="flex flex-row justify-center items-center">
+          <img
+            className="mr-1 w-4 h-4"
+            src={`${process.env.PUBLIC_URL}/assets/${activeCurrency.icon}`}
+            alt="icon"
+          />
+          {value}
+        </div>
       </RealButton>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
@@ -68,32 +83,41 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
                         as="h3"
                         className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                       >
-                        Select category
+                        Select currency
                       </Dialog.Title>
                       <RadioGroup
                         className="grid grid-cols-2 mt-6"
                         value={value}
-                        onChange={setValue}
+                        onChange={e => {
+                          const { name } = e as unknown as CurrencyCardItem;
+                          setValue((prevState: BillingType) => ({
+                            ...prevState,
+                            currency: name,
+                          }));
+                        }}
                       >
-                        {categories.map(category => (
-                          <RadioGroup.Option value={category} key={category.name}>
-                            {({ checked }) => (
-                              <div
+                        {currencies.map(currency => (
+                          <RadioGroup.Option value={currency} key={currency.name}>
+                            <div
+                              onClick={() => setOpen(false)}
+                              className={clsx(
+                                "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600"
+                              )}
+                            >
+                              <span
+                                className="mr-2 text-lg font-semibold text-center text-gray-800"
+                                role="button"
+                                tabIndex={0}
                                 onClick={() => setOpen(false)}
-                                className={clsx(
-                                  "overflow-x-auto py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
-                                  checked
-                                    ? `${cardColors[selectedColor]} ${
-                                        selectedColor === "white" ? "text-slate-800" : "text-white"
-                                      }`
-                                    : ""
-                                )}
                               >
-                                <span role="button" tabIndex={0} onClick={() => setOpen(false)}>
-                                  {category.name}
-                                </span>
-                              </div>
-                            )}
+                                {currency.name}
+                              </span>
+                              <img
+                                className="w-8 h-8"
+                                src={`${process.env.PUBLIC_URL}/assets/${currency.icon}`}
+                                alt="icon"
+                              />
+                            </div>
                           </RadioGroup.Option>
                         ))}
                       </RadioGroup>

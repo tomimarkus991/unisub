@@ -3,30 +3,28 @@ import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
-export interface SelectOption {
-  id: number;
-  name: string;
-}
+import { SelectOption } from "types";
 
 interface Props {
   options: SelectOption[];
   value: SelectOption;
   setValue: React.Dispatch<React.SetStateAction<SelectOption>>;
+  title: string;
 }
 
-export const SelectField = ({ options, value, setValue }: Props) => {
+export const SelectField = ({ options, value, setValue, title }: Props) => {
   const { t } = useTranslation();
   return (
     <Listbox value={value} onChange={setValue}>
       {({ open }) => (
-        <div className="relative mt-1">
+        <div className="relative">
           <div className="mt-0 mb-2">
-            <label htmlFor="select-input">Category</label>
+            <label htmlFor="select-input">{title}</label>
           </div>
           <Listbox.Button
             id="select-input"
-            className="relative py-2 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white 
-        focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 shadow-md cursor-default"
+            className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white 
+        focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-300 shadow-md cursor-default"
           >
             <span className="block truncate">{t(value.name)}</span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
@@ -50,7 +48,7 @@ export const SelectField = ({ options, value, setValue }: Props) => {
                   key={optionIdx}
                   className={({ active }) =>
                     `cursor-default select-none relative py-2 pl-10 pr-4 ${
-                      active ? "text-amber-900 bg-amber-100" : "text-gray-900"
+                      active ? "text-purple-900 bg-purple-100" : "text-gray-900"
                     }`
                   }
                   value={option}
@@ -63,7 +61,7 @@ export const SelectField = ({ options, value, setValue }: Props) => {
                         {t(option.name)}
                       </span>
                       {selected ? (
-                        <span className="flex absolute inset-y-0 left-0 items-center pl-3 text-amber-600">
+                        <span className="flex absolute inset-y-0 left-0 items-center pl-3 text-purple-600">
                           <CheckIcon className="w-5 h-5" aria-hidden="true" />
                         </span>
                       ) : null}
