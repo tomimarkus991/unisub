@@ -1,1 +1,1 @@
-export * from "./AddSubscriptionModal";
+export * from "./subscription-modal";

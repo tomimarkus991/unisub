@@ -4,9 +4,9 @@ import { Dialog, RadioGroup, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Fragment, useState } from "react";
 
-import { Button } from "components/elements";
-
-import { CategoryCardItem, cardColors, CardColorType } from "..";
+import { cardColors } from "app-constants";
+import { RealButton } from "components/elements";
+import { CategoryCardItem, CardColorType } from "types";
 
 interface Props {
   options: CategoryCardItem[];
@@ -23,16 +23,16 @@ export const SelectCategoryModal = ({ options, value, setValue, selectedColor }:
       <div className="mb-2">
         <label htmlFor="category-input">Category</label>
       </div>
-      <Button
+      <RealButton
         id="category-input"
         variant="light"
-        className="py-2 px-0 w-full text-sm"
+        className="py-3 px-0 w-full text-sm"
         onClick={() => {
           setOpen(true);
         }}
       >
         {value.name}
-      </Button>
+      </RealButton>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">

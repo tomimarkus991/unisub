@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
-import { cardColors, CardColorType } from "..";
+import { cardColors } from "app-constants";
+import { CardColorType } from "types";
 
 interface Props {
   title: string;

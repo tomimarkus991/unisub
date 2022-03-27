@@ -1,7 +1,8 @@
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 
-import { cardColors, CardColorType } from "..";
+import { cardColors } from "app-constants";
+import { CardColorType } from "types";
 
 interface Props {
   selectedColor: CardColorType;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { ColorModeButton, AddSubscriptionModal } from "components/elements";
+import { ColorModeButton, SubscriptionModal } from "components/elements";
 
 export const App = () => {
   const root = document.documentElement;
@@ -16,7 +16,7 @@ export const App = () => {
   return (
     <div className="flex justify-center min-w-full min-h-screen bg-slate-50 dark:bg-slate-800">
       <div className="flex flex-col pt-24 space-y-5 w-80">
-        <AddSubscriptionModal />
+        <SubscriptionModal />
         <ColorModeButton />
       </div>
     </div>

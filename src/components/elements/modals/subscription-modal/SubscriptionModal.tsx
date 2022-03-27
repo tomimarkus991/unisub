@@ -1,51 +1,46 @@
 import { Dialog, Transition } from "@headlessui/react";
+import clsx from "clsx";
+import moment from "moment";
 import { Fragment, useState } from "react";
 
-import { Button, Input } from "components/elements";
+import { categories } from "app-constants";
+import { RealButton, Input, Button } from "components/elements";
+import { CardColorType, CategoryCardItem, Subscription } from "types";
 
 import { ColorPicker, SelectCategoryModal, SubscriptionCard } from "./components";
 
-export const cardColors = {
-  green: "bg-green-600",
-  orange: "bg-orange-500",
-  blue: "bg-blue-600",
-  purple: "bg-purple-600",
-  red: "bg-red-500",
-  yellow: "bg-yellow-400",
-  gray: "bg-gray-600",
-  white: "bg-slate-200",
-  // white: "bg-white",
-};
-
-export interface CategoryCardItem {
-  name: string;
-  icon: string;
-}
-
-export const categories: CategoryCardItem[] = [
-  { name: "Other", icon: "test-icon" },
-  { name: "Entertainment", icon: "test-icon" },
-  { name: "Gaming", icon: "test-icon" },
-  { name: "Sport", icon: "test-icon" },
-];
-
-export type CardColorType = keyof typeof cardColors;
-
-export const AddSubscriptionModal = () => {
-  const [open, setOpen] = useState(false);
+export const SubscriptionModal = () => {
+  const [open, setOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
-  const [title, setTitle] = useState("Sub name");
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [title, setTitle] = useState<string>("Sub name");
+  const [selectedCategory, setSelectedCategory] = useState<CategoryCardItem>(categories[0]);
+
+  const handleSubscriptionSubmit = () => {
+    const subscription: Subscription = {
+      id: "-1",
+      title,
+      color: selectedColor,
+      category: selectedCategory,
+      currency: "EUR",
+      startDate: moment().unix(),
+      icon: "",
+      price: 10,
+      type: "monthly",
+    };
+    console.log("subscription", subscription);
+
+    setOpen(false);
+  };
 
   return (
     <>
-      <Button
+      <RealButton
         onClick={() => {
           setOpen(true);
         }}
       >
         Add subscription
-      </Button>
+      </RealButton>
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
@@ -105,7 +100,10 @@ export const AddSubscriptionModal = () => {
                             </div>
                             <Input
                               id="name-input"
-                              className="px-6 w-11/12"
+                              className={clsx(
+                                "px-6 w-11/12 font-semibold outline-none focus:ring-2 ",
+                                `focus:ring-purple-500`
+                              )}
                               maxLength={30}
                               onChange={e => setTitle(e.target.value)}
                             />
@@ -134,7 +132,7 @@ export const AddSubscriptionModal = () => {
                   </div>
                 </div>
                 <div className="flex flex-row-reverse py-3 px-6 bg-gray-50 rounded-b-xl">
-                  <p>bottom</p>
+                  <Button onClick={() => handleSubscriptionSubmit()}>Add subscription</Button>
                 </div>
               </div>
             </Transition.Child>

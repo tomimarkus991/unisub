@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button } from "..";
+import { RealButton } from "..";
 
 export const ColorModeButton = () => {
   const [isDark, setIsDark] = useState(false);
@@ -17,8 +17,8 @@ export const ColorModeButton = () => {
     }
   };
   return (
-    <Button variant="dark" onClick={changeColorMode}>
+    <RealButton variant="dark" onClick={changeColorMode}>
       {isDark ? "Light" : "Dark"}
-    </Button>
+    </RealButton>
   );
 };

@@ -3,9 +3,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const sizes = {
-  sm: "py-2 px-6 text-sm",
-  md: "py-2 px-10 text-md",
-  lg: "py-3 px-14 text-lg",
+  sm: "py-2 px-10 text-sm",
+  md: "py-2 px-14 text-md",
+  lg: "py-3 px-18 text-lg",
 };
 
 const variants = {
@@ -33,7 +33,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: string;
 };
 
-export const Button = ({
+export const RealButton = ({
   type = "button",
   className = "",
   variant = "dark",
@@ -46,7 +46,9 @@ export const Button = ({
     <button
       type={type}
       className={clsx(
-        `m-0 font-medium tracking-wider text-center uppercase rounded-2xl transition-all duration-200 ease-in-out hover:scale-110 select-none`,
+        `m-0 font-medium tracking-wider text-center uppercase rounded-2xl border-b-[6px] 
+          transition-all duration-300 active:duration-75 hover:-translate-y-[0.15rem] active:translate-y-[0.2rem] touch-manipulation select-none
+          `,
         variants[variant],
         sizes[size],
         className
