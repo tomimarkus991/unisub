@@ -23,10 +23,12 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
           </div>
           <Listbox.Button
             id="select-input"
-            className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white 
-        focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-purple-300 shadow-md cursor-default"
+            className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 
+        focus-visible:ring-offset-2 focus-visible:ring-offset-purple-300 shadow-md cursor-default sm:py-2"
           >
-            <span className="block truncate">{t(value.name)}</span>
+            <span className="block font-semibold text-gray-700 truncate sm:text-lg text-md">
+              {t(value.name)}
+            </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <SelectorIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
             </span>
@@ -42,7 +44,7 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Listbox.Options className="overflow-y-scroll absolute z-20 py-1 mt-1 w-full max-h-52 text-base bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg">
+            <Listbox.Options className="overflow-y-auto absolute z-20 py-1 mt-1 w-full max-h-52 text-base bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg">
               {options.map((option, optionIdx) => (
                 <Listbox.Option
                   key={optionIdx}

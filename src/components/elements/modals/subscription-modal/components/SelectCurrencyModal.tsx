@@ -33,18 +33,18 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
       <RealButton
         id="currency-input"
         variant="light"
-        className="py-3 px-2 w-9/12 text-sm rounded-lg"
+        className="py-3 px-4 w-10/12 text-sm rounded-lg sm:p-2 sm:text-lg sm:font-semibold"
         onClick={() => {
           setOpen(true);
         }}
       >
         <div className="flex flex-row justify-center items-center">
+          {value}
           <img
-            className="mr-1 w-4 h-4"
+            className="ml-1 w-5 h-5 sm:ml-3 sm:w-7 sm:h-7"
             src={`${process.env.PUBLIC_URL}/assets/${activeCurrency.icon}`}
             alt="icon"
           />
-          {value}
         </div>
       </RealButton>
       <Transition.Root show={open} as={Fragment}>

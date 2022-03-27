@@ -95,7 +95,7 @@ export interface CurrencyModalType {
 export interface Subscription {
   id: string;
   title: string;
-  category: CategoryCardItem;
+  category: string;
   startDate: number;
   cost: number;
   currency: string;

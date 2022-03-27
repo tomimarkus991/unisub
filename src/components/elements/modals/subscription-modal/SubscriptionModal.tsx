@@ -33,7 +33,7 @@ export const SubscriptionModal = () => {
       id: "-1",
       title,
       color: selectedColor,
-      category: selectedCategory,
+      category: selectedCategory.name,
       startDate: moment().unix(),
       currency: billing.currency,
       icon: "",
