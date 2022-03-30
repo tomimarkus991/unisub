@@ -1,7 +1,9 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
+import "flowbite";
 
 import "./index.css";
+
 import { App } from "App";
 
 import reportWebVitals from "./reportWebVitals";

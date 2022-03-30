@@ -172,6 +172,7 @@ export const SubscriptionModal = () => {
                             />
                           </div>
                         </div>
+                        <div></div>
                       </div>
                     </div>
                   </div>

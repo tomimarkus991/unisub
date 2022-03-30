@@ -25,7 +25,7 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
       <RealButton
         id="category-input"
         variant="light"
-        className="py-3 px-0 w-full text-sm"
+        className="py-3 px-0 w-full text-sm font-medium sm:py-2 sm:text-base"
         onClick={() => {
           setOpen(true);
         }}

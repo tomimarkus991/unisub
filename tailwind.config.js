@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./src/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.js",
+  ],
   darkMode: "class",
   theme: {
     extend: {
@@ -11,9 +15,9 @@ module.exports = {
     },
 
     fontFamily: {
-      // sans: ["Varela Round", "sans-serif"],
+      varela: ["Varela Round", "sans-serif"],
       sans: ["Rubik", "sans-serif"],
     },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [require("tailwind-scrollbar"), require("flowbite/plugin")],
 };
