@@ -1,4 +1,5 @@
 import React, { StrictMode } from "react";
+// import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom";
 import "flowbite";
 
@@ -8,6 +9,17 @@ import { App } from "App";
 
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+// @ts-ignore
+// const root = createRoot(document.getElementById("root"));
+
+// root.render(
+//   <StrictMode>
+//     <App />
+//   </StrictMode>
+// );
+// npm i react@latest react-dom@latest
+// npm i -D @types/react@latest @types/react-dom@latest
 
 ReactDOM.render(
   <StrictMode>
