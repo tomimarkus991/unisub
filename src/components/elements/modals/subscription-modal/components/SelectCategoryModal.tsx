@@ -25,7 +25,7 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
       <RealButton
         id="category-input"
         variant="light"
-        className="py-3 px-0 w-full text-sm font-medium sm:py-2 sm:text-base"
+        className="py-3 px-0 w-full text-sm font-semibold sm:py-2 sm:text-base"
         onClick={() => {
           setOpen(true);
         }}
@@ -79,9 +79,10 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
                           <RadioGroup.Option value={category} key={category.name}>
                             {({ checked }) => (
                               <div
+                                //  @todo fix this shit
                                 onClick={() => setOpen(false)}
                                 className={clsx(
-                                  "overflow-x-auto py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
+                                  "overflow-x-auto py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap hover:bg-slate-200 rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
                                   checked
                                     ? `${cardColors[selectedColor]} ${
                                         selectedColor === "white" ? "text-slate-800" : "text-white"

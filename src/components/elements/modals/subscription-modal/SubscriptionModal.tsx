@@ -4,7 +4,7 @@ import moment from "moment";
 import { Fragment, useState } from "react";
 
 import { subscriptionTypeAsSelectValues, categories } from "app-constants";
-import { RealButton, Input, Button, SelectField } from "components/elements";
+import { RealButton, Input, Button, SelectField, DatePicker } from "components/elements";
 import { CardColorType, CategoryCardItem, BillingType, Subscription, SelectOption } from "types";
 
 import {
@@ -172,7 +172,9 @@ export const SubscriptionModal = () => {
                             />
                           </div>
                         </div>
-                        <div></div>
+                        <div className="flex flex-row mt-3">
+                          <DatePicker />
+                        </div>
                       </div>
                     </div>
                   </div>

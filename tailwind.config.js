@@ -1,9 +1,5 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./src/*.{js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.js",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./src/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -19,5 +15,5 @@ module.exports = {
       sans: ["Rubik", "sans-serif"],
     },
   },
-  plugins: [require("tailwind-scrollbar"), require("flowbite/plugin")],
+  plugins: [require("tailwind-scrollbar")],
 };
