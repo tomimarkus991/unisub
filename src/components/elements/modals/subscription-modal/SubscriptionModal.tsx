@@ -27,6 +27,7 @@ export const SubscriptionModal = () => {
   const [selectedBillingType, setSelectedBillingType] = useState<SelectOption>(
     subscriptionTypeAsSelectValues[0]
   );
+  const [subscriptionStartDate, setSubscriptionStartDate] = useState<Date | null>(new Date());
 
   const handleSubscriptionSubmit = () => {
     const subscription: Subscription = {
@@ -34,7 +35,7 @@ export const SubscriptionModal = () => {
       title,
       color: selectedColor,
       category: selectedCategory.name,
-      startDate: moment().unix(),
+      startDate: moment(subscriptionStartDate).unix(),
       currency: billing.currency,
       icon: "",
       cost: billing.cost,
@@ -173,7 +174,10 @@ export const SubscriptionModal = () => {
                           </div>
                         </div>
                         <div className="flex flex-row mt-3">
-                          <DatePicker />
+                          <DatePicker
+                            subscriptionStartDate={subscriptionStartDate}
+                            setSubscriptionStartDate={setSubscriptionStartDate}
+                          />
                         </div>
                       </div>
                     </div>

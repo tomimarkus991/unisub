@@ -1,3 +1,5 @@
+import { LocalizationProvider } from "@mui/lab";
+import AdapterMoment from "@mui/lab/AdapterMoment";
 import React, { StrictMode } from "react";
 // import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom";
@@ -22,7 +24,9 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <LocalizationProvider dateAdapter={AdapterMoment}>
+      <App />
+    </LocalizationProvider>
   </StrictMode>,
   document.getElementById("root")
 );
