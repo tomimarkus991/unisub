@@ -169,6 +169,7 @@ export const SubscriptionModal = () => {
                             </div>
                             <Input
                               id="cost-input"
+                              type="number"
                               className={clsx(
                                 "px-3 w-10/12 font-semibold outline-none focus:ring-2"
                               )}
