@@ -3,9 +3,16 @@ import clsx from "clsx";
 import moment from "moment";
 import { Fragment, useState } from "react";
 
-import { subscriptionTypeAsSelectValues, categories } from "app-constants";
+import { subscriptionTypeAsSelectValues, categories, billingTypes } from "app-constants";
 import { RealButton, Input, Button, SelectField, DatePicker } from "components/elements";
-import { CardColorType, CategoryCardItem, BillingType, Subscription, SelectOption } from "types";
+import {
+  CardColorType,
+  CategoryCardItem,
+  BillingType,
+  Subscription,
+  SelectOption,
+  SubscriptionType,
+} from "types";
 
 import {
   ColorPicker,
@@ -16,15 +23,15 @@ import {
 
 export const SubscriptionModal = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [selectedColor, setSelectedColor] = useState<CardColorType>("purple");
+  const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
   const [title, setTitle] = useState<string>("Sub name");
   const [selectedCategory, setSelectedCategory] = useState<CategoryCardItem>(categories[0]);
   const [billing, setBilling] = useState<BillingType>({
     cost: 0,
     currency: "EUR",
-    billingType: "monthly",
+    currencyIcon: "€",
   });
-  const [selectedBillingType, setSelectedBillingType] = useState<SelectOption>(
+  const [selectedBillingType, setSelectedBillingType] = useState<SelectOption<SubscriptionType>>(
     subscriptionTypeAsSelectValues[0]
   );
   const [subscriptionStartDate, setSubscriptionStartDate] = useState<Date | null>(new Date());
@@ -36,14 +43,24 @@ export const SubscriptionModal = () => {
       color: selectedColor,
       category: selectedCategory.name,
       startDate: moment(subscriptionStartDate).unix(),
-      currency: billing.currency,
       icon: "",
+      currency: billing.currency,
       cost: billing.cost,
-      type: billing.billingType,
+      type: selectedBillingType.name,
     };
     console.log("subscription", subscription);
 
     setOpen(false);
+    setSelectedColor("white");
+    setTitle("Sub name");
+    setSelectedCategory(categories[0]);
+    setBilling({
+      cost: 0,
+      currency: "EUR",
+      currencyIcon: "€",
+    });
+    setSelectedBillingType(subscriptionTypeAsSelectValues[0]);
+    setSubscriptionStartDate(new Date());
   };
 
   return (
@@ -96,7 +113,9 @@ export const SubscriptionModal = () => {
                       <SubscriptionCard
                         title={title}
                         category={selectedCategory.name}
-                        price="7€ per month"
+                        price={`${billing.cost}${billing.currencyIcon} ${
+                          billingTypes[selectedBillingType.name]
+                        }`}
                         cardColor={selectedColor}
                         imageUrl={""}
                       />

@@ -1,4 +1,4 @@
-import { CategoryCardItem, CurrencyModalType, SelectOption } from "types";
+import { CategoryCardItem, CurrencyModalType, SelectOption, SubscriptionType } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -12,6 +12,18 @@ export const cardColors = {
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
 };
+
+export const billingTypes = {
+  monthly: "per month",
+  daily: "per day",
+  weekly: "per week",
+  yearly: "per year",
+};
+export const currencyIcons = {
+  EUR: "€",
+  USD: "$",
+};
+
 export const categories: CategoryCardItem[] = [
   { name: "Other", icon: "test-icon" },
   { name: "Entertainment", icon: "test-icon" },
@@ -30,10 +42,10 @@ export const categories: CategoryCardItem[] = [
   { name: "Family", icon: "test-icon" },
 ];
 export const currencies: CurrencyModalType[] = [
-  { name: "EUR", icon: "european-union.svg" },
-  { name: "USD", icon: "united-states.svg" },
+  { name: "EUR", currencyIcon: "€", icon: "european-union.svg" },
+  { name: "USD", currencyIcon: "$", icon: "united-states.svg" },
 ];
-export const subscriptionTypeAsSelectValues: SelectOption[] = [
+export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionType>[] = [
   { id: 1, name: "monthly" },
   { id: 2, name: "daily" },
   { id: 3, name: "weekly" },

@@ -25,7 +25,7 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
       <RealButton
         id="category-input"
         variant="light"
-        className="py-2.5 px-2 w-full font-medium rounded-lg xs:py-2 xs:text-lg xs:font-semibold"
+        className="overflow-x-hidden py-2.5 px-2 w-full font-medium rounded-lg xs:py-2 xs:text-lg xs:font-semibold"
         onClick={() => {
           setOpen(true);
         }}
@@ -81,7 +81,7 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
                               <div
                                 onClick={() => setOpen(false)}
                                 className={clsx(
-                                  "overflow-x-auto py-4 mr-3 mb-2 font-semibold text-center text-gray-700 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
+                                  "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-700 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
                                   `hover:${cardColors[selectedColor]}`,
                                   checked
                                     ? `${cardColors[selectedColor]} 

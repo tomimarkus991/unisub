@@ -89,10 +89,11 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
                         className="grid grid-cols-2 mt-6"
                         value={value}
                         onChange={e => {
-                          const { name } = e as unknown as CurrencyCardItem;
+                          const { name, currencyIcon } = e as unknown as CurrencyCardItem;
                           setValue((prevState: BillingType) => ({
                             ...prevState,
                             currency: name,
+                            currencyIcon,
                           }));
                         }}
                       >

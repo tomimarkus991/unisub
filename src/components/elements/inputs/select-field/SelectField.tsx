@@ -3,17 +3,18 @@ import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
-import { SelectOption } from "types";
+import { SelectOption, SubscriptionType } from "types";
 
 interface Props {
-  options: SelectOption[];
-  value: SelectOption;
-  setValue: React.Dispatch<React.SetStateAction<SelectOption>>;
+  options: SelectOption<string | SubscriptionType>[];
+  value: SelectOption<string | SubscriptionType>;
+  setValue: React.Dispatch<React.SetStateAction<SelectOption<any>>>;
   title: string;
 }
 
 export const SelectField = ({ options, value, setValue, title }: Props) => {
   const { t } = useTranslation();
+
   return (
     <Listbox value={value} onChange={setValue}>
       {({ open }) => (

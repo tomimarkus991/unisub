@@ -6,11 +6,48 @@ export interface CategoryCardItem {
 }
 export interface CurrencyCardItem {
   name: CurrencyType;
+  currencyIcon: CurrencyIconType;
   icon: string;
 }
 
 export type CardColorType = keyof typeof cardColors;
-export type SubscriptionType = "monthly" | "yearly" | "weekly";
+export type SubscriptionType = "monthly" | "yearly" | "weekly" | "daily";
+
+export type CurrencyIconType =
+  | "€"
+  | "$"
+  | "£"
+  | "¥"
+  | "C$"
+  | "A$"
+  | "CHF"
+  | "NZ$"
+  | "SEK"
+  | "NOK"
+  | "DKK"
+  | "PLN"
+  | "MXN"
+  | "CZK"
+  | "HUF"
+  | "BRL"
+  | "RUB"
+  | "TRY"
+  | "ILS"
+  | "KRW"
+  | "MYR"
+  | "PHP"
+  | "IDR"
+  | "THB"
+  | "VND"
+  | "HRK"
+  | "CNY"
+  | "INR"
+  | "ZAR"
+  | "RON"
+  | "BGN"
+  | "ISK"
+  | "LTL"
+  | "LVL";
 
 export type CurrencyType =
   | "EUR"
@@ -85,10 +122,11 @@ export type CurrencyType =
 export interface BillingType {
   cost: number;
   currency: CurrencyType;
-  billingType: SubscriptionType;
+  currencyIcon: CurrencyIconType;
 }
 export interface CurrencyModalType {
   name: CurrencyType;
+  currencyIcon: CurrencyIconType;
   icon: string;
 }
 
@@ -101,10 +139,10 @@ export interface Subscription {
   currency: string;
   color: CardColorType;
   icon: string;
-  type: SubscriptionType;
+  type: SubscriptionType | string;
 }
 
-export interface SelectOption {
+export interface SelectOption<T> {
   id: number;
-  name: string;
+  name: T;
 }
