@@ -173,7 +173,6 @@ export const SubscriptionModal = () => {
                               className={clsx(
                                 "px-3 w-10/12 font-semibold outline-none focus:ring-2"
                               )}
-                              maxLength={6}
                               onChange={e =>
                                 setBilling((prevState: BillingType) => ({
                                   ...prevState,
