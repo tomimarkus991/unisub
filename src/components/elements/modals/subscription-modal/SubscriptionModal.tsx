@@ -4,7 +4,7 @@ import moment from "moment";
 import { Fragment, useState } from "react";
 
 import { subscriptionTypeAsSelectValues, categories, billingTypes } from "app-constants";
-import { RealButton, Input, Button, SelectField, DatePicker } from "components/elements";
+import { RealButton, Input, Button, SelectField } from "components/elements";
 import {
   CardColorType,
   CategoryCardItem,
@@ -16,6 +16,7 @@ import {
 
 import {
   ColorPicker,
+  DatePicker,
   SelectCategoryModal,
   SelectCurrencyModal,
   SubscriptionCard,

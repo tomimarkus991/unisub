@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { CalendarIcon } from "@heroicons/react/solid";
-import { DatePicker as MuiDatePicker } from "@mui/lab";
+import { DesktopDatePicker } from "@mui/lab";
 import clsx from "clsx";
 interface Props {
   subscriptionStartDate: Date | null;
@@ -14,7 +14,7 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
       <div className="mb-2">
         <label htmlFor="subscription-start-date-input">Sub start date</label>
       </div>
-      <MuiDatePicker
+      <DesktopDatePicker
         value={subscriptionStartDate}
         inputFormat="DD/MM/YYYY"
         onChange={subscriptionStartDate => {
