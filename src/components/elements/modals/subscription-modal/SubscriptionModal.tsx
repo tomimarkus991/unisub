@@ -16,7 +16,7 @@ import {
 
 export const SubscriptionModal = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
+  const [selectedColor, setSelectedColor] = useState<CardColorType>("purple");
   const [title, setTitle] = useState<string>("Sub name");
   const [selectedCategory, setSelectedCategory] = useState<CategoryCardItem>(categories[0]);
   const [billing, setBilling] = useState<BillingType>({
