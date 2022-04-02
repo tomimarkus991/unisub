@@ -2,14 +2,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { CalendarIcon, XIcon } from "@heroicons/react/solid";
 import { DatePicker as MuiDatePicker } from "@mui/lab";
+import clsx from "clsx";
 interface Props {
   subscriptionStartDate: Date | null;
   setSubscriptionStartDate: React.Dispatch<React.SetStateAction<Date | null>>;
 }
 
 export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: Props) => {
-  console.log("sub start date 1234", subscriptionStartDate);
-
   return (
     <div>
       <div className="mb-2">
@@ -27,7 +26,13 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
               id="subscription-start-date-input"
               ref={inputRef}
               {...inputProps}
-              className="block py-2.5 pl-4 w-11/12 font-semibold text-gray-700 dark:text-white dark:bg-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 dark:border-gray-600 dark:focus:border-blue-500  focus:ring-blue-500 dark:focus:ring-blue-500 xs:py-3 dark:placeholder-gray-400"
+              className={clsx(
+                "block py-2.5 pl-4 w-11/12 font-semibold text-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 xs:py-3 dark:placeholder-gray-400",
+
+                subscriptionStartDate?.toString() === "Invalid date"
+                  ? " focus:border-red-600 outline-none focus:outline-none focus:ring-1 focus:ring-red-600"
+                  : ""
+              )}
             />
 
             <div
