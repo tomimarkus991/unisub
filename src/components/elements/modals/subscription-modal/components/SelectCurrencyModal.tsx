@@ -33,7 +33,7 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
       <RealButton
         id="currency-input"
         variant="light"
-        className="py-3 px-4 w-10/12 text-sm font-semibold rounded-lg sm:p-2 sm:text-lg"
+        className="py-3 px-4 w-10/12 text-sm font-semibold rounded-lg sm:p-2.5 sm:text-lg xs:text-base"
         onClick={() => {
           setOpen(true);
         }}

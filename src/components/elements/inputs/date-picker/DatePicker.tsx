@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { XIcon } from "@heroicons/react/solid";
+import { CalendarIcon, XIcon } from "@heroicons/react/solid";
 import { DatePicker as MuiDatePicker } from "@mui/lab";
 interface Props {
   subscriptionStartDate: Date | null;
@@ -8,6 +8,8 @@ interface Props {
 }
 
 export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: Props) => {
+  console.log("sub start date 1234", subscriptionStartDate);
+
   return (
     <div>
       <div className="mb-2">
@@ -25,28 +27,17 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
               id="subscription-start-date-input"
               ref={inputRef}
               {...inputProps}
-              className="block py-2.5 pl-4 font-semibold text-gray-700 dark:text-white bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 dark:border-gray-600  dark:focus:border-blue-500 focus:ring-blue-500 dark:focus:ring-blue-500 sm:text-sm dark:placeholder-gray-400"
+              className="block py-2.5 pl-4 w-11/12 font-semibold text-gray-700 dark:text-white dark:bg-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 dark:border-gray-600 dark:focus:border-blue-500  focus:ring-blue-500 dark:focus:ring-blue-500 xs:py-3 dark:placeholder-gray-400"
             />
 
             <div
-              className="flex absolute inset-y-0 right-4 items-center cursor-pointer"
+              className="flex absolute inset-y-0 right-6 items-center cursor-pointer xs:right-8 xs2:right-10"
               onClick={() => setSubscriptionStartDate(null)}
             >
               <XIcon className="w-5 h-5 text-gray-500" />
             </div>
-            <div className="flex absolute inset-y-0 right-10 items-center pointer-events-none">
-              <svg
-                className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+            <div className="flex absolute inset-y-0 right-12 items-center pointer-events-none xs:right-14 xs2:right-16">
+              <CalendarIcon className="w-5 h-5 text-gray-500" />
             </div>
           </div>
         )}

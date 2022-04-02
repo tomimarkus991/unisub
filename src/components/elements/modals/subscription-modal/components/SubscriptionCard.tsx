@@ -28,17 +28,17 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
         </div>
         <div className="flex flex-col w-6/12">
           <div className="overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4 scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600">
-            <p className={clsx("text-lg font-semibold xs:text-2xl", textColor)}>{title}</p>
+            <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
           </div>
           <div className="flex flex-row justify-start">
             <div className={clsx("mr-2")}>
-              <p className={clsx("text-base xs:text-lg", textColor)}>{category}</p>
+              <p className={clsx("xs:text-lg", textColor)}>{category}</p>
             </div>
           </div>
         </div>
-        <div className="flex w-4/12 text-center">
+        <div className="flex ml-4 w-4/12 text-center">
           <div className={clsx("ml-auto")}>
-            <p className={clsx("text-sm xs:text-lg", textColor)}>{price}</p>
+            <p className={clsx("xs:text-lg", textColor)}>{price}</p>
           </div>
         </div>
       </div>

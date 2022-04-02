@@ -89,7 +89,7 @@ export const SubscriptionModal = () => {
                     <div className="mt-0 w-full">
                       <Dialog.Title
                         as="h3"
-                        className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+                        className="mb-4 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                       >
                         Add a new Subscription
                       </Dialog.Title>
@@ -115,7 +115,7 @@ export const SubscriptionModal = () => {
                             <Input
                               id="name-input"
                               className={clsx(
-                                "px-6 w-11/12 font-semibold outline-none focus:ring-2 ",
+                                "px-3 w-11/12 font-semibold outline-none focus:ring-2 ",
                                 `focus:ring-purple-500`
                               )}
                               maxLength={30}
@@ -143,7 +143,7 @@ export const SubscriptionModal = () => {
                       </Dialog.Title>
                       <div className="mt-4">
                         <div className="flex flex-row">
-                          <div className="w-4/12">
+                          <div className="w-6/12">
                             <div className="mb-2">
                               <label htmlFor="cost-input">Cost</label>
                             </div>
@@ -161,9 +161,6 @@ export const SubscriptionModal = () => {
                               }
                             />
                           </div>
-                          <div className="w-4/12">
-                            <SelectCurrencyModal value={billing.currency} setValue={setBilling} />
-                          </div>
                           <div className="w-6/12">
                             <SelectField
                               title="Type"
@@ -173,11 +170,17 @@ export const SubscriptionModal = () => {
                             />
                           </div>
                         </div>
+
                         <div className="flex flex-row mt-3">
-                          <DatePicker
-                            subscriptionStartDate={subscriptionStartDate}
-                            setSubscriptionStartDate={setSubscriptionStartDate}
-                          />
+                          <div className="w-8/12 xs2:w-7/12">
+                            <DatePicker
+                              subscriptionStartDate={subscriptionStartDate}
+                              setSubscriptionStartDate={setSubscriptionStartDate}
+                            />
+                          </div>
+                          <div className="w-4/12 xs2:w-5/12">
+                            <SelectCurrencyModal value={billing.currency} setValue={setBilling} />
+                          </div>
                         </div>
                       </div>
                     </div>
