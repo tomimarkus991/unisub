@@ -7,6 +7,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 import { App } from "App";
+import { SidebarProvider } from "context/sidebar";
 
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
@@ -25,7 +26,9 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 ReactDOM.render(
   <StrictMode>
     <LocalizationProvider dateAdapter={AdapterMoment}>
-      <App />
+      <SidebarProvider>
+        <App />
+      </SidebarProvider>
     </LocalizationProvider>
   </StrictMode>,
   document.getElementById("root")

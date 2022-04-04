@@ -13,6 +13,13 @@ export interface CurrencyCardItem {
 export type CardColorType = keyof typeof cardColors;
 export type SubscriptionType = "monthly" | "yearly" | "weekly" | "daily";
 
+export interface UserType {
+  id: string;
+  email: string;
+  username: string;
+  avatar: string | null;
+}
+
 export type CurrencyIconType =
   | "€"
   | "$"

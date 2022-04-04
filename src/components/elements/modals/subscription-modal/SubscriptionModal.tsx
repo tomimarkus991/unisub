@@ -1,4 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
+import { PlusCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import moment from "moment";
 import { Fragment, useState } from "react";
@@ -22,7 +23,11 @@ import {
   SubscriptionCard,
 } from "./components";
 
-export const SubscriptionModal = () => {
+interface Props {
+  isIcon?: boolean;
+}
+
+export const SubscriptionModal = ({ isIcon = true }: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
   const [title, setTitle] = useState<string>("Sub name");
@@ -66,15 +71,24 @@ export const SubscriptionModal = () => {
 
   return (
     <>
-      <RealButton
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Add subscription
-      </RealButton>
+      {isIcon ? (
+        <PlusCircleIcon
+          className="w-16 h-16 cursor-pointer fill-slate-700 hover:fill-slate-800"
+          onClick={() => {
+            setOpen(true);
+          }}
+        />
+      ) : (
+        <RealButton
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Add subscription
+        </RealButton>
+      )}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
+        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-50" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
             <Transition.Child
               as={Fragment}
@@ -206,7 +220,7 @@ export const SubscriptionModal = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-row-reverse py-3 px-6 bg-gray-50 rounded-b-xl">
+                <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
                   <Button onClick={() => handleSubscriptionSubmit()}>Add subscription</Button>
                 </div>
               </div>

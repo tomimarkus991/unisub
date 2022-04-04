@@ -51,6 +51,7 @@ module.exports = {
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/enforces-negative-arbitrary-values": "off",
     "tailwindcss/migration-from-tailwind-2": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
 
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
   },

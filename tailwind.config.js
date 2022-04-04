@@ -8,8 +8,11 @@ module.exports = {
         xs2: "500px",
         // sm: "640px",
       },
+      gridRow: {
+        "span-12": "span 12 / span 12",
+        "span-15": "span 15 / span 15",
+      },
     },
-
     fontFamily: {
       varela: ["Varela Round", "sans-serif"],
       sans: ["Rubik", "sans-serif"],
