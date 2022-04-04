@@ -24,7 +24,7 @@ export const App = () => {
           <div className="hidden row-span-1 items-center sm:flex ">
             <ToggleViewButton />
           </div>
-          <div className="overflow-auto row-span-12 bg-red-100">
+          <div className="overflow-auto row-span-12">
             <SubLayout />
           </div>
           <div className="flex sticky bottom-2 z-40 items-center m-2 w-[95%] h-20 bg-slate-50 rounded-md shadow-2xl">
