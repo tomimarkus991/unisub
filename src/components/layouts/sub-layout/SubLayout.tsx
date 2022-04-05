@@ -1,19 +1,22 @@
-import { cardColors } from "app-constants";
+import { billingTypes } from "app-constants";
+import { useSub } from "context";
 
 import { LayoutSubscriptionCard } from "./components";
 
 export const SubLayout = () => {
+  const { subs } = useSub();
+
   return (
-    <div className="grid overflow-auto gap-4 justify-center last:pb-6 first:mt-6">
-      {Object.keys(cardColors).map(color => (
+    <div className="grid overflow-auto gap-2 justify-center last:pb-6 first:mt-6">
+      {subs.map(sub => (
         <LayoutSubscriptionCard
-          key={color}
-          title="Name"
-          category="Category"
-          price={`3€ per month`}
-          cardColor={color as any}
+          key={sub.id}
+          title={sub.title}
+          category={sub.category}
+          price={`${sub.cost}${sub.icon} ${billingTypes.daily}`}
+          cardColor={sub.color}
           imageUrl={""}
-          startDate={1649519718000}
+          startDate={sub.startDate}
         />
       ))}
     </div>

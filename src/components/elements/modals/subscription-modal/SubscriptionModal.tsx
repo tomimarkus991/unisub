@@ -6,6 +6,7 @@ import { Fragment, useState } from "react";
 
 import { subscriptionTypeAsSelectValues, categories, billingTypes } from "app-constants";
 import { RealButton, Input, Button, SelectField } from "components/elements";
+import { useSub } from "context";
 import {
   CardColorType,
   CategoryCardItem,
@@ -42,6 +43,8 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
   );
   const [subscriptionStartDate, setSubscriptionStartDate] = useState<Date | null>(new Date());
 
+  const { setSubs } = useSub();
+
   const handleSubscriptionSubmit = () => {
     const subscription: Subscription = {
       id: "-1",
@@ -54,7 +57,10 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
       cost: billing.cost,
       type: selectedBillingType.name,
     };
-    console.log("subscription", subscription);
+
+    console.log(moment(subscriptionStartDate).unix());
+
+    setSubs(oldSubs => [...oldSubs, subscription]);
 
     setOpen(false);
     setSelectedColor("white");
