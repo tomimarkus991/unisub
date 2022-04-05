@@ -33,7 +33,7 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
         {value.name}
       </RealButton>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
+        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-[1000]" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
             <Transition.Child
               as={Fragment}
@@ -79,7 +79,6 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
                           <RadioGroup.Option value={category} key={category.name}>
                             {({ checked }) => (
                               <div
-                                onClick={() => setOpen(false)}
                                 className={clsx(
                                   "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-700 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
                                   `hover:${cardColors[selectedColor]}`,
@@ -92,10 +91,11 @@ export const SelectCategoryModal = ({ value, setValue, selectedColor }: Props) =
                                     }`
                                     : ""
                                 )}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => setOpen(false)}
                               >
-                                <span role="button" tabIndex={0} onClick={() => setOpen(false)}>
-                                  {category.name}
-                                </span>
+                                <p>{category.name}</p>
                               </div>
                             )}
                           </RadioGroup.Option>

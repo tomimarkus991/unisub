@@ -48,7 +48,7 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
         </div>
       </RealButton>
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-10" onClose={setOpen}>
+        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-[1000]" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
             <Transition.Child
               as={Fragment}
@@ -106,7 +106,7 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
                               )}
                             >
                               <span
-                                className="mr-2 text-lg font-semibold text-center text-gray-800"
+                                className="mr-2 text-lg font-semibold text-center"
                                 role="button"
                                 tabIndex={0}
                                 onClick={() => setOpen(false)}
