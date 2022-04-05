@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import moment from "moment";
+import { useEffect, useState } from "react";
 
 import { cardColors } from "app-constants";
 import { CardColorType } from "types";
@@ -15,9 +16,25 @@ interface Props {
 
 export const LayoutSubscriptionCard = ({ title, category, price, cardColor, startDate }: Props) => {
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
-  console.log("start", moment(startDate));
-  const dateNow = moment().unix();
-  const whenSub = moment(startDate).subtract(dateNow, "days");
+  const dateNow = moment();
+  const subStartDate = moment(startDate);
+
+  const daysUntilResub = subStartDate.diff(dateNow, "days") + 1;
+
+  const [resubText, setResubText] = useState(`Resub in ${daysUntilResub} days`);
+
+  useEffect(() => {
+    if (daysUntilResub === 0) {
+      setResubText("Resub today");
+    } else if (daysUntilResub === 1) {
+      setResubText("Resub tomorrow");
+    } else if (daysUntilResub > 1) {
+      setResubText(`Resub in ${daysUntilResub} days`);
+    } else if (daysUntilResub < 0) {
+      setResubText("Sub expired");
+    }
+  }, [daysUntilResub]);
+
   return (
     <>
       <div
@@ -31,24 +48,18 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
             <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
           </div>
           <div className="flex flex-row justify-start">
-            <div className={clsx("mr-2")}>
+            <div>
               <p className={clsx("xs:text-lg", textColor)}>{category}</p>
             </div>
           </div>
         </div>
         <div className="flex flex-col ml-4 w-5/12 text-center sm:mr-12">
-          <div className={clsx("ml-auto")}>
+          <div className={clsx("mb-1")}>
             <p className={clsx("xs:text-lg", textColor)}>{price}</p>
           </div>
           <div className="flex flex-row justify-start">
-            <div className={clsx("mr-2")}>
-              <p className={clsx("xs:text-lg", textColor)}>
-                {moment(whenSub).local().calendar(null, {
-                  nextDay: "[Tomorrow]",
-                  nextWeek: "[In approx] DD",
-                  sameElse: "[In approx.] DD [days]",
-                })}
-              </p>
+            <div>
+              <p className={clsx("xs:text-lg", textColor)}>{resubText}</p>
             </div>
           </div>
         </div>
