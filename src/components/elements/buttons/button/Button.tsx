@@ -53,7 +53,7 @@ export const Button = ({
       )}
       {...props}
     >
-      <span>{t(children)}</span>
+      <p className={clsx(variant !== "light" && "text-white")}>{t(children)}</p>
     </button>
   );
 };

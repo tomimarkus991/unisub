@@ -27,11 +27,9 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
             className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 
         focus-visible:ring-offset-purple-300 shadow-md cursor-pointer sm:py-2"
           >
-            <span className="block font-semibold text-gray-700 truncate sm:text-lg text-md">
-              {t(value.name)}
-            </span>
+            <span className="block font-semibold truncate sm:text-lg text-md">{t(value.name)}</span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
-              <SelectorIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+              <SelectorIcon className="w-5 h-5 fill-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
 
@@ -64,9 +62,9 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
                         {t(option.name)}
                       </span>
                       {selected ? (
-                        <span className="flex absolute inset-y-0 left-0 items-center pl-3 text-purple-600">
-                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                        </span>
+                        <div className="flex absolute inset-y-0 left-0 items-center pl-3">
+                          <CheckIcon className="w-5 h-5 fill-purple-600" aria-hidden="true" />
+                        </div>
                       ) : null}
                     </>
                   )}
