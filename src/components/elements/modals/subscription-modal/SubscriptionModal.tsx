@@ -58,7 +58,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
       type: selectedBillingType.name,
     };
 
-    console.log(moment(subscriptionStartDate).unix());
+    console.log(subscription);
 
     setSubs(oldSubs => [...oldSubs, subscription]);
 
@@ -79,7 +79,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
     <>
       {isIcon ? (
         <PlusCircleIcon
-          className="w-16 h-16 cursor-pointer fill-slate-700 hover:fill-slate-800"
+          className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
           onClick={() => {
             setOpen(true);
           }}
