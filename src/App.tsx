@@ -17,17 +17,17 @@ export const App = () => {
   return (
     <>
       <div className="flex justify-center min-w-full min-h-screen bg-slate-50 dark:bg-slate-800">
-        <div className="grid grid-cols-1 grid-rows-[17] w-full">
-          <div className="flex sticky top-0 z-10 items-center w-full h-16 bg-slate-50">
+        <div className="flex flex-col w-full">
+          <div className="flex sticky top-0 z-10 items-center py-10 w-full h-16 bg-slate-50">
             <NavbarTop user={{ id: "1", username: "Galaxy", email: "g@g.com", avatar: null }} />
           </div>
-          <div className="hidden row-span-1 items-center sm:flex ">
+          <div className="hidden items-center sm:flex ">
             <ToggleViewButton />
           </div>
-          <div className="overflow-auto row-span-12">
+          <div className="overflow-auto row-span-15 h-full">
             <SubLayout />
           </div>
-          <div className="flex sticky bottom-2 z-40 items-center m-2 w-[95%] h-20 bg-slate-50 rounded-md shadow-2xl">
+          <div className="flex sticky bottom-2 z-40 items-center py-2 m-2 w-[95%] h-fit bg-slate-50 rounded-md shadow-2xl">
             <NavbarBottom />
           </div>
         </div>
