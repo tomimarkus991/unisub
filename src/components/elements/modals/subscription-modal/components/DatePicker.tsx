@@ -3,12 +3,17 @@
 import { CalendarIcon } from "@heroicons/react/solid";
 import { DesktopDatePicker } from "@mui/lab";
 import clsx from "clsx";
+
 interface Props {
   subscriptionStartDate: Date | null;
   setSubscriptionStartDate: React.Dispatch<React.SetStateAction<Date | null>>;
 }
 
 export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: Props) => {
+  const handleChange = (date: Date | null) => {
+    setSubscriptionStartDate(date);
+  };
+
   return (
     <div>
       <div className="mb-2">
@@ -19,9 +24,7 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
       <DesktopDatePicker
         value={subscriptionStartDate}
         inputFormat="DD/MM/YYYY"
-        onChange={subscriptionStartDate => {
-          setSubscriptionStartDate(subscriptionStartDate);
-        }}
+        onChange={handleChange}
         renderInput={({ inputRef, inputProps }) => (
           <>
             <div className="relative">
@@ -31,17 +34,16 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
                 {...inputProps}
                 className={clsx(
                   "block py-2.5 pl-4 w-11/12 font-semibold text-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 xs:py-3 dark:placeholder-gray-400",
-
                   subscriptionStartDate?.toString() === "Invalid date"
-                    ? " focus:border-red-600 outline-none focus:outline-none focus:ring-1 focus:ring-red-600"
+                    ? " border-red-500 focus:border-red-600 outline-none focus:outline-none focus:ring-1 focus:ring-red-600"
                     : ""
                 )}
               />
-              <div className="flex absolute inset-y-0 right-7 items-center pointer-events-none sm:right-14 xs:right-10 xs2:right-12">
+              <div className="flex absolute inset-y-0 right-7 items-center cursor-pointer sm:right-14 xs:right-10 xs2:right-12">
                 <CalendarIcon className="w-5 h-5 text-gray-500" />
               </div>
             </div>
-            <p className="mt-1 ml-2 text-xs font-thin">{inputProps?.placeholder}</p>
+            {/* <p className="mt-1 ml-2 text-xs font-thin">{inputProps?.placeholder}</p> */}
           </>
         )}
       />

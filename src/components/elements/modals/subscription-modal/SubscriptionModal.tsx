@@ -95,7 +95,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
       )}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="overflow-y-auto fixed inset-0 z-50" onClose={setOpen}>
-          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen">
+          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen select-none">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
