@@ -150,7 +150,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                         <div className="flex flex-row">
                           <div className="w-6/12 sm:w-full">
                             <div className="mb-2">
-                              <label htmlFor="name-input">Name</label>
+                              <label htmlFor="name-input">
+                                Name <span className="text-red-500">*</span>
+                              </label>
                             </div>
                             <Input
                               id="name-input"
@@ -185,7 +187,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                         <div className="flex flex-row">
                           <div className="w-6/12">
                             <div className="mb-2">
-                              <label htmlFor="cost-input">Cost</label>
+                              <label htmlFor="cost-input">
+                                Cost <span className="text-red-500">*</span>
+                              </label>
                             </div>
                             <Input
                               id="cost-input"
