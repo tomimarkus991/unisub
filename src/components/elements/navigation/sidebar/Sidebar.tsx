@@ -1,10 +1,29 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { XIcon } from "@heroicons/react/solid";
+import { ChartBarIcon, HomeIcon, XIcon } from "@heroicons/react/solid";
+import clsx from "clsx";
+import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 import { useSidebar } from "context/sidebar";
 
+interface ListItemProps {
+  children: ReactNode;
+  to: string;
+}
+
+const ListItem = ({ children, to }: ListItemProps) => {
+  return (
+    <Link to={to}>
+      <div className="flex flex-row items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
+        {children}
+      </div>
+    </Link>
+  );
+};
+
 export const Sidebar = () => {
   const { isSidebarOpen, setisSidebarOpen } = useSidebar();
+  const listIconClasses = "mr-3 w-8 h-8 fill-gray-800";
   return (
     <div id="div before transition" className="">
       <Transition.Root show={isSidebarOpen}>
@@ -21,11 +40,20 @@ export const Sidebar = () => {
             leaveTo="translate-x-full"
           >
             <div className="flex absolute top-0 right-0 z-[900] flex-col w-8/12 h-full bg-white">
-              <p>Home</p>
-              <div className="flex justify-end">
+              <div className="flex justify-end p-3">
                 <button onClick={() => setisSidebarOpen(isOpen => !isOpen)}>
                   <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
                 </button>
+              </div>
+              <div className="h-full">
+                <ListItem to="/">
+                  <HomeIcon className={clsx(listIconClasses)} />
+                  <p className="text-xl font-medium">Home</p>
+                </ListItem>
+                <ListItem to="/">
+                  <ChartBarIcon className={clsx(listIconClasses)} />
+                  <p className="text-xl font-medium">Stats</p>
+                </ListItem>
               </div>
             </div>
           </Transition.Child>
