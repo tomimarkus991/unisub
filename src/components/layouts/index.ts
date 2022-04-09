@@ -1,2 +1,2 @@
-export * from "./HomeLayout";
 export * from "./sub-layout";
+export * from "./wrappers";

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { Home } from "pages";
+import { HomePage, StatsPage } from "pages";
 
 export const Router = () => {
   const root = document.documentElement;
@@ -15,7 +15,8 @@ export const Router = () => {
   }, []);
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/stats" element={<StatsPage />} />
     </Routes>
   );
 };
