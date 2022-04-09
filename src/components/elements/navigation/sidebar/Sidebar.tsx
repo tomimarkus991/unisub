@@ -12,18 +12,22 @@ interface ListItemProps {
 }
 
 const ListItem = ({ children, to }: ListItemProps) => {
+  const { setisSidebarOpen } = useSidebar();
   return (
-    <Link to={to}>
-      <div className="flex flex-row items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
-        {children}
-      </div>
-    </Link>
+    <div role="button" tabIndex={-3} onClick={open => setisSidebarOpen(!open)}>
+      <Link to={to}>
+        <div className="flex flex-row items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
+          {children}
+        </div>
+      </Link>
+    </div>
   );
 };
 
 export const Sidebar = () => {
   const { isSidebarOpen, setisSidebarOpen } = useSidebar();
   const listIconClasses = "mr-3 w-8 h-8 fill-gray-800";
+
   return (
     <div id="div before transition" className="">
       <Transition.Root show={isSidebarOpen}>
@@ -39,9 +43,9 @@ export const Sidebar = () => {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <div className="flex absolute top-0 right-0 z-[900] flex-col w-8/12 h-full bg-white">
+            <div className="flex absolute top-0 right-0 z-[900] flex-col w-64 h-full bg-white">
               <div className="flex justify-end p-3">
-                <button onClick={() => setisSidebarOpen(isOpen => !isOpen)}>
+                <button onClick={() => setisSidebarOpen(open => !open)}>
                   <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
                 </button>
               </div>
@@ -50,7 +54,7 @@ export const Sidebar = () => {
                   <HomeIcon className={clsx(listIconClasses)} />
                   <p className="text-xl font-medium">Home</p>
                 </ListItem>
-                <ListItem to="/">
+                <ListItem to="/stats">
                   <ChartBarIcon className={clsx(listIconClasses)} />
                   <p className="text-xl font-medium">Stats</p>
                 </ListItem>
