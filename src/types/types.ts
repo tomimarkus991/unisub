@@ -147,6 +147,8 @@ export interface Subscription {
   color: CardColorType;
   icon: string;
   type: SubscriptionType | string;
+  active: boolean;
+  nextPaymentDate: number;
 }
 
 export interface SelectOption<T> {

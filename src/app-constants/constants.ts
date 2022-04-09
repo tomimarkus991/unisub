@@ -51,3 +51,20 @@ export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionType>[] = 
   { id: 3, name: "weekly" },
   { id: 4, name: "yearly" },
 ];
+
+export type PaymentType = "monthly" | "yearly" | "weekly" | "daily";
+
+export const mapSubTypeToMomentType = (paymentType: PaymentType) => {
+  switch (paymentType) {
+    case "monthly":
+      return "month";
+    case "yearly":
+      return "year";
+    case "weekly":
+      return "week";
+    case "daily":
+      return "day";
+    default:
+      return "month";
+  }
+};
