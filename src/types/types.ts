@@ -1,11 +1,15 @@
+import { ReactNode } from "react";
+
 import { cardColors } from "app-constants";
+
+import { CurrencyIconType, CurrencyNameType } from ".";
 
 export interface CategoryCardItem {
   name: string;
-  icon: string;
+  icon: ReactNode;
 }
 export interface CurrencyCardItem {
-  name: CurrencyType;
+  name: CurrencyNameType;
   currencyIcon: CurrencyIconType;
   icon: string;
 }
@@ -20,121 +24,15 @@ export interface UserType {
   avatar: string | null;
 }
 
-export type CurrencyIconType =
-  | "€"
-  | "$"
-  | "£"
-  | "¥"
-  | "C$"
-  | "A$"
-  | "CHF"
-  | "NZ$"
-  | "SEK"
-  | "NOK"
-  | "DKK"
-  | "PLN"
-  | "MXN"
-  | "CZK"
-  | "HUF"
-  | "BRL"
-  | "RUB"
-  | "TRY"
-  | "ILS"
-  | "KRW"
-  | "MYR"
-  | "PHP"
-  | "IDR"
-  | "THB"
-  | "VND"
-  | "HRK"
-  | "CNY"
-  | "INR"
-  | "ZAR"
-  | "RON"
-  | "BGN"
-  | "ISK"
-  | "LTL"
-  | "LVL";
-
-export type CurrencyType =
-  | "EUR"
-  | "USD"
-  | "GBP"
-  | "JPY"
-  | "CAD"
-  | "AUD"
-  | "CHF"
-  | "NZD"
-  | "SEK"
-  | "NOK"
-  | "DKK"
-  | "PLN"
-  | "MXN"
-  | "CZK"
-  | "HUF"
-  | "BRL"
-  | "RUB"
-  | "TRY"
-  | "ILS"
-  | "KRW"
-  | "MYR"
-  | "PHP"
-  | "IDR"
-  | "THB"
-  | "VND"
-  | "HRK"
-  | "CNY"
-  | "INR"
-  | "ZAR"
-  | "RON"
-  | "BGN"
-  | "ISK"
-  | "LTL"
-  | "LVL"
-  | "EUR"
-  | "USD"
-  | "GBP"
-  | "JPY"
-  | "CAD"
-  | "AUD"
-  | "CHF"
-  | "NZD"
-  | "SEK"
-  | "NOK"
-  | "DKK"
-  | "PLN"
-  | "MXN"
-  | "CZK"
-  | "HUF"
-  | "BRL"
-  | "RUB"
-  | "TRY"
-  | "ILS"
-  | "KRW"
-  | "MYR"
-  | "PHP"
-  | "IDR"
-  | "THB"
-  | "VND"
-  | "HRK"
-  | "CNY"
-  | "INR"
-  | "ZAR"
-  | "RON"
-  | "BGN"
-  | "ISK"
-  | "LTL"
-  | "LVL";
-
 export interface BillingType {
   cost: number;
-  currency: CurrencyType;
+  currency: CurrencyNameType;
   currencyIcon: CurrencyIconType;
 }
 export interface CurrencyModalType {
-  name: CurrencyType;
+  name: CurrencyNameType;
   currencyIcon: CurrencyIconType;
-  icon: string;
+  image: string;
 }
 
 export interface Subscription {
@@ -145,8 +43,7 @@ export interface Subscription {
   cost: number;
   currency: string;
   color: CardColorType;
-  icon: string;
-  type: SubscriptionType | string;
+  type: SubscriptionType;
   active: boolean;
   nextPaymentDate: number;
 }

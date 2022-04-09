@@ -58,7 +58,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
       color: selectedColor,
       category: selectedCategory.name,
       startDate: moment(subscriptionStartDate).unix(),
-      icon: "",
       currency: billing.currency,
       cost: billing.cost,
       type: selectedBillingType.name,

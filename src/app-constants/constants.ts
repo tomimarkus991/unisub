@@ -19,9 +19,13 @@ export const billingTypes = {
   weekly: "per week",
   yearly: "per year",
 };
+export interface ICurrencyIcons {
+  EUR: "€";
+  USD: "$";
+}
 export const currencyIcons = {
-  EUR: "€",
-  USD: "$",
+  EUR: { name: "EUR", icon: "€" },
+  USD: { name: "USD", icon: "$" },
 };
 
 export const categories: CategoryCardItem[] = [
@@ -42,8 +46,8 @@ export const categories: CategoryCardItem[] = [
   { name: "Family", icon: "test-icon" },
 ];
 export const currencies: CurrencyModalType[] = [
-  { name: "EUR", currencyIcon: "€", icon: "european-union.svg" },
-  { name: "USD", currencyIcon: "$", icon: "united-states.svg" },
+  { name: "EUR", currencyIcon: "€", image: "european-union.svg" },
+  { name: "USD", currencyIcon: "$", image: "united-states.svg" },
 ];
 export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionType>[] = [
   { id: 1, name: "monthly" },

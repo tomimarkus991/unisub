@@ -46,7 +46,7 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
               {value}
               <img
                 className="ml-1 w-5 h-5 sm:ml-3 sm:w-7 sm:h-7"
-                src={`${process.env.PUBLIC_URL}/assets/flags/${activeCurrency.icon}`}
+                src={`${process.env.PUBLIC_URL}/assets/flags/${activeCurrency.image}`}
                 alt="icon"
               />
             </div>
@@ -92,7 +92,7 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
                       </span>
                       <img
                         className="w-8 h-8"
-                        src={`${process.env.PUBLIC_URL}/assets/flags/${currency.icon}`}
+                        src={`${process.env.PUBLIC_URL}/assets/flags/${currency.image}`}
                         alt="icon"
                       />
                     </div>
