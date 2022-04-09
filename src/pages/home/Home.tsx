@@ -1,19 +1,7 @@
-import { useEffect } from "react";
-
-import { ToggleViewButton, NavbarTop, NavbarBottom, Sidebar } from "components/elements";
+import { NavbarTop, ToggleViewButton, NavbarBottom, Sidebar } from "components/elements";
 import { SubLayout } from "components/layouts";
 
-export const App = () => {
-  const root = document.documentElement;
-  useEffect(() => {
-    if (localStorage.theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+export const Home = () => {
   return (
     <>
       <div className="flex justify-center min-w-full min-h-screen bg-slate-50 dark:bg-slate-800">

@@ -1,16 +1,18 @@
-import { LocalizationProvider } from "@mui/lab";
-import AdapterMoment from "@mui/lab/AdapterMoment";
-import React, { StrictMode } from "react";
-// import { createRoot } from "react-dom/client";
-import ReactDOM from "react-dom";
-
 import "./index.css";
 
-import { App } from "App";
+import { LocalizationProvider } from "@mui/lab";
+import AdapterMoment from "@mui/lab/AdapterMoment";
+import { StrictMode } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+
 import { SidebarProvider, SubProvider } from "context";
+import { Router } from "routes";
 
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
+// import { createRoot } from "react-dom/client";
 
 // @ts-ignore
 // const root = createRoot(document.getElementById("root"));
@@ -24,15 +26,17 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 // npm i -D @types/react@latest @types/react-dom@latest
 
 ReactDOM.render(
-  <StrictMode>
-    <LocalizationProvider dateAdapter={AdapterMoment}>
-      <SidebarProvider>
-        <SubProvider>
-          <App />
-        </SubProvider>
-      </SidebarProvider>
-    </LocalizationProvider>
-  </StrictMode>,
+  <BrowserRouter>
+    <StrictMode>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <SidebarProvider>
+          <SubProvider>
+            <Router />
+          </SubProvider>
+        </SidebarProvider>
+      </LocalizationProvider>
+    </StrictMode>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 
