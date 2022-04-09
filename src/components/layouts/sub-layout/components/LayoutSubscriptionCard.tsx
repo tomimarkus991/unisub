@@ -39,7 +39,7 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
     <>
       <div
         className={clsx(
-          "flex flex-row items-center py-4 px-6 w-80 rounded-full ring-1 ring-black ring-opacity-5 shadow-xl xs:px-8",
+          "flex flex-row items-center py-4 px-6 w-80 h-24 rounded-full ring-1 ring-black ring-opacity-5 shadow-xl xs:px-8",
           cardColors[cardColor]
         )}
       >

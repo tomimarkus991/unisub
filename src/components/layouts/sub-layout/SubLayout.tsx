@@ -7,7 +7,7 @@ export const SubLayout = () => {
   const { subs } = useSub();
 
   return (
-    <div className="grid overflow-auto gap-2 justify-center last:pb-12 first:mt-6">
+    <div className="grid overflow-auto gap-2 justify-center last:pb-12 h-full">
       {subs.map(sub => (
         <LayoutSubscriptionCard
           key={sub.id}

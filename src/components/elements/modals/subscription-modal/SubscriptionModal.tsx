@@ -145,10 +145,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                     </div>
                     <Input
                       id="name-input"
-                      className={clsx(
-                        "px-3 w-11/12 font-semibold outline-none focus:ring-2 ",
-                        `focus:ring-purple-500`
-                      )}
+                      className={clsx("px-3 w-11/12 font-semibold outline-none focus:ring-2 ")}
                       maxLength={30}
                       onChange={e => setTitle(e.target.value)}
                     />

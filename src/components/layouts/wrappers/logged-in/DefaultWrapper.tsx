@@ -9,7 +9,7 @@ export const DefaultWrapper = ({ children }: Props) => {
     <>
       <div className="flex justify-center min-w-full min-h-screen bg-slate-50 dark:bg-slate-800">
         <div className="flex flex-col w-full">
-          <div className="flex sticky top-0 z-10 items-center py-10 w-full h-16 bg-slate-50">
+          <div className="flex sticky top-0 z-10 items-center py-12 mb-3 w-full h-16 bg-slate-50">
             <NavbarTop user={{ id: "1", username: "Galaxy", email: "g@g.com", avatar: null }} />
           </div>
           {children}

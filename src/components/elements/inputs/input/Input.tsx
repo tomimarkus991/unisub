@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import clsx from "clsx";
 
 const sizes = {
@@ -8,7 +9,7 @@ const sizes = {
 
 const variants = {
   // regular --> hover --> active --> dark
-  default: `bg-white text-slate-700 border-slate-600 rounded-lg ring-2 ring-black ring-opacity-10`,
+  default: `bg-white text-slate-700 border-slate-600 rounded-lg ring-2 ring-black ring-opacity-10 focus:ring-slate-500`,
   green: `bg-lime-500 text-[#f3f2f0] border-lime-600
   hover:text-white`,
   dark: `bg-gray-700 text-[#f3f2f0] border-gray-900
@@ -28,5 +29,12 @@ export const Input = ({
   variant = "default",
   ...props
 }: InputProps) => {
-  return <input className={clsx(className, sizes[inputSize], variants[variant])} {...props} />;
+  return (
+    <input
+      autoFocus={false}
+      autoComplete="off"
+      className={clsx(className, sizes[inputSize], variants[variant])}
+      {...props}
+    />
+  );
 };

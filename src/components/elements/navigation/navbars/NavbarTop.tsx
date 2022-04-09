@@ -9,7 +9,7 @@ export const NavbarTop = ({ user }: Props) => {
   const { setisSidebarOpen } = useSidebar();
   return (
     <div className="flex flex-1 justify-between items-center px-4">
-      <p className="text-xl font-semibold text-gray-800">Subscriptions</p>
+      <p className="text-2xl font-semibold text-gray-800">Subscriptions</p>
       <div
         role="button"
         tabIndex={0}
