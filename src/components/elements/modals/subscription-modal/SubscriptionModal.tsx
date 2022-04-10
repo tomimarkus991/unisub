@@ -22,7 +22,7 @@ import {
   SubscriptionType,
 } from "types";
 
-import { ColorPicker, SubscriptionCard } from ".";
+import { ColorPicker, SelectCategoryModal, SubscriptionCard } from ".";
 
 interface Props {
   isIcon?: boolean;
@@ -138,7 +138,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
           validationSchema={SubModalYupSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             setSubmitting(false);
-            console.log("submit", values);
 
             handleSubscriptionSubmit(values);
             resetForm();
@@ -196,13 +195,12 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                               }
                             />
                           </div>
-                          {/* <div className="w-6/12 sm:w-full">
+                          <div className="w-6/12 sm:w-full">
                             <SelectCategoryModal
-                              value={selectedCategory}
-                              setValue={setSelectedCategory}
+                              name="selectedCategory"
                               selectedColor={selectedColor}
                             />
-                          </div> */}
+                          </div>
                         </div>
                         <ColorPicker name="selectedColor" />
                       </div>
@@ -239,17 +237,17 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                           </div> */}
                         </div>
 
-                        {/* <div className="flex flex-row mt-3">
-                          <div className="w-8/12 xs2:w-7/12">
+                        <div className="flex flex-row mt-3">
+                          {/* <div className="w-8/12 xs2:w-7/12">
                             <DatePicker
                               subscriptionStartDate={subscriptionStartDate}
                               setSubscriptionStartDate={setSubscriptionStartDate}
                             />
-                          </div>
-                          <div className="w-4/12 xs2:w-5/12">
+                          </div> */}
+                          {/* <div className="w-4/12 xs2:w-5/12">
                             <SelectCurrencyModal value={billing.currency} setValue={setBilling} />
-                          </div>
-                        </div> */}
+                          </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>

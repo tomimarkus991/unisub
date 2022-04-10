@@ -17,7 +17,7 @@ export const ColorPicker = ({ name }: Props) => {
     <>
       <RadioGroup
         className="flex flex-row flex-wrap mt-10"
-        {...field}
+        value={field.value}
         onChange={value => {
           setFieldValue(name, value);
         }}
