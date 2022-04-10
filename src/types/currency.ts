@@ -103,3 +103,9 @@ export type CurrencyNameType =
   | "ISK"
   | "LTL"
   | "LVL";
+
+export interface CurrencyType {
+  name: CurrencyNameType;
+  currencyIcon: CurrencyIconType;
+  image: string;
+}

@@ -1,13 +1,13 @@
 import { billingTypes, currencies } from "app-constants";
 import { useSub } from "context";
-import { CurrencyModalType } from "types";
+import { CurrencyType } from "types";
 
 import { LayoutSubscriptionCard } from ".";
 
 export const SubLayout = () => {
   const { subs } = useSub();
   const findCurrencyIcon = (currency: string) => {
-    const { currencyIcon } = currencies.find(value => value.name === currency) as CurrencyModalType;
+    const { currencyIcon } = currencies.find(value => value.name === currency) as CurrencyType;
 
     return currencyIcon;
   };

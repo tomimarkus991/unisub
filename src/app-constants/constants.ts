@@ -1,4 +1,4 @@
-import { CategoryCardItem, CurrencyModalType, SelectOption, SubscriptionType } from "types";
+import { CurrencyType, CategoryCardItem, SelectOption, SubscriptionType } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -23,10 +23,10 @@ export interface ICurrencyIcons {
   EUR: "€";
   USD: "$";
 }
-export const currencyIcons = {
-  EUR: { name: "EUR", icon: "€" },
-  USD: { name: "USD", icon: "$" },
-};
+// export const currencyIcons = {
+//   EUR: { name: "EUR", icon: "€", flag: "european-union.svg" },
+//   USD: { name: "USD", icon: "$", flag: "united-states.svg" },
+// };
 
 export const categories: CategoryCardItem[] = [
   { name: "Other", icon: "test-icon" },
@@ -45,7 +45,7 @@ export const categories: CategoryCardItem[] = [
   { name: "Work", icon: "test-icon" },
   { name: "Family", icon: "test-icon" },
 ];
-export const currencies: CurrencyModalType[] = [
+export const currencies: CurrencyType[] = [
   { name: "EUR", currencyIcon: "€", image: "european-union.svg" },
   { name: "USD", currencyIcon: "$", image: "united-states.svg" },
 ];

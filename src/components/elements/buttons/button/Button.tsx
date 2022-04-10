@@ -40,8 +40,6 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  console.log("type", type);
-
   return (
     <button
       type={type}

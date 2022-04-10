@@ -11,6 +11,7 @@ import {
   billingTypes,
   mapSubTypeToMomentType,
   SubModalYupSchema,
+  currencies,
 } from "app-constants";
 import { RealButton, Input, Button, Modal } from "components/elements";
 import { useSub } from "context";
@@ -20,23 +21,20 @@ import {
   Subscription,
   SelectOption,
   SubscriptionType,
+  BillingType,
 } from "types";
 
-import { ColorPicker, SelectCategoryModal, SubscriptionCard } from ".";
+import { ColorPicker, SelectCategoryModal, SelectCurrencyModal, SubscriptionCard } from ".";
 
 interface Props {
   isIcon?: boolean;
 }
 
-interface FormValues {
+export interface SubFormValues {
   selectedColor: CardColorType;
   title: string;
   selectedCategory: CategoryCardItem;
-  billing: {
-    cost: string;
-    currency: string;
-    currencyIcon: string;
-  };
+  billing: BillingType<string>;
   selectedBillingType: SelectOption<SubscriptionType>;
   subscriptionStartDate: Date;
 }
@@ -44,14 +42,15 @@ interface FormValues {
 export const SubscriptionModal = ({ isIcon = true }: Props) => {
   const [subModalOpen, setSubModalOpen] = useState(false);
 
-  const initialValues: FormValues = {
+  const initialValues: SubFormValues = {
     selectedColor: "white",
     title: "",
     selectedCategory: categories[0],
     billing: {
       cost: "",
-      currency: "EUR",
       currencyIcon: "€",
+      name: "EUR",
+      image: "european-union.svg",
     },
     selectedBillingType: subscriptionTypeAsSelectValues[0],
     subscriptionStartDate: new Date(),
@@ -78,14 +77,14 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
     selectedBillingType,
     selectedCategory,
     subscriptionStartDate,
-  }: FormValues) => {
+  }: SubFormValues) => {
     const subscription: Subscription = {
       id: "-1",
       title,
       color: selectedColor,
       category: selectedCategory.name,
       startDate: moment(subscriptionStartDate).unix(),
-      currency: billing.currency,
+      currency: billing.name,
       cost: parseInt(billing.cost),
       type: selectedBillingType.name,
       active: true,
@@ -152,6 +151,10 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
               selectedColor,
               // subscriptionStartDate,
             } = values;
+            const findCorrectCurrency = () => {
+              const correctCurrency = currencies.find(currency => currency.name === billing.name);
+              return correctCurrency?.currencyIcon;
+            };
             return (
               <Form>
                 <div className="p-6 px-4 pt-5 pb-4">
@@ -166,9 +169,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                       <SubscriptionCard
                         title={title}
                         category={selectedCategory.name}
-                        price={`${billing.cost === "" ? "0" : billing.cost}${
-                          billing.currencyIcon
-                        } ${billingTypes[selectedBillingType.name]}`}
+                        price={`${
+                          billing.cost === "" ? "0" : billing.cost
+                        }${findCorrectCurrency()} ${billingTypes[selectedBillingType.name]}`}
                         cardColor={selectedColor}
                         imageUrl={""}
                       />
@@ -244,9 +247,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                               setSubscriptionStartDate={setSubscriptionStartDate}
                             />
                           </div> */}
-                          {/* <div className="w-4/12 xs2:w-5/12">
-                            <SelectCurrencyModal value={billing.currency} setValue={setBilling} />
-                          </div> */}
+                          <div className="w-4/12 xs2:w-5/12">
+                            <SelectCurrencyModal name="billing" />
+                          </div>
                         </div>
                       </div>
                     </div>

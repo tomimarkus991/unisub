@@ -2,28 +2,36 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Dialog, RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
+import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
 import { currencies } from "app-constants";
 import { RealButton, Modal } from "components/elements";
-import { BillingType, CurrencyCardItem, CurrencyModalType } from "types";
+import { CurrencyType, BillingType } from "types";
+
+import { SubFormValues } from "..";
 
 interface Props {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<BillingType>>;
+  name: string;
 }
 
-export const SelectCurrencyModal = ({ value, setValue }: Props) => {
+export const SelectCurrencyModal = ({ name }: Props) => {
   const [open, setOpen] = useState(false);
-  const [activeCurrency, setActiveCurrency] = useState<CurrencyModalType>(
-    currencies.find(currency => currency.name === value) as CurrencyModalType
+
+  const [field, { touched, error }] = useField<BillingType<string>>(name);
+  const { setFieldValue, values } = useFormikContext<SubFormValues>();
+
+  const [activeCurrency, setActiveCurrency] = useState<CurrencyType>(
+    currencies.find(currency => currency.name === field.value.name) as CurrencyType
   );
 
   useEffect(() => {
-    setActiveCurrency(currencies.find(currency => currency.name === value) as CurrencyModalType);
+    setActiveCurrency(
+      currencies.find(currency => currency.name === field.value.name) as CurrencyType
+    );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [field.value]);
 
   return (
     <>
@@ -34,23 +42,26 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
         open={open}
         setOpen={setOpen}
         modalButton={
-          <RealButton
-            id="currency-input"
-            variant="light"
-            className="py-3 px-4 w-10/12 text-sm font-semibold rounded-lg sm:p-2.5 sm:text-lg xs:text-base"
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            <div className="flex flex-row justify-center items-center">
-              {value}
-              <img
-                className="ml-1 w-5 h-5 sm:ml-3 sm:w-7 sm:h-7"
-                src={`${process.env.PUBLIC_URL}/assets/flags/${activeCurrency.image}`}
-                alt="icon"
-              />
-            </div>
-          </RealButton>
+          <>
+            <RealButton
+              id="currency-input"
+              variant="light"
+              className="py-3 px-4 w-10/12 text-sm font-semibold rounded-lg sm:p-2.5 sm:text-lg xs:text-base"
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <div className="flex flex-row justify-center items-center">
+                {field.value.name}
+                <img
+                  className="ml-1 w-5 h-5 sm:ml-3 sm:w-7 sm:h-7"
+                  src={`${process.env.PUBLIC_URL}/assets/flags/${activeCurrency.image}`}
+                  alt="icon"
+                />
+              </div>
+            </RealButton>
+            {touched && error && <div>{error}</div>}
+          </>
         }
       >
         <div className="p-6 px-4 pt-5 pb-4">
@@ -64,14 +75,12 @@ export const SelectCurrencyModal = ({ value, setValue }: Props) => {
               </Dialog.Title>
               <RadioGroup
                 className="grid grid-cols-2 mt-6"
-                value={value}
-                onChange={e => {
-                  const { name, currencyIcon } = e as unknown as CurrencyCardItem;
-                  setValue((prevState: BillingType) => ({
-                    ...prevState,
-                    currency: name,
-                    currencyIcon,
-                  }));
+                value={field.value}
+                onChange={value => {
+                  setFieldValue(name, {
+                    ...value,
+                    cost: values.billing.cost,
+                  } as BillingType<string>);
                 }}
               >
                 {currencies.map(currency => (

@@ -2,16 +2,11 @@ import { ReactNode } from "react";
 
 import { cardColors } from "app-constants";
 
-import { CurrencyIconType, CurrencyNameType } from ".";
+import { CurrencyType } from ".";
 
 export interface CategoryCardItem {
   name: string;
   icon: ReactNode;
-}
-export interface CurrencyCardItem {
-  name: CurrencyNameType;
-  currencyIcon: CurrencyIconType;
-  icon: string;
 }
 
 export type CardColorType = keyof typeof cardColors;
@@ -24,15 +19,8 @@ export interface UserType {
   avatar: string | null;
 }
 
-export interface BillingType {
-  cost: number;
-  currency: CurrencyNameType;
-  currencyIcon: CurrencyIconType;
-}
-export interface CurrencyModalType {
-  name: CurrencyNameType;
-  currencyIcon: CurrencyIconType;
-  image: string;
+export interface BillingType<T> extends CurrencyType {
+  cost: T;
 }
 
 export interface Subscription {
