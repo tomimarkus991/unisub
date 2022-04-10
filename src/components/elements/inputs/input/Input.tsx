@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import clsx from "clsx";
+import { useField } from "formik";
+import { ReactNode } from "react";
 
 const sizes = {
   sm: "py-2 text-md",
@@ -18,23 +20,35 @@ const variants = {
     hover:text-white`,
 };
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
+  label: string | ReactNode;
+  name: string;
   variant?: keyof typeof variants;
   inputSize?: keyof typeof sizes;
 };
 
 export const Input = ({
+  label = "Label",
+  name,
   className = "px-4 font-medium",
   inputSize = "md",
   variant = "default",
   ...props
-}: InputProps) => {
+}: Props) => {
+  const [field, meta] = useField(name);
   return (
-    <input
-      autoFocus={false}
-      autoComplete="off"
-      className={clsx(className, sizes[inputSize], variants[variant])}
-      {...props}
-    />
+    <>
+      <div className="mb-2">
+        <label htmlFor={props.id || name}>{label}</label>
+      </div>
+      <input
+        className={clsx(className, sizes[inputSize], variants[variant])}
+        autoFocus={false}
+        autoComplete="off"
+        {...field}
+        {...props}
+      />
+      {meta.touched && meta.error && <div>{meta.error}</div>}
+    </>
   );
 };
