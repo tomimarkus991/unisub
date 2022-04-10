@@ -1,7 +1,6 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
-import { useTranslation } from "react-i18next";
 
 import { SelectOption, SubscriptionType } from "types";
 
@@ -13,8 +12,6 @@ interface Props {
 }
 
 export const SelectField = ({ options, value, setValue, title }: Props) => {
-  const { t } = useTranslation();
-
   return (
     <Listbox value={value} onChange={setValue}>
       {({ open }) => (
@@ -27,7 +24,7 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
             className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 
         focus-visible:ring-offset-purple-300 shadow-md cursor-pointer sm:py-2"
           >
-            <span className="block font-semibold truncate sm:text-lg text-md">{t(value.name)}</span>
+            <span className="block font-semibold truncate sm:text-lg text-md">{value.name}</span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <SelectorIcon className="w-5 h-5 fill-gray-400" aria-hidden="true" />
             </span>
@@ -59,7 +56,7 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
                       <span
                         className={`block truncate ${selected ? "font-medium" : "font-normal"}`}
                       >
-                        {t(option.name)}
+                        {option.name}
                       </span>
                       {selected ? (
                         <div className="flex absolute inset-y-0 left-0 items-center pl-3">
