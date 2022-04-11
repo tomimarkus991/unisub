@@ -5,13 +5,15 @@ import { useField, useFormikContext } from "formik";
 import { cardColors } from "app-constants";
 import { CardColorType } from "types";
 
+import { SubFormValues } from "..";
+
 interface Props {
   name: string;
 }
 
 export const ColorPicker = ({ name }: Props) => {
   const [field, { touched, error }] = useField(name);
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue } = useFormikContext<SubFormValues>();
 
   return (
     <>

@@ -13,7 +13,7 @@ import {
   SubModalYupSchema,
   currencies,
 } from "app-constants";
-import { RealButton, Input, Button, Modal } from "components/elements";
+import { RealButton, Input, Button, Modal, SelectField } from "components/elements";
 import { useSub } from "context";
 import {
   CardColorType,
@@ -24,7 +24,13 @@ import {
   BillingType,
 } from "types";
 
-import { ColorPicker, SelectCategoryModal, SelectCurrencyModal, SubscriptionCard } from ".";
+import {
+  ColorPicker,
+  DatePicker,
+  SelectCategoryModal,
+  SelectCurrencyModal,
+  SubscriptionCard,
+} from ".";
 
 interface Props {
   isIcon?: boolean;
@@ -36,7 +42,7 @@ export interface SubFormValues {
   selectedCategory: CategoryCardItem;
   billing: BillingType<string>;
   selectedBillingType: SelectOption<SubscriptionType>;
-  subscriptionStartDate: Date;
+  subscriptionStartDate: Date | null;
 }
 
 export const SubscriptionModal = ({ isIcon = true }: Props) => {
@@ -230,23 +236,19 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                               }
                             />
                           </div>
-                          {/* <div className="w-6/12">
+                          <div className="w-6/12">
                             <SelectField
                               title="Type"
+                              name="selectedBillingType"
                               options={subscriptionTypeAsSelectValues}
-                              value={selectedBillingType}
-                              setValue={setSelectedBillingType}
                             />
-                          </div> */}
+                          </div>
                         </div>
 
                         <div className="flex flex-row mt-3">
-                          {/* <div className="w-8/12 xs2:w-7/12">
-                            <DatePicker
-                              subscriptionStartDate={subscriptionStartDate}
-                              setSubscriptionStartDate={setSubscriptionStartDate}
-                            />
-                          </div> */}
+                          <div className="w-8/12 xs2:w-7/12">
+                            <DatePicker name="subscriptionStartDate" />
+                          </div>
                           <div className="w-4/12 xs2:w-5/12">
                             <SelectCurrencyModal name="billing" />
                           </div>

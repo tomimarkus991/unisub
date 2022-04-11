@@ -1,19 +1,24 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
+import { useField, useFormikContext } from "formik";
 import { Fragment } from "react";
 
 import { SelectOption, SubscriptionType } from "types";
 
+import { SubFormValues } from "../../modals";
+
 interface Props {
   options: SelectOption<string | SubscriptionType>[];
-  value: SelectOption<string | SubscriptionType>;
-  setValue: React.Dispatch<React.SetStateAction<SelectOption<any>>>;
   title: string;
+  name: string;
 }
 
-export const SelectField = ({ options, value, setValue, title }: Props) => {
+export const SelectField = ({ name, options, title }: Props) => {
+  const [field, { touched, error }] = useField<SelectOption<SubscriptionType>>(name);
+  const { setFieldValue } = useFormikContext<SubFormValues>();
+
   return (
-    <Listbox value={value} onChange={setValue}>
+    <Listbox value={field?.value} onChange={value => setFieldValue(name, value)}>
       {({ open }) => (
         <div className="relative">
           <div className="mt-0 mb-2">
@@ -24,11 +29,14 @@ export const SelectField = ({ options, value, setValue, title }: Props) => {
             className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 
         focus-visible:ring-offset-purple-300 shadow-md cursor-pointer sm:py-2"
           >
-            <span className="block font-semibold truncate sm:text-lg text-md">{value.name}</span>
+            <span className="block font-semibold truncate sm:text-lg text-md">
+              {field?.value.name}
+            </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <SelectorIcon className="w-5 h-5 fill-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
+          {touched && error && <div>{error}</div>}
 
           <Transition
             as={Fragment}

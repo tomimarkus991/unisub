@@ -6,7 +6,7 @@ import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 
 import { cardColors, categories } from "app-constants";
-import { Modal, RealButton } from "components/elements";
+import { Modal, RealButton, SubFormValues } from "components/elements";
 import { CardColorType, CategoryCardItem } from "types";
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 export const SelectCategoryModal = ({ name, selectedColor }: Props) => {
   const [open, setOpen] = useState(false);
   const [field, { touched, error }] = useField<CategoryCardItem>(name);
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue } = useFormikContext<SubFormValues>();
 
   return (
     <>

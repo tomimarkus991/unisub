@@ -3,16 +3,17 @@
 import { CalendarIcon } from "@heroicons/react/solid";
 import { DesktopDatePicker } from "@mui/lab";
 import clsx from "clsx";
+import { useField, useFormikContext } from "formik";
+
+import { SubFormValues } from "..";
 
 interface Props {
-  subscriptionStartDate: Date | null;
-  setSubscriptionStartDate: React.Dispatch<React.SetStateAction<Date | null>>;
+  name: string;
 }
 
-export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: Props) => {
-  const handleChange = (date: Date | null) => {
-    setSubscriptionStartDate(date);
-  };
+export const DatePicker = ({ name }: Props) => {
+  const [field, { touched, error }] = useField<Date>(name);
+  const { setFieldValue } = useFormikContext<SubFormValues>();
 
   return (
     <div>
@@ -22,9 +23,11 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
         </label>
       </div>
       <DesktopDatePicker
-        value={subscriptionStartDate}
+        value={field.value}
         inputFormat="DD/MM/YYYY"
-        onChange={handleChange}
+        onChange={value => {
+          setFieldValue(name, value);
+        }}
         renderInput={({ inputRef, inputProps }) => (
           <>
             <div className="relative">
@@ -34,7 +37,7 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
                 {...inputProps}
                 className={clsx(
                   "block py-2.5 pl-4 w-11/12 font-semibold text-gray-700 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-blue-500 xs:py-3 dark:placeholder-gray-400",
-                  subscriptionStartDate?.toString() === "Invalid date"
+                  `${field.value}` === "Invalid date" || `${field.value}` === ""
                     ? " border-red-500 focus:border-red-600 outline-none focus:outline-none focus:ring-1 focus:ring-red-600"
                     : ""
                 )}
@@ -47,6 +50,7 @@ export const DatePicker = ({ subscriptionStartDate, setSubscriptionStartDate }: 
           </>
         )}
       />
+      {touched && error && <div>{error}</div>}
     </div>
   );
 };
