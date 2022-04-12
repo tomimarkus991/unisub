@@ -63,10 +63,10 @@ export const Sidebar = () => {
           </Transition.Child>
           <Transition.Child
             as="div"
-            enter="transition-opacity ease-linear duration-[150]"
+            enter="transition-opacity ease-linear duration-300"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-[400]"
+            leave="transition-opacity ease-linear duration-200"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >

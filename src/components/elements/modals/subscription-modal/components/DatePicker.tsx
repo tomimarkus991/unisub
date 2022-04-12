@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 
 import { SubFormValues } from "..";
+import { InputErrorText } from "../../../feedback";
 
 interface Props {
   name: string;
@@ -50,7 +51,7 @@ export const DatePicker = ({ name }: Props) => {
           </>
         )}
       />
-      {touched && error && <div>{error}</div>}
+      <InputErrorText touched={touched} error={error} />
     </div>
   );
 };

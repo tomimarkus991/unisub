@@ -6,8 +6,8 @@ import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
 import { currencies } from "app-constants";
-import { RealButton, Modal } from "components/elements";
-import { CurrencyType, BillingType } from "types";
+import { RealButton, Modal, InputErrorText } from "components/elements";
+import { CurrencyType } from "types";
 
 import { SubFormValues } from "..";
 
@@ -18,8 +18,8 @@ interface Props {
 export const SelectCurrencyModal = ({ name }: Props) => {
   const [open, setOpen] = useState(false);
 
-  const [field, { touched, error }] = useField<BillingType<string>>(name);
-  const { setFieldValue, values } = useFormikContext<SubFormValues>();
+  const [field, { touched, error }] = useField<CurrencyType>(name);
+  const { setFieldValue } = useFormikContext<SubFormValues>();
 
   const [activeCurrency, setActiveCurrency] = useState<CurrencyType>(
     currencies.find(currency => currency.name === field.value.name) as CurrencyType
@@ -60,7 +60,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                 />
               </div>
             </RealButton>
-            {touched && error && <div>{error}</div>}
+            <InputErrorText touched={touched} error={error} />
           </>
         }
       >
@@ -77,10 +77,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                 className="grid grid-cols-2 mt-6"
                 value={field.value}
                 onChange={value => {
-                  setFieldValue(name, {
-                    ...value,
-                    cost: values.billing.cost,
-                  } as BillingType<string>);
+                  setFieldValue(name, value);
                 }}
               >
                 {currencies.map(currency => (

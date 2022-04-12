@@ -6,6 +6,7 @@ import { cardColors } from "app-constants";
 import { CardColorType } from "types";
 
 import { SubFormValues } from "..";
+import { InputErrorText } from "../../../feedback";
 
 interface Props {
   name: string;
@@ -38,7 +39,7 @@ export const ColorPicker = ({ name }: Props) => {
           </RadioGroup.Option>
         ))}
       </RadioGroup>
-      {touched && error && <div>{error}</div>}
+      <InputErrorText touched={touched} error={error} />
     </>
   );
 };

@@ -21,7 +21,7 @@ import {
   Subscription,
   SelectOption,
   SubscriptionType,
-  BillingType,
+  CurrencyType,
 } from "types";
 
 import {
@@ -40,7 +40,8 @@ export interface SubFormValues {
   selectedColor: CardColorType;
   title: string;
   selectedCategory: CategoryCardItem;
-  billing: BillingType<string>;
+  billing: CurrencyType;
+  cost: string;
   selectedBillingType: SelectOption<SubscriptionType>;
   subscriptionStartDate: Date | null;
 }
@@ -52,8 +53,8 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
     selectedColor: "white",
     title: "",
     selectedCategory: categories[0],
+    cost: "",
     billing: {
-      cost: "",
       currencyIcon: "€",
       name: "EUR",
       image: "european-union.svg",
@@ -63,42 +64,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
   };
 
   const { setSubs } = useSub();
-
-  const handleSubscriptionSubmit = ({
-    title,
-    billing,
-    selectedColor,
-    selectedBillingType,
-    selectedCategory,
-    subscriptionStartDate,
-  }: SubFormValues) => {
-    const subscription: Subscription = {
-      id: "-1",
-      title,
-      color: selectedColor,
-      category: selectedCategory.name,
-      startDate: moment(subscriptionStartDate).unix(),
-      currency: billing.name,
-      cost: parseInt(billing.cost),
-      type: selectedBillingType.name,
-      active: true,
-      nextPaymentDate: moment(subscriptionStartDate)
-        .add(1, mapSubTypeToMomentType(selectedBillingType.name))
-        .unix(),
-    };
-    setSubs(oldSubs => [...oldSubs, subscription]);
-    console.log(subscription);
-    setSubModalOpen(false);
-    // setSelectedColor("white");
-    // setSelectedCategory(categories[0]);
-    // setBilling({
-    //   cost: 0,
-    //   currency: "EUR",
-    //   currencyIcon: "€",
-    // });
-    // setSelectedBillingType(subscriptionTypeAsSelectValues[0]);
-    // setSubscriptionStartDate(new Date());
-  };
 
   return (
     <>
@@ -129,19 +94,53 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
         <Formik
           initialValues={initialValues}
           validationSchema={SubModalYupSchema}
+          validateOnMount
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            setSubmitting(false);
+            console.log("values 1234", values);
+            setSubmitting(true);
 
-            handleSubscriptionSubmit(values);
+            const {
+              billing,
+              selectedBillingType,
+              selectedCategory,
+              selectedColor,
+              subscriptionStartDate,
+              title,
+              cost,
+            } = values;
+
+            const subscription: Subscription = {
+              id: "-1",
+              title,
+              color: selectedColor,
+              category: selectedCategory.name,
+              startDate: moment(subscriptionStartDate).unix(),
+              currency: billing.name,
+              cost: parseInt(cost),
+              type: selectedBillingType.name,
+              active: true,
+              nextPaymentDate: moment(subscriptionStartDate)
+                .add(1, mapSubTypeToMomentType(selectedBillingType.name))
+                .unix(),
+            };
+
+            setSubs(oldSubs => [...oldSubs, subscription]);
+
+            setSubModalOpen(false);
             resetForm();
+
+            setSubmitting(false);
+            console.log(subscription);
           }}
         >
-          {({ values }) => {
-            const { title, selectedCategory, billing, selectedBillingType, selectedColor } = values;
+          {({ values, isValid }) => {
+            const { title, selectedCategory, billing, selectedBillingType, selectedColor, cost } =
+              values;
             const findCorrectCurrency = () => {
               const correctCurrency = currencies.find(currency => currency.name === billing.name);
               return correctCurrency?.currencyIcon;
             };
+
             return (
               <Form>
                 <div className="p-6 px-4 pt-5 pb-4">
@@ -156,9 +155,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                       <SubscriptionCard
                         title={title}
                         category={selectedCategory.name}
-                        price={`${
-                          billing.cost === "" ? "0" : billing.cost
-                        }${findCorrectCurrency()} ${billingTypes[selectedBillingType.name]}`}
+                        price={`${cost === "" ? "0" : cost}${findCorrectCurrency()} ${
+                          billingTypes[selectedBillingType.name]
+                        }`}
                         cardColor={selectedColor}
                         imageUrl={""}
                       />
@@ -175,9 +174,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                               name="title"
                               type="text"
                               placeholder="Sub name"
-                              className={clsx(
-                                "px-3 w-11/12 font-semibold outline-none focus:ring-2"
-                              )}
+                              className={clsx("px-3 w-11/12")}
                               label={
                                 <>
                                   Name <span className="text-red-500">*</span>
@@ -186,10 +183,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                             />
                           </div>
                           <div className="w-6/12 sm:w-full">
-                            <SelectCategoryModal
-                              name="selectedCategory"
-                              selectedColor={selectedColor}
-                            />
+                            <SelectCategoryModal name="selectedCategory" />
                           </div>
                         </div>
                         <ColorPicker name="selectedColor" />
@@ -204,12 +198,10 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                         <div className="flex flex-row">
                           <div className="w-6/12">
                             <Input
-                              name="billing.cost"
+                              name="cost"
                               type="number"
                               placeholder="0"
-                              className={clsx(
-                                "px-3 w-10/12 font-semibold outline-none focus:ring-2"
-                              )}
+                              className={clsx("px-3 w-10/12")}
                               label={
                                 <>
                                   Cost <span className="text-red-500">*</span>
@@ -239,7 +231,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                   </div>
                 </div>
                 <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
-                  <Button type="submit">Add subscription</Button>
+                  <Button type="submit" isValid={isValid}>
+                    Add subscription
+                  </Button>
                 </div>
               </Form>
             );

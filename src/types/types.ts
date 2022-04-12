@@ -2,8 +2,6 @@ import { ReactNode } from "react";
 
 import { cardColors } from "app-constants";
 
-import { CurrencyType } from ".";
-
 export interface CategoryCardItem {
   name: string;
   icon: ReactNode;
@@ -17,10 +15,6 @@ export interface UserType {
   email: string;
   username: string;
   avatar: string | null;
-}
-
-export interface BillingType<T> extends CurrencyType {
-  cost: T;
 }
 
 export interface Subscription {

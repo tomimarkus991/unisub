@@ -6,18 +6,17 @@ import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 
 import { cardColors, categories } from "app-constants";
-import { Modal, RealButton, SubFormValues } from "components/elements";
-import { CardColorType, CategoryCardItem } from "types";
+import { InputErrorText, Modal, RealButton, SubFormValues } from "components/elements";
+import { CategoryCardItem } from "types";
 
 interface Props {
   name: string;
-  selectedColor: CardColorType;
 }
 
-export const SelectCategoryModal = ({ name, selectedColor }: Props) => {
+export const SelectCategoryModal = ({ name }: Props) => {
   const [open, setOpen] = useState(false);
   const [field, { touched, error }] = useField<CategoryCardItem>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const { setFieldValue, values } = useFormikContext<SubFormValues>();
 
   return (
     <>
@@ -39,7 +38,7 @@ export const SelectCategoryModal = ({ name, selectedColor }: Props) => {
             >
               {field.value.name}
             </RealButton>
-            {touched && error && <div>{error}</div>}
+            <InputErrorText touched={touched} error={error} />
           </>
         }
       >
@@ -64,22 +63,17 @@ export const SelectCategoryModal = ({ name, selectedColor }: Props) => {
                     {({ checked }) => (
                       <div
                         className={clsx(
-                          "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-700 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
-                          `hover:${cardColors[selectedColor]}`,
-                          checked
-                            ? `${cardColors[selectedColor]} 
-                                    ${
-                                      selectedColor === "white"
-                                        ? "text-gray-800 hover:text-gray-800"
-                                        : "text-white hover:text-white"
-                                    }`
-                            : ""
+                          "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
+                          // `hover:${cardColors[values.selectedColor]}`,
+                          "hover:bg-gradient-to-br hover:from-slate-50 hover:via-slate-200 hover:to-white",
+                          checked ? `${cardColors[values.selectedColor]}` : "",
+                          checked ? `${values.selectedColor !== "white" && "text-white"}` : ""
                         )}
                         role="button"
                         tabIndex={0}
                         onClick={() => setOpen(false)}
                       >
-                        <p>{category.name}</p>
+                        {category.name}
                       </div>
                     )}
                   </RadioGroup.Option>

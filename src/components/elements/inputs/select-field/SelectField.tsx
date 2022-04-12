@@ -5,6 +5,7 @@ import { Fragment } from "react";
 
 import { SelectOption, SubscriptionType } from "types";
 
+import { InputErrorText } from "../..";
 import { SubFormValues } from "../../modals";
 
 interface Props {
@@ -36,7 +37,7 @@ export const SelectField = ({ name, options, title }: Props) => {
               <SelectorIcon className="w-5 h-5 fill-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
-          {touched && error && <div>{error}</div>}
+          <InputErrorText touched={touched} error={error} />
 
           <Transition
             as={Fragment}

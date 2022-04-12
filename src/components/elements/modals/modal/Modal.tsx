@@ -12,22 +12,6 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
   return (
     <>
       {modalButton}
-      {/* {isIcon ? (
-        <PlusCircleIcon
-          className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
-          onClick={() => {
-            setOpen(true);
-          }}
-        />
-      ) : (
-        <RealButton
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          Add subscription
-        </RealButton>
-      )} */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="overflow-y-auto fixed inset-0 z-50" onClose={setOpen}>
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen select-none">
