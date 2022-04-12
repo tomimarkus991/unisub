@@ -62,18 +62,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
     subscriptionStartDate: new Date(),
   };
 
-  // const [selectedColor, setSelectedColor] = useState<CardColorType>("white");
-  // const [selectedCategory, setSelectedCategory] = useState<CategoryCardItem>(categories[0]);
-  // const [billing, setBilling] = useState<BillingType>({
-  //   cost: 0,
-  //   currency: "EUR",
-  //   currencyIcon: "€",
-  // });
-  // const [selectedBillingType, setSelectedBillingType] = useState<SelectOption<SubscriptionType>>(
-  //   subscriptionTypeAsSelectValues[0]
-  // );
-  // const [subscriptionStartDate, setSubscriptionStartDate] = useState<Date | null>(new Date());
-
   const { setSubs } = useSub();
 
   const handleSubscriptionSubmit = ({
@@ -149,14 +137,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
           }}
         >
           {({ values }) => {
-            const {
-              title,
-              selectedCategory,
-              billing,
-              selectedBillingType,
-              selectedColor,
-              // subscriptionStartDate,
-            } = values;
+            const { title, selectedCategory, billing, selectedBillingType, selectedColor } = values;
             const findCorrectCurrency = () => {
               const correctCurrency = currencies.find(currency => currency.name === billing.name);
               return correctCurrency?.currencyIcon;
