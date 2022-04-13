@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { ScaleAndRotationAnim1Small } from "components/elements";
 import { useSidebar } from "context/sidebar";
 
+import { ScaleAnim1 } from "../../animations";
+
 interface ListItemProps {
   children: ReactNode;
   to: string;
@@ -17,8 +19,10 @@ const ListItem = ({ children, to }: ListItemProps) => {
   return (
     <div role="button" tabIndex={-3} onClick={open => setisSidebarOpen(!open)}>
       <Link to={to}>
-        <div className="flex flex-row items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
-          {children}
+        <div className="flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
+          <ScaleAnim1>
+            <div className="flex flex-row items-center">{children}</div>
+          </ScaleAnim1>
         </div>
       </Link>
     </div>
@@ -57,6 +61,7 @@ export const Sidebar = () => {
                   <HomeIcon className={clsx(listIconClasses)} />
                   <p className="text-xl font-medium">Home</p>
                 </ListItem>
+
                 <ListItem to="/stats">
                   <ChartBarIcon className={clsx(listIconClasses)} />
                   <p className="text-xl font-medium">Stats</p>
