@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode, useRef } from "react";
 
 interface Props {
   open: boolean;
@@ -9,11 +9,17 @@ interface Props {
 }
 
 export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
+  const initialFocusRef = useRef(null);
   return (
     <>
       {modalButton}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="overflow-y-auto fixed inset-0 z-50" onClose={setOpen}>
+        <Dialog
+          initialFocus={initialFocusRef}
+          as="div"
+          className="overflow-y-auto fixed inset-0 z-50"
+          onClose={setOpen}
+        >
           <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen select-none">
             <Transition.Child
               as={Fragment}
@@ -28,7 +34,7 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span className="hidden h-screen align-middle" aria-hidden="true">
+            <span ref={initialFocusRef} className="hidden h-screen align-middle" aria-hidden="true">
               &#8203;
             </span>
             <Transition.Child
