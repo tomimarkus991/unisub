@@ -3,19 +3,19 @@ import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { useField, useFormikContext } from "formik";
 import { Fragment } from "react";
 
-import { SelectOption, SubscriptionType } from "types";
+import { SelectOption, SubscriptionBillingType } from "types";
 
 import { InputErrorText } from "../..";
 import { SubFormValues } from "../../modals";
 
 interface Props {
-  options: SelectOption<string | SubscriptionType>[];
+  options: SelectOption<string | SubscriptionBillingType>[];
   title: string;
   name: string;
 }
 
 export const SelectField = ({ name, options, title }: Props) => {
-  const [field, { touched, error }] = useField<SelectOption<SubscriptionType>>(name);
+  const [field, { touched, error }] = useField<SelectOption<SubscriptionBillingType>>(name);
   const { setFieldValue } = useFormikContext<SubFormValues>();
 
   return (

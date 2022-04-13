@@ -1,4 +1,4 @@
-import { CurrencyType, CategoryCardItem, SelectOption, SubscriptionType } from "types";
+import { CurrencyType, CategoryCardItem, SelectOption, SubscriptionBillingType } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -49,7 +49,7 @@ export const currencies: CurrencyType[] = [
   { name: "EUR", currencyIcon: "€", image: "european-union.svg" },
   { name: "USD", currencyIcon: "$", image: "united-states.svg" },
 ];
-export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionType>[] = [
+export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionBillingType>[] = [
   { id: 1, name: "monthly" },
   { id: 2, name: "daily" },
   { id: 3, name: "weekly" },

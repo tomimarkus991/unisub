@@ -20,7 +20,7 @@ import {
   CategoryCardItem,
   Subscription,
   SelectOption,
-  SubscriptionType,
+  SubscriptionBillingType,
   CurrencyType,
 } from "types";
 
@@ -42,7 +42,7 @@ export interface SubFormValues {
   selectedCategory: CategoryCardItem;
   billing: CurrencyType;
   cost: string;
-  selectedBillingType: SelectOption<SubscriptionType>;
+  selectedBillingType: SelectOption<SubscriptionBillingType>;
   subscriptionStartDate: Date | null;
 }
 
@@ -117,7 +117,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
               startDate: moment(subscriptionStartDate).unix(),
               currency: billing.name,
               cost: parseInt(cost),
-              type: selectedBillingType.name,
+              billingType: selectedBillingType.name,
               active: true,
               nextPaymentDate: moment(subscriptionStartDate)
                 .add(1, mapSubTypeToMomentType(selectedBillingType.name))

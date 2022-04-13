@@ -20,7 +20,7 @@ export const SubLayout = () => {
             key={sub.id}
             title={sub.title}
             category={sub.category}
-            price={`${sub.cost}${findCurrencyIcon(sub.currency)} ${billingTypes[sub.type]}`}
+            price={`${sub.cost}${findCurrencyIcon(sub.currency)} ${billingTypes[sub.billingType]}`}
             cardColor={sub.color}
             imageUrl={""}
             startDate={sub.startDate}

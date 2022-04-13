@@ -8,7 +8,7 @@ export interface CategoryCardItem {
 }
 
 export type CardColorType = keyof typeof cardColors;
-export type SubscriptionType = "monthly" | "yearly" | "weekly" | "daily";
+export type SubscriptionBillingType = "monthly" | "yearly" | "weekly" | "daily";
 
 export interface UserType {
   id: string;
@@ -25,7 +25,7 @@ export interface Subscription {
   cost: number;
   currency: string;
   color: CardColorType;
-  type: SubscriptionType;
+  billingType: SubscriptionBillingType;
   active: boolean;
   nextPaymentDate: number;
 }
