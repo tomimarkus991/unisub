@@ -49,7 +49,7 @@ export const Button = ({
         `m-0 font-medium tracking-wider text-center uppercase rounded-2xl transition-all duration-200 ease-in-out hover:scale-110 select-none`,
         variants[variant],
         sizes[size],
-        !isValid && "opacity-50 cursor-not-allowed",
+        !isValid && "opacity-50 hover:scale-100 cursor-not-allowed",
         className
       )}
       {...props}
