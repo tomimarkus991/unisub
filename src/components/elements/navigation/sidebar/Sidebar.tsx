@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
+import { ScaleAndRotationAnim1Small } from "components/elements";
 import { useSidebar } from "context/sidebar";
 
 interface ListItemProps {
@@ -46,7 +47,9 @@ export const Sidebar = () => {
             <div className="flex absolute top-0 right-0 z-[900] flex-col w-64 h-full bg-white">
               <div className="flex justify-end p-3">
                 <button onClick={() => setisSidebarOpen(open => !open)}>
-                  <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
+                  <ScaleAndRotationAnim1Small>
+                    <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
+                  </ScaleAndRotationAnim1Small>
                 </button>
               </div>
               <div className="h-full">

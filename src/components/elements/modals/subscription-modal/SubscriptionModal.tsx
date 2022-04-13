@@ -13,7 +13,14 @@ import {
   SubModalYupSchema,
   currencies,
 } from "app-constants";
-import { RealButton, Input, Button, Modal, SelectField } from "components/elements";
+import {
+  RealButton,
+  Input,
+  Button,
+  Modal,
+  SelectField,
+  ScaleAndRotationAnim1,
+} from "components/elements";
 import { useSub } from "context";
 import {
   CardColorType,
@@ -64,7 +71,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
   };
 
   const { setSubs } = useSub();
-
   return (
     <>
       <Modal
@@ -73,12 +79,14 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
         modalButton={
           <>
             {isIcon ? (
-              <PlusCircleIcon
-                className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
-                onClick={() => {
-                  setSubModalOpen(true);
-                }}
-              />
+              <ScaleAndRotationAnim1>
+                <PlusCircleIcon
+                  className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
+                  onClick={() => {
+                    setSubModalOpen(true);
+                  }}
+                />
+              </ScaleAndRotationAnim1>
             ) : (
               <RealButton
                 onClick={() => {
@@ -96,7 +104,6 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
           validationSchema={SubModalYupSchema}
           validateOnMount
           onSubmit={(values, { setSubmitting, resetForm }) => {
-            console.log("values 1234", values);
             setSubmitting(true);
 
             const {
