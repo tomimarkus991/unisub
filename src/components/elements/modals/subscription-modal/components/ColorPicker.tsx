@@ -4,10 +4,10 @@ import { useField, useFormikContext } from "formik";
 import { motion } from "framer-motion";
 
 import { cardColors } from "app-constants";
+import { InputErrorText } from "components/elements";
 import { CardColorType } from "types";
 
 import { SubFormValues } from "..";
-import { InputErrorText } from "../../../feedback";
 
 interface Props {
   name: string;

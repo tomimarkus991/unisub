@@ -11,6 +11,8 @@ export const cardColors = {
   yellow: "bg-gradient-to-r from-yellow-400 to-orange-400",
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
+  darkBlue: "bg-gradient-to-bl from-blue-500 via-blue-700 to-blue-500",
+  pink: "bg-gradient-to-tr from-pink-500 via-pink-600 to-pink-500",
 };
 
 export const billingTypes = {
