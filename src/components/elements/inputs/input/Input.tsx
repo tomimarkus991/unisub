@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import clsx from "clsx";
-import { useField } from "formik";
+import { useField, useFormikContext } from "formik";
 import { ReactNode } from "react";
 
-import { InputErrorText } from "components/elements";
+import { InputErrorText, SubFormValues } from "components/elements";
 
 const sizes = {
   sm: "py-2 text-md rounded-md",
@@ -25,6 +25,7 @@ const variants = {
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string | ReactNode;
   name: string;
+  inputPrefix?: boolean;
   variant?: keyof typeof variants;
   inputSize?: keyof typeof sizes;
 };
@@ -34,23 +35,42 @@ export const Input = ({
   name,
   className = "appearance-none px-4",
   inputSize = "md",
+  inputPrefix = false,
   variant = "default",
   ...props
 }: Props) => {
   const [field, { touched, error }] = useField(name);
+  const { values } = useFormikContext<SubFormValues>();
 
   return (
     <>
       <div className="mb-2">
         <label htmlFor={props.id || name}>{label}</label>
       </div>
-      <input
-        className={clsx(className, sizes[inputSize], variants[variant], "")}
-        autoFocus={false}
-        autoComplete="off"
-        {...field}
-        {...props}
-      />
+      {inputPrefix ? (
+        <div className="relative">
+          <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <span className="text-gray-400 opacity-75 sm:text-sm">
+              {values.billing.currencyIcon}
+            </span>
+          </div>
+          <input
+            className={clsx(className, sizes[inputSize], variants[variant], "pl-7")}
+            autoFocus={false}
+            autoComplete="off"
+            {...field}
+            {...props}
+          />
+        </div>
+      ) : (
+        <input
+          className={clsx(className, sizes[inputSize], variants[variant], "")}
+          autoFocus={false}
+          autoComplete="off"
+          {...field}
+          {...props}
+        />
+      )}
       <InputErrorText touched={touched} error={error} />
     </>
   );

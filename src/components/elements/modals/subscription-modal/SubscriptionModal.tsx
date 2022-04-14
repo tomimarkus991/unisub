@@ -206,6 +206,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                           <div className="w-6/12">
                             <Input
                               name="cost"
+                              inputPrefix={true}
                               type="number"
                               placeholder="0"
                               className={clsx("px-3 w-10/12")}
