@@ -1,13 +1,11 @@
-import { Dialog, Transition } from "@headlessui/react";
 import { ChartBarIcon, HomeIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import { ScaleAndRotationAnim1Small } from "components/elements";
+import { ScaleAndRotationAnim1Small, ScaleAnim1 } from "components/elements";
 import { useSidebar } from "context/sidebar";
-
-import { ScaleAnim1 } from "../../animations";
 
 interface ListItemProps {
   children: ReactNode;
@@ -34,54 +32,58 @@ export const Sidebar = () => {
   const listIconClasses = "mr-3 w-8 h-8 fill-gray-800";
 
   return (
-    <div id="div before transition" className="">
-      <Transition.Root show={isSidebarOpen}>
-        <Dialog id="dialog" as="div" className="fixed inset-0 z-50" onClose={setisSidebarOpen}>
-          <Transition.Child
-            as="div"
-            id="child transition"
-            className="h-full"
-            enter="transition ease-in-out duration-200 transform"
-            enterFrom="translate-x-full"
-            enterTo="translate-x-0"
-            leave="transition ease-in-out duration-200 transform"
-            leaveFrom="translate-x-0"
-            leaveTo="translate-x-full"
+    <AnimatePresence initial exitBeforeEnter>
+      {isSidebarOpen && (
+        <>
+          <motion.div
+            key="app-sidebar-content"
+            initial={{ x: "100vw", opacity: 0 }}
+            animate={{
+              x: "0",
+              opacity: 1,
+              transition: {
+                duration: 3,
+                type: "spring",
+                damping: 30,
+                stiffness: 300,
+              },
+            }}
+            exit={{
+              x: "100vw",
+              opacity: 0,
+            }}
+            className="flex absolute top-0 right-0 z-[900] flex-col w-64 h-full bg-white"
           >
-            <div className="flex absolute top-0 right-0 z-[900] flex-col w-64 h-full bg-white">
-              <div className="flex justify-end p-3">
-                <button onClick={() => setisSidebarOpen(open => !open)}>
-                  <ScaleAndRotationAnim1Small>
-                    <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
-                  </ScaleAndRotationAnim1Small>
-                </button>
-              </div>
-              <div className="h-full">
-                <ListItem to="/">
-                  <HomeIcon className={clsx(listIconClasses)} />
-                  <p className="text-xl font-medium">Home</p>
-                </ListItem>
-
-                <ListItem to="/stats">
-                  <ChartBarIcon className={clsx(listIconClasses)} />
-                  <p className="text-xl font-medium">Stats</p>
-                </ListItem>
-              </div>
+            <div className="flex justify-end p-3">
+              <button onClick={() => setisSidebarOpen(open => !open)}>
+                <ScaleAndRotationAnim1Small>
+                  <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
+                </ScaleAndRotationAnim1Small>
+              </button>
             </div>
-          </Transition.Child>
-          <Transition.Child
-            as="div"
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75" />
-          </Transition.Child>
-        </Dialog>
-      </Transition.Root>
-    </div>
+            <div className="h-full">
+              <ListItem to="/">
+                <HomeIcon className={clsx(listIconClasses)} />
+                <p className="text-xl font-medium">Home</p>
+              </ListItem>
+
+              <ListItem to="/stats">
+                <ChartBarIcon className={clsx(listIconClasses)} />
+                <p className="text-xl font-medium">Stats</p>
+              </ListItem>
+            </div>
+          </motion.div>
+
+          <motion.div
+            key="app-sidebar-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 0.4, ease: "linear" }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-50 w-full h-full bg-gray-500"
+          />
+        </>
+      )}
+    </AnimatePresence>
   );
 };
