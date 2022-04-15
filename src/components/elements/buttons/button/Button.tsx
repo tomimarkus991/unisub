@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React from "react";
 
 const sizes = {
+  xs: "py-1 px-3 text-sm",
   sm: "py-2 px-6 text-sm",
   md: "py-2 px-10 text-md",
   lg: "py-3 px-14 text-lg",

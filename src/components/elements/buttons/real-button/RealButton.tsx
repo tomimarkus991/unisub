@@ -53,7 +53,7 @@ export const RealButton = ({
       )}
       {...props}
     >
-      <span>{children}</span>
+      {children}
     </button>
   );
 };

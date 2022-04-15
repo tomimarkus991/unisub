@@ -1,16 +1,9 @@
-import { billingTypes, currencies } from "app-constants";
+import { LayoutSubscriptionCard } from "components/elements";
 import { useSub } from "context";
-import { CurrencyType } from "types";
-
-import { LayoutSubscriptionCard } from ".";
+import { createSubPrice } from "utils";
 
 export const SubLayout = () => {
   const { subs } = useSub();
-  const findCurrencyIcon = (currency: string) => {
-    const { currencyIcon } = currencies.find(value => value.name === currency) as CurrencyType;
-
-    return currencyIcon;
-  };
 
   return (
     <div className="grid overflow-auto gap-2 justify-center last:pb-24">
@@ -20,7 +13,7 @@ export const SubLayout = () => {
             key={sub.id}
             title={sub.title}
             category={sub.category}
-            price={`${sub.cost}${findCurrencyIcon(sub.currency)} ${billingTypes[sub.billingType]}`}
+            price={createSubPrice(sub)}
             cardColor={sub.color}
             imageUrl={""}
             startDate={sub.startDate}

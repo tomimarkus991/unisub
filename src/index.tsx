@@ -2,6 +2,7 @@ import "./index.css";
 
 import { LocalizationProvider } from "@mui/lab";
 import AdapterMoment from "@mui/lab/AdapterMoment";
+import AOS from "aos";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -10,8 +11,11 @@ import { Router } from "routes";
 
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import "aos/dist/aos.css";
 
 const root = createRoot(document.getElementById("root") as Element);
+
+AOS.init();
 
 root.render(
   <BrowserRouter>

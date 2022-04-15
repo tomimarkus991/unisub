@@ -20,6 +20,7 @@ import {
   Modal,
   SelectField,
   ScaleAndRotationAnim1,
+  SubscriptionCard,
 } from "components/elements";
 import { useSub } from "context";
 import {
@@ -31,17 +32,7 @@ import {
   CurrencyType,
 } from "types";
 
-import {
-  ColorPicker,
-  DatePicker,
-  SelectCategoryModal,
-  SelectCurrencyModal,
-  SubscriptionCard,
-} from ".";
-
-interface Props {
-  isIcon?: boolean;
-}
+import { ColorPicker, DatePicker, SelectCategoryModal, SelectCurrencyModal } from ".";
 
 export interface SubFormValues {
   selectedColor: CardColorType;
@@ -53,7 +44,17 @@ export interface SubFormValues {
   subscriptionStartDate: Date | null;
 }
 
-export const SubscriptionModal = ({ isIcon = true }: Props) => {
+interface Props {
+  isIcon?: boolean;
+  buttonTitle?: string;
+  setPreviousModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const SubscriptionModal = ({
+  isIcon = true,
+  buttonTitle = "Add subscription",
+  setPreviousModalOpen,
+}: Props) => {
   const [subModalOpen, setSubModalOpen] = useState(false);
 
   const initialValues: SubFormValues = {
@@ -93,7 +94,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                   setSubModalOpen(true);
                 }}
               >
-                Add subscription
+                {buttonTitle}
               </RealButton>
             )}
           </>
@@ -132,7 +133,9 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
             };
 
             setSubs(oldSubs => [...oldSubs, subscription]);
-
+            if (setPreviousModalOpen) {
+              setPreviousModalOpen(false);
+            }
             setSubModalOpen(false);
             resetForm();
 
@@ -240,7 +243,7 @@ export const SubscriptionModal = ({ isIcon = true }: Props) => {
                 </div>
                 <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
                   <Button type="submit" isValid={isValid}>
-                    Add subscription
+                    Add sub
                   </Button>
                 </div>
               </Form>

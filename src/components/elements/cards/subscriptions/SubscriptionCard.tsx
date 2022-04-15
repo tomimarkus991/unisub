@@ -13,6 +13,7 @@ interface Props {
 
 export const SubscriptionCard = ({ title, category, price, cardColor }: Props) => {
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
+
   return (
     <div className="mt-2">
       <div

@@ -1,4 +1,12 @@
-import { CurrencyType, CategoryCardItem, SelectOption, SubscriptionBillingType } from "types";
+import moment from "moment";
+
+import {
+  CurrencyType,
+  CategoryCardItem,
+  SelectOption,
+  SubscriptionBillingType,
+  Subscription,
+} from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -74,3 +82,78 @@ export const mapSubTypeToMomentType = (paymentType: PaymentType) => {
       return "month";
   }
 };
+
+export const presetSubs: Subscription[] = [
+  {
+    id: "1",
+    active: true,
+    title: "Spotify",
+    billingType: "monthly",
+    category: "Music",
+    color: "green",
+    cost: 7.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+  {
+    id: "2",
+    active: true,
+    title: "Netflix",
+    billingType: "monthly",
+    category: "Entertainment",
+    color: "red",
+    cost: 9.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+  {
+    id: "3",
+    active: true,
+    title: "Amazon",
+    billingType: "monthly",
+    category: "Shopping",
+    color: "yellow",
+    cost: 19.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+  {
+    id: "4",
+    active: true,
+    title: "Apple",
+    billingType: "monthly",
+    category: "Technology",
+    color: "white",
+    cost: 29.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+  {
+    id: "5",
+    active: true,
+    title: "Apple",
+    billingType: "monthly",
+    category: "Technology",
+    color: "gray",
+    cost: 29.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+  {
+    id: "6",
+    active: true,
+    title: "Apple",
+    billingType: "monthly",
+    category: "Technology",
+    color: "darkBlue",
+    cost: 29.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
+];

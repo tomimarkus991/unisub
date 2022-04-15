@@ -35,3 +35,6 @@ export const SubModalYupSchema = Yup.object().shape({
 
   subscriptionStartDate: Yup.date().required("Required"),
 });
+export const SearchSubYupSchema = Yup.object().shape({
+  searchString: Yup.string(),
+});

@@ -23,15 +23,15 @@ const variants = {
 };
 
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
-  label: string | ReactNode;
   name: string;
+  label?: string | ReactNode;
   inputPrefix?: boolean;
   variant?: keyof typeof variants;
   inputSize?: keyof typeof sizes;
 };
 
 export const Input = ({
-  label = "Label",
+  label,
   name,
   className = "appearance-none px-4",
   inputSize = "md",
@@ -44,9 +44,11 @@ export const Input = ({
 
   return (
     <>
-      <div className="mb-2">
-        <label htmlFor={props.id || name}>{label}</label>
-      </div>
+      {label && (
+        <div className="mb-2">
+          <label htmlFor={props.id || name}>{label}</label>
+        </div>
+      )}
       {inputPrefix ? (
         <div className="relative">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
