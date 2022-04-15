@@ -245,12 +245,12 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <div className="flex fixed bottom-0 flex-row-reverse justify-center px-6 pt-4 pb-2 w-full bg-gray-50">
+                <div className="flex fixed bottom-0 flex-row-reverse justify-center py-2 px-6 w-full bg-gray-50 rounded-b-xl">
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
                 </div>
-                <div className="fixed -bottom-3 pb-3 w-full h-1 bg-gray-50 rounded-b-xl"></div>
+                {/* <div className="fixed -bottom-3 pb-3 w-full h-1 bg-gray-50 rounded-b-xl"></div> */}
               </Form>
             );
           }}

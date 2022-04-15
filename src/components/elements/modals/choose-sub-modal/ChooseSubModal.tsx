@@ -71,8 +71,8 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       >
         {({ values }) => {
           return (
-            <Form id="form" className="flex flex-col h-[88vh]">
-              <div className="flex sticky top-0 z-10 flex-col items-center pt-4 pb-1 w-full rounded-t-xl">
+            <Form className="flex flex-col h-[88vh]">
+              <div className="flex sticky top-0 flex-col items-center pt-4 pb-1 w-full bg-white rounded-t-xl">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
@@ -97,10 +97,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   Popular subscriptions
                 </Dialog.Title>
               </div>
-              <div
-                key="sub-presets-container"
-                className={clsx(scrollbarStyles, "inline-flex overflow-y-auto flex-col px-2")}
-              >
+              <div className={clsx(scrollbarStyles, "inline-flex overflow-y-auto flex-col px-2")}>
                 <AnimatePresence initial={false} exitBeforeEnter>
                   {presetSubs.map(sub => {
                     return (
@@ -130,14 +127,13 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex fixed bottom-0 flex-row-reverse justify-center py-3 px-6 w-full bg-gray-50">
+              <div className="flex fixed bottom-0 flex-row-reverse justify-center py-3 px-6 w-full bg-gray-50 rounded-b-xl">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"
                   setPreviousModalOpen={setOpen}
                 />
               </div>
-              <div className="fixed -bottom-3 pb-3 w-full h-1 bg-gray-50 rounded-b-xl"></div>
             </Form>
           );
         }}
