@@ -130,7 +130,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex fixed bottom-0 z-40 justify-center items-center py-2 w-full h-fit bg-slate-50">
+              <div className="flex fixed bottom-0 z-40 justify-center items-center pt-4 w-full h-fit bg-slate-50">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"

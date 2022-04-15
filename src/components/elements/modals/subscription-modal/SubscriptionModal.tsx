@@ -153,7 +153,7 @@ export const SubscriptionModal = ({
 
             return (
               <Form>
-                <div className="p-6 px-4 pt-5 pb-4">
+                <div className="px-4 pt-5 pb-4">
                   <div className="flex items-start">
                     <div className="mt-0 w-full">
                       <Dialog.Title
