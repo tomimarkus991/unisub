@@ -26,7 +26,7 @@ export const ScaleAndRotationAnim1Small = ({ children }: ScaleAndRotationAnim1Pr
   return (
     <motion.div
       whileHover={{
-        scale: [1, 1.2, 1.2],
+        scale: [1, 1, 1],
         rotate: [0, 0, 270],
       }}
       whileTap={{ scale: 0.8 }}

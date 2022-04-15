@@ -74,7 +74,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         {({ values }) => {
           return (
             <Form>
-              <div className="py-5 px-4 max-h-min">
+              <div className="py-5 px-4">
                 <div className="flex items-start">
                   <div className="mt-0 w-full">
                     <Dialog.Title
@@ -103,7 +103,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                       </Dialog.Title>
                       <div
                         key="sub-presets-container"
-                        className="grid overflow-auto gap-2 justify-center max-h-[30rem]"
+                        className="grid overflow-auto gap-2 justify-center"
                       >
                         <AnimatePresence initial={false} exitBeforeEnter>
                           {presetSubs.map(sub => {
