@@ -154,7 +154,7 @@ export const SubscriptionModal = ({
             };
 
             return (
-              <Form className="flex flex-col h-[88vh]">
+              <Form className="flex flex-col">
                 <div
                   className={clsx(
                     scrollbarStyles,

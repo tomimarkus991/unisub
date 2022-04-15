@@ -71,7 +71,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       >
         {({ values }) => {
           return (
-            <Form className="flex flex-col h-[88vh]">
+            <Form className="flex flex-col">
               <div className="flex sticky top-0 flex-col items-center pt-4 pb-1 w-full bg-white rounded-t-xl">
                 <Dialog.Title
                   as="h3"
