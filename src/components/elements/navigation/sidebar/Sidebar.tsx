@@ -80,6 +80,7 @@ export const Sidebar = () => {
             animate={{ opacity: 0.5 }}
             transition={{ duration: 0.4, ease: "linear" }}
             exit={{ opacity: 0 }}
+            onClick={() => setisSidebarOpen(false)}
             className="absolute inset-0 z-50 w-full h-full bg-gray-500"
           />
         </>
