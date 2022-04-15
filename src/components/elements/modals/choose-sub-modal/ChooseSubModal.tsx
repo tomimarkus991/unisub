@@ -106,7 +106,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <motion.div
-                          className="first:pt-2 last:pb-16 mb-2"
+                          className="first:pt-2 last:pb-2 mb-2"
                           key={"sub-card-" + sub.id}
                           initial={{ y: "-50vh", opacity: 0 }}
                           animate={{
@@ -130,14 +130,13 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex fixed bottom-0 z-40 justify-center items-center pt-4 w-full h-fit bg-slate-50">
+              <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"
                   setPreviousModalOpen={setOpen}
                 />
               </div>
-              <div className="fixed -bottom-4 z-40 pb-4 w-full h-1 bg-slate-50 rounded-b-xl"></div>
             </Form>
           );
         }}

@@ -12,6 +12,7 @@ import {
   mapSubTypeToMomentType,
   SubModalYupSchema,
   currencies,
+  scrollbarStyles,
 } from "app-constants";
 import {
   RealButton,
@@ -152,91 +153,86 @@ export const SubscriptionModal = ({
             };
 
             return (
-              <Form>
-                <div className="px-4 pt-5 pb-4">
-                  <div className="flex items-start">
-                    <div className="mt-0 w-full">
-                      <Dialog.Title
-                        as="h3"
-                        className="mb-4 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-                      >
-                        Add a new Subscription
-                      </Dialog.Title>
-                      <SubscriptionCard
-                        title={title}
-                        category={selectedCategory.name}
-                        price={`${cost === "" ? "0" : cost}${findCorrectCurrency()} ${
-                          billingTypes[selectedBillingType.name]
-                        }`}
-                        cardColor={selectedColor}
-                        imageUrl={""}
-                      />
-                      <Dialog.Title
-                        as="h3"
-                        className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
-                      >
-                        General
-                      </Dialog.Title>
-                      <div className="mt-4">
-                        <div className="flex flex-row">
-                          <div className="w-6/12 sm:w-full">
-                            <Input
-                              name="title"
-                              type="text"
-                              placeholder="Sub name"
-                              className={clsx("px-3 w-11/12")}
-                              label={
-                                <>
-                                  Name <span className="text-red-500">*</span>
-                                </>
-                              }
-                            />
-                          </div>
-                          <div className="w-6/12 sm:w-full">
-                            <SelectCategoryModal name="selectedCategory" />
-                          </div>
-                        </div>
-                        <ColorPicker name="selectedColor" />
+              <Form className="flex flex-col h-[88vh]">
+                <div
+                  className={clsx(
+                    scrollbarStyles,
+                    "inline-flex overflow-y-auto flex-col py-2 px-3"
+                  )}
+                >
+                  <SubscriptionCard
+                    title={title}
+                    category={selectedCategory.name}
+                    price={`${cost === "" ? "0" : cost}${findCorrectCurrency()} ${
+                      billingTypes[selectedBillingType.name]
+                    }`}
+                    cardColor={selectedColor}
+                    imageUrl={""}
+                  />
+                  <Dialog.Title
+                    as="h3"
+                    className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
+                  >
+                    General
+                  </Dialog.Title>
+                  <div className="mt-4">
+                    <div className="flex flex-row">
+                      <div className="w-6/12 sm:w-full">
+                        <Input
+                          name="title"
+                          type="text"
+                          placeholder="Sub name"
+                          className={clsx("px-3 w-11/12")}
+                          label={
+                            <>
+                              Name <span className="text-red-500">*</span>
+                            </>
+                          }
+                        />
                       </div>
-                      <Dialog.Title
-                        as="h3"
-                        className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
-                      >
-                        Billing
-                      </Dialog.Title>
-                      <div className="mt-4">
-                        <div className="flex flex-row">
-                          <div className="w-6/12">
-                            <Input
-                              name="cost"
-                              inputPrefix={true}
-                              type="number"
-                              placeholder="0"
-                              className={clsx("px-3 w-10/12")}
-                              label={
-                                <>
-                                  Cost <span className="text-red-500">*</span>
-                                </>
-                              }
-                            />
-                          </div>
-                          <div className="w-6/12">
-                            <SelectField
-                              title="Type"
-                              name="selectedBillingType"
-                              options={subscriptionTypeAsSelectValues}
-                            />
-                          </div>
-                        </div>
+                      <div className="w-6/12 sm:w-full">
+                        <SelectCategoryModal name="selectedCategory" />
+                      </div>
+                    </div>
+                    <ColorPicker name="selectedColor" />
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
+                  >
+                    Billing
+                  </Dialog.Title>
+                  <div className="mt-4">
+                    <div className="flex flex-row">
+                      <div className="w-6/12">
+                        <Input
+                          name="cost"
+                          inputPrefix={true}
+                          type="number"
+                          placeholder="0"
+                          className={clsx("px-3 w-10/12")}
+                          label={
+                            <>
+                              Cost <span className="text-red-500">*</span>
+                            </>
+                          }
+                        />
+                      </div>
+                      <div className="w-6/12">
+                        <SelectField
+                          title="Type"
+                          name="selectedBillingType"
+                          options={subscriptionTypeAsSelectValues}
+                        />
+                      </div>
+                    </div>
 
-                        <div className="flex flex-row mt-3">
-                          <div className="w-8/12 xs2:w-7/12">
-                            <DatePicker name="subscriptionStartDate" />
-                          </div>
-                          <div className="w-4/12 xs2:w-5/12">
-                            <SelectCurrencyModal name="billing" />
-                          </div>
-                        </div>
+                    <div className="flex flex-row mt-3">
+                      <div className="w-8/12 xs2:w-7/12">
+                        <DatePicker name="subscriptionStartDate" />
+                      </div>
+                      <div className="w-4/12 xs2:w-5/12">
+                        <SelectCurrencyModal name="billing" />
                       </div>
                     </div>
                   </div>
