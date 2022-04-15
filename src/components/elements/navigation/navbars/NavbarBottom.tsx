@@ -5,7 +5,7 @@ import { ScaleAnim1, ChooseSubModal } from "components/elements";
 
 export const NavbarBottom = () => {
   return (
-    <div className="flex flex-row justify-around w-full">
+    <div className="flex z-50 flex-row justify-around w-full">
       <Link to="/">
         <ScaleAnim1>
           <HomeIcon className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800" />
