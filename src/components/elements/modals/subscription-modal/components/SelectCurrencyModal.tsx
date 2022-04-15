@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
-import { currencies } from "app-constants";
+import { currencies, scrollbarStyles } from "app-constants";
 import { RealButton, Modal, InputErrorText } from "components/elements";
 import { CurrencyType } from "types";
 
@@ -85,7 +85,8 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                     <div
                       onClick={() => setOpen(false)}
                       className={clsx(
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600"
+                        scrollbarStyles,
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
                       )}
                     >
                       <span

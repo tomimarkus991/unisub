@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { cardColors } from "app-constants";
+import { cardColors, scrollbarStyles } from "app-constants";
 import { Button } from "components/elements";
 import { CardColorType } from "types";
 
@@ -22,7 +22,12 @@ export const PresetSubscriptionCard = ({ title, category, cardColor }: Props) =>
         )}
       >
         <div className="flex flex-col ml-2 w-9/12 sm:ml-6">
-          <div className="overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-1 scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600">
+          <div
+            className={clsx(
+              scrollbarStyles,
+              "overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-1"
+            )}
+          >
             <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
           </div>
           <div className="flex flex-row justify-start">

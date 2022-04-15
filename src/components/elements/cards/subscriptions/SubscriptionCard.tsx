@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { cardColors } from "app-constants";
+import { cardColors, scrollbarStyles } from "app-constants";
 import { CardColorType } from "types";
 
 interface Props {
@@ -28,7 +28,12 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
           </div>
         </div> */}
         <div className="flex flex-col ml-2 w-7/12 sm:ml-12">
-          <div className="overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4 scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600">
+          <div
+            className={clsx(
+              scrollbarStyles,
+              "overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4"
+            )}
+          >
             <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>
               {title === "" ? "Sub name" : title}
             </p>

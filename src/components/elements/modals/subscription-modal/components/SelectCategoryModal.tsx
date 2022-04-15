@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 
-import { cardColors, categories } from "app-constants";
+import { cardColors, categories, scrollbarStyles } from "app-constants";
 import { InputErrorText, Modal, RealButton, SubFormValues } from "components/elements";
 import { CategoryCardItem } from "types";
 
@@ -63,7 +63,8 @@ export const SelectCategoryModal = ({ name }: Props) => {
                     {({ checked }) => (
                       <div
                         className={clsx(
-                          "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer scrollbar-thin scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600",
+                          scrollbarStyles,
+                          "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer",
                           // `hover:${cardColors[values.selectedColor]}`,
                           "hover:bg-gradient-to-br hover:from-slate-50 hover:via-slate-200 hover:to-white",
                           checked ? `${cardColors[values.selectedColor]}` : "",

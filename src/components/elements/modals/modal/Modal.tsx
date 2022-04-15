@@ -17,10 +17,13 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
         <Dialog
           initialFocus={initialFocusRef}
           as="div"
-          className="overflow-y-auto fixed inset-0 z-50"
+          className="inline-block overflow-y-auto fixed inset-0 inset-y-8 z-50 m-auto w-full"
           onClose={setOpen}
         >
-          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-0 select-none">
+          <div
+            ref={initialFocusRef}
+            className="flex flex-1 justify-center items-center px-4 w-full h-full select-none"
+          >
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -33,10 +36,6 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
               <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
             </Transition.Child>
 
-            {/* This element is to trick the browser into centering the modal contents. */}
-            <span ref={initialFocusRef} className="hidden h-screen align-middle" aria-hidden="true">
-              &#8203;
-            </span>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -46,7 +45,7 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-4 scale-95"
             >
-              <div className="inline-block my-8 w-full max-w-xl align-bottom bg-white rounded-xl shadow-xl transition-all transform">
+              <div className="inline-block w-full max-w-xl align-bottom bg-white rounded-xl shadow-xl transition-all transform">
                 {children}
               </div>
             </Transition.Child>

@@ -156,4 +156,16 @@ export const presetSubs: Subscription[] = [
     startDate: moment(new Date()).unix(),
     nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
   },
+  {
+    id: "7",
+    active: true,
+    title: "Amazon",
+    billingType: "monthly",
+    category: "Shopping",
+    color: "yellow",
+    cost: 19.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
 ];

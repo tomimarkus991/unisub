@@ -5,34 +5,35 @@ import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-import { presetSubs, SearchSubYupSchema } from "app-constants";
+import { presetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
 import {
-  ScaleAndRotationAnim1,
-  RealButton,
-  SubscriptionModal,
   Input,
   PresetSubscriptionCard,
-  Modal,
+  RealButton,
+  ScaleAndRotationAnim1,
+  SubscriptionModal,
 } from "components/elements";
 
-interface Props {
-  isIcon?: boolean;
-}
+import { Modal } from "../modal";
 
 interface FormValues {
   searchString: string;
 }
+interface Props {
+  isIcon?: boolean;
+}
+
 export const ChooseSubModal = ({ isIcon = true }: Props) => {
+  const [open, setOpen] = useState(false);
+
   const initialValues: FormValues = {
     searchString: "",
   };
 
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <Modal
-      open={modalOpen}
-      setOpen={setModalOpen}
+      open={open}
+      setOpen={setOpen}
       modalButton={
         <>
           {isIcon ? (
@@ -40,14 +41,14 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
               <PlusCircleIcon
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                 onClick={() => {
-                  setModalOpen(true);
+                  setOpen(true);
                 }}
               />
             </ScaleAndRotationAnim1>
           ) : (
             <RealButton
               onClick={() => {
-                setModalOpen(true);
+                setOpen(true);
               }}
             >
               Create new subscription
@@ -60,11 +61,8 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         initialValues={initialValues}
         validationSchema={SearchSubYupSchema}
         validateOnMount
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={(_, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-
-          const { searchString } = values;
-          console.log("searchString", searchString);
 
           resetForm();
 
@@ -73,92 +71,73 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       >
         {({ values }) => {
           return (
-            <Form>
-              <div className="py-5 px-4">
-                <div className="flex items-start">
-                  <div className="mt-0 w-full">
-                    <Dialog.Title
-                      as="h3"
-                      className="mb-4 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-                    >
-                      Add a new Subscription
-                    </Dialog.Title>
+            <Form id="form" className="flex flex-col h-[88vh]">
+              <div className="flex sticky top-0 z-10 flex-col items-center pt-4 pb-1 w-full rounded-t-xl">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+                >
+                  Add a new Subscription
+                </Dialog.Title>
 
-                    <div className="mt-4">
-                      <div className="flex flex-row">
-                        <Input
-                          name="searchString"
-                          type="text"
-                          placeholder="Search"
-                          className={clsx("px-3 w-full")}
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-4">
-                      <Dialog.Title
-                        as="h3"
-                        className="mb-2 text-lg font-medium leading-6 text-left text-gray-400"
-                      >
-                        Popular subscriptions
-                      </Dialog.Title>
-                      <div
-                        key="sub-presets-container"
-                        className="grid overflow-auto gap-2 justify-center"
-                      >
-                        <AnimatePresence initial={false} exitBeforeEnter>
-                          {presetSubs.map(sub => {
-                            console.log("sub.title.toLowerCase()", sub.title.toLowerCase());
-                            console.log(
-                              "values.searchString.toLowerCase()",
-                              values.searchString.toLowerCase()
-                            );
-
-                            return (
-                              sub.title
-                                .toLowerCase()
-                                .includes(values.searchString.toLowerCase()) && (
-                                <motion.div
-                                  key={"sub-card-" + sub.id}
-                                  initial={{ y: "-50vh", opacity: 0 }}
-                                  animate={{
-                                    y: "0",
-                                    opacity: 1,
-                                    transition: {
-                                      type: "spring",
-                                      duration: 1,
-                                      bounce: 0.1,
-                                    },
-                                  }}
-                                  // exit={{
-                                  //   opacity: 0,
-                                  // }}
-                                  // animate={{ opacity: 1 }}
-                                  // initial={{ opacity: 0 }}
-                                  // exit={{ opacity: 0 }}
-                                  // transition={{ duration: 0.5 }}
-                                >
-                                  <PresetSubscriptionCard
-                                    title={sub.title}
-                                    category={sub.category}
-                                    cardColor={sub.color}
-                                  />
-                                </motion.div>
-                              )
-                            );
-                          })}
-                        </AnimatePresence>
-                      </div>
-                    </div>
+                <div className="mt-4">
+                  <div className="flex flex-row">
+                    <Input
+                      name="searchString"
+                      type="text"
+                      placeholder="Search"
+                      className={clsx("px-3 w-full")}
+                    />
                   </div>
                 </div>
+                <Dialog.Title
+                  as="h3"
+                  className="mt-2 text-lg font-medium leading-6 text-left text-gray-400"
+                >
+                  Popular subscriptions
+                </Dialog.Title>
               </div>
-              <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
+              <div
+                key="sub-presets-container"
+                className={clsx(scrollbarStyles, "inline-flex overflow-y-auto flex-col px-2")}
+              >
+                <AnimatePresence initial={false} exitBeforeEnter>
+                  {presetSubs.map(sub => {
+                    return (
+                      sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
+                        <motion.div
+                          className="first:pt-2 last:pb-16 mb-2"
+                          key={"sub-card-" + sub.id}
+                          initial={{ y: "-50vh", opacity: 0 }}
+                          animate={{
+                            y: "0",
+                            opacity: 1,
+                            transition: {
+                              type: "spring",
+                              duration: 1,
+                              bounce: 0.1,
+                            },
+                          }}
+                        >
+                          <PresetSubscriptionCard
+                            title={sub.title}
+                            category={sub.category}
+                            cardColor={sub.color}
+                          />
+                        </motion.div>
+                      )
+                    );
+                  })}
+                </AnimatePresence>
+              </div>
+              <div className="flex fixed bottom-0 z-40 justify-center items-center py-2 w-full h-fit bg-slate-50">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"
-                  setPreviousModalOpen={setModalOpen}
+                  setPreviousModalOpen={setOpen}
                 />
               </div>
+              <div className="fixed -bottom-4 z-40 pb-4 w-full h-1 bg-slate-50 rounded-b-xl"></div>
             </Form>
           );
         }}
