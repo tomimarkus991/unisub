@@ -2,6 +2,7 @@ import { Dialog } from "@headlessui/react";
 import { PlusCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 import { presetSubs, SearchSubYupSchema } from "app-constants";
@@ -100,25 +101,52 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                       >
                         Popular subscriptions
                       </Dialog.Title>
-                      <div className="grid overflow-auto gap-2 justify-center max-h-[30rem]">
-                        {presetSubs.map(sub => {
-                          console.log("sub.title.toLowerCase()", sub.title.toLowerCase());
-                          console.log(
-                            "values.searchString.toLowerCase()",
-                            values.searchString.toLowerCase()
-                          );
+                      <div
+                        key="sub-presets-container"
+                        className="grid overflow-auto gap-2 justify-center max-h-[30rem]"
+                      >
+                        <AnimatePresence initial={false} exitBeforeEnter>
+                          {presetSubs.map(sub => {
+                            console.log("sub.title.toLowerCase()", sub.title.toLowerCase());
+                            console.log(
+                              "values.searchString.toLowerCase()",
+                              values.searchString.toLowerCase()
+                            );
 
-                          return (
-                            sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
-                              <PresetSubscriptionCard
-                                key={sub.id}
-                                title={sub.title}
-                                category={sub.category}
-                                cardColor={sub.color}
-                              />
-                            )
-                          );
-                        })}
+                            return (
+                              sub.title
+                                .toLowerCase()
+                                .includes(values.searchString.toLowerCase()) && (
+                                <motion.div
+                                  key={"sub-card-" + sub.id}
+                                  initial={{ y: "-50vh", opacity: 0 }}
+                                  animate={{
+                                    y: "0",
+                                    opacity: 1,
+                                    transition: {
+                                      type: "spring",
+                                      duration: 1,
+                                      bounce: 0.1,
+                                    },
+                                  }}
+                                  // exit={{
+                                  //   opacity: 0,
+                                  // }}
+                                  // animate={{ opacity: 1 }}
+                                  // initial={{ opacity: 0 }}
+                                  // exit={{ opacity: 0 }}
+                                  // transition={{ duration: 0.5 }}
+                                >
+                                  <PresetSubscriptionCard
+                                    title={sub.title}
+                                    category={sub.category}
+                                    cardColor={sub.color}
+                                  />
+                                </motion.div>
+                              )
+                            );
+                          })}
+                        </AnimatePresence>
                       </div>
                     </div>
                   </div>

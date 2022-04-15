@@ -20,7 +20,7 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
           className="overflow-y-auto fixed inset-0 z-50"
           onClose={setOpen}
         >
-          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-20 min-h-screen select-none">
+          <div className="flex justify-center items-center p-0 px-4 pt-4 pb-0 select-none">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
