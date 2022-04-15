@@ -41,6 +41,8 @@ export const Input = ({
 }: Props) => {
   const [field, { touched, error }] = useField(name);
   const { values } = useFormikContext<SubFormValues>();
+  const errorStyles =
+    "border-2 border-red-300 caret-red-400 focus:outline-none focus:border-red-500";
 
   return (
     <>
@@ -57,7 +59,13 @@ export const Input = ({
             </span>
           </div>
           <input
-            className={clsx(className, sizes[inputSize], variants[variant], "pl-7")}
+            className={clsx(
+              className,
+              sizes[inputSize],
+              variants[variant],
+              error && errorStyles,
+              "pl-7"
+            )}
             autoFocus={false}
             autoComplete="off"
             {...field}
@@ -66,7 +74,7 @@ export const Input = ({
         </div>
       ) : (
         <input
-          className={clsx(className, sizes[inputSize], variants[variant], "")}
+          className={clsx(className, sizes[inputSize], variants[variant], error && errorStyles, "")}
           autoFocus={false}
           autoComplete="off"
           {...field}
