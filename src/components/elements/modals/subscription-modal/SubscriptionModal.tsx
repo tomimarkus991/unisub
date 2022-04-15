@@ -23,6 +23,7 @@ import {
   ScaleAndRotationAnim1,
   SubscriptionCard,
   ScaleAndRotationAnim1Small,
+  Rotate360Anim,
 } from "components/elements";
 import { useSub } from "context";
 import {
@@ -163,9 +164,9 @@ export const SubscriptionModal = ({
                 >
                   <div className="flex flex-row justify-between">
                     <button onClick={() => setSubModalOpen(open => !open)}>
-                      <ScaleAndRotationAnim1Small>
+                      <Rotate360Anim>
                         <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                      </ScaleAndRotationAnim1Small>
+                      </Rotate360Anim>
                     </button>
                     <button onClick={() => setSubModalOpen(open => !open)}>
                       <ScaleAndRotationAnim1Small>

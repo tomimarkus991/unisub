@@ -40,3 +40,22 @@ export const ScaleAndRotationAnim1Small = ({ children }: ScaleAndRotationAnim1Pr
     </motion.div>
   );
 };
+
+export const Rotate360Anim = ({ children }: ScaleAndRotationAnim1Props) => {
+  return (
+    <motion.div
+      whileHover={{
+        scale: [1, 1, 1],
+        rotate: [0, 0, 360],
+      }}
+      whileTap={{ scale: 0.8 }}
+      transition={{
+        duration: 1,
+        ease: "easeIn",
+        times: [0, 0.2, 0.5],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+};
