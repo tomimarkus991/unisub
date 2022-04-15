@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { PlusCircleIcon } from "@heroicons/react/solid";
+import { ArrowLeftIcon, PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import moment from "moment";
@@ -22,6 +22,7 @@ import {
   SelectField,
   ScaleAndRotationAnim1,
   SubscriptionCard,
+  ScaleAndRotationAnim1Small,
 } from "components/elements";
 import { useSub } from "context";
 import {
@@ -157,9 +158,21 @@ export const SubscriptionModal = ({
                 <div
                   className={clsx(
                     scrollbarStyles,
-                    "inline-flex overflow-y-auto flex-col py-2 px-3"
+                    "inline-flex overflow-y-auto flex-col py-2 px-3 pb-20"
                   )}
                 >
+                  <div className="flex flex-row justify-between">
+                    <button onClick={() => setSubModalOpen(open => !open)}>
+                      <ScaleAndRotationAnim1Small>
+                        <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      </ScaleAndRotationAnim1Small>
+                    </button>
+                    <button onClick={() => setSubModalOpen(open => !open)}>
+                      <ScaleAndRotationAnim1Small>
+                        <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      </ScaleAndRotationAnim1Small>
+                    </button>
+                  </div>
                   <SubscriptionCard
                     title={title}
                     category={selectedCategory.name}
@@ -237,11 +250,12 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-row-reverse justify-center py-3 px-6 bg-gray-50 rounded-b-xl">
+                <div className="flex fixed bottom-0 flex-row-reverse justify-center px-6 pt-4 pb-2 w-full bg-gray-50">
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
                 </div>
+                <div className="fixed -bottom-3 pb-3 w-full h-1 bg-gray-50 rounded-b-xl"></div>
               </Form>
             );
           }}
