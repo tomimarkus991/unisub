@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { ArrowLeftIcon, PlusCircleIcon, XIcon } from "@heroicons/react/solid";
+import { ArrowLeftIcon, PlusCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import moment from "moment";
@@ -22,7 +22,6 @@ import {
   SelectField,
   ScaleAndRotationAnim1,
   SubscriptionCard,
-  ScaleAndRotationAnim1Small,
   Rotate360Anim,
 } from "components/elements";
 import { useSub } from "context";
@@ -167,11 +166,6 @@ export const SubscriptionModal = ({
                       <Rotate360Anim>
                         <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                       </Rotate360Anim>
-                    </button>
-                    <button onClick={() => setSubModalOpen(open => !open)}>
-                      <ScaleAndRotationAnim1Small>
-                        <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                      </ScaleAndRotationAnim1Small>
                     </button>
                   </div>
                   <SubscriptionCard
