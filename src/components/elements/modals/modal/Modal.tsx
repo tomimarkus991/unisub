@@ -17,7 +17,7 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
         <Dialog
           initialFocus={initialFocusRef}
           as="div"
-          className="inline-block overflow-y-auto fixed inset-0 inset-y-8 z-50 m-auto w-full"
+          className="inline-block overflow-y-auto fixed inset-0 inset-y-8 z-50 m-auto w-full max-h-full"
           onClose={setOpen}
         >
           <div
@@ -45,7 +45,10 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-4 scale-95"
             >
-              <div className="inline-block w-full max-w-xl align-bottom bg-white rounded-xl shadow-xl transition-all transform">
+              <div
+                id="modal-children"
+                className="block w-full max-w-xl h-full bg-white transition-all transform"
+              >
                 {children}
               </div>
             </Transition.Child>

@@ -1,12 +1,19 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Dialog, RadioGroup } from "@headlessui/react";
+import { ArrowLeftIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 
 import { cardColors, categories, scrollbarStyles } from "app-constants";
-import { InputErrorText, Modal, RealButton, SubFormValues } from "components/elements";
+import {
+  InputErrorText,
+  Modal,
+  RealButton,
+  Rotate360Anim,
+  SubFormValues,
+} from "components/elements";
 import { CategoryCardItem } from "types";
 
 interface Props {
@@ -42,7 +49,14 @@ export const SelectCategoryModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="p-6 px-4 pt-5 pb-4">
+        <div className="p-6 px-4 pt-5 pb-4 bg-white">
+          <div className="flex flex-row justify-between">
+            <button onClick={() => setOpen(open => !open)}>
+              <Rotate360Anim>
+                <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+              </Rotate360Anim>
+            </button>
+          </div>
           <div className="flex items-start">
             <div className="mt-0 w-full">
               <Dialog.Title
@@ -82,9 +96,6 @@ export const SelectCategoryModal = ({ name }: Props) => {
               </RadioGroup>
             </div>
           </div>
-        </div>
-        <div className="flex flex-row-reverse py-3 px-6 bg-gray-50 rounded-b-xl">
-          <p>bottom</p>
         </div>
       </Modal>
     </>

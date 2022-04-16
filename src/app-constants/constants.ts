@@ -168,4 +168,16 @@ export const presetSubs: Subscription[] = [
     startDate: moment(new Date()).unix(),
     nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
   },
+  {
+    id: "8",
+    active: true,
+    title: "Spotify",
+    billingType: "monthly",
+    category: "Music",
+    color: "red",
+    cost: 7.99,
+    currency: "EUR",
+    startDate: moment(new Date()).unix(),
+    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+  },
 ];

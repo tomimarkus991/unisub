@@ -71,8 +71,8 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       >
         {({ values }) => {
           return (
-            <Form className="flex flex-col">
-              <div className="flex sticky top-0 flex-col items-center pt-4 pb-1 w-full bg-white rounded-t-xl">
+            <Form className={clsx(scrollbarStyles, "flex flex-col")}>
+              <div className="flex sticky top-0 z-40 flex-col items-center pt-4 pb-3 mb-2 w-full bg-white">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
@@ -97,13 +97,13 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   Popular subscriptions
                 </Dialog.Title>
               </div>
-              <div className={clsx(scrollbarStyles, "inline-flex overflow-y-auto flex-col px-2")}>
+              <div className={clsx(scrollbarStyles, "flex flex-col px-2 bg-white")}>
                 <AnimatePresence initial={false} exitBeforeEnter>
                   {presetSubs.map(sub => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <motion.div
-                          className="first:pt-2 last:pb-[4.5rem] mb-2"
+                          className="mb-2"
                           key={"sub-card-" + sub.id}
                           initial={{ y: "-50vh", opacity: 0 }}
                           animate={{
@@ -127,7 +127,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex fixed bottom-0 flex-row-reverse justify-center py-3 px-6 w-full bg-gray-50 rounded-b-xl">
+              <div className="flex sticky bottom-0 justify-center py-3 px-6 w-full bg-white">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"

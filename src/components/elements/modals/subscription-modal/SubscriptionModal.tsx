@@ -154,11 +154,11 @@ export const SubscriptionModal = ({
             };
 
             return (
-              <Form className="flex flex-col">
+              <Form className={clsx(scrollbarStyles, "flex flex-col")}>
                 <div
                   className={clsx(
                     scrollbarStyles,
-                    "inline-flex overflow-y-auto flex-col py-2 px-3 pb-20"
+                    "inline-flex overflow-y-auto flex-col py-2 px-3 bg-white"
                   )}
                 >
                   <div className="flex flex-row justify-between">
@@ -245,12 +245,11 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <div className="flex fixed bottom-0 flex-row-reverse justify-center py-2 px-6 w-full bg-gray-50 rounded-b-xl">
+                <div className="flex sticky bottom-0 z-40 flex-row-reverse justify-center py-2 px-6 w-full bg-gray-50">
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
                 </div>
-                {/* <div className="fixed -bottom-3 pb-3 w-full h-1 bg-gray-50 rounded-b-xl"></div> */}
               </Form>
             );
           }}
