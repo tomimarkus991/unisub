@@ -47,7 +47,7 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
             >
               <div
                 id="modal-children"
-                className="block w-full max-w-xl h-full bg-white transition-all transform"
+                className="block w-full max-w-xl h-full bg-white rounded-xl transition-all transform"
               >
                 {children}
               </div>

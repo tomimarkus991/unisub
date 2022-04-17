@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { PlusCircleIcon } from "@heroicons/react/solid";
+import { PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,6 +10,7 @@ import {
   Input,
   PresetSubscriptionCard,
   RealButton,
+  Rotate360Anim,
   ScaleAndRotationAnim1,
   SubscriptionModal,
 } from "components/elements";
@@ -72,6 +73,13 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         {({ values }) => {
           return (
             <Form className={clsx(scrollbarStyles, "flex flex-col")}>
+              <div className="flex justify-end mt-2 mr-2">
+                <button onClick={() => setOpen(open => !open)}>
+                  <Rotate360Anim>
+                    <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                  </Rotate360Anim>
+                </button>
+              </div>
               <div className="flex sticky top-0 z-40 flex-col items-center pt-4 pb-3 mb-2 w-full bg-white">
                 <Dialog.Title
                   as="h3"
@@ -127,7 +135,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex sticky bottom-0 justify-center py-3 px-6 w-full bg-white">
+              <div className="flex sticky bottom-0 justify-center py-3 px-6 w-full bg-white rounded-b-xl">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"

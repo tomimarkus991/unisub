@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react";
-import { ArrowLeftIcon, PlusCircleIcon } from "@heroicons/react/solid";
+import { ArrowLeftIcon, PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import moment from "moment";
@@ -158,13 +158,24 @@ export const SubscriptionModal = ({
                 <div
                   className={clsx(
                     scrollbarStyles,
-                    "inline-flex overflow-y-auto flex-col py-2 px-3 bg-white"
+                    "inline-flex overflow-y-auto flex-col py-2 px-3 bg-white rounded-t-xl"
                   )}
                 >
                   <div className="flex flex-row justify-between">
                     <button onClick={() => setSubModalOpen(open => !open)}>
                       <Rotate360Anim>
                         <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      </Rotate360Anim>
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (setPreviousModalOpen) {
+                          setPreviousModalOpen(open => !open);
+                        }
+                      }}
+                    >
+                      <Rotate360Anim>
+                        <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                       </Rotate360Anim>
                     </button>
                   </div>
@@ -245,7 +256,7 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <div className="flex sticky bottom-0 z-40 flex-row-reverse justify-center py-2 px-6 w-full bg-gray-50">
+                <div className="flex justify-center py-2 px-6 w-full bg-gray-50 rounded-b-xl">
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
