@@ -65,22 +65,24 @@ export const SelectCurrencyModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="p-6 px-4 pt-5 pb-4">
-          <div className="flex flex-row justify-between">
-            <button onClick={() => setOpen(open => !open)}>
-              <Rotate360Anim>
-                <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-              </Rotate360Anim>
-            </button>
+        <div className="flex flex-row justify-between items-center p-4">
+          <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
+            <Rotate360Anim>
+              <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+            </Rotate360Anim>
           </div>
+          <Dialog.Title
+            as="h3"
+            className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+          >
+            Select currency
+          </Dialog.Title>
+
+          <ArrowLeftIcon className="w-8 h-8 opacity-0" />
+        </div>
+        <div className="p-6 px-4 pt-5 pb-4">
           <div className="flex items-start">
             <div className="mt-0 w-full">
-              <Dialog.Title
-                as="h3"
-                className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-              >
-                Select currency
-              </Dialog.Title>
               <RadioGroup
                 className="grid grid-cols-2 mt-6"
                 value={field.value}
