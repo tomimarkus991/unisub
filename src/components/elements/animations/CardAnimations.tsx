@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { cardColorsReversed } from "app-constants";
+import { cardColors } from "app-constants";
 import { CardColorType } from "types";
 
 interface Props {
@@ -37,55 +37,55 @@ export const CardAnimations = ({ cardColor, durationModifier = 1 }: Props) => {
         key="object-1"
         animate={{ ...basicAnimation }}
         transition={{ repeat: Infinity, duration: getDuration(5) }}
-        className={clsx(boxes.sm, "top-[45%] left-[50%]", cardColorsReversed[cardColor])}
+        className={clsx(boxes.sm, "top-[45%] left-[50%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-2"
         animate={basicAnimation}
         transition={{ repeat: Infinity, duration: getDuration(16) }}
-        className={clsx(circles.sm, "top-[65%] left-[30%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.sm, "top-[65%] left-[30%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-3"
         animate={basicAnimationLonger}
         transition={{ repeat: Infinity, duration: getDuration(30) }}
-        className={clsx(circles.sm, "top-[35%] left-[10%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.sm, "top-[35%] left-[10%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-4"
         animate={toRightAnimation}
         transition={{ repeat: Infinity, duration: getDuration(26) }}
-        className={clsx(boxes.sm, "top-[35%] left-[10%]", cardColorsReversed[cardColor])}
+        className={clsx(boxes.sm, "top-[35%] left-[10%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-5"
         animate={basicAnimationReversed}
         transition={{ repeat: Infinity, duration: getDuration(24) }}
-        className={clsx(circles.sm, "top-[35%] left-[80%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.sm, "top-[35%] left-[80%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-6"
         animate={basicAnimationReversed}
         transition={{ repeat: Infinity, duration: getDuration(20) }}
-        className={clsx(circles.sm, "top-[5%] left-[80%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.sm, "top-[5%] left-[80%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-7"
         animate={basicAnimationLongerAndReversed}
         transition={{ repeat: Infinity, duration: getDuration(17) }}
-        className={clsx(circles.xl, "top-[5%] left-[80%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.xl, "top-[5%] left-[80%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-8"
         animate={basicAnimation}
         transition={{ repeat: Infinity, duration: getDuration(14) }}
-        className={clsx(circles.xl, "top-[60%] left-[5%]", cardColorsReversed[cardColor])}
+        className={clsx(circles.xl, "top-[60%] left-[5%]", cardColors[cardColor])}
       />
       <motion.div
         key="object-9"
         animate={basicAnimationReversed}
         transition={{ repeat: Infinity, duration: getDuration(20) }}
-        className={clsx(boxes.lg, "top-[5%] left-[50%]", cardColorsReversed[cardColor])}
+        className={clsx(boxes.lg, "top-[5%] left-[50%]", cardColors[cardColor])}
       />
     </AnimatePresence>
   );

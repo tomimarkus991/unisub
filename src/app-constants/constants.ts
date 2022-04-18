@@ -4,7 +4,7 @@ import { CurrencyType, CategoryCardItem, SubscriptionBillingType, Subscription }
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
-  orange: "bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-400",
+  orange: "bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400",
   blue: "bg-gradient-to-tr from-blue-700 to-pink-500",
   purple: "bg-gradient-to-tl from-violet-500 to-fuchsia-500",
   purpleBlue: "bg-gradient-to-r from-purple-700 to-blue-600",
@@ -13,20 +13,6 @@ export const cardColors = {
   yellow: "bg-gradient-to-r from-yellow-400 to-orange-400",
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
-  darkBlue: "bg-gradient-to-bl from-blue-500 via-blue-700 to-blue-500",
-  pink: "bg-gradient-to-tr from-pink-500 via-pink-600 to-pink-500",
-};
-export const cardColorsReversed = {
-  green: "bg-gradient-to-r from-green-400 to-green-600",
-  orange: "bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-600",
-  blue: "bg-gradient-to-tr from-blue-500 to-pink-700",
-  purple: "bg-gradient-to-tl from-fuchsia-500 to-violet-500",
-  purpleBlue: "bg-gradient-to-r from-blue-600 to-purple-700",
-  indigo: "bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500",
-  red: "bg-gradient-to-r from-red-500 via-red-600 to-red-500",
-  yellow: "bg-gradient-to-r from-orange-400 to-yellow-400",
-  gray: "bg-gradient-to-tr from-gray-400 to-gray-600",
-  white: "bg-gradient-to-r from-white to-slate-200",
   darkBlue: "bg-gradient-to-bl from-blue-500 via-blue-700 to-blue-500",
   pink: "bg-gradient-to-tr from-pink-500 via-pink-600 to-pink-500",
 };
@@ -41,10 +27,6 @@ export interface ICurrencyIcons {
   EUR: "€";
   USD: "$";
 }
-// export const currencyIcons = {
-//   EUR: { name: "EUR", icon: "€", flag: "european-union.svg" },
-//   USD: { name: "USD", icon: "$", flag: "united-states.svg" },
-// };
 
 export const categories: CategoryCardItem[] = [
   { name: "Other", icon: "test-icon" },
