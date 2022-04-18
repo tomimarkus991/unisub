@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-import { cardColors, categories, currencies, subscriptionTypeAsSelectValues } from "..";
+import { cardColors, categories, currencies, billingTypeValues } from "..";
 
 const SUB_TITLE_LENGTH = 30;
 
@@ -25,13 +25,9 @@ export const SubModalYupSchema = Yup.object().shape({
     ),
     image: Yup.string(),
   }).required("Required"),
-  selectedBillingType: Yup.object({
-    id: Yup.number(),
-    name: Yup.string().oneOf(
-      subscriptionTypeAsSelectValues.map(({ name }) => name),
-      "Invalid billing type"
-    ),
-  }).required("Required"),
+  selectedBillingType: Yup.string()
+    .oneOf(billingTypeValues, "Invalid billing type")
+    .required("Required"),
 
   subscriptionStartDate: Yup.date().required("Required"),
 });

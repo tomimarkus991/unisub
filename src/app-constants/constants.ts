@@ -1,12 +1,6 @@
 import moment from "moment";
 
-import {
-  CurrencyType,
-  CategoryCardItem,
-  SelectOption,
-  SubscriptionBillingType,
-  Subscription,
-} from "types";
+import { CurrencyType, CategoryCardItem, SubscriptionBillingType, Subscription } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -59,11 +53,11 @@ export const currencies: CurrencyType[] = [
   { name: "EUR", currencyIcon: "€", image: "european-union.svg" },
   { name: "USD", currencyIcon: "$", image: "united-states.svg" },
 ];
-export const subscriptionTypeAsSelectValues: SelectOption<SubscriptionBillingType>[] = [
-  { id: 1, name: "monthly" },
-  { id: 2, name: "daily" },
-  { id: 3, name: "weekly" },
-  { id: 4, name: "yearly" },
+export const billingTypeValues: SubscriptionBillingType[] = [
+  "daily",
+  "weekly",
+  "monthly",
+  "yearly",
 ];
 
 export type PaymentType = "monthly" | "yearly" | "weekly" | "daily";

@@ -6,7 +6,7 @@ import moment from "moment";
 import { useState } from "react";
 
 import {
-  subscriptionTypeAsSelectValues,
+  billingTypeValues,
   categories,
   billingTypes,
   mapSubTypeToMomentType,
@@ -19,7 +19,6 @@ import {
   Input,
   Button,
   Modal,
-  SelectField,
   ScaleAndRotationAnim1,
   SubscriptionCard,
   Rotate360Anim,
@@ -29,12 +28,17 @@ import {
   CardColorType,
   CategoryCardItem,
   Subscription,
-  SelectOption,
   SubscriptionBillingType,
   CurrencyType,
 } from "types";
 
-import { ColorPicker, DatePicker, SelectCategoryModal, SelectCurrencyModal } from ".";
+import {
+  ColorPicker,
+  DatePicker,
+  SelectBillingTypeModal,
+  SelectCategoryModal,
+  SelectCurrencyModal,
+} from ".";
 
 export interface SubFormValues {
   selectedColor: CardColorType;
@@ -42,7 +46,7 @@ export interface SubFormValues {
   selectedCategory: CategoryCardItem;
   billing: CurrencyType;
   cost: string;
-  selectedBillingType: SelectOption<SubscriptionBillingType>;
+  selectedBillingType: SubscriptionBillingType;
   subscriptionStartDate: Date | null;
 }
 
@@ -69,7 +73,7 @@ export const SubscriptionModal = ({
       name: "EUR",
       image: "european-union.svg",
     },
-    selectedBillingType: subscriptionTypeAsSelectValues[0],
+    selectedBillingType: billingTypeValues[2],
     subscriptionStartDate: new Date(),
   };
 
@@ -127,10 +131,10 @@ export const SubscriptionModal = ({
               startDate: moment(subscriptionStartDate).unix(),
               currency: billing.name,
               cost: parseInt(cost),
-              billingType: selectedBillingType.name,
+              billingType: selectedBillingType,
               active: true,
               nextPaymentDate: moment(subscriptionStartDate)
-                .add(1, mapSubTypeToMomentType(selectedBillingType.name))
+                .add(1, mapSubTypeToMomentType(selectedBillingType))
                 .unix(),
             };
 
@@ -191,7 +195,7 @@ export const SubscriptionModal = ({
                     title={title}
                     category={selectedCategory.name}
                     price={`${cost === "" ? "0" : cost}${findCorrectCurrency()} ${
-                      billingTypes[selectedBillingType.name]
+                      billingTypes[selectedBillingType]
                     }`}
                     cardColor={selectedColor}
                     imageUrl={""}
@@ -246,11 +250,7 @@ export const SubscriptionModal = ({
                         />
                       </div>
                       <div className="w-6/12">
-                        <SelectField
-                          title="Type"
-                          name="selectedBillingType"
-                          options={subscriptionTypeAsSelectValues}
-                        />
+                        <SelectBillingTypeModal name="selectedBillingType" />
                       </div>
                     </div>
 
