@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { CurrencyType, CategoryCardItem, SubscriptionBillingType, Subscription } from "types";
+import { CurrencyType, Subscription, SubscriptionBillingType } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -28,23 +28,6 @@ export interface ICurrencyIcons {
   USD: "$";
 }
 
-export const categories: CategoryCardItem[] = [
-  { name: "Other", icon: "test-icon" },
-  { name: "Entertainment", icon: "test-icon" },
-  { name: "Gaming", icon: "test-icon" },
-  { name: "Sport", icon: "test-icon" },
-  { name: "Food", icon: "test-icon" },
-  { name: "Travel", icon: "test-icon" },
-  { name: "Education", icon: "test-icon" },
-  { name: "Health", icon: "test-icon" },
-  { name: "Shopping", icon: "test-icon" },
-  { name: "Finance", icon: "test-icon" },
-  { name: "Transport", icon: "test-icon" },
-  { name: "Communication", icon: "test-icon" },
-  { name: "Home", icon: "test-icon" },
-  { name: "Work", icon: "test-icon" },
-  { name: "Family", icon: "test-icon" },
-];
 export const currencies: CurrencyType[] = [
   { name: "EUR", currencyIcon: "€", image: "european-union.svg" },
   { name: "USD", currencyIcon: "$", image: "united-states.svg" },

@@ -51,7 +51,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
         }
       >
         <div className="bg-white rounded-xl">
-          <div className="flex flex-row justify-between items-center p-2 shadow-md">
+          <div className="flex flex-row justify-between items-center p-4 shadow-md">
             <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
               <Rotate360Anim>
                 <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
@@ -85,7 +85,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
                       <div
                         className={clsx(
                           scrollbarStyles,
-                          "overflow-x-auto py-4 px-2 mr-3 mb-2 font-semibold text-center text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer",
+                          "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 mr-3 mb-2 font-semibold text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer",
                           // `hover:${cardColors[values.selectedColor]}`,
                           "hover:bg-gradient-to-br hover:from-slate-50 hover:via-slate-200 hover:to-white",
                           checked ? `${cardColors[values.selectedColor]}` : "",
@@ -95,7 +95,8 @@ export const SelectCategoryModal = ({ name }: Props) => {
                         tabIndex={0}
                         onClick={() => setOpen(false)}
                       >
-                        {category.name}
+                        <div className="w-10 h-10">{category.icon}</div>
+                        <div>{category.name}</div>
                       </div>
                     )}
                   </RadioGroup.Option>

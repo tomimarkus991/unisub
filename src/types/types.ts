@@ -2,27 +2,8 @@ import { ReactNode } from "react";
 
 import { cardColors } from "app-constants";
 
-export type CategoryName =
-  | "Other"
-  | "Entertainment"
-  | "Gaming"
-  | "Sport"
-  | "Food"
-  | "Travel"
-  | "Education"
-  | "Health"
-  | "Shopping"
-  | "Finance"
-  | "Transport"
-  | "Communication"
-  | "Home"
-  | "Work"
-  | "Family"
-  | "Music"
-  | "Technology";
-
 export interface CategoryCardItem {
-  name: CategoryName;
+  name: string;
   icon: ReactNode;
 }
 
@@ -39,7 +20,7 @@ export interface UserType {
 export interface Subscription {
   id: string;
   title: string;
-  category: CategoryName;
+  category: string;
   startDate: number;
   cost: number;
   currency: string;
