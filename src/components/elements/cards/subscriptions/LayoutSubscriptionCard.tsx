@@ -3,6 +3,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 
 import { cardColors, scrollbarStyles } from "app-constants";
+import { CardAnimations } from "components/elements";
 import { CardColorType } from "types";
 
 interface Props {
@@ -38,11 +39,12 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
   return (
     <div
       className={clsx(
-        "flex flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full xs:px-8",
+        "flex overflow-hidden relative flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full xs:px-8",
         cardColors[cardColor]
       )}
     >
-      <div className="flex flex-col ml-2 w-7/12 sm:ml-12">
+      <CardAnimations cardColor={cardColor} durationModifier={3} />
+      <div className="flex z-10 flex-col ml-2 w-7/12 sm:ml-12">
         <div
           className={clsx(
             scrollbarStyles,
@@ -57,7 +59,7 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
           </div>
         </div>
       </div>
-      <div className="flex flex-col ml-4 w-5/12 text-center sm:mr-12">
+      <div className="flex z-10 flex-col ml-4 w-5/12 text-center sm:mr-12">
         <div className={clsx("mb-1")}>
           <p className={clsx("xs:text-lg", textColor)}>{price}</p>
         </div>

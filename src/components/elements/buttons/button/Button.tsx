@@ -46,8 +46,6 @@ export const Button = ({
   customColors,
   ...props
 }: ButtonProps) => {
-  console.log("customColors", customColors);
-
   return (
     <button
       type={type}
