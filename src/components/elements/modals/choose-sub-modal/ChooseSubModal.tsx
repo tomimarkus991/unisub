@@ -73,14 +73,14 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         {({ values }) => {
           return (
             <Form className="flex flex-col">
-              <div className="flex sticky z-40 flex-col items-center w-full min-h-[11rem] rounded-t-xl">
+              <div className="flex sticky z-40 flex-col items-center mb-3 w-full min-h-[9rem] rounded-t-xl">
                 <div className="flex flex-row justify-between items-center p-4 w-full">
                   <XIcon className="w-8 h-8 opacity-0" />
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                   >
-                    Add a new Sub
+                    Add a new Subscription
                   </Dialog.Title>
                   <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
                     <Rotate360Anim>
@@ -89,16 +89,15 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   </div>
                 </div>
 
-                <div className="mt-4">
-                  <div className="flex flex-row">
-                    <Input
-                      name="searchString"
-                      type="text"
-                      placeholder="Search"
-                      className={clsx("px-3 w-full")}
-                    />
-                  </div>
+                <div className="flex flex-row">
+                  <Input
+                    name="searchString"
+                    type="text"
+                    placeholder="Search"
+                    className={clsx("px-3 w-full")}
+                  />
                 </div>
+
                 <Dialog.Title
                   as="h3"
                   className="mt-2 text-lg font-medium leading-6 text-left text-gray-400"

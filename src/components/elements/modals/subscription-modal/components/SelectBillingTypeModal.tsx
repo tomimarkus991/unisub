@@ -30,6 +30,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
+        size="xs"
         modalButton={
           <>
             <RealButton
@@ -46,24 +47,26 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="p-6 px-4 pt-5 pb-4">
-          <div className="flex flex-row justify-between">
-            <button onClick={() => setOpen(open => !open)}>
-              <Rotate360Anim>
-                <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-              </Rotate360Anim>
-            </button>
+        <div className="flex flex-row justify-around items-center p-4">
+          <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
+            <Rotate360Anim>
+              <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+            </Rotate360Anim>
           </div>
+          <Dialog.Title
+            as="h3"
+            className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+          >
+            Select Type
+          </Dialog.Title>
+
+          <ArrowLeftIcon className="w-8 h-8 opacity-0" />
+        </div>
+        <div className="px-4 pt-5 pb-4">
           <div className="flex items-start">
-            <div className="mt-0 w-full">
-              <Dialog.Title
-                as="h3"
-                className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-              >
-                Select currency
-              </Dialog.Title>
+            <div className=" w-full">
               <RadioGroup
-                className="grid grid-cols-1 mt-6"
+                className="grid grid-cols-1"
                 value={field.value}
                 onChange={value => {
                   setFieldValue(name, value);
@@ -75,12 +78,12 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                       onClick={() => setOpen(false)}
                       className={clsx(
                         scrollbarStyles,
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
+                        "flex overflow-x-auto flex-row justify-evenly items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
                       )}
                     >
-                      <CalendarIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      <CalendarIcon className="w-8 min-w-[5rem] h-8 fill-slate-700 hover:fill-slate-800" />
                       <span
-                        className="ml-2 text-lg font-semibold text-center"
+                        className="ml-2 min-w-[6rem] text-lg font-semibold text-left"
                         role="button"
                         tabIndex={0}
                         onClick={() => setOpen(false)}

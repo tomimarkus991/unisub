@@ -80,7 +80,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
 
           <ArrowLeftIcon className="w-8 h-8 opacity-0" />
         </div>
-        <div className="p-6 px-4 pt-5 pb-4">
+        <div className="px-4 pt-5 pb-4">
           <div className="flex items-start">
             <div className="mt-0 w-full">
               <RadioGroup
