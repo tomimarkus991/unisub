@@ -72,21 +72,22 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       >
         {({ values }) => {
           return (
-            <Form className={clsx(scrollbarStyles, "flex flex-col")}>
-              <div className="flex justify-end mt-2 mr-2">
-                <button onClick={() => setOpen(open => !open)}>
-                  <Rotate360Anim>
-                    <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                  </Rotate360Anim>
-                </button>
-              </div>
-              <div className="flex sticky top-0 z-40 flex-col items-center pt-4 pb-3 mb-2 w-full bg-white">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-                >
-                  Add a new Subscription
-                </Dialog.Title>
+            <Form className="flex flex-col">
+              <div className="flex sticky z-40 flex-col items-center w-full min-h-[11rem] rounded-t-xl">
+                <div className="flex flex-row justify-between items-center p-4 w-full">
+                  <XIcon className="w-8 h-8 opacity-0" />
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+                  >
+                    Add a new Sub
+                  </Dialog.Title>
+                  <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
+                    <Rotate360Anim>
+                      <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                    </Rotate360Anim>
+                  </div>
+                </div>
 
                 <div className="mt-4">
                   <div className="flex flex-row">
@@ -105,7 +106,12 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   Popular subscriptions
                 </Dialog.Title>
               </div>
-              <div className={clsx(scrollbarStyles, "flex flex-col px-2 bg-white")}>
+              <div
+                className={clsx(
+                  scrollbarStyles,
+                  "flex overflow-y-auto flex-col px-2 h-[40vh] bg-white"
+                )}
+              >
                 <AnimatePresence initial={false} exitBeforeEnter>
                   {presetSubs.map(sub => {
                     return (
@@ -135,7 +141,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex sticky bottom-0 justify-center py-3 px-6 w-full bg-white rounded-b-xl">
+              <div className="flex sticky bottom-0 z-40 justify-center items-center py-3 px-6 w-full min-h-[4rem] bg-white rounded-b-xl">
                 <SubscriptionModal
                   isIcon={false}
                   buttonTitle="Create New"

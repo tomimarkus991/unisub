@@ -33,6 +33,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
+        size="xs"
         modalButton={
           <>
             <RealButton
@@ -49,24 +50,30 @@ export const SelectCategoryModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="p-6 px-4 pt-5 pb-4 bg-white">
-          <div className="flex flex-row justify-between">
-            <button onClick={() => setOpen(open => !open)}>
+        <div className="bg-white rounded-xl">
+          <div className="flex flex-row justify-between items-center p-2 shadow-md">
+            <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
               <Rotate360Anim>
                 <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
               </Rotate360Anim>
-            </button>
+            </div>
+            <Dialog.Title
+              as="h3"
+              className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+            >
+              Select category
+            </Dialog.Title>
+            <ArrowLeftIcon className="w-8 h-8 opacity-0" />
           </div>
-          <div className="flex items-start">
-            <div className="mt-0 w-full">
-              <Dialog.Title
-                as="h3"
-                className="mb-3 text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-              >
-                Select category
-              </Dialog.Title>
+          <div
+            className={clsx(
+              scrollbarStyles,
+              "flex overflow-y-auto items-start p-2 h-[55vh] min-h-[15rem]"
+            )}
+          >
+            <div className="flex justify-center items-center w-full">
               <RadioGroup
-                className="grid grid-cols-2 mt-6"
+                className="grid grid-cols-2 mt-3"
                 value={field.value}
                 onChange={value => {
                   setFieldValue(name, value);

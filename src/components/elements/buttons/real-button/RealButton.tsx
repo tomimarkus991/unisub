@@ -44,7 +44,7 @@ export const RealButton = ({
     <button
       type={type}
       className={clsx(
-        `m-0 font-medium tracking-wider text-center rounded-2xl border-b-[6px] 
+        `m-0 max-h-[4rem] font-medium tracking-wider text-center rounded-2xl border-b-[6px] 
           transition-all duration-300 active:duration-75 hover:-translate-y-[0.15rem] active:translate-y-[0.2rem] touch-manipulation select-none
           `,
         variants[variant],

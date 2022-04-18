@@ -7,7 +7,7 @@ export const HomePage = () => {
       <div className="hidden items-center sm:flex ">
         <ToggleViewButton />
       </div>
-      <div className="overflow-auto row-span-15 h-full">
+      <div className="overflow-auto h-full">
         <SubLayout />
       </div>
     </DefaultWrapper>

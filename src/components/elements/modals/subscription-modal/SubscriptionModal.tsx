@@ -154,31 +154,39 @@ export const SubscriptionModal = ({
             };
 
             return (
-              <Form className={clsx(scrollbarStyles, "flex flex-col")}>
+              <Form className={clsx("flex flex-col")}>
+                <div className="flex flex-row justify-between items-center p-4">
+                  <div role="button" tabIndex={0} onClick={() => setSubModalOpen(open => !open)}>
+                    <Rotate360Anim>
+                      <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                    </Rotate360Anim>
+                  </div>
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
+                  >
+                    Create sub
+                  </Dialog.Title>
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      if (setPreviousModalOpen) {
+                        setPreviousModalOpen(open => !open);
+                      }
+                    }}
+                  >
+                    <Rotate360Anim>
+                      <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                    </Rotate360Anim>
+                  </div>
+                </div>
                 <div
                   className={clsx(
                     scrollbarStyles,
-                    "inline-flex overflow-y-auto flex-col py-2 px-3 bg-white rounded-t-xl"
+                    "flex overflow-y-auto flex-col py-2 px-3 h-[60vh] min-h-[15rem] bg-white rounded-t-xl"
                   )}
                 >
-                  <div className="flex flex-row justify-between">
-                    <button onClick={() => setSubModalOpen(open => !open)}>
-                      <Rotate360Anim>
-                        <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                      </Rotate360Anim>
-                    </button>
-                    <button
-                      onClick={() => {
-                        if (setPreviousModalOpen) {
-                          setPreviousModalOpen(open => !open);
-                        }
-                      }}
-                    >
-                      <Rotate360Anim>
-                        <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                      </Rotate360Anim>
-                    </button>
-                  </div>
                   <SubscriptionCard
                     title={title}
                     category={selectedCategory.name}
@@ -195,6 +203,7 @@ export const SubscriptionModal = ({
                     General
                   </Dialog.Title>
                   <div className="mt-4">
+                    <ColorPicker name="selectedColor" />
                     <div className="flex flex-row">
                       <div className="w-6/12 sm:w-full">
                         <Input
@@ -213,7 +222,6 @@ export const SubscriptionModal = ({
                         <SelectCategoryModal name="selectedCategory" />
                       </div>
                     </div>
-                    <ColorPicker name="selectedColor" />
                   </div>
                   <Dialog.Title
                     as="h3"

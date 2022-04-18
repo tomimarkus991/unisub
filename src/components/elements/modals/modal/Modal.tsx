@@ -1,14 +1,24 @@
 import { Dialog, Transition } from "@headlessui/react";
+import clsx from "clsx";
 import { Fragment, ReactNode, useRef } from "react";
+
+const modalMaxWidth = {
+  xs: "max-w-xs",
+  sm: "max-w-sm",
+  md: "max-w-md",
+  lg: "max-w-lg",
+  xl: "max-w-xl",
+};
 
 interface Props {
   open: boolean;
   setOpen: (open: boolean) => void;
   modalButton: ReactNode;
   children?: ReactNode;
+  size?: keyof typeof modalMaxWidth;
 }
 
-export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
+export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Props) => {
   const initialFocusRef = useRef(null);
   return (
     <>
@@ -17,12 +27,12 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
         <Dialog
           initialFocus={initialFocusRef}
           as="div"
-          className="inline-block overflow-y-auto fixed inset-0 inset-y-8 z-50 m-auto w-full max-h-full"
+          className="flex fixed inset-0 z-50 justify-center items-center"
           onClose={setOpen}
         >
           <div
             ref={initialFocusRef}
-            className="flex flex-1 justify-center items-center px-4 w-full h-full select-none"
+            className="flex justify-center items-center mx-2 w-full select-none"
           >
             <Transition.Child
               as={Fragment}
@@ -47,7 +57,10 @@ export const Modal = ({ children, modalButton, open, setOpen }: Props) => {
             >
               <div
                 id="modal-children"
-                className="block w-full max-w-xl h-full bg-white rounded-xl transition-all transform"
+                className={clsx(
+                  "block w-full bg-white rounded-xl transition-all transform",
+                  modalMaxWidth[size]
+                )}
               >
                 {children}
               </div>

@@ -17,7 +17,7 @@ export const PresetSubscriptionCard = ({ title, category, cardColor }: Props) =>
     <>
       <div
         className={clsx(
-          "flex flex-row items-center px-8 h-20 rounded-2xl ring-1 ring-black ring-opacity-5 sm:w-96 xs:px-0 w-70",
+          "flex flex-row items-center px-8 w-full h-20 rounded-2xl ring-1 ring-black ring-opacity-5",
           cardColors[cardColor]
         )}
       >
