@@ -36,39 +36,37 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
   }, [daysUntilResub]);
 
   return (
-    <>
-      <div
-        className={clsx(
-          "flex flex-row items-center py-4 px-6 w-80 h-24 rounded-full ring-1 ring-black ring-opacity-5 shadow-xl xs:px-8",
-          cardColors[cardColor]
-        )}
-      >
-        <div className="flex flex-col ml-2 w-7/12 sm:ml-12">
-          <div
-            className={clsx(
-              scrollbarStyles,
-              "overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4"
-            )}
-          >
-            <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
-          </div>
-          <div className="flex flex-row justify-start">
-            <div>
-              <p className={clsx("xs:text-lg", textColor)}>{category}</p>
-            </div>
-          </div>
+    <div
+      className={clsx(
+        "flex flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full xs:px-8",
+        cardColors[cardColor]
+      )}
+    >
+      <div className="flex flex-col ml-2 w-7/12 sm:ml-12">
+        <div
+          className={clsx(
+            scrollbarStyles,
+            "overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4"
+          )}
+        >
+          <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
         </div>
-        <div className="flex flex-col ml-4 w-5/12 text-center sm:mr-12">
-          <div className={clsx("mb-1")}>
-            <p className={clsx("xs:text-lg", textColor)}>{price}</p>
-          </div>
-          <div className="flex flex-row justify-start">
-            <div>
-              <p className={clsx("xs:text-lg", textColor)}>{resubText}</p>
-            </div>
+        <div className="flex flex-row justify-start">
+          <div>
+            <p className={clsx("xs:text-lg", textColor)}>{category}</p>
           </div>
         </div>
       </div>
-    </>
+      <div className="flex flex-col ml-4 w-5/12 text-center sm:mr-12">
+        <div className={clsx("mb-1")}>
+          <p className={clsx("xs:text-lg", textColor)}>{price}</p>
+        </div>
+        <div className="flex flex-row justify-start">
+          <div>
+            <p className={clsx("xs:text-lg", textColor)}>{resubText}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

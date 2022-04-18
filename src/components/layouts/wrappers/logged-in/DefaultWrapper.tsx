@@ -14,7 +14,7 @@ export const DefaultWrapper = ({ children }: Props) => {
               user={{ id: "1", username: "Galaxy", email: "galaxy@gmail.com", avatar: null }}
             />
           </div>
-          {children}
+          <div className="mx-4">{children}</div>
           <div className="flex fixed bottom-0 z-40 items-center py-2 m-2 w-[95%] h-fit bg-slate-50 rounded-md shadow-2xl">
             <NavbarBottom />
           </div>
