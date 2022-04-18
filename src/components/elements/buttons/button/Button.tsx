@@ -25,6 +25,7 @@ const variants = {
     hover:text-white
     active:border-blue-700
     dark:bg-blue-700 dark:border-blue-900 dark:active:border-blue-700`,
+  custom: `hover:text-white`,
 };
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -32,6 +33,7 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   isValid?: boolean;
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
+  customColors?: string;
 };
 
 export const Button = ({
@@ -41,8 +43,11 @@ export const Button = ({
   size = "md",
   isValid = true,
   children,
+  customColors,
   ...props
 }: ButtonProps) => {
+  console.log("customColors", customColors);
+
   return (
     <button
       type={type}
@@ -51,11 +56,19 @@ export const Button = ({
         variants[variant],
         sizes[size],
         !isValid && "opacity-50 hover:scale-100 cursor-not-allowed",
-        className
+        className,
+        variant === "custom" && customColors
       )}
       {...props}
     >
-      <p className={clsx(variant !== "light" && "text-white")}>{children}</p>
+      <p
+        className={clsx(
+          variant !== "light" && "text-white",
+          customColors?.includes("white") && "text-gray-700"
+        )}
+      >
+        {children}
+      </p>
     </button>
   );
 };

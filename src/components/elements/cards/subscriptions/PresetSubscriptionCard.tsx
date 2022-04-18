@@ -38,7 +38,11 @@ export const PresetSubscriptionCard = ({ title, category, cardColor }: Props) =>
         </div>
         <div className="flex flex-col mx-2 w-3/12 text-center sm:mr-6">
           <div className={clsx("mb-1")}>
-            <Button size="xs" variant="green">
+            <Button
+              size="xs"
+              variant="custom"
+              customColors={`${cardColors[cardColor]} ring-2 ring-slate-300 ring-opacity-5`}
+            >
               Add
             </Button>
           </div>

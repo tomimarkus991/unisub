@@ -9,7 +9,7 @@ export const cardColors = {
   purple: "bg-gradient-to-tl from-violet-500 to-fuchsia-500",
   purpleBlue: "bg-gradient-to-r from-purple-700 to-blue-600",
   indigo: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
-  red: "bg-gradient-to-r from-red-600 to-red-400",
+  red: "bg-gradient-to-r from-red-500 via-red-600 to-red-500",
   yellow: "bg-gradient-to-r from-yellow-400 to-orange-400",
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
