@@ -52,10 +52,11 @@ export interface SubFormValues {
 }
 
 interface Props {
-  buttonType?: "icon" | "real" | "regular";
+  buttonType?: "icon" | "real" | "regular" | "children";
   buttonTitle?: string;
   cardColor?: CardColorType;
   subValues?: Subscription;
+  children?: React.ReactNode;
 }
 
 export const SubscriptionModal = ({
@@ -63,6 +64,7 @@ export const SubscriptionModal = ({
   buttonTitle = "Add subscription",
   cardColor,
   subValues,
+  children,
 }: Props) => {
   const [subModalOpen, setSubModalOpen] = useState(false);
   const { setIsChooseSubModalOpen } = useSubModal();
@@ -132,6 +134,17 @@ export const SubscriptionModal = ({
                 {buttonTitle}
               </Button>
             )}
+            {buttonType === "children" && children && (
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                  setSubModalOpen(true);
+                }}
+              >
+                {children}
+              </div>
+            )}
           </>
         }
       >
@@ -189,7 +202,7 @@ export const SubscriptionModal = ({
             return (
               <Form className={clsx("flex flex-col")}>
                 <div className="flex flex-row justify-between items-center p-4">
-                  <div role="button" tabIndex={0} onClick={() => setSubModalOpen(open => !open)}>
+                  <div role="button" tabIndex={0} onClick={() => setSubModalOpen(() => false)}>
                     <Rotate360Anim>
                       <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </Rotate360Anim>
@@ -204,7 +217,7 @@ export const SubscriptionModal = ({
                     role="button"
                     tabIndex={0}
                     onClick={() => {
-                      setIsChooseSubModalOpen(open => !open);
+                      setIsChooseSubModalOpen(() => false);
                     }}
                   >
                     <Rotate360Anim>

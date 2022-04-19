@@ -1,6 +1,5 @@
 import { LayoutSubscriptionCard } from "components/elements";
 import { useSub } from "context";
-import { createSubPrice } from "utils";
 
 export const SubLayout = () => {
   const { subs } = useSub();
@@ -11,12 +10,12 @@ export const SubLayout = () => {
         return (
           <LayoutSubscriptionCard
             key={sub.id}
-            title={sub.title}
-            category={sub.category}
-            price={createSubPrice(sub)}
-            cardColor={sub.color}
-            imageUrl={""}
-            startDate={sub.startDate}
+            sub={sub}
+            // category={sub.category}
+            // price={createSubPrice(sub)}
+            // cardColor={sub.color}
+            // imageUrl={""}
+            // startDate={sub.startDate}
           />
         );
       })}
