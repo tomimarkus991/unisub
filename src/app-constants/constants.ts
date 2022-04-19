@@ -1,6 +1,11 @@
 import moment from "moment";
 
-import { CurrencyType, Subscription, SubscriptionBillingType } from "types";
+import {
+  CurrencyType,
+  SubscriptionPreset,
+  SubscriptionBillingType,
+  FinalSubscriptionPreset,
+} from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -56,101 +61,90 @@ export const mapSubTypeToMomentType = (paymentType: PaymentType) => {
   }
 };
 
-export const presetSubs: Subscription[] = [
-  {
-    id: "1",
+export const createPresetSubs = () => {
+  const subDefaults: Partial<SubscriptionPreset> = {
     active: true,
-    title: "Spotify",
     billingType: "monthly",
-    category: "Music",
-    color: "green",
-    cost: 7.99,
     currency: "EUR",
     startDate: moment(new Date()).unix(),
     nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "2",
-    active: true,
-    title: "Netflix",
-    billingType: "monthly",
-    category: "Entertainment",
-    color: "red",
-    cost: 9.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "3",
-    active: true,
-    title: "Amazon",
-    billingType: "monthly",
-    category: "Shopping",
-    color: "yellow",
-    cost: 19.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "4",
-    active: true,
-    title: "Apple",
-    billingType: "monthly",
-    category: "Technology",
+    cost: 0,
     color: "white",
-    cost: 29.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "5",
-    active: true,
-    title: "Apple",
-    billingType: "monthly",
-    category: "Technology",
-    color: "gray",
-    cost: 29.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "6",
-    active: true,
-    title: "Apple",
-    billingType: "monthly",
-    category: "Technology",
-    color: "darkBlue",
-    cost: 29.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "7",
-    active: true,
-    title: "Amazon",
-    billingType: "monthly",
-    category: "Shopping",
-    color: "yellow",
-    cost: 19.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-  {
-    id: "8",
-    active: true,
-    title: "Spotify",
-    billingType: "monthly",
-    category: "Music",
-    color: "red",
-    cost: 7.99,
-    currency: "EUR",
-    startDate: moment(new Date()).unix(),
-    nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-  },
-];
+    category: "Other",
+  };
+
+  const subs: SubscriptionPreset[] = [
+    {
+      title: "Netflix",
+      category: "Streaming",
+      color: "red",
+    },
+    {
+      title: "Spotify",
+      category: "Music",
+      color: "green",
+    },
+    {
+      title: "Amazon Prime Video",
+      category: "Streaming",
+      color: "yellow",
+    },
+    {
+      title: "Apple TV+",
+      category: "Streaming",
+    },
+    { title: "Twitch", category: "Streaming", color: "purple" },
+    {
+      title: "NordVPN",
+      category: "Software",
+      color: "darkBlue",
+    },
+    {
+      title: "YouTube Premium",
+      category: "Streaming",
+      color: "red",
+    },
+    {
+      title: "Disney+",
+      category: "Streaming",
+      color: "darkBlue",
+    },
+    {
+      title: "Hulu",
+      category: "Streaming",
+      color: "green",
+    },
+    {
+      title: "MasterClass",
+      category: "Streaming",
+    },
+    {
+      title: "Audible",
+      category: "Education",
+      color: "orange",
+    },
+    {
+      title: "Kindle Unlimited",
+      category: "Education",
+    },
+    {
+      title: "Google One",
+      category: "Software",
+    },
+  ];
+
+  const presetSubs = subs.map(sub => {
+    return {
+      ...subDefaults,
+      ...sub,
+    };
+  }) as FinalSubscriptionPreset[];
+
+  return presetSubs.sort((a, b) => {
+    if (a.title && b.title) {
+      return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
+    } else {
+      return 0;
+    }
+  });
+};

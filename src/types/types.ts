@@ -1,9 +1,18 @@
 import { ReactNode } from "react";
 
 import { cardColors } from "app-constants";
-
+export type CategoryNames =
+  | "Other"
+  | "Streaming"
+  | "Gaming"
+  | "Fitness"
+  | "Food"
+  | "Education"
+  | "Music"
+  | "Home"
+  | "Software";
 export interface CategoryCardItem {
-  name: string;
+  name: CategoryNames;
   icon: ReactNode;
 }
 
@@ -20,7 +29,7 @@ export interface UserType {
 export interface Subscription {
   id: string;
   title: string;
-  category: string;
+  category: CategoryNames;
   startDate: number;
   cost: number;
   currency: string;
@@ -28,6 +37,36 @@ export interface Subscription {
   billingType: SubscriptionBillingType;
   active: boolean;
   nextPaymentDate: number;
+}
+
+export interface SubscriptionPreset {
+  title: string;
+  category?: CategoryNames;
+  color?: CardColorType;
+  cost?: number;
+  currency?: string;
+  billingType?: SubscriptionBillingType;
+  active?: boolean;
+  startDate?: number;
+  nextPaymentDate?: number;
+}
+
+export interface FinalSubscriptionPreset {
+  title: string;
+  category: CategoryNames;
+  color: CardColorType;
+  cost: number;
+  currency: string;
+  billingType: SubscriptionBillingType;
+  active: boolean;
+  startDate: number;
+  nextPaymentDate: number;
+}
+
+export interface CreateSubscriptionPreset {
+  title: string;
+  category: CategoryNames;
+  color: CardColorType;
 }
 
 export interface SelectOption<T> {

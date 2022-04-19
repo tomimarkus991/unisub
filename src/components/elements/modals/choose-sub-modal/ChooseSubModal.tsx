@@ -5,7 +5,7 @@ import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-import { presetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
+import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
 import {
   Input,
   PresetSubscriptionCard,
@@ -112,12 +112,12 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                 )}
               >
                 <AnimatePresence initial={false} exitBeforeEnter>
-                  {presetSubs.map(sub => {
+                  {createPresetSubs().map(sub => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <motion.div
                           className="mb-2"
-                          key={"sub-card-" + sub.id}
+                          key={"sub-card-" + sub.title}
                           initial={{ y: "-50vh", opacity: 0 }}
                           animate={{
                             y: "0",
