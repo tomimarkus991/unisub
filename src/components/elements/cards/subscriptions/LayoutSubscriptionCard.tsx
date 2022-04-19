@@ -39,7 +39,7 @@ export const LayoutSubscriptionCard = ({ title, category, price, cardColor, star
   return (
     <div
       className={clsx(
-        "flex overflow-hidden relative flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full xs:px-8",
+        "flex overflow-hidden relative flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full cursor-pointer xs:px-8",
         cardColors[cardColor]
       )}
     >

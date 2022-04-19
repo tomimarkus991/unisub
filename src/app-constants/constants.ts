@@ -1,11 +1,6 @@
 import moment from "moment";
 
-import {
-  CurrencyType,
-  SubscriptionPreset,
-  SubscriptionBillingType,
-  FinalSubscriptionPreset,
-} from "types";
+import { CurrencyType, SubscriptionPreset, SubscriptionBillingType, Subscription } from "types";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -61,8 +56,10 @@ export const mapSubTypeToMomentType = (paymentType: PaymentType) => {
   }
 };
 
-export const createPresetSubs = () => {
-  const subDefaults: Partial<SubscriptionPreset> = {
+export const createPresetSubs = (): Subscription[] => {
+  const subDefaults: Subscription = {
+    id: "1",
+    title: "",
     active: true,
     billingType: "monthly",
     currency: "EUR",
@@ -138,7 +135,7 @@ export const createPresetSubs = () => {
       ...subDefaults,
       ...sub,
     };
-  }) as FinalSubscriptionPreset[];
+  });
 
   return presetSubs.sort((a, b) => {
     if (a.title && b.title) {

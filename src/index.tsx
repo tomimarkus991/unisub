@@ -6,7 +6,7 @@ import AOS from "aos";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import { SidebarProvider, SubProvider } from "context";
+import { SidebarProvider, SubModalProvider, SubProvider } from "context";
 import { Router } from "routes";
 
 import reportWebVitals from "./reportWebVitals";
@@ -21,9 +21,11 @@ root.render(
   <BrowserRouter>
     <LocalizationProvider dateAdapter={AdapterMoment}>
       <SidebarProvider>
-        <SubProvider>
-          <Router />
-        </SubProvider>
+        <SubModalProvider>
+          <SubProvider>
+            <Router />
+          </SubProvider>
+        </SubModalProvider>
       </SidebarProvider>
     </LocalizationProvider>
   </BrowserRouter>

@@ -3,7 +3,6 @@ import { PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 
 import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
 import {
@@ -14,6 +13,7 @@ import {
   ScaleAndRotationAnim1,
   SubscriptionModal,
 } from "components/elements";
+import { useSubModal } from "context";
 
 import { Modal } from "../modal";
 
@@ -25,7 +25,7 @@ interface Props {
 }
 
 export const ChooseSubModal = ({ isIcon = true }: Props) => {
-  const [open, setOpen] = useState(false);
+  const { isChooseSubModalOpen, setIsChooseSubModalOpen } = useSubModal();
 
   const initialValues: FormValues = {
     searchString: "",
@@ -33,8 +33,8 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
 
   return (
     <Modal
-      open={open}
-      setOpen={setOpen}
+      open={isChooseSubModalOpen}
+      setOpen={setIsChooseSubModalOpen}
       modalButton={
         <>
           {isIcon ? (
@@ -42,14 +42,14 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
               <PlusCircleIcon
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                 onClick={() => {
-                  setOpen(true);
+                  setIsChooseSubModalOpen(true);
                 }}
               />
             </ScaleAndRotationAnim1>
           ) : (
             <RealButton
               onClick={() => {
-                setOpen(true);
+                setIsChooseSubModalOpen(true);
               }}
             >
               Create new subscription
@@ -82,7 +82,11 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   >
                     Add a new Subscription
                   </Dialog.Title>
-                  <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setIsChooseSubModalOpen(open => !open)}
+                  >
                     <Rotate360Anim>
                       <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </Rotate360Anim>
@@ -129,11 +133,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                             },
                           }}
                         >
-                          <PresetSubscriptionCard
-                            title={sub.title}
-                            category={sub.category}
-                            cardColor={sub.color}
-                          />
+                          <PresetSubscriptionCard subValues={sub} />
                         </motion.div>
                       )
                     );
@@ -141,11 +141,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                 </AnimatePresence>
               </div>
               <div className="flex sticky bottom-0 z-40 justify-center items-center py-3 px-6 w-full min-h-[4rem] bg-white rounded-b-xl">
-                <SubscriptionModal
-                  isIcon={false}
-                  buttonTitle="Create New"
-                  setPreviousModalOpen={setOpen}
-                />
+                <SubscriptionModal buttonType="real" buttonTitle="Create New" />
               </div>
             </Form>
           );

@@ -13,6 +13,7 @@ import {
   SubModalYupSchema,
   currencies,
   scrollbarStyles,
+  cardColors,
 } from "app-constants";
 import {
   RealButton,
@@ -23,7 +24,7 @@ import {
   SubscriptionCard,
   Rotate360Anim,
 } from "components/elements";
-import { useSub } from "context";
+import { useSub, useSubModal } from "context";
 import {
   CardColorType,
   CategoryCardItem,
@@ -51,33 +52,48 @@ export interface SubFormValues {
 }
 
 interface Props {
-  isIcon?: boolean;
+  buttonType?: "icon" | "real" | "regular";
   buttonTitle?: string;
-  setPreviousModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  cardColor?: CardColorType;
+  subValues?: Subscription;
 }
 
 export const SubscriptionModal = ({
-  isIcon = true,
+  buttonType = "regular",
   buttonTitle = "Add subscription",
-  setPreviousModalOpen,
+  cardColor,
+  subValues,
 }: Props) => {
   const [subModalOpen, setSubModalOpen] = useState(false);
+  const { setIsChooseSubModalOpen } = useSubModal();
 
-  const initialValues: SubFormValues = {
+  let initialValues: SubFormValues = {
     selectedColor: "white",
     title: "",
     selectedCategory: categories[0],
     cost: "",
-    billing: {
-      currencyIcon: "€",
-      name: "EUR",
-      image: "european-union.svg",
-    },
+    billing: currencies[0],
     selectedBillingType: billingTypeValues[2],
     subscriptionStartDate: new Date(),
   };
 
+  if (subValues) {
+    const { title, color, billingType, category } = subValues;
+    initialValues = {
+      selectedColor: color,
+      title,
+      selectedCategory: categories.find(
+        subCategory => category === subCategory.name
+      ) as CategoryCardItem,
+      cost: "",
+      billing: currencies[0],
+      selectedBillingType: billingType,
+      subscriptionStartDate: new Date(),
+    };
+  }
+
   const { setSubs } = useSub();
+
   return (
     <>
       <Modal
@@ -85,7 +101,7 @@ export const SubscriptionModal = ({
         setOpen={setSubModalOpen}
         modalButton={
           <>
-            {isIcon ? (
+            {buttonType === "icon" && (
               <ScaleAndRotationAnim1>
                 <PlusCircleIcon
                   className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
@@ -94,7 +110,8 @@ export const SubscriptionModal = ({
                   }}
                 />
               </ScaleAndRotationAnim1>
-            ) : (
+            )}
+            {buttonType === "real" && (
               <RealButton
                 onClick={() => {
                   setSubModalOpen(true);
@@ -102,6 +119,18 @@ export const SubscriptionModal = ({
               >
                 {buttonTitle}
               </RealButton>
+            )}
+            {buttonType === "regular" && cardColor && (
+              <Button
+                size="xs"
+                variant="custom"
+                onClick={() => {
+                  setSubModalOpen(true);
+                }}
+                customColors={`${cardColors[cardColor]} ring-2 ring-slate-300 ring-opacity-5`}
+              >
+                {buttonTitle}
+              </Button>
             )}
           </>
         }
@@ -139,9 +168,9 @@ export const SubscriptionModal = ({
             };
 
             setSubs(oldSubs => [...oldSubs, subscription]);
-            if (setPreviousModalOpen) {
-              setPreviousModalOpen(false);
-            }
+
+            setIsChooseSubModalOpen(false);
+
             setSubModalOpen(false);
             resetForm();
 
@@ -175,9 +204,7 @@ export const SubscriptionModal = ({
                     role="button"
                     tabIndex={0}
                     onClick={() => {
-                      if (setPreviousModalOpen) {
-                        setPreviousModalOpen(open => !open);
-                      }
+                      setIsChooseSubModalOpen(open => !open);
                     }}
                   >
                     <Rotate360Anim>
