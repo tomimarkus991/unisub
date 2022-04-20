@@ -2,7 +2,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { CheckIcon, PencilIcon, TrashIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import moment from "moment";
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import { cardColors, scrollbarStyles } from "app-constants";
 import { CardAnimations } from "components/elements";
@@ -14,6 +14,14 @@ import { SubscriptionModal } from "../../modals";
 interface Props {
   sub: Subscription;
 }
+
+// const ModalButton = ({ children }: { children: React.ReactNode }) => {
+//   return (
+//     <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+//       {children}
+//     </button>
+//   );
+// };
 
 export const LayoutSubscriptionCard = ({ sub }: Props) => {
   const { title, color: cardColor, startDate, category, active: isSubActive } = sub;
@@ -71,6 +79,12 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
               <div>
                 <p className={clsx("xs:text-lg", textColor)}>{resubText}</p>
               </div>
+              <SubscriptionModal buttonType="children" subValues={sub}>
+                <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+                  <PencilIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+                  <p>Edit</p>
+                </button>
+              </SubscriptionModal>
             </div>
           </div>
         </div>
@@ -85,14 +99,12 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="absolute top-[70%] right-[10%] z-40 w-40 bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5">
-          <Menu.Item>
-            <SubscriptionModal buttonType="children" subValues={sub}>
-              <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-                <PencilIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
-                <p>Edit</p>
-              </button>
-            </SubscriptionModal>
-          </Menu.Item>
+          <SubscriptionModal buttonType="children" subValues={sub}>
+            <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+              <PencilIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+              <p>Edit</p>
+            </button>
+          </SubscriptionModal>
           <Menu.Item>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
               {isSubActive ? (
