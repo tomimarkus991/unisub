@@ -52,7 +52,7 @@ export const Sidebar = () => {
               x: "100vw",
               opacity: 0,
             }}
-            className="flex absolute top-0 right-0 z-[900] flex-col w-64 h-full bg-white"
+            className="flex fixed top-0 right-0 z-[900] flex-col w-64 h-full bg-white"
           >
             <div className="flex justify-end p-3">
               <button onClick={() => setisSidebarOpen(open => !open)}>
