@@ -11,7 +11,8 @@ import { Router } from "routes";
 
 import "aos/dist/aos.css";
 
-const root = createRoot(document.getElementById("root") as Element);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = createRoot(document.getElementById("root")!);
 
 AOS.init();
 

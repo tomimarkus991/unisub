@@ -56,7 +56,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                 {field.value.name}
                 <img
                   className="ml-1 w-5 h-5 sm:ml-3 sm:w-7 sm:h-7"
-                  src={`${process.env.PUBLIC_URL}/assets/flags/${activeCurrency.image}`}
+                  src={`/flags/${activeCurrency.image}`}
                   alt="icon"
                 />
               </div>
@@ -107,11 +107,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                       >
                         {currency.name}
                       </span>
-                      <img
-                        className="w-8 h-8"
-                        src={`${process.env.PUBLIC_URL}/assets/flags/${currency.image}`}
-                        alt="icon"
-                      />
+                      <img className="w-8 h-8" src={`/flags/${currency.image}`} alt="icon" />
                     </div>
                   </RadioGroup.Option>
                 ))}
