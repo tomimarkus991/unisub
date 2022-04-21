@@ -228,7 +228,7 @@ export const SubscriptionModal = ({
                 <div
                   className={clsx(
                     scrollbarStyles,
-                    "flex overflow-y-auto flex-col py-2 px-3 h-[60vh] min-h-[15rem] bg-white rounded-t-xl"
+                    "flex overflow-y-auto flex-col py-2 px-3 h-[65vh] min-h-[15rem] bg-white rounded-t-xl"
                   )}
                 >
                   <SubscriptionCard
@@ -273,7 +273,7 @@ export const SubscriptionModal = ({
                   >
                     Billing
                   </Dialog.Title>
-                  <div className="my-4">
+                  <div className="mt-4">
                     <div className="flex flex-row">
                       <div className="w-6/12">
                         <Input

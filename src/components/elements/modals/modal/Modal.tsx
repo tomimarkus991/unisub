@@ -34,7 +34,7 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
             ref={initialFocusRef}
             className="flex justify-center items-center mx-2 w-full select-none"
           >
-            <Transition.Child
+            {/* <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0"
@@ -43,10 +43,10 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-            </Transition.Child>
+            </Transition.Child> */}
+            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
 
-            <Transition.Child
+            {/* <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 scale-95"
@@ -54,17 +54,17 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-4 scale-95"
+            > */}
+            <div
+              id="modal-children"
+              className={clsx(
+                "block w-full bg-white rounded-xl transition-all transform",
+                modalMaxWidth[size]
+              )}
             >
-              <div
-                id="modal-children"
-                className={clsx(
-                  "block w-full bg-white rounded-xl transition-all transform",
-                  modalMaxWidth[size]
-                )}
-              >
-                {children}
-              </div>
-            </Transition.Child>
+              {children}
+            </div>
+            {/* </Transition.Child> */}
           </div>
         </Dialog>
       </Transition.Root>
