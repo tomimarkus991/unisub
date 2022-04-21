@@ -273,7 +273,7 @@ export const SubscriptionModal = ({
                   >
                     Billing
                   </Dialog.Title>
-                  <div className="mt-4">
+                  <div className="my-4">
                     <div className="flex flex-row">
                       <div className="w-6/12">
                         <Input
