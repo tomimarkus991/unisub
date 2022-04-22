@@ -24,6 +24,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
+        maxWidth="sm"
         modalButton={
           <>
             <RealButton

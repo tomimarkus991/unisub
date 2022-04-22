@@ -34,6 +34,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
     <Modal
       open={isChooseSubModalOpen}
       setOpen={setIsChooseSubModalOpen}
+      maxWidth="lg"
       modalButton={
         <>
           {isIcon ? (

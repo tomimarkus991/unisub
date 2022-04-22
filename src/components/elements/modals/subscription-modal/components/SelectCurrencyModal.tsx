@@ -39,7 +39,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
-        size="xs"
+        maxWidth="sm"
         modalButton={
           <>
             <RealButton

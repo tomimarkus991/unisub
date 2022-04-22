@@ -16,10 +16,10 @@ interface Props {
   setOpen: (open: boolean) => void;
   modalButton: ReactNode;
   children?: ReactNode;
-  size?: keyof typeof modalMaxWidth;
+  maxWidth?: keyof typeof modalMaxWidth;
 }
 
-export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Props) => {
+export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }: Props) => {
   const initialFocusRef = useRef(null);
   return (
     <>
@@ -60,7 +60,7 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
             }}
             className={clsx(
               "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
-              modalMaxWidth[size]
+              modalMaxWidth[maxWidth]
             )}
           >
             {children}

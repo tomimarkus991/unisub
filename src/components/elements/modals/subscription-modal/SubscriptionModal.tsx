@@ -103,6 +103,7 @@ export const SubscriptionModal = ({
       <Modal
         open={subModalOpen}
         setOpen={setSubModalOpen}
+        maxWidth="xl"
         modalButton={
           <>
             {buttonType === "icon" && (
