@@ -1,4 +1,4 @@
-import { cardColors, scrollbarStyles } from "constants";
+import { cardColors, scrollbarStyles } from "app-constants";
 
 import clsx from "clsx";
 

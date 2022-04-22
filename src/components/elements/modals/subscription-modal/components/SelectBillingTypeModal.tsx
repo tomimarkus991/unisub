@@ -1,4 +1,4 @@
-import { billingTypeValues, scrollbarStyles } from "constants";
+import { billingTypeValues, scrollbarStyles } from "app-constants";
 
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";

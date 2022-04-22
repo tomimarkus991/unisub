@@ -1,4 +1,4 @@
-import { cardColors } from "constants";
+import { cardColors } from "app-constants";
 
 import { ReactNode } from "react";
 

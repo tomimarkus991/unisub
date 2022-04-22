@@ -1,4 +1,4 @@
-import { billingTypes, currencies } from "constants";
+import { billingTypes, currencies } from "app-constants";
 
 import { CurrencyType, Subscription } from "types";
 

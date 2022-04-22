@@ -7,7 +7,7 @@ import {
   currencies,
   scrollbarStyles,
   cardColors,
-} from "constants";
+} from "app-constants";
 
 import clsx from "clsx";
 import { Form, Formik } from "formik";

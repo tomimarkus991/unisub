@@ -1,4 +1,4 @@
-import { cardColors } from "constants";
+import { cardColors } from "app-constants";
 
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";

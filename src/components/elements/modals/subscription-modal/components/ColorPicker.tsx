@@ -1,4 +1,4 @@
-import { cardColors } from "constants";
+import { cardColors } from "app-constants";
 
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";

@@ -1,10 +1,9 @@
-import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "constants";
-
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiPlusCircle } from "react-icons/all";
 
+import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
 import {
   Input,
   PresetSubscriptionCard,

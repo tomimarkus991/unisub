@@ -1,4 +1,4 @@
-import { currencies, scrollbarStyles } from "constants";
+import { currencies, scrollbarStyles } from "app-constants";
 
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";

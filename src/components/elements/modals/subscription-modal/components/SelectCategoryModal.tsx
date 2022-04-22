@@ -1,4 +1,4 @@
-import { cardColors, categories, scrollbarStyles } from "constants";
+import { cardColors, categories, scrollbarStyles } from "app-constants";
 
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";

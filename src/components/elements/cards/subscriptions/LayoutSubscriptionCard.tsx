@@ -1,4 +1,4 @@
-import { cardColors, scrollbarStyles } from "constants";
+import { cardColors, scrollbarStyles } from "app-constants";
 
 import { Menu, Transition } from "@headlessui/react";
 import clsx from "clsx";
