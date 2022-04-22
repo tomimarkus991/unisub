@@ -35,6 +35,7 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
         >
           <motion.div
             id="overlay"
+            ref={initialFocusRef}
             key="app-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
