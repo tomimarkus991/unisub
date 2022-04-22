@@ -1,4 +1,4 @@
-import { DefaultWrapper } from "components/layouts";
+import { DefaultWrapper } from "components";
 
 export const StatsPage = () => {
   return (

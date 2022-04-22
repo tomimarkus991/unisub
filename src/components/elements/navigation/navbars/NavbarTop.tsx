@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { animations } from "components/elements";
+import { animations } from "components";
 import { useSidebar } from "context/sidebar";
 import { UserType } from "types";
 

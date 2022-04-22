@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { cardColors, scrollbarStyles } from "app-constants";
-import { CardAnimations } from "components/elements";
+import { CardAnimations } from "components";
 import { Subscription } from "types";
 
 import { SubscriptionModal } from "../../modals";

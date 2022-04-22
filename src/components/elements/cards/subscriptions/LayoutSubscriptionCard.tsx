@@ -5,7 +5,7 @@ import moment from "moment";
 import { Fragment, useEffect, useState } from "react";
 
 import { cardColors, scrollbarStyles } from "app-constants";
-import { CardAnimations } from "components/elements";
+import { CardAnimations } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
 

@@ -2,7 +2,7 @@ import { ChartBarIcon, HomeIcon } from "@heroicons/react/solid";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { ChooseSubModal, animations } from "components/elements";
+import { ChooseSubModal, animations } from "components";
 
 export const NavbarBottom = () => {
   return (

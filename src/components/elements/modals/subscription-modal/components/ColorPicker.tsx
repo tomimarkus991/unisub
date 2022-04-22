@@ -4,7 +4,7 @@ import { useField, useFormikContext } from "formik";
 import { motion } from "framer-motion";
 
 import { cardColors } from "app-constants";
-import { InputErrorText } from "components/elements";
+import { InputErrorText } from "components";
 import { CardColorType } from "types";
 
 import { SubFormValues } from "..";

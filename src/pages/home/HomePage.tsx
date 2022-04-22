@@ -1,5 +1,5 @@
-import { ToggleViewButton } from "components/elements";
-import { DefaultWrapper, SubLayout } from "components/layouts";
+import { ToggleViewButton } from "components";
+import { DefaultWrapper, SubLayout } from "components";
 
 export const HomePage = () => {
   return (

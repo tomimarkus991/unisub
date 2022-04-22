@@ -10,7 +10,7 @@ import {
   RealButton,
   SubscriptionModal,
   animations,
-} from "components/elements";
+} from "components";
 import { useSubModal } from "context";
 
 import { Modal } from "../modal";

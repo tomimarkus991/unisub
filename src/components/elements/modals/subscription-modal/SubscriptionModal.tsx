@@ -16,14 +16,7 @@ import {
   scrollbarStyles,
   cardColors,
 } from "app-constants";
-import {
-  RealButton,
-  Input,
-  Button,
-  Modal,
-  SubscriptionCard,
-  animations,
-} from "components/elements";
+import { RealButton, Input, Button, Modal, SubscriptionCard, animations } from "components";
 import { useSub, useSubModal } from "context";
 import {
   CardColorType,

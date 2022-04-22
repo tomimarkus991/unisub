@@ -1,4 +1,4 @@
-import { NavbarBottom, NavbarTop, Sidebar } from "components/elements";
+import { NavbarBottom, NavbarTop, Sidebar } from "components";
 
 interface Props {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { LayoutSubscriptionCard } from "components/elements";
+import { LayoutSubscriptionCard } from "components";
 import { useSub } from "context";
 
 export const SubLayout = () => {
