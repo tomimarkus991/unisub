@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 
-import { cardColors, categories, scrollbarStyles } from "app-constants";
+import { cardColors, categories, scrollbarStyles } from "constants";
 import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton, SubFormValues } from "components";
 import { CategoryCardItem } from "types";
 

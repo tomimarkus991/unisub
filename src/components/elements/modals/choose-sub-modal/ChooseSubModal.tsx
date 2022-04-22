@@ -3,7 +3,7 @@ import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiPlusCircle } from "react-icons/all";
 
-import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
+import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "constants";
 import {
   Input,
   PresetSubscriptionCard,

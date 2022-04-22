@@ -14,7 +14,7 @@ import {
   currencies,
   scrollbarStyles,
   cardColors,
-} from "app-constants";
+} from "constants";
 import {
   RealButton,
   Input,

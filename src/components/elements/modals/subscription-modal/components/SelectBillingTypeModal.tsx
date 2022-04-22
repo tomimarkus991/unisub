@@ -4,7 +4,7 @@ import { useField, useFormikContext } from "formik";
 import { useState } from "react";
 import { HiCalendar } from "react-icons/all";
 
-import { billingTypeValues, scrollbarStyles } from "app-constants";
+import { billingTypeValues, scrollbarStyles } from "constants";
 import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton } from "components";
 import { SubscriptionBillingType } from "types";
 

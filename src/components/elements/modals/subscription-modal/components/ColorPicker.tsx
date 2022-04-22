@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { motion } from "framer-motion";
 
-import { cardColors } from "app-constants";
+import { cardColors } from "constants";
 import { InputErrorText } from "components";
 import { CardColorType } from "types";
 

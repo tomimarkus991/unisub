@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
-import { currencies, scrollbarStyles } from "app-constants";
+import { currencies, scrollbarStyles } from "constants";
 import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton } from "components";
 import { CurrencyType } from "types";
 

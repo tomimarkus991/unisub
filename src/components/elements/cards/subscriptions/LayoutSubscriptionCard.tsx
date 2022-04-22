@@ -4,7 +4,7 @@ import moment from "moment";
 import { Fragment, useEffect, useState } from "react";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
-import { cardColors, scrollbarStyles } from "app-constants";
+import { cardColors, scrollbarStyles } from "constants";
 import { CardAnimations } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
