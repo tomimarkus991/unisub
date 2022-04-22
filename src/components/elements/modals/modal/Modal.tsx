@@ -59,7 +59,7 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
               opacity: 0,
             }}
             className={clsx(
-              "z-[70] min-w-[90%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
+              "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
               modalMaxWidth[size]
             )}
           >

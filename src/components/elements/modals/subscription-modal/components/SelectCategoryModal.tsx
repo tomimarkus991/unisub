@@ -24,7 +24,6 @@ export const SelectCategoryModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
-        size="xs"
         modalButton={
           <>
             <RealButton

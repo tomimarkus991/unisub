@@ -13,7 +13,7 @@ interface Props {
 
 export const ModalHeaderClose = ({ children, setOpen }: Props) => {
   return (
-    <div className="flex flex-row justify-between items-center p-4">
+    <div className="flex flex-row justify-between items-center p-4 w-full">
       <HiX className="w-8 h-8 opacity-0" />
       <ModalTitle>{children}</ModalTitle>
       <div role="button" tabIndex={0} onClick={() => setOpen(false)}>
