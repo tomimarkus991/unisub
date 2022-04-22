@@ -1,6 +1,7 @@
+import { cardColors } from "constants";
+
 import { ReactNode } from "react";
 
-import { cardColors } from "constants";
 export type CategoryNames =
   | "Other"
   | "Streaming"
