@@ -24,6 +24,7 @@ import {
   animations,
   ModalTitle,
   ModalSubTitle,
+  ModalFooter,
 } from "components";
 import { useSub, useSubModal } from "context";
 import {
@@ -290,11 +291,11 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center py-2 px-6 w-full bg-gray-50 rounded-b-xl">
+                <ModalFooter>
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
-                </div>
+                </ModalFooter>
               </Form>
             );
           }}
