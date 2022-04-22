@@ -12,6 +12,7 @@ import {
   animations,
   ModalHeaderClose,
   Modal,
+  ModalFooter,
 } from "components";
 import { useSubModal } from "context";
 
@@ -71,7 +72,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         {({ values }) => {
           return (
             <Form className="flex flex-col">
-              <div className="flex sticky z-40 flex-col items-center mb-3 w-full min-h-[9rem] rounded-t-xl">
+              <div className="flex sticky z-40 flex-col items-center px-4 mb-3 w-full min-h-[9rem] rounded-t-xl">
                 <ModalHeaderClose setOpen={setIsChooseSubModalOpen}>Add a new Sub</ModalHeaderClose>
 
                 <Input
@@ -80,17 +81,11 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   placeholder="Search"
                   className={clsx("px-3 my-2 w-full")}
                 />
-
-                <h3 className="text-lg font-medium leading-6 text-left text-gray-400">
+                <h3 className="text-lg font-medium leading-6 text-gray-400">
                   Popular subscriptions
                 </h3>
               </div>
-              <div
-                className={clsx(
-                  scrollbarStyles,
-                  "flex overflow-y-auto flex-col px-2 h-[40vh] bg-white"
-                )}
-              >
+              <div className={clsx(scrollbarStyles, "flex overflow-y-auto flex-col px-2 h-[40vh]")}>
                 <AnimatePresence initial={false} exitBeforeEnter>
                   {createPresetSubs().map(sub => {
                     return (
@@ -116,9 +111,9 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <div className="flex sticky bottom-0 z-40 justify-center items-center py-3 px-6 w-full min-h-[4rem] bg-white rounded-b-xl">
+              <ModalFooter>
                 <SubscriptionModal buttonType="real" buttonTitle="Create New" />
-              </div>
+              </ModalFooter>
             </Form>
           );
         }}

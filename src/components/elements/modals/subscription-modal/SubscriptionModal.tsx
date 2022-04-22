@@ -23,6 +23,7 @@ import {
   SubscriptionCard,
   animations,
   ModalTitle,
+  ModalSubTitle,
 } from "components";
 import { useSub, useSubModal } from "context";
 import {
@@ -235,7 +236,7 @@ export const SubscriptionModal = ({
                     cardColor={selectedColor}
                     imageUrl={""}
                   />
-                  <ModalTitle>General</ModalTitle>
+                  <ModalSubTitle>General</ModalSubTitle>
                   <div className="mt-4">
                     <ColorPicker name="selectedColor" />
                     <div className="flex flex-row">
@@ -257,7 +258,7 @@ export const SubscriptionModal = ({
                       </div>
                     </div>
                   </div>
-                  <ModalTitle>Billing</ModalTitle>
+                  <ModalSubTitle>Billing</ModalSubTitle>
                   <div className="mt-4">
                     <div className="flex flex-row">
                       <div className="w-6/12">
