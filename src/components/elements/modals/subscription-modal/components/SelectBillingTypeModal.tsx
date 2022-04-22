@@ -1,14 +1,11 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Dialog, RadioGroup } from "@headlessui/react";
-import { ArrowLeftIcon, CalendarIcon } from "@heroicons/react/solid";
+import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { HiCalendar } from "react-icons/all";
 
 import { billingTypeValues, scrollbarStyles } from "app-constants";
-import { InputErrorText, Modal, RealButton, animations } from "components/elements";
+import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton } from "components";
 import { SubscriptionBillingType } from "types";
 
 import { SubFormValues } from "..";
@@ -48,21 +45,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="flex flex-row justify-around items-center p-4">
-          <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-            <motion.div {...animations.rotate360Anim} key="select-billing-type-arrow-left">
-              <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-            </motion.div>
-          </div>
-          <Dialog.Title
-            as="h3"
-            className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-          >
-            Select Type
-          </Dialog.Title>
-
-          <ArrowLeftIcon className="w-8 h-8 opacity-0" />
-        </div>
+        <ModalHeaderGoOneBack setOpen={setOpen}>Type</ModalHeaderGoOneBack>
         <div className="px-4 pt-5 pb-4">
           <div className="flex items-start">
             <div className=" w-full">
@@ -77,12 +60,14 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                   <RadioGroup.Option value={billingType} key={billingType}>
                     <div
                       onClick={() => setOpen(false)}
+                      role="button"
+                      tabIndex={0}
                       className={clsx(
                         scrollbarStyles,
                         "flex overflow-x-auto flex-row justify-evenly items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
                       )}
                     >
-                      <CalendarIcon className="w-8 min-w-[5rem] h-8 fill-slate-700 hover:fill-slate-800" />
+                      <HiCalendar className="w-8 min-w-[5rem] h-8 fill-slate-700 hover:fill-slate-800" />
                       <span
                         className="ml-2 min-w-[6rem] text-lg font-semibold text-left"
                         role="button"

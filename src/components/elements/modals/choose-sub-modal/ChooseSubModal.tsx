@@ -1,4 +1,3 @@
-import { Dialog } from "@headlessui/react";
 import { PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
@@ -51,7 +50,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                 setIsChooseSubModalOpen(true);
               }}
             >
-              Create new subscription
+              Create sub
             </RealButton>
           )}
         </>
@@ -73,14 +72,11 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
           return (
             <Form className="flex flex-col">
               <div className="flex sticky z-40 flex-col items-center mb-3 w-full min-h-[9rem] rounded-t-xl">
-                <div className="flex flex-row justify-between items-center p-4 w-full">
+                <div className="flex flex-row justify-between items-center w-full">
                   <XIcon className="w-8 h-8 opacity-0" />
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-                  >
+                  <h3 className="text-lg font-medium leading-6 text-center text-gray-700 uppercase">
                     Add a new Sub
-                  </Dialog.Title>
+                  </h3>
                   <div
                     role="button"
                     tabIndex={0}
@@ -92,21 +88,16 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   </div>
                 </div>
 
-                <div className="flex flex-row">
-                  <Input
-                    name="searchString"
-                    type="text"
-                    placeholder="Search"
-                    className={clsx("px-3 w-full")}
-                  />
-                </div>
+                <Input
+                  name="searchString"
+                  type="text"
+                  placeholder="Search"
+                  className={clsx("px-3 my-2 w-full")}
+                />
 
-                <Dialog.Title
-                  as="h3"
-                  className="mt-2 text-lg font-medium leading-6 text-left text-gray-400"
-                >
+                <h3 className="text-lg font-medium leading-6 text-left text-gray-400">
                   Popular subscriptions
-                </Dialog.Title>
+                </h3>
               </div>
               <div
                 className={clsx(

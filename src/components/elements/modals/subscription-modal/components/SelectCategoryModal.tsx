@@ -1,14 +1,10 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Dialog, RadioGroup } from "@headlessui/react";
-import { ArrowLeftIcon } from "@heroicons/react/solid";
+import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { cardColors, categories, scrollbarStyles } from "app-constants";
-import { InputErrorText, Modal, RealButton, SubFormValues, animations } from "components/elements";
+import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton, SubFormValues } from "components";
 import { CategoryCardItem } from "types";
 
 interface Props {
@@ -46,20 +42,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
         }
       >
         <div className="bg-white rounded-xl">
-          <div className="flex flex-row justify-between items-center p-4 shadow-md">
-            <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-              <motion.div {...animations.rotate360Anim} key="select-category-left-arrow-icon">
-                <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-              </motion.div>
-            </div>
-            <Dialog.Title
-              as="h3"
-              className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-            >
-              Select category
-            </Dialog.Title>
-            <ArrowLeftIcon className="w-8 h-8 opacity-0" />
-          </div>
+          <ModalHeaderGoOneBack setOpen={setOpen}>Category</ModalHeaderGoOneBack>
           <div
             className={clsx(
               scrollbarStyles,

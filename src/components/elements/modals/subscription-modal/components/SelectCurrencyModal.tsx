@@ -1,14 +1,10 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Dialog, RadioGroup } from "@headlessui/react";
-import { ArrowLeftIcon } from "@heroicons/react/solid";
+import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { currencies, scrollbarStyles } from "app-constants";
-import { RealButton, Modal, InputErrorText, animations } from "components/elements";
+import { InputErrorText, Modal, ModalHeaderGoOneBack, RealButton } from "components";
 import { CurrencyType } from "types";
 
 import { SubFormValues } from "..";
@@ -66,22 +62,8 @@ export const SelectCurrencyModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="flex flex-row justify-between items-center p-4">
-          <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-            <motion.div {...animations.rotate360Anim} key="select-currency-left-arrow-icon">
-              <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-            </motion.div>
-          </div>
-          <Dialog.Title
-            as="h3"
-            className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-          >
-            Select currency
-          </Dialog.Title>
-
-          <ArrowLeftIcon className="w-8 h-8 opacity-0" />
-        </div>
-        <div className="px-4 pt-5 pb-4">
+        <ModalHeaderGoOneBack setOpen={setOpen}>Currency</ModalHeaderGoOneBack>
+        <div className="p-4">
           <div className="flex items-start">
             <div className="mt-0 w-full">
               <RadioGroup
@@ -95,6 +77,8 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                   <RadioGroup.Option value={currency} key={currency.name}>
                     <div
                       onClick={() => setOpen(false)}
+                      role="button"
+                      tabIndex={0}
                       className={clsx(
                         scrollbarStyles,
                         "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
