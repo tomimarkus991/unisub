@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import moment from "moment";
 import {
   HiBeaker,
@@ -18,6 +19,8 @@ import {
   SubscriptionBillingType,
   Subscription,
 } from "types";
+
+import { styles } from ".";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -164,13 +167,13 @@ export const createPresetSubs = (): Subscription[] => {
 };
 
 export const categories: CategoryCardItem[] = [
-  { name: "Other", icon: <HiFingerPrint /> },
-  { name: "Streaming", icon: <HiFilm /> },
-  { name: "Gaming", icon: <HiPuzzle /> },
-  { name: "Fitness", icon: <FaDumbbell /> },
-  { name: "Food", icon: <HiCake /> },
-  { name: "Education", icon: <HiBeaker /> },
-  { name: "Music", icon: <HiMusicNote /> },
-  { name: "Home", icon: <HiHome /> },
-  { name: "Software", icon: <HiChip /> },
+  { name: "Other", icon: <HiFingerPrint className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Streaming", icon: <HiFilm className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Gaming", icon: <HiPuzzle className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Fitness", icon: <FaDumbbell className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Food", icon: <HiCake className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Education", icon: <HiBeaker className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Music", icon: <HiMusicNote className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Home", icon: <HiHome className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Software", icon: <HiChip className={clsx(`${styles.categoryItemStyles}`)} /> },
 ];

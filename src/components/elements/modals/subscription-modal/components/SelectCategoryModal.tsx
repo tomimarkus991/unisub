@@ -72,10 +72,10 @@ export const SelectCategoryModal = ({ name }: Props) => {
                       tabIndex={0}
                       onClick={() => setOpen(false)}
                     >
-                      <div className="flex justify-center items-center mr-3 w-10 h-10">
-                        {category.icon}
-                      </div>
-                      <div>{category.name}</div>
+                      {/* <div className="flex justify-center items-center mr-3 w-10 h-10"> */}
+                      {category.icon}
+                      {/* </div> */}
+                      {category.name}
                     </div>
                   )}
                 </RadioGroup.Option>
