@@ -39,6 +39,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
       <Modal
         open={open}
         setOpen={setOpen}
+        size="xs"
         modalButton={
           <>
             <RealButton
@@ -63,41 +64,39 @@ export const SelectCurrencyModal = ({ name }: Props) => {
         }
       >
         <ModalHeaderGoOneBack setOpen={setOpen}>Currency</ModalHeaderGoOneBack>
-        <div className="p-4">
-          <div className="flex items-start">
-            <div className="mt-0 w-full">
-              <RadioGroup
-                className="grid grid-cols-2 mt-6"
-                value={field.value}
-                onChange={value => {
-                  setFieldValue(name, value);
-                }}
-              >
-                {currencies.map(currency => (
-                  <RadioGroup.Option value={currency} key={currency.name}>
-                    <div
-                      onClick={() => setOpen(false)}
+        <div className={clsx(scrollbarStyles, "flex overflow-y-auto items-start p-2 h-[25vh]")}>
+          <div className="flex justify-center items-center w-full">
+            <RadioGroup
+              className="grid grid-cols-2 gap-2 w-full"
+              value={field.value}
+              onChange={value => {
+                setFieldValue(name, value);
+              }}
+            >
+              {currencies.map(currency => (
+                <RadioGroup.Option value={currency} key={currency.name}>
+                  <div
+                    onClick={() => setOpen(false)}
+                    role="button"
+                    tabIndex={0}
+                    className={clsx(
+                      scrollbarStyles,
+                      "flex overflow-x-auto flex-row justify-center items-center py-4 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
+                    )}
+                  >
+                    <span
+                      className="mr-2 text-lg font-semibold text-center"
                       role="button"
                       tabIndex={0}
-                      className={clsx(
-                        scrollbarStyles,
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
-                      )}
+                      onClick={() => setOpen(false)}
                     >
-                      <span
-                        className="mr-2 text-lg font-semibold text-center"
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => setOpen(false)}
-                      >
-                        {currency.name}
-                      </span>
-                      <img className="w-8 h-8" src={`/flags/${currency.image}`} alt="icon" />
-                    </div>
-                  </RadioGroup.Option>
-                ))}
-              </RadioGroup>
-            </div>
+                      {currency.name}
+                    </span>
+                    <img className="w-8 h-8" src={`/flags/${currency.image}`} alt="icon" />
+                  </div>
+                </RadioGroup.Option>
+              ))}
+            </RadioGroup>
           </div>
         </div>
       </Modal>

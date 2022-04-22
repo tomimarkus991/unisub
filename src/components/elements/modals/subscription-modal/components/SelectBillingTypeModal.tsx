@@ -46,11 +46,11 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
         }
       >
         <ModalHeaderGoOneBack setOpen={setOpen}>Type</ModalHeaderGoOneBack>
-        <div className="px-4 pt-5 pb-4">
+        <div className="p-4">
           <div className="flex items-start">
-            <div className=" w-full">
+            <div className="w-full">
               <RadioGroup
-                className="grid grid-cols-1"
+                className="grid grid-cols-1 gap-2 w-full"
                 value={field.value}
                 onChange={value => {
                   setFieldValue(name, value);
@@ -64,7 +64,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                       tabIndex={0}
                       className={clsx(
                         scrollbarStyles,
-                        "flex overflow-x-auto flex-row justify-evenly items-center py-4 mr-3 mb-2 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
+                        "flex overflow-x-auto flex-row justify-evenly items-center py-4 text-sm text-center text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer"
                       )}
                     >
                       <HiCalendar className="w-8 min-w-[5rem] h-8 fill-slate-700 hover:fill-slate-800" />

@@ -41,48 +41,46 @@ export const SelectCategoryModal = ({ name }: Props) => {
           </>
         }
       >
-        <div className="bg-white rounded-xl">
-          <ModalHeaderGoOneBack setOpen={setOpen}>Category</ModalHeaderGoOneBack>
-          <div
-            className={clsx(
-              scrollbarStyles,
-              "flex overflow-y-auto items-start p-2 h-[55vh] min-h-[15rem]"
-            )}
-          >
-            <div className="flex justify-center items-center w-full">
-              <RadioGroup
-                className="grid grid-cols-2 mt-3"
-                value={field.value}
-                onChange={value => {
-                  setFieldValue(name, value);
-                }}
-              >
-                {categories.map(category => (
-                  <RadioGroup.Option value={category} key={category.name}>
-                    {({ checked }) => (
-                      <div
-                        className={clsx(
-                          scrollbarStyles,
-                          "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 mr-3 mb-2 font-semibold text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer",
-                          // `hover:${cardColors[values.selectedColor]}`,
-                          "hover:bg-gradient-to-br hover:from-slate-50 hover:via-slate-200 hover:to-white",
-                          checked ? `${cardColors[values.selectedColor]}` : "",
-                          checked ? `${values.selectedColor !== "white" && "text-white"}` : ""
-                        )}
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => setOpen(false)}
-                      >
-                        <div className="flex justify-center items-center mr-3 w-10 h-10">
-                          {category.icon}
-                        </div>
-                        <div>{category.name}</div>
+        <ModalHeaderGoOneBack setOpen={setOpen}>Category</ModalHeaderGoOneBack>
+        <div
+          className={clsx(
+            scrollbarStyles,
+            "flex overflow-y-auto items-start py-2 px-4 h-[55vh] min-h-[15rem]"
+          )}
+        >
+          <div className="flex justify-center items-center w-full">
+            <RadioGroup
+              className="grid grid-cols-2 gap-2 w-full"
+              value={field.value}
+              onChange={value => {
+                setFieldValue(name, value);
+              }}
+            >
+              {categories.map(category => (
+                <RadioGroup.Option value={category} key={category.name}>
+                  {({ checked }) => (
+                    <div
+                      className={clsx(
+                        scrollbarStyles,
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 text-ellipsis whitespace-nowrap rounded-md ring-2 ring-black ring-opacity-5 cursor-pointer",
+                        // `hover:${cardColors[values.selectedColor]}`,
+                        "hover:bg-gradient-to-br hover:from-slate-50 hover:via-slate-200 hover:to-white",
+                        checked ? `${cardColors[values.selectedColor]}` : "",
+                        checked ? `${values.selectedColor !== "white" && "text-white"}` : ""
+                      )}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setOpen(false)}
+                    >
+                      <div className="flex justify-center items-center mr-3 w-10 h-10">
+                        {category.icon}
                       </div>
-                    )}
-                  </RadioGroup.Option>
-                ))}
-              </RadioGroup>
-            </div>
+                      <div>{category.name}</div>
+                    </div>
+                  )}
+                </RadioGroup.Option>
+              ))}
+            </RadioGroup>
           </div>
         </div>
       </Modal>
