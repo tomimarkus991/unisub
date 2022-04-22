@@ -1,5 +1,4 @@
 import { billingTypes, currencies } from "app-constants";
-
 import { CurrencyType, Subscription } from "types";
 
 const findCurrencyIcon = (currency: string) => {

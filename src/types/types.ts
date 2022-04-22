@@ -1,6 +1,6 @@
-import { cardColors } from "app-constants";
-
 import { ReactNode } from "react";
+
+import { cardColors } from "app-constants";
 
 export type CategoryNames =
   | "Other"

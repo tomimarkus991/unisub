@@ -1,7 +1,6 @@
-import { cardColors, scrollbarStyles } from "app-constants";
-
 import clsx from "clsx";
 
+import { cardColors, scrollbarStyles } from "app-constants";
 import { CardAnimations } from "components";
 import { CardColorType } from "types";
 
