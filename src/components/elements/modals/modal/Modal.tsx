@@ -33,39 +33,37 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
           open={open}
           onClose={setOpen}
         >
-          <div ref={initialFocusRef} className="flex justify-center items-center mx-2 w-full">
-            <motion.div
-              id="overlay"
-              key="app-modal-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              transition={{ duration: 0.1, ease: "easeIn" }}
-              exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
-              className="absolute inset-0 w-full h-full bg-gray-500"
-            />
-            <motion.div
-              id="modal-children"
-              key="app-modal-children"
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: 1,
-                transition: {
-                  duration: 0.1,
-                  ease: "easeIn",
-                },
-              }}
-              exit={{
-                opacity: 0,
-              }}
-              className={clsx(
-                "z-[70] min-w-[90%] max-w-[90%] bg-white rounded-xl min:min-w-[20rem]",
-                modalMaxWidth[size]
-              )}
-            >
-              {children}
-            </motion.div>
-          </div>
+          <motion.div
+            id="overlay"
+            key="app-modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 0.1, ease: "easeIn" }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
+            className="absolute inset-0 w-full h-full bg-gray-500"
+          />
+          <motion.div
+            id="modal-children"
+            key="app-modal-children"
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                duration: 0.1,
+                ease: "easeIn",
+              },
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            className={clsx(
+              "z-[70] min-w-[90%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
+              modalMaxWidth[size]
+            )}
+          >
+            {children}
+          </motion.div>
         </Dialog>
       </AnimatePresence>
     </>
