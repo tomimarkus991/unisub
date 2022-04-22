@@ -2,6 +2,7 @@ import { Dialog } from "@headlessui/react";
 import { ArrowLeftIcon, PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
+import { motion } from "framer-motion";
 import moment from "moment";
 import { useState } from "react";
 
@@ -20,9 +21,8 @@ import {
   Input,
   Button,
   Modal,
-  ScaleAndRotationAnim1,
   SubscriptionCard,
-  Rotate360Anim,
+  animations,
 } from "components/elements";
 import { useSub, useSubModal } from "context";
 import {
@@ -104,14 +104,14 @@ export const SubscriptionModal = ({
         modalButton={
           <>
             {buttonType === "icon" && (
-              <ScaleAndRotationAnim1>
+              <motion.div {...animations.scaleAndRotationAnim} key="sub-modal-plus-circle-icon">
                 <PlusCircleIcon
                   className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                   onClick={() => {
                     setSubModalOpen(true);
                   }}
                 />
-              </ScaleAndRotationAnim1>
+              </motion.div>
             )}
             {buttonType === "real" && (
               <RealButton
@@ -203,9 +203,9 @@ export const SubscriptionModal = ({
               <Form className={clsx("flex flex-col")}>
                 <div className="flex flex-row justify-between items-center p-4">
                   <div role="button" tabIndex={0} onClick={() => setSubModalOpen(() => false)}>
-                    <Rotate360Anim>
+                    <motion.div {...animations.rotate360Anim} key="sub-modal-left-icon">
                       <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </Rotate360Anim>
+                    </motion.div>
                   </div>
                   <Dialog.Title
                     as="h3"
@@ -220,9 +220,9 @@ export const SubscriptionModal = ({
                       setIsChooseSubModalOpen(() => false);
                     }}
                   >
-                    <Rotate360Anim>
+                    <motion.div {...animations.rotate360Anim} key="sub-modal-x-icon">
                       <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </Rotate360Anim>
+                    </motion.div>
                   </div>
                 </div>
                 <div

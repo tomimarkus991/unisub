@@ -1,4 +1,6 @@
-import { ScaleAnim1 } from "components/elements";
+import { motion } from "framer-motion";
+
+import { animations } from "components/elements";
 import { useSidebar } from "context/sidebar";
 import { UserType } from "types";
 
@@ -11,7 +13,7 @@ export const NavbarTop = ({ user }: Props) => {
   return (
     <div className="flex flex-1 justify-between items-center px-4">
       <p className="text-2xl font-semibold text-gray-800">Subscriptions</p>
-      <ScaleAnim1>
+      <motion.div {...animations.scaleAnim} key="nt-user-icon">
         <div
           role="button"
           tabIndex={0}
@@ -24,7 +26,7 @@ export const NavbarTop = ({ user }: Props) => {
             <img className="w-14 h-14" alt="user" src={`/general/avatar.svg`} />
           )}
         </div>
-      </ScaleAnim1>
+      </motion.div>
     </div>
   );
 };

@@ -53,9 +53,9 @@ export const SelectField = ({ name, options, title }: Props) => {
         <InputErrorText touched={touched} error={error} />
 
         <Listbox.Options className="overflow-y-auto absolute z-20 py-1 mt-1 w-full max-h-52 text-base bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5 shadow-lg cursor-pointer">
-          {options.map((option, optionIdx) => (
+          {options.map(option => (
             <Listbox.Option
-              key={optionIdx}
+              key={option.id}
               className={({ active }) =>
                 `select-none relative py-2 pl-10 pr-4 ${active ? "bg-slate-100" : "text-slate-800"}`
               }

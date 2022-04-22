@@ -4,16 +4,11 @@ import { Dialog, RadioGroup } from "@headlessui/react";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { cardColors, categories, scrollbarStyles } from "app-constants";
-import {
-  InputErrorText,
-  Modal,
-  RealButton,
-  Rotate360Anim,
-  SubFormValues,
-} from "components/elements";
+import { InputErrorText, Modal, RealButton, SubFormValues, animations } from "components/elements";
 import { CategoryCardItem } from "types";
 
 interface Props {
@@ -53,9 +48,9 @@ export const SelectCategoryModal = ({ name }: Props) => {
         <div className="bg-white rounded-xl">
           <div className="flex flex-row justify-between items-center p-4 shadow-md">
             <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-              <Rotate360Anim>
+              <motion.div {...animations.rotate360Anim} key="select-category-left-arrow-icon">
                 <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-              </Rotate360Anim>
+              </motion.div>
             </div>
             <Dialog.Title
               as="h3"

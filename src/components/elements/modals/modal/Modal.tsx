@@ -1,6 +1,7 @@
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 import clsx from "clsx";
-import { Fragment, ReactNode, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ReactNode, useRef } from "react";
 
 const modalMaxWidth = {
   xs: "max-w-xs",
@@ -23,51 +24,50 @@ export const Modal = ({ children, modalButton, open, setOpen, size = "xl" }: Pro
   return (
     <>
       {modalButton}
-      <Transition.Root show={open} as={Fragment}>
+      <AnimatePresence>
         <Dialog
+          key="modal-dialog"
           initialFocus={initialFocusRef}
           as="div"
-          className="flex fixed inset-0 z-50 justify-center items-center"
+          className="flex fixed inset-0 z-50 justify-center items-center select-none"
+          open={open}
           onClose={setOpen}
         >
-          <div
-            ref={initialFocusRef}
-            className="flex justify-center items-center mx-2 w-full select-none"
-          >
-            {/* <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-            </Transition.Child> */}
-            <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-
-            {/* <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 scale-95"
-              enterTo="opacity-100 translate-y-0 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 scale-100"
-              leaveTo="opacity-0 translate-y-4 scale-95"
-            > */}
-            <div
+          <div ref={initialFocusRef} className="flex justify-center items-center mx-2 w-full">
+            <motion.div
+              id="overlay"
+              key="app-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              transition={{ duration: 0.1, ease: "easeIn" }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="absolute inset-0 w-full h-full bg-gray-500"
+            />
+            <motion.div
               id="modal-children"
+              key="app-modal-children"
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: {
+                  duration: 0.1,
+                  ease: "easeIn",
+                },
+              }}
+              exit={{
+                opacity: 0,
+              }}
               className={clsx(
-                "block w-full bg-white rounded-xl transition-all transform",
+                "z-[70] min-w-[90%] max-w-[90%] bg-white rounded-xl min:min-w-[20rem]",
                 modalMaxWidth[size]
               )}
             >
               {children}
-            </div>
-            {/* </Transition.Child> */}
+            </motion.div>
           </div>
         </Dialog>
-      </Transition.Root>
+      </AnimatePresence>
     </>
   );
 };

@@ -9,9 +9,8 @@ import {
   Input,
   PresetSubscriptionCard,
   RealButton,
-  Rotate360Anim,
-  ScaleAndRotationAnim1,
   SubscriptionModal,
+  animations,
 } from "components/elements";
 import { useSubModal } from "context";
 
@@ -38,14 +37,14 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       modalButton={
         <>
           {isIcon ? (
-            <ScaleAndRotationAnim1>
+            <motion.div key="choose-sub-plus-circle" {...animations.scaleAndRotationAnim}>
               <PlusCircleIcon
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                 onClick={() => {
                   setIsChooseSubModalOpen(true);
                 }}
               />
-            </ScaleAndRotationAnim1>
+            </motion.div>
           ) : (
             <RealButton
               onClick={() => {
@@ -80,16 +79,16 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
                   >
-                    Add a new Subscription
+                    Add a new Sub
                   </Dialog.Title>
                   <div
                     role="button"
                     tabIndex={0}
                     onClick={() => setIsChooseSubModalOpen(open => !open)}
                   >
-                    <Rotate360Anim>
+                    <motion.div key="choose-sub-x-icon" {...animations.rotate360Anim}>
                       <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </Rotate360Anim>
+                    </motion.div>
                   </div>
                 </div>
 
@@ -121,7 +120,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <motion.div
                           className="mb-2"
-                          key={"sub-card-" + sub.title}
+                          key={sub.title}
                           initial={{ y: "-50vh", opacity: 0 }}
                           animate={{
                             y: "0",

@@ -4,10 +4,11 @@ import { Dialog, RadioGroup } from "@headlessui/react";
 import { ArrowLeftIcon, CalendarIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { billingTypeValues, scrollbarStyles } from "app-constants";
-import { InputErrorText, Modal, RealButton, Rotate360Anim } from "components/elements";
+import { InputErrorText, Modal, RealButton, animations } from "components/elements";
 import { SubscriptionBillingType } from "types";
 
 import { SubFormValues } from "..";
@@ -49,9 +50,9 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
       >
         <div className="flex flex-row justify-around items-center p-4">
           <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-            <Rotate360Anim>
+            <motion.div {...animations.rotate360Anim} key="select-billing-type-arrow-left">
               <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-            </Rotate360Anim>
+            </motion.div>
           </div>
           <Dialog.Title
             as="h3"

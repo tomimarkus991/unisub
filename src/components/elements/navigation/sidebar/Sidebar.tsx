@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import { ScaleAndRotationAnim1Small, ScaleAnim1 } from "components/elements";
+import { animations } from "components/elements";
 import { useSidebar } from "context/sidebar";
 
 interface ListItemProps {
@@ -18,9 +18,9 @@ const ListItem = ({ children, to }: ListItemProps) => {
     <div role="button" tabIndex={-3} onClick={open => setisSidebarOpen(!open)}>
       <Link to={to}>
         <div className="flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
-          <ScaleAnim1>
+          <motion.div {...animations.rotate360Anim} key="sidebar-link-icon">
             <div className="flex flex-row items-center">{children}</div>
-          </ScaleAnim1>
+          </motion.div>
         </div>
       </Link>
     </div>
@@ -56,9 +56,9 @@ export const Sidebar = () => {
           >
             <div className="flex justify-end p-3">
               <button onClick={() => setisSidebarOpen(open => !open)}>
-                <ScaleAndRotationAnim1Small>
+                <motion.div {...animations.scaleAndRotationAnim} key="sidebar-x-icon">
                   <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
-                </ScaleAndRotationAnim1Small>
+                </motion.div>
               </button>
             </div>
             <div className="h-full">

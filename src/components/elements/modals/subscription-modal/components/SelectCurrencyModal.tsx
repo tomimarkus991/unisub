@@ -4,10 +4,11 @@ import { Dialog, RadioGroup } from "@headlessui/react";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { currencies, scrollbarStyles } from "app-constants";
-import { RealButton, Modal, InputErrorText, Rotate360Anim } from "components/elements";
+import { RealButton, Modal, InputErrorText, animations } from "components/elements";
 import { CurrencyType } from "types";
 
 import { SubFormValues } from "..";
@@ -67,9 +68,9 @@ export const SelectCurrencyModal = ({ name }: Props) => {
       >
         <div className="flex flex-row justify-between items-center p-4">
           <div role="button" tabIndex={0} onClick={() => setOpen(open => !open)}>
-            <Rotate360Anim>
+            <motion.div {...animations.rotate360Anim} key="select-currency-left-arrow-icon">
               <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-            </Rotate360Anim>
+            </motion.div>
           </div>
           <Dialog.Title
             as="h3"
