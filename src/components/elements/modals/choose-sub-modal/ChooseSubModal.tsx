@@ -1,7 +1,7 @@
-import { PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
+import { HiPlusCircle } from "react-icons/all";
 
 import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
 import {
@@ -10,10 +10,10 @@ import {
   RealButton,
   SubscriptionModal,
   animations,
+  ModalHeaderClose,
+  Modal,
 } from "components";
 import { useSubModal } from "context";
-
-import { Modal } from "../modal";
 
 interface FormValues {
   searchString: string;
@@ -37,7 +37,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         <>
           {isIcon ? (
             <motion.div key="choose-sub-plus-circle" {...animations.scaleAndRotationAnim}>
-              <PlusCircleIcon
+              <HiPlusCircle
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                 onClick={() => {
                   setIsChooseSubModalOpen(true);
@@ -72,21 +72,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
           return (
             <Form className="flex flex-col">
               <div className="flex sticky z-40 flex-col items-center mb-3 w-full min-h-[9rem] rounded-t-xl">
-                <div className="flex flex-row justify-between items-center w-full">
-                  <XIcon className="w-8 h-8 opacity-0" />
-                  <h3 className="text-lg font-medium leading-6 text-center text-gray-700 uppercase">
-                    Add a new Sub
-                  </h3>
-                  <div
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => setIsChooseSubModalOpen(open => !open)}
-                  >
-                    <motion.div key="choose-sub-x-icon" {...animations.rotate360Anim}>
-                      <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </motion.div>
-                  </div>
-                </div>
+                <ModalHeaderClose setOpen={setIsChooseSubModalOpen}>Add a new Sub</ModalHeaderClose>
 
                 <Input
                   name="searchString"

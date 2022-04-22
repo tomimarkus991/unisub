@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import { CalendarIcon } from "@heroicons/react/solid";
 import { DesktopDatePicker } from "@mui/lab";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
+import { HiCalendar } from "react-icons/all";
+
+import { InputErrorText } from "components";
 
 import { SubFormValues } from "..";
-import { InputErrorText } from "../../../feedback";
 
 interface Props {
   name: string;
@@ -44,7 +43,7 @@ export const DatePicker = ({ name }: Props) => {
                 )}
               />
               <div className="flex absolute inset-y-0 right-7 items-center cursor-pointer sm:right-14 xs:right-10 xs2:right-12">
-                <CalendarIcon className="w-5 h-5 text-gray-500" />
+                <HiCalendar className="w-5 h-5 text-gray-500" />
               </div>
             </div>
             {/* <p className="mt-1 ml-2 text-xs font-thin">{inputProps?.placeholder}</p> */}

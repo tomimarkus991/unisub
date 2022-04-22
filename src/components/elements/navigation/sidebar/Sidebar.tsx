@@ -1,7 +1,7 @@
-import { ChartBarIcon, HomeIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode } from "react";
+import { HiChartBar, HiHome, HiX } from "react-icons/all";
 import { Link } from "react-router-dom";
 
 import { animations } from "components";
@@ -57,18 +57,18 @@ export const Sidebar = () => {
             <div className="flex justify-end p-3">
               <button onClick={() => setisSidebarOpen(open => !open)}>
                 <motion.div {...animations.scaleAndRotationAnim} key="sidebar-x-icon">
-                  <XIcon className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
+                  <HiX className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
                 </motion.div>
               </button>
             </div>
             <div className="h-full">
               <ListItem to="/">
-                <HomeIcon className={clsx(listIconClasses)} />
+                <HiHome className={clsx(listIconClasses)} />
                 <p className="text-xl font-medium">Home</p>
               </ListItem>
 
               <ListItem to="/stats">
-                <ChartBarIcon className={clsx(listIconClasses)} />
+                <HiChartBar className={clsx(listIconClasses)} />
                 <p className="text-xl font-medium">Stats</p>
               </ListItem>
             </div>

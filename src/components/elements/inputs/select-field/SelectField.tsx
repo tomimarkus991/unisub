@@ -1,7 +1,7 @@
 import { Listbox } from "@headlessui/react";
-import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { useField, useFormikContext } from "formik";
 import { motion, Variants } from "framer-motion";
+import { HiCheck, HiSelector } from "react-icons/all";
 
 import { SelectOption, SubscriptionBillingType } from "types";
 
@@ -45,7 +45,7 @@ export const SelectField = ({ name, options, title }: Props) => {
             </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
               <motion.div initial="hidden" animate="visible" variants={item}>
-                <SelectorIcon className="w-5 h-5 fill-gray-400" aria-hidden="true" />
+                <HiSelector className="w-5 h-5 fill-gray-400" aria-hidden="true" />
               </motion.div>
             </span>
           </Listbox.Button>
@@ -68,7 +68,7 @@ export const SelectField = ({ name, options, title }: Props) => {
                   </span>
                   {selected ? (
                     <div className="flex absolute inset-y-0 left-0 items-center pl-3">
-                      <CheckIcon className="w-5 h-5 fill-slate-600" aria-hidden="true" />
+                      <HiCheck className="w-5 h-5 fill-slate-600" aria-hidden="true" />
                     </div>
                   ) : null}
                 </>

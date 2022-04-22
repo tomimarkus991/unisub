@@ -1,10 +1,9 @@
-import { Dialog } from "@headlessui/react";
-import { ArrowLeftIcon, PlusCircleIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { motion } from "framer-motion";
 import moment from "moment";
 import { useState } from "react";
+import { HiArrowLeft, HiPlusCircle, HiX } from "react-icons/all";
 
 import {
   billingTypeValues,
@@ -16,7 +15,15 @@ import {
   scrollbarStyles,
   cardColors,
 } from "app-constants";
-import { RealButton, Input, Button, Modal, SubscriptionCard, animations } from "components";
+import {
+  RealButton,
+  Input,
+  Button,
+  Modal,
+  SubscriptionCard,
+  animations,
+  ModalTitle,
+} from "components";
 import { useSub, useSubModal } from "context";
 import {
   CardColorType,
@@ -98,7 +105,7 @@ export const SubscriptionModal = ({
           <>
             {buttonType === "icon" && (
               <motion.div {...animations.scaleAndRotationAnim} key="sub-modal-plus-circle-icon">
-                <PlusCircleIcon
+                <HiPlusCircle
                   className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                   onClick={() => {
                     setSubModalOpen(true);
@@ -197,15 +204,10 @@ export const SubscriptionModal = ({
                 <div className="flex flex-row justify-between items-center p-4">
                   <div role="button" tabIndex={0} onClick={() => setSubModalOpen(() => false)}>
                     <motion.div {...animations.rotate360Anim} key="sub-modal-left-icon">
-                      <ArrowLeftIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </motion.div>
                   </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-center text-gray-700 uppercase"
-                  >
-                    Create sub
-                  </Dialog.Title>
+                  <ModalTitle>Create sub</ModalTitle>
                   <div
                     role="button"
                     tabIndex={0}
@@ -214,7 +216,7 @@ export const SubscriptionModal = ({
                     }}
                   >
                     <motion.div {...animations.rotate360Anim} key="sub-modal-x-icon">
-                      <XIcon className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </motion.div>
                   </div>
                 </div>
@@ -233,12 +235,7 @@ export const SubscriptionModal = ({
                     cardColor={selectedColor}
                     imageUrl={""}
                   />
-                  <Dialog.Title
-                    as="h3"
-                    className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
-                  >
-                    General
-                  </Dialog.Title>
+                  <ModalTitle>General</ModalTitle>
                   <div className="mt-4">
                     <ColorPicker name="selectedColor" />
                     <div className="flex flex-row">
@@ -260,12 +257,7 @@ export const SubscriptionModal = ({
                       </div>
                     </div>
                   </div>
-                  <Dialog.Title
-                    as="h3"
-                    className="mt-4 text-lg font-medium leading-6 text-left text-gray-700"
-                  >
-                    Billing
-                  </Dialog.Title>
+                  <ModalTitle>Billing</ModalTitle>
                   <div className="mt-4">
                     <div className="flex flex-row">
                       <div className="w-6/12">

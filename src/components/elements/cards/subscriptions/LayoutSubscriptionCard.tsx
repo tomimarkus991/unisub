@@ -1,8 +1,8 @@
 import { Menu, Transition } from "@headlessui/react";
-import { CheckIcon, PencilIcon, TrashIcon, XIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import moment from "moment";
 import { Fragment, useEffect, useState } from "react";
+import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
 import { cardColors, scrollbarStyles } from "app-constants";
 import { CardAnimations } from "components";
@@ -95,23 +95,23 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
         <Menu.Items className="absolute top-[70%] right-[10%] z-40 w-40 bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5">
           <SubscriptionModal buttonType="children" subValues={sub}>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-              <PencilIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+              <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
               <p>Edit</p>
             </button>
           </SubscriptionModal>
           <Menu.Item>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
               {isSubActive ? (
-                <XIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+                <HiX className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
               ) : (
-                <CheckIcon className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+                <HiCheck className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
               )}
               <p>{isSubActive ? "Deactivate" : "Activate"}</p>
             </button>
           </Menu.Item>
           <Menu.Item>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-              <TrashIcon className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
+              <HiTrash className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
               <p>Delete</p>
             </button>
           </Menu.Item>
