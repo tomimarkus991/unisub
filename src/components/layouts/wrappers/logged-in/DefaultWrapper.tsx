@@ -1,4 +1,4 @@
-import { NavbarBottom, NavbarTop, Sidebar } from "components";
+import { NavbarBottom, NavbarTop, SidebarContainer } from "components";
 
 interface Props {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ export const DefaultWrapper = ({ children }: Props) => {
           </div>
         </div>
       </div>
-      <Sidebar />
+      <SidebarContainer />
     </>
   );
 };
