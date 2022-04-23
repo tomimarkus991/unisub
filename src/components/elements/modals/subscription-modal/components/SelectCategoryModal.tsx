@@ -80,7 +80,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
                       }}
                       className={clsx(
                         scrollbarStyles,
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 text-ellipsis whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-3 font-semibold text-gray-800 text-ellipsis whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
                         // `hover:${cardColors[values.selectedColor]}`,
                         "hover:bg-gradient-to-tr hover:from-slate-50 hover:via-slate-200 hover:to-gray-50",
                         checked && "ring-[3px] ring-slate-500 ring-opacity-60"
@@ -89,8 +89,8 @@ export const SelectCategoryModal = ({ name }: Props) => {
                       tabIndex={0}
                       onClick={() => setOpen(false)}
                     >
-                      <div className="w-[30%]">{category.icon}</div>
-                      <div className="w-[50%]">{category.name}</div>
+                      <div className="w-[40%]">{category.icon}</div>
+                      <div className="w-[70%]">{category.name}</div>
                     </motion.div>
                   )}
                 </RadioGroup.Option>
