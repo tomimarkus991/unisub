@@ -5,3 +5,4 @@ export * from "./modals";
 export * from "./navigation";
 export * from "./animations";
 export * from "./cards";
+export * from "./panels";

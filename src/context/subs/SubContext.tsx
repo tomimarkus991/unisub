@@ -4,6 +4,8 @@ import React, { createContext, Dispatch, SetStateAction, useContext, useState } 
 import { mapSubTypeToMomentType } from "app-constants";
 import { Subscription } from "types";
 
+import { generateAllCosts } from "../../utils";
+
 type InitialContextType = {
   subs: Subscription[];
   setSubs: Dispatch<SetStateAction<Subscription[]>>;
@@ -23,9 +25,23 @@ const initContextData: InitialContextType = {
       active: true,
       billingType: "monthly",
       currency: "EUR",
+      allCosts: generateAllCosts(10, "monthly"),
       startDate: moment(new Date()).unix(),
       nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
       cost: 10,
+    },
+    {
+      id: "2",
+      title: "Netflix",
+      category: "Streaming",
+      color: "red",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(15, "monthly"),
+      startDate: moment(new Date()).unix(),
+      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 15,
     },
   ],
   setSubs: () => {},
@@ -45,9 +61,23 @@ export const SubProvider = ({ children }: ProviderProps) => {
       active: true,
       billingType: "monthly",
       currency: "EUR",
+      allCosts: generateAllCosts(10, "monthly"),
       startDate: moment(new Date()).unix(),
       nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
       cost: 10,
+    },
+    {
+      id: "2",
+      title: "Netflix",
+      category: "Streaming",
+      color: "red",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(15, "monthly"),
+      startDate: moment(new Date()).unix(),
+      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 15,
     },
   ]);
   return <SubContext.Provider value={{ subs, setSubs }}>{children}</SubContext.Provider>;

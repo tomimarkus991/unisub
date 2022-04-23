@@ -27,12 +27,20 @@ export interface UserType {
   avatar: string | null;
 }
 
+export interface IAllCosts {
+  daily: number;
+  weekly: number;
+  monthly: number;
+  yearly: number;
+}
+
 export interface Subscription {
   id: string;
   title: string;
   category: CategoryNames;
   startDate: number;
   cost: number;
+  allCosts: IAllCosts;
   currency: string;
   color: CardColorType;
   billingType: SubscriptionBillingType;

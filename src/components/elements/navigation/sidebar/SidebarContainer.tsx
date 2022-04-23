@@ -8,7 +8,7 @@ export const SidebarContainer = () => {
   useEffect(() => {
     const updateWindowDimensions = () => {
       const newWidth = window.innerWidth;
-      if (newWidth >= 800) {
+      if (newWidth >= 768) {
         setPlacement("left");
       } else {
         setPlacement("right");

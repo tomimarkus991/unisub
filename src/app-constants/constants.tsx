@@ -59,9 +59,7 @@ export const billingTypeValues: SubscriptionBillingType[] = [
   "yearly",
 ];
 
-export type PaymentType = "monthly" | "yearly" | "weekly" | "daily";
-
-export const mapSubTypeToMomentType = (paymentType: PaymentType) => {
+export const mapSubTypeToMomentType = (paymentType: SubscriptionBillingType) => {
   switch (paymentType) {
     case "monthly":
       return "month";
@@ -83,6 +81,12 @@ export const createPresetSubs = (): Subscription[] => {
     active: true,
     billingType: "monthly",
     currency: "EUR",
+    allCosts: {
+      daily: 0,
+      weekly: 0,
+      monthly: 0,
+      yearly: 0,
+    },
     startDate: moment(new Date()).unix(),
     nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
     cost: 0,

@@ -35,6 +35,7 @@ import {
   SubscriptionBillingType,
   CurrencyType,
 } from "types";
+import { generateAllCosts } from "utils";
 
 import {
   ColorPicker,
@@ -177,6 +178,7 @@ export const SubscriptionModal = ({
               startDate: moment(subscriptionStartDate).unix(),
               currency: billing.name,
               cost: parseInt(cost),
+              allCosts: generateAllCosts(parseInt(cost), selectedBillingType),
               billingType: selectedBillingType,
               active: true,
               nextPaymentDate: moment(subscriptionStartDate)
