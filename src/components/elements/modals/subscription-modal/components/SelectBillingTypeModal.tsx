@@ -42,7 +42,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
             >
               <div className="flex flex-row justify-center items-center">
                 <div className="flex justify-start items-center mr-1 xs:w-8 xs:h-8">
-                  <HiCalendar className="w-7 h-7 fill-slate-700 hover:fill-slate-800" />
+                  <HiCalendar className="w-7 h-7" />
                 </div>
                 {field.value}
               </div>
