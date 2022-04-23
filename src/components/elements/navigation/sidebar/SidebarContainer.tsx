@@ -8,7 +8,6 @@ export const SidebarContainer = () => {
   useEffect(() => {
     const updateWindowDimensions = () => {
       const newWidth = window.innerWidth;
-      console.log("newWidth", newWidth);
       if (newWidth >= 800) {
         setPlacement("left");
       } else {
@@ -16,6 +15,7 @@ export const SidebarContainer = () => {
       }
     };
 
+    updateWindowDimensions();
     window.addEventListener("resize", updateWindowDimensions);
 
     return () => window.removeEventListener("resize", updateWindowDimensions);
