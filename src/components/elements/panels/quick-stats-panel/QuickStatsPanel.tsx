@@ -1,18 +1,20 @@
 import clsx from "clsx";
 import { useState, useEffect } from "react";
+import CountUp from "react-countup";
 import { BiShuffle } from "react-icons/all";
 
 import { billingTypeValues, scrollbarStyles } from "app-constants";
 import { useSub } from "context";
 // maybe tab panel on top so he can change stats
 
-// this component shows all your sub cost in one place
+// this component shows all your sub cost in one place :done:
 // user can click currency icon to change it
-// user can change the type he wants to look /daily price /weekly price/ monthly price / yearly price
+// user can change the type he wants to look /daily price /weekly price/ monthly price / yearly price :done:
 export const QuickStatsPanel = () => {
   const { subs } = useSub();
-  const [subValues, setSubValues] = useState<string>();
+  const [totalValue, setTotalValue] = useState<number>(0);
   const [subPanelBillingType, setSubPanelBillingType] = useState(billingTypeValues[2]);
+  const [decimals, setDecimals] = useState<number>(2);
 
   useEffect(() => {
     const allSubsPricesTogether = subs.reduce(
@@ -20,15 +22,16 @@ export const QuickStatsPanel = () => {
       0
     );
 
-    setSubValues(() => {
+    setDecimals(() => {
       if (subPanelBillingType === "monthly") {
-        return allSubsPricesTogether.toFixed(1);
+        return 1;
       } else if (subPanelBillingType === "yearly") {
-        return allSubsPricesTogether.toFixed(0);
+        return 0;
       } else {
-        return allSubsPricesTogether.toFixed(2);
+        return 2;
       }
     });
+    setTotalValue(allSubsPricesTogether);
   }, [subs, subPanelBillingType]);
 
   return (
@@ -45,7 +48,9 @@ export const QuickStatsPanel = () => {
             "flex flex-row mb-2 overflow-x-auto max-w-[11rem] overflow-y-hidden text-ellipsis whitespace-nowrap")
           }
         >
-          <p className="text-4xl font-bold">{subValues}</p>
+          <CountUp start={totalValue - 3} end={totalValue} duration={0.3} decimals={decimals}>
+            {({ countUpRef }) => <p ref={countUpRef as any} className="text-4xl font-bold" />}
+          </CountUp>
           <p className="text-4xl font-semibold cursor-pointer">€</p>
         </div>
         <div className="flex flex-row justify-center items-center">
