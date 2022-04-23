@@ -1,35 +1,13 @@
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode } from "react";
 import { HiChartBar, HiHome, HiX } from "react-icons/all";
-import { Link } from "react-router-dom";
 
-import { animations } from "components";
-import { useSidebar } from "context/sidebar";
-
-interface ListItemProps {
-  children: ReactNode;
-  to: string;
-}
-
-const ListItem = ({ children, to }: ListItemProps) => {
-  const { setisSidebarOpen } = useSidebar();
-  return (
-    <div role="button" tabIndex={-3} onClick={open => setisSidebarOpen(!open)}>
-      <Link to={to}>
-        <div className="flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
-          <motion.div {...animations.rotate360Anim} key="sidebar-link-icon">
-            <div className="flex flex-row items-center">{children}</div>
-          </motion.div>
-        </div>
-      </Link>
-    </div>
-  );
-};
+import { animations, SidebarLink } from "components";
+import { useSidebar } from "context";
 
 export const Sidebar = () => {
   const { isSidebarOpen, setisSidebarOpen } = useSidebar();
-  const listIconClasses = "mr-3 w-8 h-8 fill-gray-800";
+  const sidebarLinkIconStyles = "mr-3 w-8 h-8 fill-gray-800";
 
   return (
     <AnimatePresence initial exitBeforeEnter>
@@ -62,15 +40,15 @@ export const Sidebar = () => {
               </button>
             </div>
             <div className="h-full">
-              <ListItem to="/">
-                <HiHome className={clsx(listIconClasses)} />
+              <SidebarLink to="/">
+                <HiHome className={clsx(sidebarLinkIconStyles)} />
                 <p className="text-xl font-medium">Home</p>
-              </ListItem>
+              </SidebarLink>
 
-              <ListItem to="/stats">
-                <HiChartBar className={clsx(listIconClasses)} />
+              <SidebarLink to="/stats">
+                <HiChartBar className={clsx(sidebarLinkIconStyles)} />
                 <p className="text-xl font-medium">Stats</p>
-              </ListItem>
+              </SidebarLink>
             </div>
           </motion.div>
 

@@ -1,4 +1,2 @@
 export * from "./Modal";
-export * from "./footer";
-export * from "./header";
-export * from "./typography";
+export * from "./components";
