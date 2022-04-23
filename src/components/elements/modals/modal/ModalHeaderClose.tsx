@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { HiX } from "react-icons/all";
 
-import { animations } from "components";
-
-import { ModalTitle } from ".";
+import { animations, ModalTitle, ModalHeaderContainer } from "components";
 
 interface Props {
   children: ReactNode;
@@ -13,7 +11,7 @@ interface Props {
 
 export const ModalHeaderClose = ({ children, setOpen }: Props) => {
   return (
-    <div className="flex flex-row justify-between items-center p-4 w-full">
+    <ModalHeaderContainer>
       <HiX className="w-8 h-8 opacity-0" />
       <ModalTitle>{children}</ModalTitle>
       <div role="button" tabIndex={0} onClick={() => setOpen(false)}>
@@ -21,6 +19,6 @@ export const ModalHeaderClose = ({ children, setOpen }: Props) => {
           <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
         </motion.div>
       </div>
-    </div>
+    </ModalHeaderContainer>
   );
 };

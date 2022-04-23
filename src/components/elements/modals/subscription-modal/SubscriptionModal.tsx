@@ -24,7 +24,8 @@ import {
   animations,
   ModalTitle,
   ModalSubTitle,
-  ModalFooter,
+  ModalFooterContainer,
+  ModalHeaderContainer,
 } from "components";
 import { useSub, useSubModal } from "context";
 import {
@@ -204,7 +205,7 @@ export const SubscriptionModal = ({
 
             return (
               <Form className={clsx("flex flex-col")}>
-                <div className="flex flex-row justify-between items-center p-4">
+                <ModalHeaderContainer>
                   <div role="button" tabIndex={0} onClick={() => setSubModalOpen(() => false)}>
                     <motion.div {...animations.rotate360Anim} key="sub-modal-left-icon">
                       <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
@@ -222,7 +223,7 @@ export const SubscriptionModal = ({
                       <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </motion.div>
                   </div>
-                </div>
+                </ModalHeaderContainer>
                 <div
                   className={clsx(
                     scrollbarStyles,
@@ -292,11 +293,11 @@ export const SubscriptionModal = ({
                     </div>
                   </div>
                 </div>
-                <ModalFooter>
+                <ModalFooterContainer>
                   <Button type="submit" isValid={isValid}>
                     Add sub
                   </Button>
-                </ModalFooter>
+                </ModalFooterContainer>
               </Form>
             );
           }}

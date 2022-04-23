@@ -12,7 +12,7 @@ import {
   animations,
   ModalHeaderClose,
   Modal,
-  ModalFooter,
+  ModalFooterContainer,
 } from "components";
 import { useSubModal } from "context";
 
@@ -112,9 +112,9 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   })}
                 </AnimatePresence>
               </div>
-              <ModalFooter>
+              <ModalFooterContainer>
                 <SubscriptionModal buttonType="real" buttonTitle="Create New" />
-              </ModalFooter>
+              </ModalFooterContainer>
             </Form>
           );
         }}
