@@ -177,8 +177,8 @@ export const SubscriptionModal = ({
               category: selectedCategory.name,
               startDate: moment(subscriptionStartDate).unix(),
               currency: billing.name,
-              cost: parseInt(cost),
-              allCosts: generateAllCosts(parseInt(cost), selectedBillingType),
+              cost: parseFloat(cost),
+              allCosts: generateAllCosts(parseFloat(cost), selectedBillingType),
               billingType: selectedBillingType,
               active: true,
               nextPaymentDate: moment(subscriptionStartDate)
