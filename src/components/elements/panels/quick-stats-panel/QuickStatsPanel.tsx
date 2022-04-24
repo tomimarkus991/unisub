@@ -35,7 +35,7 @@ export const QuickStatsPanel = () => {
   }, [subs, subPanelBillingType]);
 
   return (
-    <div className="flex flex-row px-4 w-[95%] h-36 bg-white rounded-xl shadow-lg cursor-default select-none min:px-8 min:w-[20rem]">
+    <div className="flex flex-row px-4 h-36 bg-white rounded-xl shadow-lg cursor-default select-none min:px-8 min:w-[20rem]">
       <div className="flex flex-col justify-center items-center mr-2 min-w-[5rem] min:mr-0 xs:mr-4">
         <div className="max-w-[5rem]">
           <img className="w-16 h-16 min:w-24 min:h-24" alt="user" src={`/stats/stats.svg`} />

@@ -5,7 +5,7 @@ export const SubLayout = () => {
   const { subs } = useSub();
 
   return (
-    <div className="flex overflow-auto flex-col justify-center last:pb-24">
+    <div className="flex overflow-auto flex-col justify-center items-center last:pb-24 h-full">
       {subs.map(sub => {
         return (
           <LayoutSubscriptionCard

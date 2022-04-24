@@ -24,15 +24,15 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
   return (
     <>
       {modalButton}
-      <AnimatePresence>
-        <Dialog
-          key="modal-dialog"
-          initialFocus={initialFocusRef}
-          as="div"
-          className="flex fixed inset-0 z-50 justify-center items-center select-none"
-          open={open}
-          onClose={setOpen}
-        >
+      <Dialog
+        key="modal-dialog"
+        initialFocus={initialFocusRef}
+        as="div"
+        className="flex fixed inset-0 z-50 justify-center items-center select-none"
+        open={open}
+        onClose={setOpen}
+      >
+        <AnimatePresence>
           <motion.div
             id="overlay"
             ref={initialFocusRef}
@@ -47,16 +47,18 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
           <motion.div
             id="modal-children"
             key="app-modal-children"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.8, scale: 0.95 }}
             animate={{
               opacity: 1,
+              scale: 1,
               transition: {
-                duration: 0.1,
+                duration: 0.2,
                 ease: "easeIn",
               },
             }}
             exit={{
               opacity: 0,
+              scale: 0.95,
             }}
             className={clsx(
               "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
@@ -65,8 +67,8 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
           >
             {children}
           </motion.div>
-        </Dialog>
-      </AnimatePresence>
+        </AnimatePresence>
+      </Dialog>
     </>
   );
 };

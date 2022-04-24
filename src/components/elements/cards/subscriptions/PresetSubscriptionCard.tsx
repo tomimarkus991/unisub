@@ -1,10 +1,8 @@
 import clsx from "clsx";
 
 import { cardColors, scrollbarStyles } from "app-constants";
-import { CardAnimations } from "components";
+import { CardAnimations, SubscriptionModal } from "components";
 import { Subscription } from "types";
-
-import { SubscriptionModal } from "../../modals";
 
 interface Props {
   subValues: Subscription;

@@ -87,7 +87,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                 </h3>
               </div>
               <div className={clsx(scrollbarStyles, "flex overflow-y-auto flex-col px-2 h-[40vh]")}>
-                <AnimatePresence initial={false} exitBeforeEnter>
+                <AnimatePresence initial={false}>
                   {createPresetSubs().map(sub => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (

@@ -6,13 +6,11 @@ export const HomePage = () => {
       <div className="hidden items-center sm:flex ">
         <ToggleViewButton />
       </div>
-      <div className="flex justify-center mb-3 md:hidden">
+      <div className="flex justify-center items-center mb-3 md:hidden">
         <QuickStatsPanel />
       </div>
 
-      <div className="overflow-auto h-full">
-        <SubLayout />
-      </div>
+      <SubLayout />
     </DefaultWrapper>
   );
 };
