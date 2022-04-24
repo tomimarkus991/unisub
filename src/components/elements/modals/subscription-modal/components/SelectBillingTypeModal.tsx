@@ -55,12 +55,12 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
         <div
           className={clsx(
             scrollbarStyles,
-            "flex overflow-y-auto items-start py-2 px-4 h-[30vh] min-h-[15rem] xs:min-w-[20rem]"
+            "flex overflow-y-auto items-start py-2 px-4 min-h-[10rem] xs:min-w-[20rem]"
           )}
         >
           <div className="flex justify-center items-center w-full">
             <RadioGroup
-              className="grid grid-cols-1 gap-2 w-full"
+              className="grid grid-cols-2 gap-2 w-full"
               value={field.value}
               onChange={value => {
                 setFieldValue(name, value);
@@ -85,18 +85,19 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                       tabIndex={0}
                       onClick={() => setOpen(false)}
                     >
-                      <div className="w-[30%]">
-                        <HiCalendar className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                      <div className="w-[40%]">
+                        <HiCalendar className="w-6 h-6 fill-slate-700 hover:fill-slate-800" />
                       </div>
-                      <div className="w-[50%]">
-                        <span
+                      <div className="w-[70%]">
+                        {billingType}
+                        {/* <span
                           className="ml-2 min-w-[6rem] text-lg font-semibold text-left"
                           role="button"
                           tabIndex={0}
                           onClick={() => setOpen(false)}
                         >
                           {billingType}
-                        </span>
+                        </span> */}
                       </div>
                     </motion.div>
                   )}

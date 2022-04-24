@@ -44,7 +44,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
               }}
             >
               <div className="flex flex-row justify-center items-center">
-                <div className="flex justify-start items-center mr-1 xs:w-8 xs:h-8">
+                <div className="flex justify-start items-center mr-1 max-h-[1.5rem] xs:w-8 xs:h-8">
                   {field.value.icon}
                 </div>
                 {field.value.name}
