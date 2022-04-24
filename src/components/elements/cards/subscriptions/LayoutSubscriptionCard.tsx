@@ -47,7 +47,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   }, [daysUntilResub]);
 
   return (
-    <Menu as={"div"} className="relative min-w-[20rem] max-w-xs">
+    <Menu as={"div"} className="relative w-full min-w-[20rem] xs:max-w-xs">
       <Menu.Button className="w-full">
         <div
           className={clsx(
