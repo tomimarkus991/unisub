@@ -1,39 +1,39 @@
-import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
-import { cardColors } from "app-constants";
 import { CardColorType } from "types";
 
 interface Props {
   cardColor: CardColorType;
   durationModifier?: number;
 }
-const circles = {
-  sm: "absolute w-8 h-8 content-none rounded-full opacity-95",
-  xl: "absolute w-24 h-24 content-none rounded-full opacity-95",
-};
-const boxes = {
-  sm: "absolute w-8 h-8 content-none rounded-lg opacity-95",
-  lg: "absolute w-14 h-14 content-none rounded-lg opacity-95",
-  xl: "absolute w-24 h-24 content-none rounded-lg opacity-95",
-};
+// const circles = {
+//   sm: "absolute w-8 h-8 content-none rounded-full opacity-95",
+//   xl: "absolute w-24 h-24 content-none rounded-full opacity-95",
+// };
+// const boxes = {
+//   sm: "absolute w-8 h-8 content-none rounded-lg opacity-95",
+//   lg: "absolute w-14 h-14 content-none rounded-lg opacity-95",
+//   xl: "absolute w-24 h-24 content-none rounded-lg opacity-95",
+// };
 
 export const CardAnimations = ({ cardColor, durationModifier = 1 }: Props) => {
-  const basicAnimation = { x: [0, 100, -20, 0], y: [0, 100, 0, -20, 0], rotate: 360 };
-  const basicAnimationLonger = { x: [0, 200, -20, 0], y: [0, 300, 0, -20, 0], rotate: 360 };
-  const toRightAnimation = { x: [0, 300, 0], y: [0, 10, 0, -10, 20, 0], rotate: 360 };
-  const basicAnimationReversed = { x: [0, -100, 20, 0], y: [0, -100, 0, 20, 0], rotate: 360 };
-  const basicAnimationLongerAndReversed = {
-    x: [0, -200, 20, 0],
-    y: [0, -300, 0, 20, 0],
-    rotate: 360,
-  };
-  const getDuration = (duration: number) => {
-    return duration * durationModifier;
-  };
+  console.log(cardColor, durationModifier);
+
+  // const basicAnimation = { x: [0, 100, -20, 0], y: [0, 100, 0, -20, 0], rotate: 360 };
+  // const basicAnimationLonger = { x: [0, 200, -20, 0], y: [0, 300, 0, -20, 0], rotate: 360 };
+  // const toRightAnimation = { x: [0, 300, 0], y: [0, 10, 0, -10, 20, 0], rotate: 360 };
+  // const basicAnimationReversed = { x: [0, -100, 20, 0], y: [0, -100, 0, 20, 0], rotate: 360 };
+  // const basicAnimationLongerAndReversed = {
+  //   x: [0, -200, 20, 0],
+  //   y: [0, -300, 0, 20, 0],
+  //   rotate: 360,
+  // };
+  // const getDuration = (duration: number) => {
+  //   return duration * durationModifier;
+  // };
   return (
     <AnimatePresence initial={true}>
-      <motion.div
+      {/* <motion.div
         key="object-1"
         animate={{ ...basicAnimation }}
         transition={{ repeat: Infinity, duration: getDuration(5) }}
@@ -86,7 +86,7 @@ export const CardAnimations = ({ cardColor, durationModifier = 1 }: Props) => {
         animate={basicAnimationReversed}
         transition={{ repeat: Infinity, duration: getDuration(20) }}
         className={clsx(boxes.lg, "top-[5%] left-[50%]", cardColors[cardColor])}
-      />
+      /> */}
     </AnimatePresence>
   );
 };
