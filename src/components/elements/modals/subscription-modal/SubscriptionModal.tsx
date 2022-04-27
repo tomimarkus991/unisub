@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { motion } from "framer-motion";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiArrowLeft, HiPlusCircle, HiX } from "react-icons/all";
 
 import {
@@ -72,7 +72,7 @@ export const SubscriptionModal = ({
   const [subModalOpen, setSubModalOpen] = useState(false);
   const { setIsChooseSubModalOpen } = useSubModal();
 
-  let initialValues: SubFormValues = {
+  const [initialValues, setInitialValues] = useState<SubFormValues>({
     selectedColor: "white",
     title: "",
     selectedCategory: categories[0],
@@ -80,23 +80,26 @@ export const SubscriptionModal = ({
     billing: currencies[0],
     selectedBillingType: billingTypeValues[2],
     subscriptionStartDate: new Date(),
-  };
+  });
 
-  // @todo check this infinite render
-  if (subValues) {
-    const { title, color, billingType, category } = subValues;
-    initialValues = {
-      selectedColor: color,
-      title,
-      selectedCategory: categories.find(
-        subCategory => category === subCategory.name
-      ) as CategoryCardItem,
-      cost: "",
-      billing: currencies[0],
-      selectedBillingType: billingType,
-      subscriptionStartDate: new Date(),
-    };
-  }
+  useEffect(() => {
+    if (subValues) {
+      const { title, color, billingType, category } = subValues;
+      setInitialValues({
+        selectedColor: color,
+        title,
+        selectedCategory: categories.find(
+          subCategory => category === subCategory.name
+        ) as CategoryCardItem,
+        cost: "",
+        billing: currencies[0],
+        selectedBillingType: billingType,
+        subscriptionStartDate: new Date(),
+      });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { setSubs } = useSub();
 
