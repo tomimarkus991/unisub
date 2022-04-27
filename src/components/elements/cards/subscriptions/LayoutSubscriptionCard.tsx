@@ -4,7 +4,7 @@ import moment from "moment";
 import { Fragment, useEffect, useState } from "react";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
-import { cardColors, scrollbarStyles } from "app-constants";
+import { cardColors } from "app-constants";
 import { CardAnimations } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
@@ -59,8 +59,8 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
           <div className="flex z-10 flex-col ml-2 w-7/12">
             <div
               className={clsx(
-                scrollbarStyles,
-                "flex overflow-x-auto flex-row justify-start mb-2 text-ellipsis whitespace-nowrap"
+                "scrollbar-styles",
+                "flex overflow-x-auto flex-row justify-start mb-2 whitespace-nowrap"
               )}
             >
               <p className={clsx("text-xl font-semibold", textColor)}>{title}</p>

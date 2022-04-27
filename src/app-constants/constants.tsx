@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import moment from "moment";
 import {
   HiBeaker,
@@ -19,8 +18,6 @@ import {
   SubscriptionBillingType,
   Subscription,
 } from "types";
-
-import { styles } from ".";
 
 export const cardColors = {
   green: "bg-gradient-to-r from-green-600 to-green-400",
@@ -171,13 +168,13 @@ export const createPresetSubs = (): Subscription[] => {
 };
 
 export const categories: CategoryCardItem[] = [
-  { name: "Other", icon: <HiFingerPrint className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Streaming", icon: <HiFilm className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Gaming", icon: <HiPuzzle className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Fitness", icon: <FaDumbbell className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Food", icon: <HiCake className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Education", icon: <HiBeaker className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Music", icon: <HiMusicNote className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Home", icon: <HiHome className={clsx(`${styles.categoryItemStyles}`)} /> },
-  { name: "Software", icon: <HiChip className={clsx(`${styles.categoryItemStyles}`)} /> },
+  { name: "Other", icon: <HiFingerPrint className="sub-category-item" /> },
+  { name: "Streaming", icon: <HiFilm className="sub-category-item" /> },
+  { name: "Gaming", icon: <HiPuzzle className="sub-category-item" /> },
+  { name: "Fitness", icon: <FaDumbbell className="sub-category-item" /> },
+  { name: "Food", icon: <HiCake className="sub-category-item" /> },
+  { name: "Education", icon: <HiBeaker className="sub-category-item" /> },
+  { name: "Music", icon: <HiMusicNote className="sub-category-item" /> },
+  { name: "Home", icon: <HiHome className="sub-category-item" /> },
+  { name: "Software", icon: <HiChip className="sub-category-item" /> },
 ];

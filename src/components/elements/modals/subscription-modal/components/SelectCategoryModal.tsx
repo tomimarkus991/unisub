@@ -4,7 +4,7 @@ import { useField, useFormikContext } from "formik";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-import { categories, scrollbarStyles } from "app-constants";
+import { categories } from "app-constants";
 import {
   InputErrorText,
   Modal,
@@ -57,7 +57,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
         <ModalHeaderGoOneBack setOpen={setOpen}>Category</ModalHeaderGoOneBack>
         <div
           className={clsx(
-            scrollbarStyles,
+            "scrollbar-styles",
             "flex overflow-y-auto items-start py-2 px-4 h-[36vh] min-h-[15rem] xs:min-w-[27rem]"
           )}
         >
@@ -79,8 +79,8 @@ export const SelectCategoryModal = ({ name }: Props) => {
                         transition: { duration: 0.1 },
                       }}
                       className={clsx(
-                        scrollbarStyles,
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-3 font-semibold text-gray-800 text-ellipsis whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
+                        "scrollbar-styles",
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-3 font-semibold text-gray-800 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
                         // `hover:${cardColors[values.selectedColor]}`,
                         "hover:bg-gradient-to-tr hover:from-slate-50 hover:via-slate-200 hover:to-gray-50",
                         checked && "ring-[3px] ring-slate-500 ring-opacity-60"

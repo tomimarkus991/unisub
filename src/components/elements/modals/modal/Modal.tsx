@@ -3,11 +3,11 @@ import clsx from "clsx";
 import { ReactNode, useRef } from "react";
 
 const modalMaxWidth = {
-  xs: "max-w-xs",
-  sm: "max-w-sm",
-  md: "max-w-md",
-  lg: "max-w-lg",
-  xl: "max-w-xl",
+  xs: "md:max-w-xs",
+  sm: "md:max-w-sm",
+  md: "md:max-w-md",
+  lg: "md:max-w-lg",
+  xl: "md:max-w-xl",
 };
 
 interface Props {

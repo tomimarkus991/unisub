@@ -3,7 +3,7 @@ import { Form, Formik } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiPlusCircle } from "react-icons/all";
 
-import { createPresetSubs, scrollbarStyles, SearchSubYupSchema } from "app-constants";
+import { createPresetSubs, SearchSubYupSchema } from "app-constants";
 import {
   Input,
   PresetSubscriptionCard,
@@ -86,7 +86,9 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   Popular subscriptions
                 </h3>
               </div>
-              <div className={clsx(scrollbarStyles, "flex overflow-y-auto flex-col px-2 h-[40vh]")}>
+              <div
+                className={clsx("scrollbar-styles", "flex overflow-y-auto flex-col px-2 h-[40vh]")}
+              >
                 <AnimatePresence initial={false}>
                   {createPresetSubs().map(sub => {
                     return (

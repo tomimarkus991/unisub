@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { cardColors, scrollbarStyles } from "app-constants";
+import { cardColors } from "app-constants";
 import { CardAnimations } from "components";
 import { CardColorType } from "types";
 
@@ -30,16 +30,17 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
         </div> */}
         <CardAnimations cardColor={cardColor} />
         <div className="flex z-10 flex-col ml-2 w-7/12 sm:ml-12">
-          <div
+          <p
             className={clsx(
-              scrollbarStyles,
-              "overflow-x-auto mb-2 text-ellipsis whitespace-nowrap sm:mb-4"
+              "text-xl font-semibold xs:text-2xl",
+              textColor,
+              "scrollbar-styles",
+              "overflow-x-auto mb-2 whitespace-nowrap sm:mb-4"
             )}
           >
-            <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>
-              {title === "" ? "Sub name" : title}
-            </p>
-          </div>
+            {title === "" ? "Sub name" : title}
+          </p>
+
           <div className="flex flex-row justify-start">
             <div className={clsx("mr-2")}>
               <p className={clsx("xs:text-lg", textColor)}>{category}</p>

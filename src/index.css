@@ -24,3 +24,19 @@ input[type="number"] {
     @apply text-gray-800;
   }
 }
+
+@layer components {
+  .sub-category-item {
+    @apply w-6 h-6 xs:w-10 xs:h-10;
+  }
+
+  /* IE and Edge */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-styles {
+    /* @apply scrollbar-none no-scrollbar scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600; */
+    @apply scrollbar-hide;
+  }
+}

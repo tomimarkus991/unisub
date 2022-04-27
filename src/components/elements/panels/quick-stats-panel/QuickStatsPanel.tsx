@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import { BiShuffle } from "react-icons/all";
 
-import { billingTypeValues, scrollbarStyles } from "app-constants";
+import { billingTypeValues } from "app-constants";
 import { useSub } from "context";
 // maybe tab panel on top so he can change stats
 
@@ -43,10 +43,10 @@ export const QuickStatsPanel = () => {
       </div>
       <div className="flex flex-col flex-1 justify-center items-center">
         <div
-          className={
-            (clsx(scrollbarStyles),
-            "flex flex-row mb-2 text-2xl overflow-x-auto max-w-[11rem] overflow-y-hidden text-ellipsis whitespace-nowrap")
-          }
+          className={clsx(
+            "scrollbar-styles",
+            "flex overflow-x-auto overflow-y-hidden flex-row mb-2 max-w-[11rem] text-2xl"
+          )}
         >
           <CountUp start={totalValue - 3} end={totalValue} duration={0.3} decimals={decimals}>
             {({ countUpRef }) => (

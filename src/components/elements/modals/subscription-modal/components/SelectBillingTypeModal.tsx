@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { HiCalendar } from "react-icons/all";
 
-import { billingTypeValues, scrollbarStyles } from "app-constants";
+import { billingTypeValues } from "app-constants";
 import { InputErrorText, Modal, ModalHeaderGoOneBack, RealIconButton } from "components";
 import { SubscriptionBillingType } from "types";
 
@@ -54,7 +54,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
         <ModalHeaderGoOneBack setOpen={setOpen}>Type</ModalHeaderGoOneBack>
         <div
           className={clsx(
-            scrollbarStyles,
+            "scrollbar-styles",
             "flex overflow-y-auto items-start py-2 px-4 min-h-[10rem] xs:min-w-[20rem]"
           )}
         >
@@ -76,7 +76,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                         transition: { duration: 0.1 },
                       }}
                       className={clsx(
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 text-ellipsis whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
                         // `hover:${cardColors[values.selectedColor]}`,
                         "hover:bg-gradient-to-tr hover:from-slate-50 hover:via-slate-200 hover:to-gray-50",
                         checked && "ring-[3px] ring-slate-500 ring-opacity-60"
