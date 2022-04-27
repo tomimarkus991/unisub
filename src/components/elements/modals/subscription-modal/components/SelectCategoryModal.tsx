@@ -21,8 +21,7 @@ interface Props {
 export const SelectCategoryModal = ({ name }: Props) => {
   const [open, setOpen] = useState(false);
   const [field, { touched, error }] = useField<CategoryCardItem>(name);
-  const { setFieldValue, values } = useFormikContext<SubFormValues>();
-  console.log("values.selectedColor", values.selectedColor);
+  const { setFieldValue } = useFormikContext<SubFormValues>();
 
   return (
     <>

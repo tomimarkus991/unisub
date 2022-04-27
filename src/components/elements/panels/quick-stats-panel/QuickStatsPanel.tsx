@@ -62,7 +62,6 @@ export const QuickStatsPanel = () => {
             onClick={() =>
               setSubPanelBillingType(currentType => {
                 const index = billingTypeValues.indexOf(currentType) + 1;
-                console.log(index);
 
                 if (index === -1 || index === 4) {
                   return billingTypeValues[0];

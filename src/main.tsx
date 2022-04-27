@@ -3,6 +3,7 @@ import "./index.css";
 import { LocalizationProvider } from "@mui/lab";
 import AdapterMoment from "@mui/lab/AdapterMoment";
 import AOS from "aos";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
@@ -16,15 +17,17 @@ const root = createRoot(document.getElementById("root") as HTMLElement);
 AOS.init();
 
 root.render(
-  <BrowserRouter>
-    <LocalizationProvider dateAdapter={AdapterMoment}>
-      <SidebarProvider>
-        <SubModalProvider>
-          <SubProvider>
-            <Router />
-          </SubProvider>
-        </SubModalProvider>
-      </SidebarProvider>
-    </LocalizationProvider>
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <SidebarProvider>
+          <SubModalProvider>
+            <SubProvider>
+              <Router />
+            </SubProvider>
+          </SubModalProvider>
+        </SidebarProvider>
+      </LocalizationProvider>
+    </BrowserRouter>
+  </StrictMode>
 );

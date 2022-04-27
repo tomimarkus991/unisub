@@ -197,7 +197,6 @@ export const SubscriptionModal = ({
             resetForm();
 
             setSubmitting(false);
-            console.log(subscription);
           }}
         >
           {({ values, isValid }) => {
