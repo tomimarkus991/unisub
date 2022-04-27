@@ -83,6 +83,7 @@ export const SubscriptionModal = ({
     subscriptionStartDate: new Date(),
   };
 
+  // @todo check this infinite render
   if (subValues) {
     const { title, color, billingType, category } = subValues;
     initialValues = {
