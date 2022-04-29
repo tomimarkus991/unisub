@@ -5,7 +5,7 @@ import { Fragment, useEffect, useState } from "react";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
 import { cardColors } from "app-constants";
-import { CardAnimations } from "components";
+// import { CardAnimations } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
 
@@ -55,7 +55,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
             cardColors[cardColor]
           )}
         >
-          <CardAnimations cardColor={cardColor} durationModifier={3} />
+          {/* <CardAnimations cardColor={cardColor} durationModifier={3} /> */}
           <div className="flex z-10 flex-col ml-2 w-7/12">
             <div
               className={clsx(

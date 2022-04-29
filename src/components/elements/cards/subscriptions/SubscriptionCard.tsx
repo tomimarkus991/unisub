@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { cardColors } from "app-constants";
-import { CardAnimations } from "components";
+// import { CardAnimations } from "components";
 import { CardColorType } from "types";
 
 interface Props {
@@ -28,7 +28,7 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
             <p className="text-xl text-center text-slate-500 uppercase">{title.slice(0, 1)}</p>
           </div>
         </div> */}
-        <CardAnimations cardColor={cardColor} />
+        {/* <CardAnimations cardColor={cardColor} /> */}
         <div className="flex z-10 flex-col ml-2 w-7/12 sm:ml-12">
           <p
             className={clsx(
