@@ -237,7 +237,7 @@ export const SubscriptionModal = ({
                 <div
                   className={clsx(
                     "scrollbar-styles",
-                    "flex overflow-y-auto flex-col py-2 px-3 h-[50vh] min-h-[15rem] bg-white rounded-t-xl"
+                    "flex overflow-y-auto flex-col py-2 px-3 h-[50vh] min-h-[15rem]"
                   )}
                 >
                   <SubscriptionCard
