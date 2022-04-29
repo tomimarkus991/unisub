@@ -1,3 +1,2 @@
-export * from "./ModalHeaderGoOneBack";
-export * from "./ModalHeaderClose";
+export * from "./ModalHeader";
 export * from "./ModalHeaderContainer";

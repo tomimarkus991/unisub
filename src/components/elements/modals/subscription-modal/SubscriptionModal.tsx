@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { Form, Formik } from "formik";
-import { motion } from "framer-motion";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { HiArrowLeft, HiPlusCircle, HiX } from "react-icons/all";
@@ -25,6 +24,7 @@ import {
   ModalSubTitle,
   ModalFooterContainer,
   ModalHeaderContainer,
+  AnimationWrapper,
 } from "components";
 import { useSub, useSubModal } from "context";
 import {
@@ -69,7 +69,7 @@ export const SubscriptionModal = ({
   subValues,
   children,
 }: Props) => {
-  const [subModalOpen, setSubModalOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const { setIsChooseSubModalOpen } = useSubModal();
 
   const [initialValues, setInitialValues] = useState<SubFormValues>({
@@ -106,25 +106,28 @@ export const SubscriptionModal = ({
   return (
     <>
       <Modal
-        open={subModalOpen}
-        setOpen={setSubModalOpen}
+        open={open}
+        setOpen={setOpen}
         maxWidth="xl"
         modalButton={
           <>
             {buttonType === "icon" && (
-              <motion.div {...animations.scaleAndRotationAnim} key="sub-modal-plus-circle-icon">
+              <AnimationWrapper
+                keyIndex="create-modal-plus-icon"
+                variants={animations.scaleAndRotation}
+              >
                 <HiPlusCircle
                   className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                   onClick={() => {
-                    setSubModalOpen(true);
+                    setOpen(true);
                   }}
                 />
-              </motion.div>
+              </AnimationWrapper>
             )}
             {buttonType === "real" && (
               <RealButton
                 onClick={() => {
-                  setSubModalOpen(true);
+                  setOpen(true);
                 }}
               >
                 {buttonTitle}
@@ -135,7 +138,7 @@ export const SubscriptionModal = ({
                 size="xs"
                 variant="custom"
                 onClick={() => {
-                  setSubModalOpen(true);
+                  setOpen(true);
                 }}
                 customColors={`${cardColors[cardColor]} ring-2 ring-slate-300 ring-opacity-5`}
               >
@@ -147,7 +150,7 @@ export const SubscriptionModal = ({
                 role="button"
                 tabIndex={0}
                 onClick={() => {
-                  setSubModalOpen(true);
+                  setOpen(true);
                 }}
               >
                 {children}
@@ -193,7 +196,7 @@ export const SubscriptionModal = ({
 
             setIsChooseSubModalOpen(false);
 
-            setSubModalOpen(false);
+            setOpen(false);
             resetForm();
 
             setSubmitting(false);
@@ -210,10 +213,13 @@ export const SubscriptionModal = ({
             return (
               <Form className={clsx("flex flex-col")}>
                 <ModalHeaderContainer>
-                  <div role="button" tabIndex={0} onClick={() => setSubModalOpen(() => false)}>
-                    <motion.div {...animations.rotate360Anim} key="sub-modal-left-icon">
+                  <div role="button" tabIndex={0} onClick={() => setOpen(() => false)}>
+                    <AnimationWrapper
+                      keyIndex="sub-modal-left-icon"
+                      variants={animations.rotate360}
+                    >
                       <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </motion.div>
+                    </AnimationWrapper>
                   </div>
                   <ModalTitle>Create sub</ModalTitle>
                   <div
@@ -223,9 +229,9 @@ export const SubscriptionModal = ({
                       setIsChooseSubModalOpen(() => false);
                     }}
                   >
-                    <motion.div {...animations.rotate360Anim} key="sub-modal-x-icon">
+                    <AnimationWrapper keyIndex="sub-modal-x-icon" variants={animations.rotate360}>
                       <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                    </motion.div>
+                    </AnimationWrapper>
                   </div>
                 </ModalHeaderContainer>
                 <div

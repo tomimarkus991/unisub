@@ -1,12 +1,11 @@
 import { Listbox } from "@headlessui/react";
 import { useField, useFormikContext } from "formik";
-import { motion, Variants } from "framer-motion";
 import { HiCheck, HiSelector } from "react-icons/all";
 
+import { AnimationWrapper } from "components";
 import { SelectOption, SubscriptionBillingType } from "types";
 
-import { InputErrorText } from "../..";
-import { SubFormValues } from "../../modals";
+import { InputErrorText, animations, SubFormValues } from "../..";
 
 interface Props {
   options: SelectOption<string | SubscriptionBillingType>[];
@@ -17,16 +16,6 @@ interface Props {
 export const SelectField = ({ name, options, title }: Props) => {
   const [field, { touched, error }] = useField<SelectOption<SubscriptionBillingType>>(name);
   const { setFieldValue } = useFormikContext<SubFormValues>();
-
-  const item: Variants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      rotate: 360,
-      transition: { delay: 0.2, duration: 0.5, ease: "easeInOut" },
-    },
-  };
 
   return (
     <Listbox value={field?.value} onChange={value => setFieldValue(name, value)}>
@@ -44,9 +33,9 @@ export const SelectField = ({ name, options, title }: Props) => {
               {field?.value.name}
             </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
-              <motion.div initial="hidden" animate="visible" variants={item}>
+              <AnimationWrapper keyIndex="selector" variants={animations.rotateInFromLeft}>
                 <HiSelector className="w-5 h-5 fill-gray-400" aria-hidden="true" />
-              </motion.div>
+              </AnimationWrapper>
             </span>
           </Listbox.Button>
         </>

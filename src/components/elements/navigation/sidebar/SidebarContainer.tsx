@@ -1,25 +1,8 @@
-import { useEffect, useState } from "react";
-
 import { Sidebar } from "components";
+import { useIsMobile } from "hooks";
 
 export const SidebarContainer = () => {
-  const [placement, setPlacement] = useState<"left" | "right">("right");
+  const { isMobile } = useIsMobile();
 
-  useEffect(() => {
-    const updateWindowDimensions = () => {
-      const newWidth = window.innerWidth;
-      if (newWidth >= 768) {
-        setPlacement("left");
-      } else {
-        setPlacement("right");
-      }
-    };
-
-    updateWindowDimensions();
-    window.addEventListener("resize", updateWindowDimensions);
-
-    return () => window.removeEventListener("resize", updateWindowDimensions);
-  }, []);
-
-  return <Sidebar placeMent={placement} />;
+  return <Sidebar placeMent={isMobile ? "right" : "left"} />;
 };

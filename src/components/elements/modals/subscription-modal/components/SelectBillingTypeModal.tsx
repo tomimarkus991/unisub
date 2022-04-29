@@ -1,12 +1,18 @@
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { HiCalendar } from "react-icons/all";
 
 import { billingTypeValues } from "app-constants";
-import { InputErrorText, Modal, ModalHeaderGoOneBack, RealIconButton } from "components";
+import {
+  animations,
+  AnimationWrapper,
+  InputErrorText,
+  Modal,
+  ModalHeader,
+  RealIconButton,
+} from "components";
 import { SubscriptionBillingType } from "types";
 
 import { SubFormValues } from "..";
@@ -51,7 +57,9 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
           </>
         }
       >
-        <ModalHeaderGoOneBack setOpen={setOpen}>Type</ModalHeaderGoOneBack>
+        <ModalHeader setOpen={setOpen} type="back">
+          Type
+        </ModalHeader>
         <div
           className={clsx(
             "scrollbar-styles",
@@ -69,12 +77,9 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
               {billingTypeValues.map(billingType => (
                 <RadioGroup.Option value={billingType} key={billingType}>
                   {({ checked }) => (
-                    <motion.div
-                      whileHover={{
-                        rotate: [0, -2],
-                        scale: [1, 1.1],
-                        transition: { duration: 0.1 },
-                      }}
+                    <AnimationWrapper
+                      keyIndex={billingType}
+                      variants={animations.makeBiggerAndRotateSlightly}
                       className={clsx(
                         "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
                         // `hover:${cardColors[values.selectedColor]}`,
@@ -99,7 +104,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
                           {billingType}
                         </span> */}
                       </div>
-                    </motion.div>
+                    </AnimationWrapper>
                   )}
                 </RadioGroup.Option>
               ))}

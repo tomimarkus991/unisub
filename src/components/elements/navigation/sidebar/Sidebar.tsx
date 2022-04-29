@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { HiChartBar, HiHome, HiX } from "react-icons/all";
 
-import { animations, SidebarLink } from "components";
+import { animations, AnimationWrapper, SidebarLink } from "components";
 import { useSidebar } from "context";
 
 interface Props {
@@ -11,14 +11,14 @@ interface Props {
 
 export const Sidebar = ({ placeMent = "right" }: Props) => {
   const { isSidebarOpen, setisSidebarOpen } = useSidebar();
-  const sidebarLinkIconStyles = "mr-3 w-8 h-8 fill-gray-800";
 
   return (
     <AnimatePresence initial exitBeforeEnter>
       {isSidebarOpen && (
         <>
-          <motion.div
-            key="app-sidebar-content"
+          <AnimationWrapper
+            keyIndex="app-sidebar-content"
+            animateOnAllScreens
             initial={{ x: placeMent === "right" ? "100vw" : "-100vw", opacity: 0 }}
             animate={{
               x: "0",
@@ -44,27 +44,29 @@ export const Sidebar = ({ placeMent = "right" }: Props) => {
               className={clsx("flex p-3", placeMent === "right" ? "justify-end" : "justify-end")}
             >
               <button onClick={() => setisSidebarOpen(open => !open)}>
-                <motion.div {...animations.scaleAndRotationAnim} key="sidebar-x-icon">
+                <AnimationWrapper keyIndex="sidebar-x-icon" variants={animations.scaleAndRotation}>
                   <HiX className="w-12 h-12 fill-slate-700 hover:fill-slate-800" />
-                </motion.div>
+                </AnimationWrapper>
               </button>
             </div>
             {/* body */}
             <div className="h-full">
               <SidebarLink to="/">
-                <HiHome className={clsx(sidebarLinkIconStyles)} />
+                <HiHome className="sidebar-link" />
                 <p className="text-xl font-medium">Home</p>
               </SidebarLink>
 
               <SidebarLink to="/stats">
-                <HiChartBar className={clsx(sidebarLinkIconStyles)} />
+                <HiChartBar className="sidebar-link" />
                 <p className="text-xl font-medium">Stats</p>
               </SidebarLink>
             </div>
-          </motion.div>
+          </AnimationWrapper>
 
-          <motion.div
-            key="app-sidebar-overlay"
+          <AnimationWrapper
+            keyIndex="app-sidebar-overlay"
+            id="overlay"
+            animateOnAllScreens
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ duration: 0.4, ease: "linear" }}

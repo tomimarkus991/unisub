@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Form, Formik } from "formik";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { HiPlusCircle } from "react-icons/all";
 
 import { createPresetSubs, SearchSubYupSchema } from "app-constants";
@@ -10,9 +10,10 @@ import {
   RealButton,
   SubscriptionModal,
   animations,
-  ModalHeaderClose,
+  ModalHeader,
   Modal,
   ModalFooterContainer,
+  AnimationWrapper,
 } from "components";
 import { useSubModal } from "context";
 
@@ -38,14 +39,17 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       modalButton={
         <>
           {isIcon ? (
-            <motion.div key="choose-sub-plus-circle" {...animations.scaleAndRotationAnim}>
+            <AnimationWrapper
+              keyIndex="choose-modal-plus-icon"
+              variants={animations.scaleAndRotation}
+            >
               <HiPlusCircle
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
                 onClick={() => {
                   setIsChooseSubModalOpen(true);
                 }}
               />
-            </motion.div>
+            </AnimationWrapper>
           ) : (
             <RealButton
               onClick={() => {
@@ -74,7 +78,9 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
           return (
             <Form className="flex flex-col">
               <div className="flex sticky z-40 flex-col items-center px-4 mb-3 w-full min-h-[9rem] rounded-t-xl">
-                <ModalHeaderClose setOpen={setIsChooseSubModalOpen}>Add a new Sub</ModalHeaderClose>
+                <ModalHeader setOpen={setIsChooseSubModalOpen} type="close">
+                  Add a new Sub
+                </ModalHeader>
 
                 <Input
                   name="searchString"
@@ -89,26 +95,18 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
               <div
                 className={clsx("scrollbar-styles", "flex overflow-y-auto flex-col px-2 h-[40vh]")}
               >
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial exitBeforeEnter>
                   {createPresetSubs().map(sub => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
-                        <motion.div
+                        <AnimationWrapper
+                          keyIndex={sub.title}
                           className="mb-2"
-                          key={sub.title}
-                          initial={{ y: "-50vh", opacity: 0 }}
-                          animate={{
-                            y: "0",
-                            opacity: 1,
-                            transition: {
-                              type: "spring",
-                              duration: 1,
-                              bounce: 0.1,
-                            },
-                          }}
+                          variants={animations.springInFromTop}
+                          animateOnAllScreens
                         >
                           <PresetSubscriptionCard subValues={sub} />
-                        </motion.div>
+                        </AnimationWrapper>
                       )
                     );
                   })}

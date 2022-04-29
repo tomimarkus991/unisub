@@ -1,11 +1,17 @@
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { currencies } from "app-constants";
-import { InputErrorText, Modal, ModalHeaderGoOneBack, RealIconButton } from "components";
+import {
+  animations,
+  AnimationWrapper,
+  InputErrorText,
+  Modal,
+  ModalHeader,
+  RealIconButton,
+} from "components";
 import { CurrencyType } from "types";
 
 import { SubFormValues } from "..";
@@ -66,7 +72,9 @@ export const SelectCurrencyModal = ({ name }: Props) => {
           </>
         }
       >
-        <ModalHeaderGoOneBack setOpen={setOpen}>Currency</ModalHeaderGoOneBack>
+        <ModalHeader setOpen={setOpen} type="back">
+          Currency
+        </ModalHeader>
         <div
           className={clsx(
             "scrollbar-styles",
@@ -84,12 +92,9 @@ export const SelectCurrencyModal = ({ name }: Props) => {
               {currencies.map(currency => (
                 <RadioGroup.Option value={currency} key={currency.name}>
                   {({ checked }) => (
-                    <motion.div
-                      whileHover={{
-                        rotate: [0, -2],
-                        scale: [1, 1.1],
-                        transition: { duration: 0.1 },
-                      }}
+                    <AnimationWrapper
+                      keyIndex={currency.name}
+                      variants={animations.makeBiggerAndRotateSlightly}
                       className={clsx(
                         "scrollbar-styles",
                         "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
@@ -105,7 +110,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
                         <img className="w-8 h-8" src={`/flags/${currency.image}`} alt="icon" />
                       </div>
                       <div className="w-[50%]">{currency.name}</div>
-                    </motion.div>
+                    </AnimationWrapper>
                   )}
                 </RadioGroup.Option>
               ))}

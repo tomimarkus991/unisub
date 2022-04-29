@@ -1,14 +1,15 @@
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { categories } from "app-constants";
 import {
+  animations,
+  AnimationWrapper,
   InputErrorText,
   Modal,
-  ModalHeaderGoOneBack,
+  ModalHeader,
   RealIconButton,
   SubFormValues,
 } from "components";
@@ -53,7 +54,9 @@ export const SelectCategoryModal = ({ name }: Props) => {
           </>
         }
       >
-        <ModalHeaderGoOneBack setOpen={setOpen}>Category</ModalHeaderGoOneBack>
+        <ModalHeader setOpen={setOpen} type="back">
+          Category
+        </ModalHeader>
         <div
           className={clsx(
             "scrollbar-styles",
@@ -71,12 +74,9 @@ export const SelectCategoryModal = ({ name }: Props) => {
               {categories.map(category => (
                 <RadioGroup.Option value={category} key={category.name}>
                   {({ checked }) => (
-                    <motion.div
-                      whileHover={{
-                        rotate: [0, -2],
-                        scale: [1, 1.1],
-                        transition: { duration: 0.1 },
-                      }}
+                    <AnimationWrapper
+                      keyIndex={category.name}
+                      variants={animations.makeBiggerAndRotateSlightly}
                       className={clsx(
                         "scrollbar-styles",
                         "flex overflow-x-auto flex-row justify-center items-center py-4 px-3 font-semibold text-gray-800 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
@@ -90,7 +90,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
                     >
                       <div className="w-[40%]">{category.icon}</div>
                       <div className="w-[70%]">{category.name}</div>
-                    </motion.div>
+                    </AnimationWrapper>
                   )}
                 </RadioGroup.Option>
               ))}

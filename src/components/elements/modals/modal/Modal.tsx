@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
+import { animations, AnimationWrapper } from "../../animations";
+
 const modalMaxWidth = {
   xs: "md:max-w-xs",
   sm: "md:max-w-sm",
@@ -35,50 +37,30 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
             open={open}
             onClose={setOpen}
           >
-            <motion.div
+            <AnimationWrapper
+              keyIndex="app-modal-overlay"
               id="overlay"
-              ref={initialFocusRef}
-              key="app-modal-overlay"
-              role="button"
-              tabIndex={0}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              transition={{ duration: 0.2, ease: "easeIn" }}
-              exit={{
-                transition: {
-                  duration: 0.2,
-                },
-                opacity: 0,
-              }}
+              variants={animations.overlay}
+              animateOnAllScreens
               onClick={() => setOpen(false)}
               className="absolute inset-0 w-full h-full bg-gray-500 opacity-40"
             />
-            <motion.div
+            <button
+              id="button-to-remove-autofocus"
+              ref={initialFocusRef}
+              className="hidden absolute inset-0"
+            />
+            <AnimationWrapper
+              keyIndex="app-modal-children"
               id="modal-children"
-              key="app-modal-children"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  duration: 0.2,
-                  ease: "easeIn",
-                },
-              }}
-              exit={{
-                transition: {
-                  duration: 0.2,
-                },
-                opacity: 0,
-                scale: 0.95,
-              }}
+              variants={animations.modalEffect}
               className={clsx(
                 "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
                 modalMaxWidth[maxWidth]
               )}
             >
               {children}
-            </motion.div>
+            </AnimationWrapper>
           </Dialog>
         )}
       </AnimatePresence>
