@@ -6,11 +6,11 @@ import { ReactNode, useRef } from "react";
 import { animations, AnimationWrapper } from "../../animations";
 
 const modalMaxWidth = {
-  xs: "md:max-w-xs",
-  sm: "md:max-w-sm",
-  md: "md:max-w-md",
-  lg: "md:max-w-lg",
-  xl: "md:max-w-xl",
+  xs: "sm:max-w-xs",
+  sm: "sm:max-w-sm",
+  md: "sm:max-w-md",
+  lg: "sm:max-w-lg",
+  xl: "sm:max-w-xl",
 };
 
 interface Props {
@@ -56,8 +56,8 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
               variants={animations.modalEffect}
               animateOnAllScreens
               className={clsx(
-                "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
-                modalMaxWidth[maxWidth]
+                modalMaxWidth[maxWidth],
+                "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]"
               )}
             >
               {children}

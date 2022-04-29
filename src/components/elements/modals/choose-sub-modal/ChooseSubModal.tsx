@@ -77,7 +77,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
         {({ values }) => {
           return (
             <Form className="flex flex-col">
-              <div className="flex sticky z-40 flex-col items-center px-4 mb-3 w-full min-h-[9rem] rounded-t-xl">
+              <div className="flex sticky z-40 flex-col items-center px-4 pb-3 min-h-[9rem]">
                 <ModalHeader setOpen={setIsChooseSubModalOpen} type="close">
                   Add a new Sub
                 </ModalHeader>
@@ -86,22 +86,25 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                   name="searchString"
                   type="text"
                   placeholder="Search"
-                  className={clsx("px-3 my-2 w-full")}
+                  className={clsx("px-3 my-2")}
                 />
                 <h3 className="text-lg font-medium leading-6 text-gray-400">
                   Popular subscriptions
                 </h3>
               </div>
               <div
-                className={clsx("scrollbar-styles", "flex overflow-y-auto flex-col px-2 h-[40vh]")}
+                className={clsx(
+                  "scrollbar-styles",
+                  "flex overflow-y-auto flex-col px-2 h-[40vh] min-h-[15rem]"
+                )}
               >
-                <AnimatePresence initial exitBeforeEnter>
+                <AnimatePresence initial={false} exitBeforeEnter>
                   {createPresetSubs().map(sub => {
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <AnimationWrapper
                           keyIndex={sub.title}
-                          className="mb-2"
+                          className="mb-2 sm:w-[25rem]"
                           variants={animations.springInFromTop}
                           animateOnAllScreens
                         >
