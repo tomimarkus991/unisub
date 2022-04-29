@@ -54,6 +54,7 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
               keyIndex="app-modal-children"
               id="modal-children"
               variants={animations.modalEffect}
+              animateOnAllScreens
               className={clsx(
                 "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]",
                 modalMaxWidth[maxWidth]
