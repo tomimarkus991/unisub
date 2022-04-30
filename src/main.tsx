@@ -18,16 +18,16 @@ AOS.init();
 
 root.render(
   <StrictMode>
-    <BrowserRouter>
-      <LocalizationProvider dateAdapter={AdapterMoment}>
-        <SidebarProvider>
+    <SidebarProvider>
+      <BrowserRouter>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
           <SubModalProvider>
             <SubProvider>
               <Router />
             </SubProvider>
           </SubModalProvider>
-        </SidebarProvider>
-      </LocalizationProvider>
-    </BrowserRouter>
+        </LocalizationProvider>
+      </BrowserRouter>
+    </SidebarProvider>
   </StrictMode>
 );

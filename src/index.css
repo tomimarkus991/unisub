@@ -42,4 +42,7 @@ input[type="number"] {
     /* @apply scrollbar-none no-scrollbar scrollbar-thumb-slate-500 scrollbar-track-gray-100 active:scrollbar-thumb-slate-600; */
     @apply scrollbar-hide;
   }
+  .input-error {
+    @apply border-2 border-red-300 caret-red-400 focus:outline-none focus:border-red-500;
+  }
 }

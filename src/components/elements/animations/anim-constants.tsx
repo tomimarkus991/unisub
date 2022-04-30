@@ -114,6 +114,18 @@ const makeBiggerAndRotateSlightly: Variants = {
   },
 };
 
+const smallScale: Variants = {
+  whileHover: {
+    scale: [1, 1.1],
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+      times: [0, 1],
+    },
+  },
+  whileTap: { scale: 0.8 },
+};
+
 export const animations = {
   scaleAndRotation,
   rotate360,
@@ -122,4 +134,5 @@ export const animations = {
   overlay,
   modalEffect,
   makeBiggerAndRotateSlightly,
+  smallScale,
 };
