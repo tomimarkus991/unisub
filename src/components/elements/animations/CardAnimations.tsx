@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
+
+import clsx from "clsx";
 
 import { cardColors } from "app-constants";
 import { useIsMobile } from "hooks";

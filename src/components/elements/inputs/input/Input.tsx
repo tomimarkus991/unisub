@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
+
+import clsx from "clsx";
 import { ReactNode } from "react";
 
 import { InputErrorText, SubFormValues } from "components";

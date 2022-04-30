@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import { AnimatePresence } from "framer-motion";
+
+import clsx from "clsx";
 import { HiChartBar, HiHome, HiX } from "react-icons/all";
 
 import { animations, AnimationWrapper, SidebarLink } from "components";
