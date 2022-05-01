@@ -25,9 +25,9 @@ export default defineConfig({
       ],
       manifest: {
         start_url: ".",
-        name: "React Boilerplate",
-        short_name: "React Boilerplate",
-        description: "Boilerplate to get started fast",
+        name: "Unisub",
+        short_name: "Unisub",
+        description: "App to manage subscriptions",
         theme_color: "#282c31",
         background_color: "#282c31",
         orientation: "portrait",
