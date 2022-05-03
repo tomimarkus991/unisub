@@ -16,17 +16,11 @@ import {
 } from "components";
 import { CurrencyType } from "types";
 
-import { SubFormValues } from "..";
-
-interface Props {
-  name: string;
-}
-
-export const SelectCurrencyModal = ({ name }: Props) => {
+export const SelectCurrencyModal = () => {
   const [open, setOpen] = useState(false);
 
-  const [field, { touched, error }] = useField<CurrencyType>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const [field, { touched, error }] = useField<CurrencyType>("billing");
+  const { setFieldValue } = useFormikContext();
 
   const [activeCurrency, setActiveCurrency] = useState<CurrencyType>(
     currencies.find(currency => currency.name === field.value.name) as CurrencyType
@@ -88,7 +82,7 @@ export const SelectCurrencyModal = ({ name }: Props) => {
               className="grid grid-cols-2 gap-2 w-full"
               value={field.value}
               onChange={value => {
-                setFieldValue(name, value);
+                setFieldValue("billing", value);
               }}
             >
               {currencies.map(currency => (

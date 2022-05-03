@@ -7,7 +7,7 @@ import { HiCheck, HiSelector } from "react-icons/all";
 import { AnimationWrapper } from "components";
 import { SelectOption, SubscriptionBillingType } from "types";
 
-import { InputErrorText, animations, SubFormValues } from "../..";
+import { InputErrorText, animations } from "../..";
 
 interface Props {
   options: SelectOption<string | SubscriptionBillingType>[];
@@ -17,7 +17,7 @@ interface Props {
 
 export const SelectField = ({ name, options, title }: Props) => {
   const [field, { touched, error }] = useField<SelectOption<SubscriptionBillingType>>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const { setFieldValue } = useFormikContext();
 
   return (
     <Listbox value={field?.value} onChange={value => setFieldValue(name, value)}>

@@ -13,7 +13,6 @@ import {
   Modal,
   ModalHeader,
   RealIconButton,
-  SubFormValues,
 } from "components";
 import { CategoryCardItem } from "types";
 
@@ -24,7 +23,7 @@ interface Props {
 export const SelectCategoryModal = ({ name }: Props) => {
   const [open, setOpen] = useState(false);
   const [field, { touched, error }] = useField<CategoryCardItem>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const { setFieldValue } = useFormikContext();
 
   return (
     <>

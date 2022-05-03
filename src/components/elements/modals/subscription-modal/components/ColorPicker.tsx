@@ -8,15 +8,13 @@ import { cardColors } from "app-constants";
 import { AnimationWrapper, InputErrorText } from "components";
 import { CardColorType } from "types";
 
-import { SubFormValues } from "..";
-
 interface Props {
   name: string;
 }
 
 export const ColorPicker = ({ name }: Props) => {
   const [field, { touched, error }] = useField(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const { setFieldValue } = useFormikContext();
 
   return (
     <>

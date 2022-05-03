@@ -17,17 +17,11 @@ import {
 } from "components";
 import { SubscriptionBillingType } from "types";
 
-import { SubFormValues } from "..";
-
-interface Props {
-  name: string;
-}
-
-export const SelectBillingTypeModal = ({ name }: Props) => {
+export const SelectBillingTypeModal = () => {
   const [open, setOpen] = useState(false);
 
-  const [field, { touched, error }] = useField<SubscriptionBillingType>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const [field, { touched, error }] = useField<SubscriptionBillingType>("selectedBillingType");
+  const { setFieldValue } = useFormikContext();
 
   return (
     <>
@@ -73,7 +67,7 @@ export const SelectBillingTypeModal = ({ name }: Props) => {
               className="grid grid-cols-2 gap-2 w-full"
               value={field.value}
               onChange={value => {
-                setFieldValue(name, value);
+                setFieldValue("selectedBillingType", value);
               }}
             >
               {billingTypeValues.map(billingType => (

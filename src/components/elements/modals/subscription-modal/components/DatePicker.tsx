@@ -6,15 +6,13 @@ import { HiCalendar } from "react-icons/all";
 
 import { InputErrorText } from "components";
 
-import { SubFormValues } from "..";
-
 interface Props {
   name: string;
 }
 
 export const DatePicker = ({ name }: Props) => {
   const [field, { touched, error }] = useField<Date>(name);
-  const { setFieldValue } = useFormikContext<SubFormValues>();
+  const { setFieldValue } = useFormikContext();
 
   return (
     <div>

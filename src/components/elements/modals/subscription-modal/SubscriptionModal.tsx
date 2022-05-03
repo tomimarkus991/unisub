@@ -278,7 +278,7 @@ export const SubscriptionModal = ({
                       <div className="w-6/12">
                         <Input
                           name="cost"
-                          inputPrefix={true}
+                          inputPrefix={values.billing.currencyIcon}
                           type="number"
                           placeholder="0"
                           className={clsx("px-3 w-10/12")}
@@ -290,7 +290,7 @@ export const SubscriptionModal = ({
                         />
                       </div>
                       <div className="w-6/12">
-                        <SelectBillingTypeModal name="selectedBillingType" />
+                        <SelectBillingTypeModal />
                       </div>
                     </div>
 
@@ -299,7 +299,7 @@ export const SubscriptionModal = ({
                         <DatePicker name="subscriptionStartDate" />
                       </div>
                       <div className="w-4/12 xs2:w-5/12">
-                        <SelectCurrencyModal name="billing" />
+                        <SelectCurrencyModal />
                       </div>
                     </div>
                   </div>

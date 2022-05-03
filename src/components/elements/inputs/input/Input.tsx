@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { useField, useFormikContext } from "formik";
+import { useField } from "formik";
 
 import clsx from "clsx";
 import { ReactNode } from "react";
 
-import { InputErrorText, SubFormValues } from "components";
+import { InputErrorText } from "components";
 
 const sizes = {
   sm: "py-2 text-md rounded-md",
@@ -26,7 +26,7 @@ const variants = {
 type Props = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string;
   label?: string | ReactNode;
-  inputPrefix?: boolean;
+  inputPrefix?: ReactNode;
   variant?: keyof typeof variants;
   inputSize?: keyof typeof sizes;
 };
@@ -36,12 +36,11 @@ export const Input = ({
   name,
   className = "appearance-none px-4",
   inputSize = "md",
-  inputPrefix = false,
+  inputPrefix,
   variant = "default",
   ...props
 }: Props) => {
   const [field, { touched, error }] = useField(name);
-  const { values } = useFormikContext<SubFormValues>();
 
   return (
     <>
@@ -53,9 +52,7 @@ export const Input = ({
       {inputPrefix ? (
         <div className="relative">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-            <span className="text-gray-400 opacity-75 sm:text-sm">
-              {values.billing.currencyIcon}
-            </span>
+            <span className="text-gray-400 opacity-75 sm:text-sm">{inputPrefix}</span>
           </div>
           <input
             className={clsx(
