@@ -5,6 +5,8 @@ type InitialContextType = {
   setIsChooseSubModalOpen: Dispatch<SetStateAction<boolean>>;
   isSubscriptionModalOpen: boolean;
   setIsSubscriptionModalOpen: Dispatch<SetStateAction<boolean>>;
+  isSubCardPopoverOpen: boolean;
+  setIsSubCardPopoverOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 type ProviderProps = {
@@ -16,6 +18,8 @@ const initContextData: InitialContextType = {
   setIsChooseSubModalOpen: () => {},
   isSubscriptionModalOpen: false,
   setIsSubscriptionModalOpen: () => {},
+  isSubCardPopoverOpen: false,
+  setIsSubCardPopoverOpen: () => {},
 };
 
 const SubModalContext = createContext(initContextData);
@@ -25,6 +29,7 @@ export const useSubModal = () => useContext(SubModalContext);
 export const SubModalProvider = ({ children }: ProviderProps) => {
   const [isChooseSubModalOpen, setIsChooseSubModalOpen] = useState(false);
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+  const [isSubCardPopoverOpen, setIsSubCardPopoverOpen] = useState(false);
 
   return (
     <SubModalContext.Provider
@@ -33,6 +38,8 @@ export const SubModalProvider = ({ children }: ProviderProps) => {
         setIsChooseSubModalOpen,
         isSubscriptionModalOpen,
         setIsSubscriptionModalOpen,
+        isSubCardPopoverOpen,
+        setIsSubCardPopoverOpen,
       }}
     >
       {children}
