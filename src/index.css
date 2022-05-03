@@ -29,9 +29,6 @@ input[type="number"] {
   .sub-category-item {
     @apply w-6 h-6 xs:w-10 xs:h-10;
   }
-  .sidebar-link {
-    @apply mr-3 w-8 h-8 fill-gray-800;
-  }
 
   /* IE and Edge */
   .no-scrollbar {

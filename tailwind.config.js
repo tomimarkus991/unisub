@@ -25,6 +25,7 @@ module.exports = {
       colors: {
         "light-green": [colors.emerald[500], colors.green[500], colors.lime[500]],
         "light-blue": [colors.teal[500], colors.emerald[500], colors.green[500]],
+        gray: [colors.blue[500], colors.pink[500], colors.purple[500]],
       },
       background: {
         white: "#fff",

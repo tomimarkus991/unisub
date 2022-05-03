@@ -77,7 +77,9 @@ export const SelectBillingTypeModal = () => {
                       keyIndex={billingType}
                       variants={animations.makeBiggerAndRotateSlightly}
                       className={clsx(
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 whitespace-nowrap bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
+                        // checked && "border-4 border-transparent border-gradient-br-gray-white",
+                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 whitespace-nowrap rounded-md cursor-pointer xs:text-lg",
+                        "bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200",
                         // `hover:${cardColors[values.selectedColor]}`,
                         "hover:bg-gradient-to-tr hover:from-slate-50 hover:via-slate-200 hover:to-gray-50",
                         checked && "ring-[3px] ring-slate-500 ring-opacity-60"

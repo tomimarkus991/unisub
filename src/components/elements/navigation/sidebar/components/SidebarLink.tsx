@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
@@ -5,20 +7,30 @@ import { animations, AnimationWrapper } from "components";
 import { useSidebar } from "context";
 
 interface ListItemProps {
-  children: ReactNode;
+  children: string;
   to: string;
+  icon: ReactNode;
 }
 
-export const SidebarLink = ({ children, to }: ListItemProps) => {
+export const SidebarLink = ({ children, to, icon }: ListItemProps) => {
   const { setisSidebarOpen } = useSidebar();
   return (
-    <div role="button" tabIndex={-3} onClick={open => setisSidebarOpen(!open)}>
+    <div role="button" tabIndex={0} onClick={open => setisSidebarOpen(!open)}>
       <Link to={to}>
-        <div className="flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer">
-          <AnimationWrapper variants={animations.rotate360} keyIndex="sidebar-link-icon">
-            <div className="flex flex-row items-center">{children}</div>
-          </AnimationWrapper>
-        </div>
+        <motion.div
+          whileHover="whileHover"
+          whileTap="whileTap"
+          className="group flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer"
+        >
+          <div className="flex items-center">
+            <AnimationWrapper variants={animations.smallScale} keyIndex="sidebar-link-icon" child>
+              {icon}
+            </AnimationWrapper>
+            <div className="flex flex-row items-center">
+              <p className="text-xl font-medium group-hover:fill-slate-800">{children}</p>
+            </div>
+          </div>
+        </motion.div>
       </Link>
     </div>
   );

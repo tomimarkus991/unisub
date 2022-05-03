@@ -52,14 +52,20 @@ export const Sidebar = ({ placeMent = "right" }: Props) => {
             </div>
             {/* body */}
             <div className="h-full">
-              <SidebarLink to="/">
-                <HiHome className="sidebar-link" />
-                <p className="text-xl font-medium">Home</p>
+              <SidebarLink
+                to="/"
+                icon={<HiHome className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />}
+              >
+                Home
               </SidebarLink>
 
-              <SidebarLink to="/stats">
-                <HiChartBar className="sidebar-link" />
-                <p className="text-xl font-medium">Stats</p>
+              <SidebarLink
+                to="/stats"
+                icon={
+                  <HiChartBar className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />
+                }
+              >
+                Stats
               </SidebarLink>
             </div>
           </AnimationWrapper>
