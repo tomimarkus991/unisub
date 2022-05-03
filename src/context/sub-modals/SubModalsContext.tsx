@@ -3,6 +3,8 @@ import React, { createContext, Dispatch, SetStateAction, useContext, useState } 
 type InitialContextType = {
   isChooseSubModalOpen: boolean;
   setIsChooseSubModalOpen: Dispatch<SetStateAction<boolean>>;
+  isSubscriptionModalOpen: boolean;
+  setIsSubscriptionModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 type ProviderProps = {
@@ -12,6 +14,8 @@ type ProviderProps = {
 const initContextData: InitialContextType = {
   isChooseSubModalOpen: false,
   setIsChooseSubModalOpen: () => {},
+  isSubscriptionModalOpen: false,
+  setIsSubscriptionModalOpen: () => {},
 };
 
 const SubModalContext = createContext(initContextData);
@@ -20,8 +24,17 @@ export const useSubModal = () => useContext(SubModalContext);
 
 export const SubModalProvider = ({ children }: ProviderProps) => {
   const [isChooseSubModalOpen, setIsChooseSubModalOpen] = useState(false);
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+
   return (
-    <SubModalContext.Provider value={{ isChooseSubModalOpen, setIsChooseSubModalOpen }}>
+    <SubModalContext.Provider
+      value={{
+        isChooseSubModalOpen,
+        setIsChooseSubModalOpen,
+        isSubscriptionModalOpen,
+        setIsSubscriptionModalOpen,
+      }}
+    >
       {children}
     </SubModalContext.Provider>
   );

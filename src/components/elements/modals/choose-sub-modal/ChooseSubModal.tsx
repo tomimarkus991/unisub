@@ -47,19 +47,11 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
             >
               <HiPlusCircle
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
-                onClick={() => {
-                  setIsChooseSubModalOpen(true);
-                }}
+                onClick={() => setIsChooseSubModalOpen(true)}
               />
             </AnimationWrapper>
           ) : (
-            <RealButton
-              onClick={() => {
-                setIsChooseSubModalOpen(true);
-              }}
-            >
-              Create sub
-            </RealButton>
+            <RealButton onClick={() => setIsChooseSubModalOpen(true)}>Create sub</RealButton>
           )}
         </>
       }

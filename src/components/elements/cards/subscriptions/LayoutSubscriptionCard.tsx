@@ -1,16 +1,14 @@
-import { Menu, Transition } from "@headlessui/react";
+import { Popover } from "@headlessui/react";
 
 import clsx from "clsx";
 import moment from "moment";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
 import { cardColors } from "app-constants";
-// import { CardAnimations } from "components";
+import { SubscriptionModal } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
-
-import { SubscriptionModal } from "../../modals";
 
 interface Props {
   sub: Subscription;
@@ -26,6 +24,7 @@ interface Props {
 
 export const LayoutSubscriptionCard = ({ sub }: Props) => {
   const { title, color: cardColor, startDate, category, active: isSubActive } = sub;
+
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
   const dateNow = moment();
   const subStartDate = moment(startDate);
@@ -48,8 +47,8 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   }, [daysUntilResub]);
 
   return (
-    <Menu as={"div"} className="relative w-full xs:min-w-[20rem] xs:max-w-xs">
-      <Menu.Button className="w-full">
+    <Popover className="relative w-full xs:min-w-[20rem] xs:max-w-xs">
+      <Popover.Button className="w-full">
         <div
           className={clsx(
             "flex overflow-hidden relative flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full cursor-pointer",
@@ -79,24 +78,17 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
             </div>
           </div>
         </div>
-      </Menu.Button>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute top-[70%] right-[10%] z-40 w-40 bg-white rounded-md focus:outline-none ring-1 ring-black ring-opacity-5">
-          <SubscriptionModal buttonType="children" subValues={sub}>
-            <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-              <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
-              <p>Edit</p>
-            </button>
-          </SubscriptionModal>
-          <Menu.Item>
+      </Popover.Button>
+
+      <Popover.Panel className="absolute left-1/2 z-40 min-w-[12rem] max-w-[12rem] transform -translate-x-1/4 -translate-y-20 select-none sm:px-0">
+        <div className="overflow-hidden rounded-lg shadow-lg">
+          <div className="flex relative flex-col p-3 text-2xl font-bold bg-white">
+            <SubscriptionModal buttonType="children" subValues={sub}>
+              <div className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+                <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+                <p>Edit</p>
+              </div>
+            </SubscriptionModal>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
               {isSubActive ? (
                 <HiX className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
@@ -105,15 +97,13 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
               )}
               <p>{isSubActive ? "Deactivate" : "Activate"}</p>
             </button>
-          </Menu.Item>
-          <Menu.Item>
             <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
               <HiTrash className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
               <p>Delete</p>
             </button>
-          </Menu.Item>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+          </div>
+        </div>
+      </Popover.Panel>
+    </Popover>
   );
 };
