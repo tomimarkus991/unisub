@@ -17,42 +17,27 @@ import {
 import {
   animations,
   AnimationWrapper,
+  BillingSection,
   Button,
+  GeneralSection,
   Modal,
   ModalFooterContainer,
   ModalHeaderContainer,
   ModalTitle,
   RealButton,
   SubscriptionCard,
-  BillingSection,
-  GeneralSection,
 } from "components";
 import { useSub, useSubModal } from "context";
-import {
-  CardColorType,
-  CategoryCardItem,
-  CurrencyType,
-  Subscription,
-  SubscriptionBillingType,
-} from "types";
+import { CardColorType, CategoryCardItem, Subscription, SubFormValues } from "types";
 import { generateAllCosts } from "utils";
-
-export interface SubFormValues {
-  selectedColor: CardColorType;
-  title: string;
-  selectedCategory: CategoryCardItem;
-  billing: CurrencyType;
-  cost: string;
-  selectedBillingType: SubscriptionBillingType;
-  subscriptionStartDate: Date | null;
-}
-
 interface Props {
   buttonType?: "icon" | "real" | "regular" | "children";
   buttonTitle?: string;
   cardColor?: CardColorType;
   subValues?: Subscription;
+  isEditing?: boolean;
   children?: React.ReactNode;
+  setIsSubCardPopoverOpen?: (value: boolean) => void;
 }
 
 export const SubscriptionModal = ({
@@ -61,6 +46,8 @@ export const SubscriptionModal = ({
   cardColor,
   subValues,
   children,
+  isEditing = false,
+  setIsSubCardPopoverOpen,
 }: Props) => {
   const { setIsChooseSubModalOpen } = useSubModal();
   const { setSubs } = useSub();
@@ -77,7 +64,7 @@ export const SubscriptionModal = ({
   });
 
   useEffect(() => {
-    if (subValues) {
+    if (isEditing && subValues) {
       const { title, color, billingType, category, cost } = subValues;
       setInitialValues({
         selectedColor: color,
@@ -94,6 +81,15 @@ export const SubscriptionModal = ({
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const closeModal = () => {
+    setIsSubscriptionModalOpen(false);
+    setIsChooseSubModalOpen(false);
+
+    if (setIsSubCardPopoverOpen) {
+      setIsSubCardPopoverOpen(false);
+    }
+  };
 
   return (
     <Modal
@@ -167,11 +163,19 @@ export const SubscriptionModal = ({
               .unix(),
           };
 
-          setSubs(oldSubs => [...oldSubs, subscription]);
-
-          setIsChooseSubModalOpen(false);
-
-          setIsSubscriptionModalOpen(false);
+          if (isEditing && subValues) {
+            setSubs(subs =>
+              subs.map(sub => {
+                if (sub.id === subValues.id) {
+                  return subscription;
+                }
+                return sub;
+              })
+            );
+          } else {
+            setSubs(oldSubs => [...oldSubs, subscription]);
+          }
+          closeModal();
           resetForm();
 
           setSubmitting(false);
@@ -188,13 +192,21 @@ export const SubscriptionModal = ({
           return (
             <Form className={clsx("flex flex-col")}>
               <ModalHeaderContainer>
-                <div role="button" tabIndex={0} onClick={() => setIsSubscriptionModalOpen(false)}>
-                  <AnimationWrapper keyIndex="sub-modal-left-icon" variants={animations.rotate360}>
-                    <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
-                  </AnimationWrapper>
-                </div>
+                {isEditing ? (
+                  <HiArrowLeft className="w-8 h-8 opacity-0" />
+                ) : (
+                  <div role="button" tabIndex={0} onClick={() => setIsSubscriptionModalOpen(false)}>
+                    <AnimationWrapper
+                      keyIndex="sub-modal-left-icon"
+                      variants={animations.rotate360}
+                    >
+                      <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
+                    </AnimationWrapper>
+                  </div>
+                )}
+
                 <ModalTitle>Create sub</ModalTitle>
-                <div role="button" tabIndex={0} onClick={() => setIsChooseSubModalOpen(false)}>
+                <div role="button" tabIndex={0} onClick={closeModal}>
                   <AnimationWrapper keyIndex="sub-modal-x-icon" variants={animations.rotate360}>
                     <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                   </AnimationWrapper>
@@ -220,7 +232,7 @@ export const SubscriptionModal = ({
               </div>
               <ModalFooterContainer>
                 <Button type="submit" isValid={isValid}>
-                  Add sub
+                  {isEditing ? "Update" : "Create"}
                 </Button>
               </ModalFooterContainer>
             </Form>
