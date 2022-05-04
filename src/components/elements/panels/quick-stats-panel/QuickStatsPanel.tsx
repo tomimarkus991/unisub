@@ -17,10 +17,9 @@ export const QuickStatsPanel = () => {
   const [decimals, setDecimals] = useState<number>(2);
 
   useEffect(() => {
-    const allSubsPricesTogether = subs.reduce(
-      (acc, sub) => acc + sub.allCosts[subPanelBillingType],
-      0
-    );
+    const allSubsPricesTogether = subs
+      .filter(sub => sub.active)
+      .reduce((acc, sub) => acc + sub.allCosts[subPanelBillingType], 0);
 
     setDecimals(() => {
       if (subPanelBillingType === "monthly") {
