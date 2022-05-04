@@ -102,7 +102,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                           variants={animations.springInFromTop}
                           animateOnAllScreens
                         >
-                          <PresetSubscriptionCard subValues={sub} />
+                          <PresetSubscriptionCard sub={sub} />
                         </AnimationWrapper>
                       )
                     );

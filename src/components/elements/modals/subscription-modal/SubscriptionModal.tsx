@@ -64,7 +64,7 @@ export const SubscriptionModal = ({
   });
 
   useEffect(() => {
-    if (isEditing && subValues) {
+    if (subValues) {
       const { title, color, billingType, category, cost } = subValues;
       setInitialValues({
         selectedColor: color,
@@ -72,7 +72,7 @@ export const SubscriptionModal = ({
         selectedCategory: categories.find(
           subCategory => category === subCategory.name
         ) as CategoryCardItem,
-        cost: cost.toString(),
+        cost: cost === 0 ? "" : cost.toString(),
         billing: currencies[0],
         selectedBillingType: billingType,
         subscriptionStartDate: new Date(),

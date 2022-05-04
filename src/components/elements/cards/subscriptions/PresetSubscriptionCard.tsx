@@ -5,11 +5,11 @@ import { SubscriptionModal } from "components";
 import { Subscription } from "types";
 
 interface Props {
-  subValues: Subscription;
+  sub: Subscription;
 }
 
-export const PresetSubscriptionCard = ({ subValues }: Props) => {
-  const { title, category, color } = subValues;
+export const PresetSubscriptionCard = ({ sub }: Props) => {
+  const { title, category, color } = sub;
 
   const textColor = color === "white" ? "text-gray-800" : "text-white";
 
@@ -44,7 +44,7 @@ export const PresetSubscriptionCard = ({ subValues }: Props) => {
             buttonTitle="Add"
             buttonType="regular"
             cardColor={color}
-            subValues={subValues}
+            subValues={sub}
           />
         </div>
       </div>
