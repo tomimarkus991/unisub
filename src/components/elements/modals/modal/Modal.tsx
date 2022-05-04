@@ -35,7 +35,7 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
             as={motion.div}
             key="modal-dialog"
             initialFocus={initialFocusRef}
-            className="flex fixed inset-0 z-50 justify-center items-center select-none"
+            className="flex fixed inset-0 z-[1000] justify-center items-center select-none"
             open={open}
             onClose={setOpen}
           >
@@ -59,7 +59,7 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
               animateOnAllScreens
               className={clsx(
                 modalMaxWidth[maxWidth],
-                "z-[70] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]"
+                "z-[1020] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]"
               )}
             >
               {children}

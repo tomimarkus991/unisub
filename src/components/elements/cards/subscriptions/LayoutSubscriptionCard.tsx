@@ -101,7 +101,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
             onClick={() => setIsSubCardPopoverOpen(false)}
             className={clsx(
               "absolute inset-0 w-screen h-screen opacity-100 cursor-default",
-              "z-[3000]"
+              "z-[998]"
             )}
           />,
           document.body
@@ -110,7 +110,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
         <div
           className={clsx(
             "absolute min-w-[12rem] max-w-[12rem] sm:px-0",
-            "left-1/2 z-40 -translate-x-1/4 -translate-y-20"
+            "left-1/2 z-[999] -translate-x-1/4 -translate-y-20"
           )}
         >
           <div className="flex overflow-hidden relative flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg">
@@ -120,7 +120,11 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
               isEditing
               setIsSubCardPopoverOpen={setIsSubCardPopoverOpen}
             >
-              <div className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+              <div
+                role="button"
+                tabIndex={0}
+                className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md"
+              >
                 <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
                 <p>Edit</p>
               </div>
