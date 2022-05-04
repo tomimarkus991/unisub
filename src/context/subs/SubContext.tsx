@@ -79,6 +79,19 @@ export const SubProvider = ({ children }: ProviderProps) => {
       nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
       cost: 15,
     },
+    {
+      id: "3",
+      title: "Spotify",
+      category: "Music",
+      color: "green",
+      active: false,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(10, "monthly"),
+      startDate: moment(new Date()).unix(),
+      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 10,
+    },
   ]);
   return <SubContext.Provider value={{ subs, setSubs }}>{children}</SubContext.Provider>;
 };

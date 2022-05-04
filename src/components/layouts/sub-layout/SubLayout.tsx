@@ -1,24 +1,11 @@
-import { LayoutSubscriptionCard } from "components";
-import { useSub } from "context";
+interface Props {
+  children: React.ReactNode;
+}
 
-export const SubLayout = () => {
-  const { subs } = useSub();
-
+export const SubLayout = ({ children }: Props) => {
   return (
     <div className="flex overflow-auto flex-col justify-center items-center last:pb-24 h-full">
-      {subs.map(sub => {
-        return (
-          <LayoutSubscriptionCard
-            key={sub.id}
-            sub={sub}
-            // category={sub.category}
-            // price={createSubPrice(sub)}
-            // cardColor={sub.color}
-            // imageUrl={""}
-            // startDate={sub.startDate}
-          />
-        );
-      })}
+      {children}
     </div>
   );
 };
