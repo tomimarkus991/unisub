@@ -27,7 +27,7 @@ export const HomePage = () => {
         <QuickStatsPanel />
       </div>
       <Tab.Group defaultIndex={0}>
-        <Tab.List className="my-4 ">
+        <Tab.List className="flex justify-center my-4">
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
