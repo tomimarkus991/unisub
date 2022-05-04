@@ -1,7 +1,6 @@
 import { Tab } from "@headlessui/react";
 
 import clsx from "clsx";
-import { useState } from "react";
 
 import {
   ToggleViewButton,
@@ -15,12 +14,12 @@ import { useSub } from "context";
 export const HomePage = () => {
   const { subs } = useSub();
 
-  const [countActiveSubs] = useState(subs.filter(sub => sub.active).length);
-  const [countInactiveSubs] = useState(subs.filter(sub => !sub.active).length);
+  const countActiveSubs = subs.filter(sub => sub.active).length;
+  const countInactiveSubs = subs.filter(sub => !sub.active).length;
 
   return (
     <DefaultWrapper>
-      <div className="hidden items-center sm:flex ">
+      <div className="hidden items-center sm:flex">
         <ToggleViewButton />
       </div>
       <div className="flex justify-center items-center mb-3 md:hidden">

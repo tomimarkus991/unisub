@@ -9,6 +9,8 @@ import { SubscriptionModal } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
 
+import { useSub } from "../../../../context";
+
 interface Props {
   sub: Subscription;
 }
@@ -35,12 +37,27 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
 
   const [resubText, setResubText] = useState(`Resub in ${daysUntilResub} days`);
 
+  const { subs, setSubs } = useSub();
+
   const handleActivate = () => {
     setIsSubCardPopoverOpen(false);
+    setSubs(
+      subs.map(mappedSub => {
+        if (mappedSub.id === sub.id) {
+          mappedSub.active = !sub.active;
+        }
+        return mappedSub;
+      })
+    );
   };
 
   const handleDelete = () => {
     setIsSubCardPopoverOpen(false);
+    setSubs(
+      subs.filter(mappedSub => {
+        return mappedSub.id !== sub.id;
+      })
+    );
   };
 
   useEffect(() => {
