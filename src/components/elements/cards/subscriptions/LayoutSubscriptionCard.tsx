@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
 import { cardColors } from "app-constants";
@@ -92,40 +93,56 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
           </div>
         </div>
       </div>
+      {isSubCardPopoverOpen &&
+        createPortal(
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => setIsSubCardPopoverOpen(false)}
+            className={clsx(
+              "absolute inset-0 w-screen h-screen opacity-100 cursor-default",
+              "z-[3000]"
+            )}
+          />,
+          document.body
+        )}
       {isSubCardPopoverOpen && (
-        <div className="absolute left-1/2 z-40 min-w-[12rem] max-w-[12rem] transform -translate-x-1/4 -translate-y-20 select-none sm:px-0">
-          <div className="overflow-hidden rounded-lg shadow-lg">
-            <div className="flex relative flex-col p-3 text-2xl font-bold bg-white">
-              <SubscriptionModal
-                buttonType="children"
-                subValues={sub}
-                isEditing
-                setIsSubCardPopoverOpen={setIsSubCardPopoverOpen}
-              >
-                <div className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-                  <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
-                  <p>Edit</p>
-                </div>
-              </SubscriptionModal>
-              <button
-                onClick={handleActivate}
-                className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md"
-              >
-                {isSubActive ? (
-                  <HiX className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
-                ) : (
-                  <HiCheck className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
-                )}
-                <p>{isSubActive ? "Deactivate" : "Activate"}</p>
-              </button>
-              <button
-                onClick={handleDelete}
-                className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md"
-              >
-                <HiTrash className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
-                <p>Delete</p>
-              </button>
-            </div>
+        <div
+          className={clsx(
+            "absolute min-w-[12rem] max-w-[12rem] sm:px-0",
+            "left-1/2 z-40 -translate-x-1/4 -translate-y-20"
+          )}
+        >
+          <div className="flex overflow-hidden relative flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg">
+            <SubscriptionModal
+              buttonType="children"
+              subValues={sub}
+              isEditing
+              setIsSubCardPopoverOpen={setIsSubCardPopoverOpen}
+            >
+              <div className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
+                <HiPencil className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+                <p>Edit</p>
+              </div>
+            </SubscriptionModal>
+            <button
+              onClick={handleActivate}
+              className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md"
+            >
+              {isSubActive ? (
+                <HiX className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+              ) : (
+                <HiCheck className="mr-2 w-5 h-5 fill-slate-700 hover:fill-slate-800" />
+              )}
+              <p>{isSubActive ? "Deactivate" : "Activate"}</p>
+            </button>
+            <button
+              onClick={handleDelete}
+              className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md"
+            >
+              <HiTrash className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
+              <p>Delete</p>
+            </button>
           </div>
         </div>
       )}
