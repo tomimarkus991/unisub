@@ -127,6 +127,25 @@ const popOverEffect: Variants = {
     },
   },
 };
+const realButtonEffect: Variants = {
+  // "hover:-translate-y-[0.15rem]",
+  // "active:duration-[25] active:translate-y-[0.2rem]",
+  whileHover: {
+    scale: 1,
+    translateY: -4,
+    transition: {
+      duration: 0.25,
+      ease: "easeIn",
+    },
+  },
+  whileTap: {
+    translateY: 1,
+    transition: {
+      duration: 0.05,
+      ease: "easeIn",
+    },
+  },
+};
 
 const makeBiggerAndRotateSlightly: Variants = {
   whileHover: {
@@ -150,6 +169,7 @@ const smallScale: Variants = {
 
 export const animations = {
   scaleAndRotation,
+  realButtonEffect,
   popOverEffect,
   rotate360,
   rotateInFromLeft,

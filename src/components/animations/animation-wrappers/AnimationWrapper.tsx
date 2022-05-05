@@ -37,8 +37,6 @@ export const AnimationWrapper = ({
     animations = variants;
   }
 
-  console.log("animations", animations);
-
   return (
     <motion.div
       key={keyIndex}
