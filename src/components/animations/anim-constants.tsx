@@ -106,6 +106,28 @@ const modalEffect: Variants = {
   },
 };
 
+const popOverEffect: Variants = {
+  initial: { opacity: 0, scale: 0.2, translateY: 5 },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    translateY: 0,
+    transition: {
+      duration: 0.15,
+      ease: "easeIn",
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.2,
+    translateY: 1,
+    transition: {
+      duration: 0.1,
+      ease: "easeIn",
+    },
+  },
+};
+
 const makeBiggerAndRotateSlightly: Variants = {
   whileHover: {
     rotate: [0, -2],
@@ -128,6 +150,7 @@ const smallScale: Variants = {
 
 export const animations = {
   scaleAndRotation,
+  popOverEffect,
   rotate360,
   rotateInFromLeft,
   springInFromTop,

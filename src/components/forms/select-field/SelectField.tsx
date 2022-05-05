@@ -4,10 +4,8 @@ import { useField, useFormikContext } from "formik";
 
 import { HiCheck, HiSelector } from "react-icons/all";
 
-import { AnimationWrapper } from "components";
+import { AnimationWrapper, InputErrorText, animations } from "components";
 import { SelectOption, SubscriptionBillingType } from "types";
-
-import { InputErrorText, animations } from "../..";
 
 interface Props {
   options: SelectOption<string | SubscriptionBillingType>[];
