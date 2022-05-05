@@ -30,7 +30,7 @@ export const HomePage = () => {
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "border-4 border-transparent border-solid outline-none focus:border-gradient-br-purple-white",
+                "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 "py-1 px-3 text-lg font-semibold bg-white rounded-l-xl",
                 selected && "border-gradient-br-purple-white"
               )
@@ -44,7 +44,7 @@ export const HomePage = () => {
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "border-4 border-transparent border-solid outline-none focus:border-gradient-br-purple-white",
+                "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 "py-1 px-3 text-lg font-semibold bg-white rounded-r-xl",
                 selected && "border-gradient-br-purple-white",
                 countInactiveSubs === 0 && "cursor-not-allowed"
