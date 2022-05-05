@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { ReactNode, useRef } from "react";
 
-import { animations, AnimationWrapper } from "../../animations";
+import { animations, AnimationWrapper } from "components";
 
 const modalMaxWidth = {
   xs: "sm:max-w-xs",
