@@ -6,14 +6,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 
 import { currencies } from "app-constants";
-import {
-  animations,
-  AnimationWrapper,
-  InputErrorText,
-  Modal,
-  ModalHeader,
-  RealIconButton,
-} from "components";
+import { InputErrorText, Modal, ModalHeader, RadioButtonWrapper, RealIconButton } from "components";
 import { CurrencyType } from "types";
 
 export const SelectCurrencyModal = () => {
@@ -88,25 +81,12 @@ export const SelectCurrencyModal = () => {
               {currencies.map(currency => (
                 <RadioGroup.Option value={currency} key={currency.name}>
                   {({ checked }) => (
-                    <AnimationWrapper
-                      keyIndex={currency.name}
-                      variants={animations.makeBiggerAndRotateSlightly}
-                      className={clsx(
-                        "scrollbar-styles",
-                        "flex overflow-x-auto flex-row justify-center items-center py-4 px-2 font-semibold text-gray-800 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
-                        // `hover:${cardColors[values.selectedColor]}`,
-                        "hover:bg-gradient-to-tr hover:from-slate-50 hover:via-slate-200 hover:to-gray-50",
-                        checked && "ring-[3px] ring-slate-500 ring-opacity-60"
-                      )}
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => setOpen(false)}
-                    >
+                    <RadioButtonWrapper checked={checked} index={currency.name} setOpen={setOpen}>
                       <div className="w-[30%]">
                         <img className="w-8 h-8" src={`/flags/${currency.image}`} alt="icon" />
                       </div>
                       <div className="w-[50%]">{currency.name}</div>
-                    </AnimationWrapper>
+                    </RadioButtonWrapper>
                   )}
                 </RadioGroup.Option>
               ))}
