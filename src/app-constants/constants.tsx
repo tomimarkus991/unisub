@@ -20,18 +20,18 @@ import {
 } from "types";
 
 export const cardColors = {
-  green: "bg-gradient-to-r from-green-600 to-green-400",
+  green: "bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500",
   orange: "bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400",
-  blue: "bg-gradient-to-tr from-blue-700 to-pink-500",
-  purple: "bg-gradient-to-tl from-violet-500 to-fuchsia-500",
-  purpleBlue: "bg-gradient-to-r from-purple-700 to-blue-600",
+  purpleBlue: "bg-gradient-to-tr from-blue-700 to-pink-500",
+  // purple: "bg-gradient-to-tl from-violet-500 to-fuchsia-500",
+  // purpleBlue: "bg-gradient-to-r from-purple-700 to-blue-600",
   indigo: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
-  red: "bg-gradient-to-r from-red-500 via-red-600 to-red-500",
-  yellow: "bg-gradient-to-r from-yellow-400 to-orange-400",
+  red: "bg-gradient-to-br from-red-500 to-pink-600",
+  // yellow: "bg-gradient-to-tr from-yellow-400 to-orange-500",
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
-  darkBlue: "bg-gradient-to-bl from-blue-500 via-blue-700 to-blue-500",
-  pink: "bg-gradient-to-tr from-pink-500 via-pink-600 to-pink-500",
+  darkBlue: "bg-gradient-to-bl from-blue-500 via-indigo-700 to-blue-500",
+  pink: "bg-gradient-to-tr from-rose-500 via-pink-500 to-rose-700",
 };
 
 export const billingTypes = {
@@ -105,13 +105,13 @@ export const createPresetSubs = (): Subscription[] => {
     {
       title: "Amazon Prime Video",
       category: "Streaming",
-      color: "yellow",
+      color: "orange",
     },
     {
       title: "Apple TV+",
       category: "Streaming",
     },
-    { title: "Twitch", category: "Streaming", color: "purple" },
+    { title: "Twitch", category: "Streaming", color: "purpleBlue" },
     {
       title: "NordVPN",
       category: "Software",
