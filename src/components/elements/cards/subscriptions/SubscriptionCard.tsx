@@ -29,6 +29,46 @@ export const SubscriptionCard = ({ title, category, price, cardColor }: Props) =
           </div>
         </div> */}
         {/* <CardAnimations cardColor={cardColor} /> */}
+        <div
+          key="object-1"
+          className={clsx(
+            "absolute w-40 h-40 content-none rounded-full",
+            "top-[-50%] left-[70%]",
+            cardColors[cardColor]
+          )}
+        />
+        {/* <div
+          key="object-2"
+          className={clsx(
+            "absolute w-24 h-24 content-none rounded-full",
+            "top-[45%] left-[65%]",
+            cardColors[cardColor]
+          )}
+        /> */}
+        <div
+          key="object-3"
+          className={clsx(
+            "absolute w-40 h-40 content-none rounded-full",
+            "top-[30%] left-[80%]",
+            cardColors[cardColor]
+          )}
+        />
+        <div
+          key="object-4"
+          className={clsx(
+            "absolute w-20 h-20 content-none rounded-xl",
+            "top-[65%] left-[70%]",
+            cardColors[cardColor]
+          )}
+        />
+        <div
+          key="object-5"
+          className={clsx(
+            "absolute w-20 h-20 content-none rounded-xl",
+            "top-[-30%] left-[90%]",
+            cardColors[cardColor]
+          )}
+        />
         <div className="flex z-10 flex-col ml-2 w-7/12 sm:ml-12">
           <p
             className={clsx(
