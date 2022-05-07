@@ -43,6 +43,8 @@ export const LayoutSubscriptionCardPopOver = ({
     );
   };
 
+  // const containerHeight = document.getElementById("root")?.clientHeight;
+
   return (
     <>
       {isSubCardPopoverOpen &&
@@ -52,8 +54,9 @@ export const LayoutSubscriptionCardPopOver = ({
             tabIndex={0}
             onClick={() => setIsSubCardPopoverOpen(false)}
             className={clsx(
-              "absolute inset-0 w-screen h-screen opacity-100 cursor-default",
+              "overflow-hidden absolute inset-0 w-[100%] opacity-100 cursor-default",
               "z-[998]"
+              // `h-[1672px]`
             )}
           />,
           document.body
@@ -67,11 +70,19 @@ export const LayoutSubscriptionCardPopOver = ({
           >
             <div
               className={clsx(
-                "absolute min-w-[12rem] max-w-[12rem] sm:px-0",
+                "overflow-hidden absolute min-w-[12rem] max-w-[12rem] sm:px-0",
                 "left-1/2 z-[999] -translate-x-1/4 -translate-y-20"
               )}
             >
               <div className="flex overflow-hidden relative flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg">
+                <div className="flex justify-end items-center">
+                  <AnimationWrapper keyIndex="popover-x" variants={animations.rotate360}>
+                    <HiX
+                      className="w-6 h-6 fill-slate-800"
+                      onClick={() => setIsSubCardPopoverOpen(false)}
+                    />
+                  </AnimationWrapper>
+                </div>
                 <SubscriptionModal
                   buttonType="children"
                   subValues={sub}
