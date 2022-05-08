@@ -59,7 +59,8 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       <Formik
         initialValues={initialValues}
         validationSchema={SearchSubYupSchema}
-        validateOnMount
+        // validateOnMount
+        validateOnChange={false}
         onSubmit={(_, { setSubmitting, resetForm }) => {
           setSubmitting(true);
 
