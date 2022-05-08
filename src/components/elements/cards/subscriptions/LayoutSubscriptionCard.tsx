@@ -3,7 +3,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 
 import { cardColors } from "app-constants";
-import { LayoutSubscriptionCardPopOver } from "components";
+import { CardCircleLayer, LayoutSubscriptionCardPopOver } from "components";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
 
@@ -60,6 +60,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
           )}
         >
           {/* <CardAnimations cardColor={cardColor} durationModifier={3} /> */}
+          <CardCircleLayer cardColor={cardColor} />
           <div className="flex z-10 flex-col ml-2 w-7/12">
             <div
               className={clsx(

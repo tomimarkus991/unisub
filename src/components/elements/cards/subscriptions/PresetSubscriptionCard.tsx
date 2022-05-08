@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { cardColors } from "app-constants";
-import { SubscriptionModal } from "components";
+import { CardCircleLayer, SubscriptionModal } from "components";
 import { Subscription } from "types";
 
 interface Props {
@@ -21,6 +21,7 @@ export const PresetSubscriptionCard = ({ sub }: Props) => {
       )}
     >
       {/* <CardAnimations cardColor={color} durationModifier={2} /> */}
+      <CardCircleLayer cardColor={color} />
       <div className="flex z-10 flex-col ml-2 w-9/12 sm:ml-6">
         <p
           className={clsx(
