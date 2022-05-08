@@ -31,8 +31,16 @@ export const cardColors = {
   gray: "bg-gradient-to-tr from-gray-600 to-gray-400",
   white: "bg-gradient-to-r from-slate-200 to-white",
   darkBlue: "bg-gradient-to-bl from-blue-500 via-indigo-700 to-blue-500",
-  pink: "bg-gradient-to-tr from-rose-500 via-pink-500 to-rose-700",
+  pink: "bg-gradient-to-r from-[#f953c6] to-rose-600",
+  // 1: "bg-gradient-to-r from-[] to-[]",
+  // 2: "bg-gradient-to-r from-[] via-[] to-[]",
 };
+// extras:
+// rastafi: "bg-gradient-to-r from-[#1E9600] via-[#FFF200] to-[#FF0000]",
+// burningOrange: "bg-gradient-to-tr from-[#8A2387] via-[#FF416C] to-[#FF4B2B]",
+// witchingHour: "bg-gradient-to-r from-[#c31432] to-[#240b36]",
+// kyemeh: "bg-gradient-to-r from-[#8360c3] to-[#2ebf91]",
+// amin: "bg-gradient-to-tr from-[#8E2DE2] to-[#4A00E0]",
 
 export const billingTypes = {
   monthly: "per month",
