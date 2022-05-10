@@ -1,17 +1,22 @@
 import { AnimatePresence } from "framer-motion";
 
 import clsx from "clsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-import { AnimationWrapper, SidebarContent } from "components";
+import { AnimationWrapper, SidebarContent, sidebarAnimations } from "components";
 import { useSidebar } from "context";
 import { useIsMobile } from "hooks";
 
 export const Sidebar = () => {
   const { sidebarState, setSidebarState, placement } = useSidebar();
   const { isMobile } = useIsMobile();
+  const location = useLocation();
+  const [routeChanged, setRouteChanged] = useState<boolean>(false);
 
-  console.log("Sidebar:", sidebarState);
+  useEffect(() => {
+    setRouteChanged(true);
+  }, [location]);
 
   useEffect(() => {
     if (!isMobile) {
@@ -21,7 +26,7 @@ export const Sidebar = () => {
   }, [isMobile]);
 
   return (
-    <>
+    <AnimatePresence>
       <AnimatePresence initial exitBeforeEnter>
         {sidebarState === "openWithOverlay" && (
           <>
@@ -65,67 +70,51 @@ export const Sidebar = () => {
           </>
         )}
       </AnimatePresence>
-      <AnimatePresence initial exitBeforeEnter>
-        {sidebarState === "expanded" && (
-          <>
-            <AnimationWrapper
-              keyIndex="expanded-app-sidebar-content"
-              animateOnAllScreens
-              initial={{ x: placement === "right" ? "100vw" : "-100vw", opacity: 0 }}
-              animate={{
-                x: "0",
-                opacity: 1,
-                transition: {
-                  duration: 3,
-                  type: "spring",
-                  // damping: 500,
-                  // stiffness: 50,
-                },
-              }}
-              exit={{
-                x: placement === "right" ? "100vw" : "-100vw",
-                opacity: 0,
-                transition: {
-                  duration: 0.6,
-                  ease: "easeIn",
-                },
-              }}
-              className={clsx("flex flex-col w-64 h-full bg-white")}
-            >
-              <SidebarContent />
-            </AnimationWrapper>
-          </>
-        )}
-      </AnimatePresence>
-      <AnimatePresence initial exitBeforeEnter>
+      {sidebarState === "expanded" && (
+        <AnimationWrapper
+          keyIndex="expanded-app-sidebar-content"
+          animateOnAllScreens
+          variants={sidebarAnimations.extendedSidebar}
+          className={clsx("flex flex-col w-64 h-full bg-white")}
+        >
+          <SidebarContent />
+        </AnimationWrapper>
+      )}
+      <AnimatePresence initial={true}>
         {sidebarState === "small" && (
-          <>
-            <AnimationWrapper
-              keyIndex="small-app-sidebar-content"
-              animateOnAllScreens
-              initial={{ x: placement === "right" ? "100vw" : "-100vw" }}
-              animate={{
-                x: "0",
-                opacity: 1,
-                transition: {
-                  duration: 3,
-                  type: "spring",
-                  damping: 30,
-                  stiffness: 300,
-                },
-              }}
-              exit={{
-                x: placement === "right" ? "100vw" : "-100vw",
-                opacity: 0,
-              }}
-              className={clsx("flex flex-col w-24 h-[100vh] bg-white")}
-            >
-              <SidebarContent />
-            </AnimationWrapper>
-          </>
+          <AnimationWrapper
+            keyIndex="small-app-sidebar-content"
+            animateOnAllScreens
+            initial={{
+              x: routeChanged
+                ? placement === "right"
+                  ? "-4vw"
+                  : "4vw"
+                : placement === "right"
+                ? "0vw"
+                : "0vw",
+            }}
+            animate={{
+              x: "0",
+              opacity: 1,
+              transition: {
+                duration: 1,
+                type: "spring",
+                damping: 30,
+                stiffness: 200,
+              },
+            }}
+            exit={{
+              x: placement === "right" ? "100vw" : "-100vw",
+              opacity: 0,
+            }}
+            className={clsx("flex flex-col w-24 h-[100vh] bg-white")}
+          >
+            <SidebarContent />
+          </AnimationWrapper>
         )}
       </AnimatePresence>
-    </>
+    </AnimatePresence>
   );
 };
 

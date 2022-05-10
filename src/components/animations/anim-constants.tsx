@@ -181,6 +181,28 @@ const smallScale: Variants = {
   whileTap: { scale: 0.8 },
 };
 
+const extendedSidebar: Variants = {
+  initial: { x: "-10vw", opacity: 0 },
+  animate: {
+    x: "0vw",
+    opacity: 1,
+    transition: {
+      duration: 3,
+      type: "spring",
+      damping: 30,
+      stiffness: 300,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    opacity: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeIn",
+    },
+  },
+};
+
 export const animations = {
   scaleAndRotation,
   scaleAndFullRotation,
@@ -193,4 +215,8 @@ export const animations = {
   modalEffect,
   makeBiggerAndRotateSlightly,
   smallScale,
+};
+
+export const sidebarAnimations = {
+  extendedSidebar,
 };
