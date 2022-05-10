@@ -53,7 +53,7 @@ export const SelectCategoryModal = ({ name }: Props) => {
         </ModalHeader>
         <div
           className={clsx(
-            "scrollbar-styles",
+            "scrollbar-hide",
             "flex overflow-y-auto items-start py-2 px-4 h-[36vh] min-h-[15rem] xs:min-w-[27rem]"
           )}
         >

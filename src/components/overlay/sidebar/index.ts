@@ -1,3 +1,4 @@
 export * from "./Sidebar";
-export * from "./SidebarContainer";
 export * from "./components";
+export * from "./collapsed";
+export * from "./expanded";

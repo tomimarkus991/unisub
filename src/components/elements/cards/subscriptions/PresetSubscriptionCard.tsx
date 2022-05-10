@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import SimpleBar from "simplebar-react";
 
 import { cardColors } from "app-constants";
 import { CardCircleLayer, SubscriptionModal } from "components";
@@ -23,15 +24,9 @@ export const PresetSubscriptionCard = ({ sub }: Props) => {
       {/* <CardAnimations cardColor={color} durationModifier={2} /> */}
       <CardCircleLayer cardColor={color} />
       <div className="flex z-10 flex-col ml-2 w-9/12 sm:ml-6">
-        <p
-          className={clsx(
-            "overflow-x-auto mb-1 w-[10rem] whitespace-nowrap sm:w-[15rem] scrollbar-styles",
-            "text-xl font-semibold xs:text-2xl",
-            textColor
-          )}
-        >
-          {title}
-        </p>
+        <SimpleBar className="overflow-x-auto pb-2 w-[10rem] whitespace-nowrap sm:w-[15rem]">
+          <p className={clsx("text-xl font-semibold xs:text-2xl", textColor)}>{title}</p>
+        </SimpleBar>
 
         <div className="flex flex-row justify-start">
           <div>

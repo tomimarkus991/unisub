@@ -51,7 +51,7 @@ export const SelectBillingTypeModal = () => {
         </ModalHeader>
         <div
           className={clsx(
-            "scrollbar-styles",
+            "scrollbar-hide",
             "flex overflow-y-auto items-start py-2 px-4 min-h-[10rem] xs:min-w-[20rem]"
           )}
         >

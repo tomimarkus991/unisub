@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import SimpleBar from "simplebar-react";
 
 import { cardColors } from "app-constants";
 import { CardCircleLayer, LayoutSubscriptionCardPopOver } from "components";
@@ -46,7 +47,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   }, [daysUntilResub]);
 
   return (
-    <div className="relative w-full cursor-pointer xs:min-w-[20rem] xs:max-w-xs">
+    <div className="relative w-full cursor-pointer sm:max-w-xs xs:min-w-[20rem] xs:max-w-[24rem]">
       <div
         onClick={() => setIsSubCardPopoverOpen(value => !value)}
         role="button"
@@ -55,21 +56,18 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
       >
         <div
           className={clsx(
-            "flex overflow-hidden relative flex-row items-center py-4 px-6 mb-2 w-full h-24 rounded-full",
+            "flex overflow-hidden relative flex-row items-center py-2 px-6 mb-2 w-full h-24 rounded-full",
             cardColors[cardColor]
           )}
         >
           {/* <CardAnimations cardColor={cardColor} durationModifier={3} /> */}
           <CardCircleLayer cardColor={cardColor} />
           <div className="flex z-10 flex-col ml-2 w-7/12">
-            <div
-              className={clsx(
-                "scrollbar-styles",
-                "flex overflow-x-auto flex-row justify-start mb-2 whitespace-nowrap"
-              )}
+            <SimpleBar
+              className={clsx("flex overflow-x-auto flex-row justify-start pb-2 whitespace-nowrap")}
             >
               <p className={clsx("text-xl font-semibold", textColor)}>{title}</p>
-            </div>
+            </SimpleBar>
             <div className="flex flex-row justify-start">
               <p className={clsx("", textColor)}>{category}</p>
             </div>

@@ -43,8 +43,7 @@ export const QuickStatsPanel = () => {
       <div className="flex flex-col flex-1 justify-center items-center">
         <div
           className={clsx(
-            "scrollbar-styles",
-            "flex overflow-x-auto overflow-y-hidden flex-row mb-2 max-w-[11rem] text-2xl"
+            "flex overflow-x-auto overflow-y-hidden flex-row mb-2 max-w-[11rem] text-2xl scrollbar-none"
           )}
         >
           <CountUp start={totalValue - 3} end={totalValue} duration={0.3} decimals={decimals}>
@@ -54,6 +53,7 @@ export const QuickStatsPanel = () => {
           </CountUp>
           <p className="text-3xl font-semibold cursor-pointer min:text-4xl">€</p>
         </div>
+
         <div className="flex flex-row justify-center items-center">
           <p className="mr-2 text-lg font-medium min:text-2xl">{subPanelBillingType}</p>
           <div

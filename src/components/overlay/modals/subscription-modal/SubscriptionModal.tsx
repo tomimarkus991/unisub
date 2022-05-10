@@ -215,7 +215,7 @@ export const SubscriptionModal = ({
               </ModalHeaderContainer>
               <div
                 className={clsx(
-                  "scrollbar-styles",
+                  "scrollbar-hide",
                   "flex overflow-y-auto flex-col py-2 px-3 h-[50vh] min-h-[15rem]"
                 )}
               >

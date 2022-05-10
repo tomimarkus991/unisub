@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import { animations, AnimationWrapper } from "components";
-import { useSidebar } from "context";
 
 interface ListItemProps {
   children?: string;
@@ -12,25 +11,14 @@ interface ListItemProps {
   icon: ReactNode;
 }
 
-export const SidebarLink = ({ children, to, icon }: ListItemProps) => {
-  const { setSidebarState, sidebarState } = useSidebar();
+export const CollapsedSidebarLink = ({ children, to, icon }: ListItemProps) => {
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      onClick={() => {
-        if (sidebarState === "small" || sidebarState === "expanded") {
-          setSidebarState("small");
-        } else {
-          setSidebarState("closed");
-        }
-      }}
-    >
+    <div role="button" tabIndex={0}>
       <Link to={to}>
         <motion.div
           whileHover="whileHover"
           whileTap="whileTap"
-          className="group flex items-center py-2 px-5 hover:bg-slate-100 cursor-pointer"
+          className="group flex justify-center items-center py-2 px-5 hover:bg-slate-100 cursor-pointer"
         >
           <div className="flex items-center">
             <AnimationWrapper variants={animations.smallScale} keyIndex="sidebar-link-icon" child>

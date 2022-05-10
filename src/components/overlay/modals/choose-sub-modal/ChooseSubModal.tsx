@@ -89,7 +89,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
               </div>
               <div
                 className={clsx(
-                  "scrollbar-styles",
+                  "scrollbar-hide",
                   "flex overflow-y-auto flex-col px-2 h-[40vh] min-h-[15rem]"
                 )}
               >

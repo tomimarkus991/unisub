@@ -39,6 +39,20 @@ const scaleAndRotation: Variants = {
   },
   whileTap: { scale: 0.8 },
 };
+
+const scaleAndFullRotation: Variants = {
+  whileHover: {
+    scale: [1, 1.1],
+    rotate: [0, 360],
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+      times: [0, 1],
+    },
+  },
+  whileTap: { scale: 0.8 },
+};
+
 const rotate360: Variants = {
   whileHover: {
     rotate: [0, 360],
@@ -169,6 +183,7 @@ const smallScale: Variants = {
 
 export const animations = {
   scaleAndRotation,
+  scaleAndFullRotation,
   realButtonEffect,
   popOverEffect,
   rotate360,

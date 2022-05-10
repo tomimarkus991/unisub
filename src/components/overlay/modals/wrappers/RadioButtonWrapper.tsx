@@ -15,7 +15,7 @@ export const RadioButtonWrapper = ({ children, setOpen, checked, index }: Props)
       keyIndex={index}
       variants={animations.makeBiggerAndRotateSlightly}
       className={clsx(
-        "scrollbar-styles",
+        "scrollbar-hide",
         "flex overflow-x-auto flex-row justify-center items-center py-4 px-3 font-semibold text-gray-800 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 rounded-md cursor-pointer xs:text-lg",
         // `hover:${cardColors[values.selectedColor]}`,
         !checked &&

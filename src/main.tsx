@@ -11,6 +11,7 @@ import { SidebarProvider, SubModalProvider, SubProvider } from "context";
 import { Router } from "routes";
 
 import "aos/dist/aos.css";
+import "simplebar/dist/simplebar.min.css";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 

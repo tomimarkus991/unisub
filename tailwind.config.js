@@ -10,7 +10,11 @@ module.exports = {
         min: "340px",
         xs: "460px",
         xs2: "500px",
-        // sm: "640px",
+        // sm	640px
+        // md	768px
+        // lg	1024px
+        // xl	1280px
+        // 2xl 1536px
       },
       gridRow: {
         "span-12": "span 12 / span 12",

@@ -66,7 +66,7 @@ export const SelectCurrencyModal = () => {
         </ModalHeader>
         <div
           className={clsx(
-            "scrollbar-styles",
+            "scrollbar-hide",
             "flex overflow-y-auto items-start py-2 px-4 h-[7vh] min-h-[7rem] xs:min-w-[24rem]"
           )}
         >

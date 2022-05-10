@@ -71,20 +71,20 @@ export const SubProvider = ({ children }: ProviderProps) => {
   });
 
   const [subs, setSubs] = useState<Subscription[]>([
+    {
+      id: "1",
+      title: "Very very super long named sub",
+      category: "Streaming",
+      color: "darkBlue",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(10, "monthly"),
+      startDate: moment(new Date()).unix(),
+      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 10,
+    },
     ...createSubs,
-    // {
-    //   id: "1",
-    //   title: "Disney+",
-    //   category: "Streaming",
-    //   color: "darkBlue",
-    //   active: true,
-    //   billingType: "monthly",
-    //   currency: "EUR",
-    //   allCosts: generateAllCosts(10, "monthly"),
-    //   startDate: moment(new Date()).unix(),
-    //   nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-    //   cost: 10,
-    // },
     // {
     //   id: "2",
     //   title: "Netflix",
