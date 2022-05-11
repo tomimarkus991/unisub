@@ -7,10 +7,11 @@ import { billingTypeValues } from "app-constants";
 import { useSub } from "context";
 // maybe tab panel on top so he can change stats
 
-// this component shows all your sub cost in one place :done:
-// user can click currency icon to change it
-// user can change the type he wants to look /daily price /weekly price/ monthly price / yearly price :done:
-export const QuickStatsPanel = () => {
+interface Props {
+  className?: string;
+}
+
+export const QuickStatsPanel = ({ className }: Props) => {
   const { subs } = useSub();
   const [totalValue, setTotalValue] = useState<number>(0);
   const [subPanelBillingType, setSubPanelBillingType] = useState(billingTypeValues[2]);
@@ -34,7 +35,12 @@ export const QuickStatsPanel = () => {
   }, [subs, subPanelBillingType]);
 
   return (
-    <div className="flex flex-row px-4 h-36 bg-white rounded-xl shadow-lg cursor-default select-none min:px-8 min:w-[20rem]">
+    <div
+      className={clsx(
+        className,
+        "flex flex-row px-4 h-36 bg-white rounded-xl shadow-lg cursor-default select-none min:px-8 min:w-[20rem]"
+      )}
+    >
       <div className="flex flex-col justify-center items-center mr-2 min-w-[5rem] min:mr-0 xs:mr-4">
         <div className="max-w-[5rem]">
           <img className="w-16 h-16 min:w-24 min:h-24" alt="user" src={`/stats/stats.svg`} />

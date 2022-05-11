@@ -47,7 +47,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   }, [daysUntilResub]);
 
   return (
-    <div className="relative w-full cursor-pointer sm:max-w-xs xs:min-w-[20rem] xs:max-w-[24rem]">
+    <div className="relative justify-self-center self-center w-full cursor-pointer sm:max-w-xs xs:min-w-[15rem] xs:max-w-[24rem]">
       <div
         onClick={() => setIsSubCardPopoverOpen(value => !value)}
         role="button"

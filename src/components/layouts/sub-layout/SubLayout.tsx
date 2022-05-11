@@ -9,7 +9,7 @@ export const SubLayout = ({ children }: Props) => {
     <div
       className={clsx(
         "flex overflow-auto flex-col justify-center items-center last:pb-24 h-full",
-        "sm:grid sm:grid-cols-2 sm:gap-x-2 xl:grid-cols-2"
+        "justify-self-center self-center m-auto sm:grid sm:grid-cols-2 sm:gap-x-2 sm:pb-0 md:max-w-[50rem] xl:grid-cols-2 2xl:grid-cols-3 2xl:max-w-[80rem]"
       )}
     >
       {children}

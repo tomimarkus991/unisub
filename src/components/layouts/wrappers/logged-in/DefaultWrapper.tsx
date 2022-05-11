@@ -17,7 +17,7 @@ export const DefaultWrapper = ({ children, rightSide }: Props) => {
               <NavbarTop
                 user={{ id: "1", username: "Galaxy", email: "galaxy@gmail.com", avatar: null }}
               />
-              <div className="mx-4 sm:mx-0">{children}</div>
+              <div className="px-4">{children}</div>
               <NavbarBottom />
             </div>
           </div>
