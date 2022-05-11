@@ -1,8 +1,16 @@
-import { ActiveInactiveTab, DefaultWrapper, QuickStatsPanel, ToggleViewButton } from "components";
+import { DefaultWrapper, QuickStatsPanel, ToggleViewButton } from "components";
+
+import { ActiveInactiveTab } from ".";
 
 export const HomePage = () => {
   return (
-    <DefaultWrapper>
+    <DefaultWrapper
+      rightSide={
+        <>
+          <QuickStatsPanel />
+        </>
+      }
+    >
       <div className="hidden items-center sm:flex">
         <ToggleViewButton />
       </div>

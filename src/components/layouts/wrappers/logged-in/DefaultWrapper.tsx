@@ -29,7 +29,11 @@ export const DefaultWrapper = ({ children, rightSide }: Props) => {
             <Sidebar />
           </div>
           <div className="flex flex-col justify-center px-4 w-full">{children}</div>
-          <div className="hidden flex-col justify-center w-96 lg:flex">{rightSide}</div>
+          {rightSide && (
+            <div className="hidden flex-col items-center p-4 min-w-[20rem] shadow-lg xl:flex 2xl:min-w-[24rem]">
+              {rightSide}
+            </div>
+          )}
         </div>
       )}
     </>

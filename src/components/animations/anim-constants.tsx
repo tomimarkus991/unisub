@@ -197,8 +197,10 @@ const extendedSidebar: Variants = {
     x: "-100vw",
     opacity: 0,
     transition: {
-      duration: 0.6,
-      ease: "easeIn",
+      duration: 4,
+      type: "spring",
+      damping: 30,
+      stiffness: 300,
     },
   },
 };

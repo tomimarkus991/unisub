@@ -13,6 +13,7 @@ export const Sidebar = () => {
   const { isMobile } = useIsMobile();
   const location = useLocation();
   const [routeChanged, setRouteChanged] = useState<boolean>(false);
+  console.log("1234", routeChanged);
 
   useEffect(() => {
     setRouteChanged(true);
@@ -33,23 +34,25 @@ export const Sidebar = () => {
             <AnimationWrapper
               keyIndex="openWithOverlay-app-sidebar-content"
               animateOnAllScreens
-              initial={{ x: placement === "right" ? "100vw" : "-100vw", opacity: 0 }}
+              initial={{ x: placement === "right" ? "40vw" : "-40vw", opacity: 0.4 }}
               animate={{
                 x: "0",
                 opacity: 1,
                 transition: {
-                  duration: 3,
                   type: "spring",
                   damping: 30,
-                  stiffness: 300,
+                  stiffness: 150,
                 },
               }}
               exit={{
-                x: placement === "right" ? "100vw" : "-100vw",
+                x: placement === "right" ? "25vw" : "-25vw",
+                transition: {
+                  ease: "easeOut",
+                },
                 opacity: 0,
               }}
               className={clsx(
-                "flex fixed top-0 z-[900] flex-col w-64 h-full bg-white",
+                "flex fixed top-0 z-[900] flex-col w-80 h-full bg-white",
                 placement === "right" ? "right-0" : "left-0"
               )}
             >
@@ -61,10 +64,12 @@ export const Sidebar = () => {
               id="overlay"
               animateOnAllScreens
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{
+                opacity: 0.5,
+              }}
               transition={{ duration: 0.4, ease: "linear" }}
               exit={{ opacity: 0 }}
-              onClick={() => setSidebarState("closed")}
+              onClick={() => setSidebarState("small")}
               className="absolute inset-0 z-50 w-full h-full bg-gray-500"
             />
           </>
@@ -75,7 +80,7 @@ export const Sidebar = () => {
           keyIndex="expanded-app-sidebar-content"
           animateOnAllScreens
           variants={sidebarAnimations.extendedSidebar}
-          className={clsx("flex flex-col w-64 h-full bg-white")}
+          className={clsx("flex flex-col w-72 h-full bg-white")}
         >
           <SidebarContent />
         </AnimationWrapper>
@@ -86,13 +91,8 @@ export const Sidebar = () => {
             keyIndex="small-app-sidebar-content"
             animateOnAllScreens
             initial={{
-              x: routeChanged
-                ? placement === "right"
-                  ? "-4vw"
-                  : "4vw"
-                : placement === "right"
-                ? "0vw"
-                : "0vw",
+              x: routeChanged ? "-4vw" : "0vw",
+              opacity: routeChanged ? 0.5 : 1,
             }}
             animate={{
               x: "0",
@@ -101,12 +101,8 @@ export const Sidebar = () => {
                 duration: 1,
                 type: "spring",
                 damping: 30,
-                stiffness: 200,
+                stiffness: 150,
               },
-            }}
-            exit={{
-              x: placement === "right" ? "100vw" : "-100vw",
-              opacity: 0,
             }}
             className={clsx("flex flex-col w-24 h-[100vh] bg-white")}
           >
@@ -117,7 +113,3 @@ export const Sidebar = () => {
     </AnimatePresence>
   );
 };
-
-// <div className={clsx("flex z-[900] flex-col w-24 h-full bg-white")}>
-//   <SidebarContent />
-// </div>
