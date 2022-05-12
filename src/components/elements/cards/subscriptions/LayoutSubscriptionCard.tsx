@@ -17,8 +17,6 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   const { title, color: cardColor, nextPaymentDate, category } = sub;
 
   const [isSubCardPopoverOpen, setIsSubCardPopoverOpen] = useState(false);
-  console.log("1234 sub", sub);
-  console.log("1234 nextPaymentDate", nextPaymentDate);
 
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
   const price = createSubPrice(sub);

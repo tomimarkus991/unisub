@@ -90,8 +90,6 @@ export const SubscriptionModal = ({
     }
   };
 
-  console.log("nextPaymentDate", initialValues.nextPaymentDate);
-
   return (
     <Modal
       open={isSubscriptionModalOpen}
