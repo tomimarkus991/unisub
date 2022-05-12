@@ -80,7 +80,7 @@ export const Sidebar = () => {
           keyIndex="expanded-app-sidebar-content"
           animateOnAllScreens
           variants={sidebarAnimations.extendedSidebar}
-          className={clsx("flex flex-col w-72 h-full bg-white")}
+          className={clsx("flex flex-col w-72 h-full bg-white shadow-lg")}
         >
           <SidebarContent />
         </AnimationWrapper>
@@ -91,20 +91,20 @@ export const Sidebar = () => {
             keyIndex="small-app-sidebar-content"
             animateOnAllScreens
             initial={{
-              x: routeChanged ? "-4vw" : "0vw",
-              opacity: routeChanged ? 0.5 : 1,
+              x: routeChanged ? "1vw" : "0vw",
+              opacity: routeChanged ? 0.8 : 1,
             }}
             animate={{
               x: "0",
               opacity: 1,
               transition: {
-                duration: 1,
+                duration: 0.5,
                 type: "spring",
                 damping: 30,
                 stiffness: 150,
               },
             }}
-            className={clsx("flex flex-col w-24 h-[100vh] bg-white")}
+            className={clsx("flex flex-col w-24 h-[100vh] bg-white shadow-lg")}
           >
             <SidebarContent />
           </AnimationWrapper>
