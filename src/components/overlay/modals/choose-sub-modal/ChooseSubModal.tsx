@@ -16,6 +16,7 @@ import {
   Modal,
   ModalFooterContainer,
   AnimationWrapper,
+  Button,
 } from "components";
 import { useSubModal } from "context";
 
@@ -23,10 +24,14 @@ interface FormValues {
   searchString: string;
 }
 interface Props {
-  isIcon?: boolean;
+  buttonType?: "icon" | "real" | "regular";
+  buttonTitle?: string;
 }
 
-export const ChooseSubModal = ({ isIcon = true }: Props) => {
+export const ChooseSubModal = ({
+  buttonType = "icon",
+  buttonTitle = "Add subscription",
+}: Props) => {
   const { isChooseSubModalOpen, setIsChooseSubModalOpen } = useSubModal();
 
   const initialValues: FormValues = {
@@ -40,7 +45,7 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
       maxWidth="lg"
       modalButton={
         <>
-          {isIcon ? (
+          {buttonType === "icon" && (
             <AnimationWrapper
               keyIndex="choose-modal-plus-icon"
               variants={animations.scaleAndRotation}
@@ -50,8 +55,14 @@ export const ChooseSubModal = ({ isIcon = true }: Props) => {
                 onClick={() => setIsChooseSubModalOpen(true)}
               />
             </AnimationWrapper>
-          ) : (
-            <RealButton onClick={() => setIsChooseSubModalOpen(true)}>Create sub</RealButton>
+          )}
+          {buttonType === "real" && (
+            <RealButton onClick={() => setIsChooseSubModalOpen(true)}>{buttonTitle}</RealButton>
+          )}
+          {buttonType === "regular" && (
+            <Button size="md" variant="dark" onClick={() => setIsChooseSubModalOpen(true)}>
+              {buttonTitle}
+            </Button>
           )}
         </>
       }
