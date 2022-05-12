@@ -13,7 +13,6 @@ export const Sidebar = () => {
   const { isMobile } = useIsMobile();
   const location = useLocation();
   const [routeChanged, setRouteChanged] = useState<boolean>(false);
-  console.log("1234", routeChanged);
 
   useEffect(() => {
     setRouteChanged(true);
