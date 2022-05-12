@@ -35,7 +35,7 @@ const customLabels: Labels = {
     future: "Today",
   },
 };
-
+localStorage.theme = "light";
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLabels("en", "now", customLabels);
 
