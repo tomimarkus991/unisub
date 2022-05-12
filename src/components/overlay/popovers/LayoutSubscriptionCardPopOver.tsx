@@ -75,14 +75,14 @@ export const LayoutSubscriptionCardPopOver = ({
               )}
             >
               <div className="flex overflow-hidden relative flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg">
-                <div className="flex justify-end items-center">
+                {/* <div className="flex justify-end items-center">
                   <AnimationWrapper keyIndex="popover-x" variants={animations.rotate360}>
                     <HiX
                       className="w-6 h-6 fill-slate-800"
                       onClick={() => setIsSubCardPopoverOpen(false)}
                     />
                   </AnimationWrapper>
-                </div>
+                </div> */}
                 <SubscriptionModal
                   buttonType="children"
                   subValues={sub}
