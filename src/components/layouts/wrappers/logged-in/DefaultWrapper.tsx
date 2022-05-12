@@ -28,9 +28,9 @@ export const DefaultWrapper = ({ children, rightSide }: Props) => {
           <div className="flex justify-start">
             <Sidebar />
           </div>
-          <div className="flex flex-col justify-center px-4 w-full">{children}</div>
+          <div className="py-8 px-6 w-full">{children}</div>
           {rightSide && (
-            <div className="hidden flex-col items-center p-4 min-w-[20rem] shadow-lg xl:flex 2xl:min-w-[24rem]">
+            <div className="hidden flex-col items-center py-8 px-4 min-w-[20rem] xl:flex 2xl:min-w-[24rem]">
               {rightSide}
             </div>
           )}
