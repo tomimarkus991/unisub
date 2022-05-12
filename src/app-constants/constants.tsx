@@ -92,7 +92,6 @@ export const createPresetSubs = (): Subscription[] => {
       monthly: 0,
       yearly: 0,
     },
-    startDate: moment(new Date()).unix(),
     nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
     cost: 0,
     color: "white",

@@ -40,7 +40,7 @@ export const BillingSection = ({ currencyIcon }: Props) => {
 
         <div className="flex flex-row mt-3">
           <div className="w-8/12 xs2:w-7/12">
-            <DatePicker name="subscriptionStartDate" />
+            <DatePicker name="nextPaymentDate" label="Next payment date" />
           </div>
           <div className="w-4/12 xs2:w-5/12">
             <SelectCurrencyModal />

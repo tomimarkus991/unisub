@@ -11,7 +11,6 @@ import {
   cardColors,
   categories,
   currencies,
-  mapSubTypeToMomentType,
   SubModalYupSchema,
 } from "app-constants";
 import {
@@ -60,7 +59,7 @@ export const SubscriptionModal = ({
     cost: "",
     billing: currencies[0],
     selectedBillingType: billingTypeValues[2],
-    subscriptionStartDate: new Date(),
+    nextPaymentDate: null,
   });
 
   useEffect(() => {
@@ -75,7 +74,7 @@ export const SubscriptionModal = ({
         cost: cost === 0 ? "" : cost.toString(),
         billing: currencies[0],
         selectedBillingType: billingType,
-        subscriptionStartDate: new Date(),
+        nextPaymentDate: null,
       });
     }
 
@@ -90,6 +89,8 @@ export const SubscriptionModal = ({
       setIsSubCardPopoverOpen(false);
     }
   };
+
+  console.log("nextPaymentDate", initialValues.nextPaymentDate);
 
   return (
     <Modal
@@ -143,7 +144,7 @@ export const SubscriptionModal = ({
             selectedBillingType,
             selectedCategory,
             selectedColor,
-            subscriptionStartDate,
+            nextPaymentDate,
             title,
             cost,
           } = values;
@@ -153,15 +154,12 @@ export const SubscriptionModal = ({
             title,
             color: selectedColor,
             category: selectedCategory.name,
-            startDate: moment(subscriptionStartDate).unix(),
             currency: billing.name,
             cost: parseFloat(cost),
             allCosts: generateAllCosts(parseFloat(cost), selectedBillingType),
             billingType: selectedBillingType,
             active: true,
-            nextPaymentDate: moment(subscriptionStartDate)
-              .add(1, mapSubTypeToMomentType(selectedBillingType))
-              .unix(),
+            nextPaymentDate: moment(nextPaymentDate).unix(),
           };
 
           if (isEditing && subValues) {

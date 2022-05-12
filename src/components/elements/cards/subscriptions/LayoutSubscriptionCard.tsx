@@ -1,6 +1,7 @@
 import clsx from "clsx";
+import TimeAgo from "javascript-time-ago";
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SimpleBar from "simplebar-react";
 
 import { cardColors } from "app-constants";
@@ -12,39 +13,29 @@ interface Props {
   sub: Subscription;
 }
 
-// const ModalButton = ({ children }: { children: React.ReactNode }) => {
-//   return (
-//     <button className="flex items-center p-2 w-full text-base font-medium hover:bg-gray-100 rounded-md">
-//       {children}
-//     </button>
-//   );
-// };
-
 export const LayoutSubscriptionCard = ({ sub }: Props) => {
-  const { title, color: cardColor, startDate, category } = sub;
+  const { title, color: cardColor, nextPaymentDate, category } = sub;
 
   const [isSubCardPopoverOpen, setIsSubCardPopoverOpen] = useState(false);
+  console.log("1234 sub", sub);
+  console.log("1234 nextPaymentDate", nextPaymentDate);
 
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
-  const dateNow = moment();
-  const subStartDate = moment(startDate);
   const price = createSubPrice(sub);
 
-  const daysUntilResub = subStartDate.diff(dateNow, "days") + 1;
+  // useEffect(() => {
+  //   if (daysUntilResub === 0) {
+  //     setResubText("Resub today");
+  //   } else if (daysUntilResub === 1) {
+  //     setResubText("Resub tomorrow");
+  //   } else if (daysUntilResub > 1) {
+  //     setResubText(`Resub in ${daysUntilResub} days`);
+  //   } else if (daysUntilResub < 0) {
+  //     setResubText("Expired");
+  //   }
+  // }, [daysUntilResub]);
 
-  const [resubText, setResubText] = useState(`Resub in ${daysUntilResub} days`);
-
-  useEffect(() => {
-    if (daysUntilResub === 0) {
-      setResubText("Resub today");
-    } else if (daysUntilResub === 1) {
-      setResubText("Resub tomorrow");
-    } else if (daysUntilResub > 1) {
-      setResubText(`Resub in ${daysUntilResub} days`);
-    } else if (daysUntilResub < 0) {
-      setResubText("Expired");
-    }
-  }, [daysUntilResub]);
+  const timeAgo = new TimeAgo("en-US");
 
   return (
     <div className="relative justify-self-center self-center w-full cursor-pointer sm:max-w-xs xs:min-w-[15rem] xs:max-w-[24rem]">
@@ -77,7 +68,9 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
               <p className={clsx("", textColor)}>{price}</p>
             </div>
             <div className="flex flex-row justify-center">
-              <p className={clsx("", textColor)}>{resubText}</p>
+              <p className={clsx("", textColor)}>
+                {timeAgo.format(moment.unix(nextPaymentDate).toDate())}
+              </p>
             </div>
           </div>
         </div>

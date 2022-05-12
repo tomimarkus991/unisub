@@ -8,9 +8,10 @@ import { InputErrorText } from "components";
 
 interface Props {
   name: string;
+  label: string;
 }
 
-export const DatePicker = ({ name }: Props) => {
+export const DatePicker = ({ name, label }: Props) => {
   const [field, { touched, error }] = useField<Date>(name);
   const { setFieldValue } = useFormikContext();
 
@@ -18,7 +19,8 @@ export const DatePicker = ({ name }: Props) => {
     <div>
       <div className="mb-2">
         <label htmlFor="subscription-start-date-input">
-          Sub start date <span className="text-red-500">*</span>
+          {label}&nbsp;
+          <span className="text-red-500">*</span>
         </label>
       </div>
       <DesktopDatePicker

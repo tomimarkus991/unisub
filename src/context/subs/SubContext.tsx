@@ -3,8 +3,7 @@ import React, { createContext, Dispatch, SetStateAction, useContext, useState } 
 
 import { cardColors, mapSubTypeToMomentType } from "app-constants";
 import { Subscription } from "types";
-
-import { generateAllCosts } from "../../utils";
+import { generateAllCosts } from "utils";
 
 type InitialContextType = {
   subs: Subscription[];
@@ -16,34 +15,7 @@ type ProviderProps = {
 };
 
 const initContextData: InitialContextType = {
-  subs: [
-    {
-      id: "1",
-      title: "Disney+",
-      category: "Streaming",
-      color: "darkBlue",
-      active: true,
-      billingType: "monthly",
-      currency: "EUR",
-      allCosts: generateAllCosts(10, "monthly"),
-      startDate: moment(new Date()).unix(),
-      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-      cost: 10,
-    },
-    {
-      id: "2",
-      title: "Netflix",
-      category: "Streaming",
-      color: "red",
-      active: true,
-      billingType: "monthly",
-      currency: "EUR",
-      allCosts: generateAllCosts(15, "monthly"),
-      startDate: moment(new Date()).unix(),
-      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-      cost: 15,
-    },
-  ],
+  subs: [],
   setSubs: () => {},
 };
 
@@ -52,8 +24,6 @@ const SubContext = createContext(initContextData);
 export const useSub = () => useContext(SubContext);
 
 export const SubProvider = ({ children }: ProviderProps) => {
-  // const subs = cardColors.
-  // make an array of cardColors
   const createSubs: Subscription[] = Object.keys(cardColors).map((color: any) => {
     return {
       id: `${color}`,
@@ -64,8 +34,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       billingType: "monthly",
       currency: "EUR",
       allCosts: generateAllCosts(10, "monthly"),
-      startDate: moment(new Date()).unix(),
-      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      nextPaymentDate: moment().add(1, mapSubTypeToMomentType("monthly")).unix(),
       cost: 10,
     };
   });
@@ -80,37 +49,55 @@ export const SubProvider = ({ children }: ProviderProps) => {
       billingType: "monthly",
       currency: "EUR",
       allCosts: generateAllCosts(10, "monthly"),
-      startDate: moment(new Date()).unix(),
-      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
+      nextPaymentDate: moment()
+        .subtract(5, "days")
+        .add(1, mapSubTypeToMomentType("monthly"))
+        .unix(),
       cost: 10,
     },
-    ...createSubs,
-    // {
-    //   id: "2",
-    //   title: "Netflix",
-    //   category: "Streaming",
-    //   color: "red",
-    //   active: true,
-    //   billingType: "monthly",
-    //   currency: "EUR",
-    //   allCosts: generateAllCosts(15, "monthly"),
-    //   startDate: moment(new Date()).unix(),
-    //   nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-    //   cost: 15,
-    // },
+    {
+      id: "2",
+      title: "Disney+",
+      category: "Streaming",
+      color: "darkBlue",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(10, "monthly"),
+      nextPaymentDate: moment()
+        .subtract(28, "days")
+        .add(1, mapSubTypeToMomentType("monthly"))
+        .unix(),
+      cost: 10,
+    },
+    {
+      id: "3",
+      title: "Netflix",
+      category: "Streaming",
+      color: "red",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(15, "monthly"),
+      nextPaymentDate: moment()
+        .subtract(1, "month")
+        .add(1, mapSubTypeToMomentType("monthly"))
+        .unix(),
+      cost: 15,
+    },
     {
       id: "3",
       title: "Spotify",
       category: "Music",
       color: "green",
-      active: false,
+      active: true,
       billingType: "monthly",
       currency: "EUR",
-      allCosts: generateAllCosts(10, "monthly"),
-      startDate: moment(new Date()).unix(),
-      nextPaymentDate: moment(new Date()).add(1, mapSubTypeToMomentType("monthly")).unix(),
-      cost: 10,
+      allCosts: generateAllCosts(12, "monthly"),
+      nextPaymentDate: moment().add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 12,
     },
+    ...createSubs,
   ]);
   return <SubContext.Provider value={{ subs, setSubs }}>{children}</SubContext.Provider>;
 };

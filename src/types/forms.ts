@@ -7,5 +7,5 @@ export interface SubFormValues {
   billing: CurrencyType;
   cost: string;
   selectedBillingType: SubscriptionBillingType;
-  subscriptionStartDate: Date | null;
+  nextPaymentDate: Date | null;
 }

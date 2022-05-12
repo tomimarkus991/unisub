@@ -1,8 +1,12 @@
 import * as Yup from "yup";
 
-import { cardColors, currencies, billingTypeValues } from "..";
+import { billingTypeValues, cardColors, currencies } from "..";
 
 const SUB_TITLE_LENGTH = 30;
+// const today = new Date().setHours(0, 0, 0, 0).toString();
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
 
 export const SubModalYupSchema = Yup.object().shape({
   selectedColor: Yup.string().oneOf(Object.keys(cardColors), "Invalid color"),
@@ -29,7 +33,7 @@ export const SubModalYupSchema = Yup.object().shape({
     .oneOf(billingTypeValues, "Invalid billing type")
     .required("Required"),
 
-  subscriptionStartDate: Yup.date().required("Required"),
+  nextPaymentDate: Yup.date().min(today, "Can't be in the past").required("Required"),
 });
 export const SearchSubYupSchema = Yup.object().shape({
   searchString: Yup.string(),

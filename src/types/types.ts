@@ -38,7 +38,6 @@ export interface Subscription {
   id: string;
   title: string;
   category: CategoryNames;
-  startDate: number;
   cost: number;
   allCosts: IAllCosts;
   currency: string;
