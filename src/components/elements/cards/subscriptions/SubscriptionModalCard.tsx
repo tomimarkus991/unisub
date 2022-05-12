@@ -13,7 +13,7 @@ interface Props {
   cardColor: CardColorType;
 }
 
-export const SubscriptionCard = ({ title, category, price, cardColor }: Props) => {
+export const SubscriptionModalCard = ({ title, category, price, cardColor }: Props) => {
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
 
   return (

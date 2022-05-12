@@ -25,7 +25,7 @@ import {
   ModalHeaderContainer,
   ModalTitle,
   RealButton,
-  SubscriptionCard,
+  SubscriptionModalCard,
 } from "components";
 import { useSub, useSubModal } from "context";
 import { CardColorType, CategoryCardItem, Subscription, SubFormValues } from "types";
@@ -219,7 +219,7 @@ export const SubscriptionModal = ({
                   "flex overflow-y-auto flex-col py-2 px-3 h-[50vh] min-h-[15rem]"
                 )}
               >
-                <SubscriptionCard
+                <SubscriptionModalCard
                   title={title}
                   category={selectedCategory.name}
                   price={`${cost === "" ? "0" : cost}${findCorrectCurrency()} ${
