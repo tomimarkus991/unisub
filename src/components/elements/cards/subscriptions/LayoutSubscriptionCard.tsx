@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import TimeAgo from "javascript-time-ago";
 import moment from "moment";
 import { useState } from "react";
+import ReactTimeAgo from "react-time-ago";
 import SimpleBar from "simplebar-react";
 
 import { cardColors } from "app-constants";
@@ -32,8 +32,6 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   //     setResubText("Expired");
   //   }
   // }, [daysUntilResub]);
-
-  const timeAgo = new TimeAgo("en-US");
 
   return (
     <div className="relative justify-self-center self-center w-full cursor-pointer sm:max-w-xs xs:min-w-[15rem] xs:max-w-[24rem]">
@@ -67,7 +65,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
             </div>
             <div className="flex flex-row justify-center">
               <p className={clsx("", textColor)}>
-                {timeAgo.format(moment.unix(nextPaymentDate).toDate())}
+                <ReactTimeAgo future date={moment.unix(nextPaymentDate).toDate()} locale="en-US" />
               </p>
             </div>
           </div>

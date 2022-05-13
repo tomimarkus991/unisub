@@ -201,7 +201,7 @@ export const SubscriptionModal = ({
                   </div>
                 )}
 
-                <ModalTitle>Create sub</ModalTitle>
+                <ModalTitle>{subValues ? "Edit sub" : "Create sub"}</ModalTitle>
                 <div role="button" tabIndex={0} onClick={closeModal}>
                   <AnimationWrapper keyIndex="sub-modal-x-icon" variants={animations.rotate360}>
                     <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
