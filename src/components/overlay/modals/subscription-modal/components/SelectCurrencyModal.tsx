@@ -41,9 +41,9 @@ export const SelectCurrencyModal = () => {
             <RealIconButton
               id="currency-input"
               variant="light"
-              className="rounded-lg"
+              className="rounded-lg cursor-not-allowed"
               onClick={() => {
-                setOpen(true);
+                setOpen(false);
               }}
             >
               <div className="flex flex-row justify-center items-center">
