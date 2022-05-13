@@ -33,7 +33,10 @@ export const SubModalYupSchema = Yup.object().shape({
     .oneOf(billingTypeValues, "Invalid billing type")
     .required("Required"),
 
-  nextPaymentDate: Yup.date().min(today, "Can't be in the past").required("Required"),
+  nextPaymentDate: Yup.date()
+    .min(today, "Can't be in the past")
+    .required("Required")
+    .typeError("Invalid Date"),
 });
 export const SearchSubYupSchema = Yup.object().shape({
   searchString: Yup.string(),
