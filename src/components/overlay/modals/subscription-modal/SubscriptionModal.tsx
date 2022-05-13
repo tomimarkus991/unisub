@@ -132,8 +132,7 @@ export const SubscriptionModal = ({
       <Formik
         initialValues={initialValues}
         validationSchema={SubModalYupSchema}
-        // validateOnMount
-        validateOnChange={false}
+        validateOnChange={true}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
 
