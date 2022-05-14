@@ -1,11 +1,12 @@
 import clsx from "clsx";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactTimeAgo from "react-time-ago";
 import SimpleBar from "simplebar-react";
 
-import { cardColors } from "app-constants";
+import { cardColors, mapSubTypeToMomentType } from "app-constants";
 import { CardCircleLayer, LayoutSubscriptionCardPopOver } from "components";
+import { useSub } from "context";
 import { Subscription } from "types";
 import { createSubPrice } from "utils";
 
@@ -14,9 +15,11 @@ interface Props {
 }
 
 export const LayoutSubscriptionCard = ({ sub }: Props) => {
-  const { title, color: cardColor, nextPaymentDate, category } = sub;
+  const { title, color: cardColor, nextPaymentDate, category, id } = sub;
 
   const [isSubCardPopoverOpen, setIsSubCardPopoverOpen] = useState(false);
+
+  const { setSubs } = useSub();
 
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
   const price = createSubPrice(sub);
@@ -32,6 +35,27 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
   //     setResubText("Expired");
   //   }
   // }, [daysUntilResub]);
+  // setInterval(() => {
+  //   setIsSubCardPopoverOpen(false);
+  // }, 5000);
+  useEffect(() => {
+    setInterval(() => {
+      if (moment.unix(nextPaymentDate).toDate() < new Date()) {
+        setSubs(subs =>
+          subs.map(_sub => {
+            if (_sub.id === id) {
+              return {
+                ...sub,
+                nextPaymentDate: moment().add(1, mapSubTypeToMomentType(sub.billingType)).unix(),
+              };
+            }
+            return _sub;
+          })
+        );
+      }
+    }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="relative justify-self-center self-center w-full cursor-pointer sm:max-w-xs xs:min-w-[15rem] xs:max-w-[24rem]">
