@@ -4,7 +4,12 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { AnimationWrapper, SidebarContent, sidebarAnimations } from "components";
+import {
+  AnimationWrapper,
+  sidebarAnimations,
+  ExpandedSidebarContent,
+  SmallSidebarContent,
+} from "components";
 import { useSidebar } from "context";
 import { useIsMobile } from "hooks";
 
@@ -55,7 +60,7 @@ export const Sidebar = () => {
                 placement === "right" ? "right-0" : "left-0"
               )}
             >
-              <SidebarContent />
+              <ExpandedSidebarContent />
             </AnimationWrapper>
 
             <AnimationWrapper
@@ -81,7 +86,7 @@ export const Sidebar = () => {
           variants={sidebarAnimations.extendedSidebar}
           className={clsx("flex flex-col w-72 h-full bg-white shadow-lg")}
         >
-          <SidebarContent />
+          <ExpandedSidebarContent />
         </AnimationWrapper>
       )}
       <AnimatePresence initial={true}>
@@ -103,9 +108,9 @@ export const Sidebar = () => {
                 stiffness: 150,
               },
             }}
-            className={clsx("flex flex-col w-24 h-[100vh] bg-white shadow-lg")}
+            className={clsx("flex z-[998] flex-col w-24 h-[100vh] bg-white shadow-lg")}
           >
-            <SidebarContent />
+            <SmallSidebarContent />
           </AnimationWrapper>
         )}
       </AnimatePresence>

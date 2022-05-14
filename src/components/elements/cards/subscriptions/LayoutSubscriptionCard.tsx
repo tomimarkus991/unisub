@@ -53,7 +53,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
           })
         );
       }
-    }, 1000);
+    }, 43200 * 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
