@@ -24,25 +24,13 @@ export const ExpandedSidebarContent = () => {
           </button>
         </div>
         <div className="mt-8 space-y-4 h-full">
-          <SidebarLink
-            to="/"
-            icon={<HiHome className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />}
-          >
+          <SidebarLink to="/" icon={<HiHome className="mr-3 w-8 h-8 fill-inherit" />}>
             Home
           </SidebarLink>
-
-          <SidebarLink
-            to="/stats"
-            icon={<HiChartBar className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />}
-          >
+          <SidebarLink to="/stats" icon={<HiChartBar className="mr-3 w-8 h-8 fill-inherit" />}>
             Stats
           </SidebarLink>
-          <SidebarLink
-            to="/settings"
-            icon={
-              <IoMdSettings className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />
-            }
-          >
+          <SidebarLink to="/settings" icon={<IoMdSettings className="mr-3 w-8 h-8 fill-inherit" />}>
             Settings
           </SidebarLink>
         </div>
@@ -54,7 +42,7 @@ export const ExpandedSidebarContent = () => {
         </div>
         <SidebarLink
           onClick={() => console.log("logout")}
-          icon={<HiLogout className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />}
+          icon={<HiLogout className="mr-3 w-8 h-8 fill-inherit" />}
         >
           Logout
         </SidebarLink>

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 
+import clsx from "clsx";
 import { HTMLProps, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { animations, AnimationWrapper } from "components";
 import { useSidebar } from "context";
@@ -14,27 +15,34 @@ interface SidebarItemProps {
 
 interface ContentProps {
   icon: ReactNode;
+  isActive?: boolean;
   children?: string;
 }
 
 type Props = SidebarItemProps & HTMLProps<HTMLDivElement>;
 
-const Content = ({ children, icon }: ContentProps) => {
+const Content = ({ children, icon, isActive }: ContentProps) => {
   return (
     <motion.div
       whileHover="whileHover"
       whileTap="whileTap"
-      className="group flex items-center py-3 px-5 hover:bg-slate-100 rounded-md cursor-pointer"
+      className={clsx(
+        isActive ? "bg-slate-800 group-hover:bg-gray-800" : "group-hover:bg-slate-100",
+        "group flex items-center py-3 px-5 rounded-md cursor-pointer"
+      )}
     >
       <AnimationWrapper
-        className="flex items-center"
         variants={animations.smallScale}
         keyIndex="sidebar-link-icon"
         child
+        className={clsx(
+          isActive ? "fill-white" : "fill-gray-800 group-hover:fill-slate-800",
+          "flex items-center"
+        )}
       >
         {icon}
         <div className="flex flex-row items-center">
-          <p className="text-xl font-medium group-hover:fill-slate-800">{children}</p>
+          <p className={clsx("text-xl font-medium", isActive && "text-white")}>{children}</p>
         </div>
       </AnimationWrapper>
     </motion.div>
@@ -57,9 +65,13 @@ export const SidebarLink = ({ children, to, icon, ...props }: Props) => {
       {...props}
     >
       {to ? (
-        <Link to={to}>
-          <Content icon={icon}>{children}</Content>
-        </Link>
+        <NavLink to={to}>
+          {({ isActive }) => (
+            <Content icon={icon} isActive={isActive}>
+              {children}
+            </Content>
+          )}
+        </NavLink>
       ) : (
         <Content icon={icon}>{children}</Content>
       )}
