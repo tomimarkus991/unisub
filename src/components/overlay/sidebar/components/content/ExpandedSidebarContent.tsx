@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { HiHome, HiChartBar, HiX, HiLogout, IoMdSettings } from "react-icons/all";
 
-import { AnimationWrapper, SidebarLink, animations, SidebarButton } from "components";
+import { AnimationWrapper, SidebarLink, animations } from "components";
 import { useSidebar } from "context";
 
 export const ExpandedSidebarContent = () => {
@@ -52,12 +52,12 @@ export const ExpandedSidebarContent = () => {
           <img className="w-14 h-14" alt="user" src={`/general/avatar.svg`} />
           <p className="text-xl font-semibold">Galaxy</p>
         </div>
-        <SidebarButton
+        <SidebarLink
           onClick={() => console.log("logout")}
           icon={<HiLogout className="mr-3 w-8 h-8 fill-gray-800 group-hover:fill-slate-800" />}
         >
           Logout
-        </SidebarButton>
+        </SidebarLink>
       </div>
     </div>
   );

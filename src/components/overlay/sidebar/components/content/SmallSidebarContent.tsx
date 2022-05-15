@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { HiMenu, HiHome, HiChartBar, HiLogout, IoMdSettings } from "react-icons/all";
 
-import { AnimationWrapper, animations, SidebarIconLink, SidebarIconButton } from "components";
+import { AnimationWrapper, animations, SidebarIconLink } from "components";
 import { useSidebar } from "context";
 
 export const SmallSidebarContent = () => {
@@ -48,7 +48,7 @@ export const SmallSidebarContent = () => {
       </div>
       <div className="flex flex-col items-center space-y-2">
         <img className="w-14 h-14" alt="user" src={`/general/avatar.svg`} />
-        <SidebarIconButton
+        <SidebarIconLink
           onClick={() => console.log("logout")}
           tooltip="logout"
           icon={<HiLogout className="w-7 h-7 fill-gray-800 group-hover:fill-slate-800" />}
