@@ -9,7 +9,7 @@ interface Props {
 export const NavbarTop = ({ user }: Props) => {
   const { setSidebarState } = useSidebar();
   return (
-    <div className="flex sticky top-0 z-50 items-center py-12 mb-3 w-full h-16 bg-slate-50">
+    <div className="flex sticky top-0 z-[1020] items-center py-12 mb-3 w-full h-16 bg-slate-50">
       <div className="flex flex-1 justify-between items-center px-4">
         <p className="text-2xl font-semibold text-gray-800">Subscriptions</p>
         <AnimationWrapper variants={animations.smallScale} keyIndex="nt-user-icon">
