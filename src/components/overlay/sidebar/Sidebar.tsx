@@ -56,7 +56,7 @@ export const Sidebar = () => {
                 opacity: 0,
               }}
               className={clsx(
-                "flex fixed top-0 z-[900] flex-col w-80 h-full bg-white",
+                "flex fixed top-0 z-[1030] flex-col w-80 h-full bg-white",
                 placement === "right" ? "right-0" : "left-0"
               )}
             >
@@ -74,7 +74,7 @@ export const Sidebar = () => {
               transition={{ duration: 0.4, ease: "linear" }}
               exit={{ opacity: 0 }}
               onClick={() => setSidebarState("small")}
-              className="absolute inset-0 z-50 w-full h-full bg-gray-500"
+              className="absolute inset-0 z-[1029] w-full h-full bg-gray-500"
             />
           </>
         )}
