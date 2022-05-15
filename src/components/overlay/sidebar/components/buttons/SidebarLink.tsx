@@ -27,7 +27,7 @@ const Content = ({ children, icon, isActive }: ContentProps) => {
       whileHover="whileHover"
       whileTap="whileTap"
       className={clsx(
-        isActive ? "bg-slate-800 group-hover:bg-gray-800" : "group-hover:bg-slate-100",
+        isActive ? "bg-slate-800 hover:bg-slate-900" : "hover:bg-slate-100",
         "group flex items-center py-3 px-5 rounded-md cursor-pointer"
       )}
     >
@@ -56,9 +56,7 @@ export const SidebarLink = ({ children, to, icon, ...props }: Props) => {
       role="button"
       tabIndex={0}
       onClick={() => {
-        if (sidebarState === "small" || sidebarState === "expanded") {
-          setSidebarState("small");
-        } else {
+        if (sidebarState === "openWithOverlay") {
           setSidebarState("closed");
         }
       }}

@@ -4,12 +4,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import {
-  AnimationWrapper,
-  sidebarAnimations,
-  ExpandedSidebarContent,
-  SmallSidebarContent,
-} from "components";
+import { AnimationWrapper, ExpandedSidebarContent, SmallSidebarContent } from "components";
 import { useSidebar } from "context";
 import { useIsMobile } from "hooks";
 
@@ -25,7 +20,11 @@ export const Sidebar = () => {
 
   useEffect(() => {
     if (!isMobile) {
-      setSidebarState("small");
+      if (sidebarState === "expanded") {
+        setSidebarState("expanded");
+      } else {
+        setSidebarState("small");
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
@@ -83,7 +82,27 @@ export const Sidebar = () => {
         <AnimationWrapper
           keyIndex="expanded-app-sidebar-content"
           animateOnAllScreens
-          variants={sidebarAnimations.extendedSidebar}
+          initial={{ x: routeChanged ? "-10vw" : "0vw", opacity: routeChanged ? 0 : 1 }}
+          animate={{
+            x: "0vw",
+            opacity: 1,
+            transition: {
+              duration: 3,
+              type: "spring",
+              damping: 30,
+              stiffness: 300,
+            },
+          }}
+          exit={{
+            x: "-100vw",
+            opacity: 0,
+            transition: {
+              duration: 4,
+              type: "spring",
+              damping: 30,
+              stiffness: 300,
+            },
+          }}
           className={clsx("flex flex-col w-72 h-full bg-white shadow-lg")}
         >
           <ExpandedSidebarContent />
