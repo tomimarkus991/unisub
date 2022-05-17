@@ -25,6 +25,8 @@ export const Sidebar = () => {
       } else {
         setSidebarState("small");
       }
+    } else {
+      setSidebarState("closed");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
@@ -72,8 +74,8 @@ export const Sidebar = () => {
               }}
               transition={{ duration: 0.4, ease: "linear" }}
               exit={{ opacity: 0 }}
-              onClick={() => setSidebarState("small")}
-              className="absolute inset-0 z-[1029] w-full h-full bg-gray-500"
+              onClick={() => setSidebarState(isMobile ? "closed" : "small")}
+              className="absolute inset-0 z-[1029] w-full h-[100vh] bg-gray-500"
             />
           </>
         )}
@@ -103,7 +105,7 @@ export const Sidebar = () => {
               stiffness: 300,
             },
           }}
-          className={clsx("flex flex-col w-72 h-full bg-white shadow-lg")}
+          className={clsx("flex flex-col w-72 h-[100vh] bg-white shadow-lg")}
         >
           <ExpandedSidebarContent />
         </AnimationWrapper>
@@ -127,7 +129,7 @@ export const Sidebar = () => {
                 stiffness: 150,
               },
             }}
-            className={clsx("flex z-[998] flex-col w-24 h-[100vh] bg-white shadow-lg")}
+            className={clsx("flex sticky z-[998] flex-col w-24 h-[100vh] bg-white shadow-lg")}
           >
             <SmallSidebarContent />
           </AnimationWrapper>

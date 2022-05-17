@@ -98,6 +98,21 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     ...createSubs,
+    ...createSubs,
+    ...createSubs,
+    ...createSubs,
+    {
+      id: "41",
+      title: "Last",
+      category: "Music",
+      color: "green",
+      active: true,
+      billingType: "monthly",
+      currency: "EUR",
+      allCosts: generateAllCosts(12, "monthly"),
+      nextPaymentDate: moment().add(1, mapSubTypeToMomentType("monthly")).unix(),
+      cost: 12,
+    },
   ]);
   return <SubContext.Provider value={{ subs, setSubs }}>{children}</SubContext.Provider>;
 };
