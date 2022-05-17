@@ -9,7 +9,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import { SidebarProvider, SubModalProvider, SubProvider } from "context";
+import { SidebarProvider, SubModalProvider, SubProvider, SubViewProvider } from "context";
 import { Router } from "routes";
 
 import "aos/dist/aos.css";
@@ -23,16 +23,18 @@ AOS.init();
 
 root.render(
   <StrictMode>
-    <SidebarProvider>
-      <BrowserRouter>
-        <LocalizationProvider dateAdapter={AdapterMoment}>
-          <SubModalProvider>
-            <SubProvider>
-              <Router />
-            </SubProvider>
-          </SubModalProvider>
-        </LocalizationProvider>
-      </BrowserRouter>
-    </SidebarProvider>
+    <BrowserRouter>
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <SidebarProvider>
+          <SubViewProvider>
+            <SubModalProvider>
+              <SubProvider>
+                <Router />
+              </SubProvider>
+            </SubModalProvider>
+          </SubViewProvider>
+        </SidebarProvider>
+      </LocalizationProvider>
+    </BrowserRouter>
   </StrictMode>
 );

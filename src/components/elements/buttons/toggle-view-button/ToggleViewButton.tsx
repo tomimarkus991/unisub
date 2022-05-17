@@ -1,14 +1,36 @@
+import { RadioGroup } from "@headlessui/react";
+
+import clsx from "clsx";
 import { HiMenu, HiViewGrid } from "react-icons/all";
 
+import { useSubView } from "context";
+
 export const ToggleViewButton = () => {
+  const { subView, setSubView } = useSubView();
   return (
-    <div className="hidden flex-1 justify-end px-4 sm:flex">
-      <button className="p-1 mr-2 rounded-lg border-4 border-gray-600">
-        <HiMenu className="w-7 h-7 fill-gray-700" />
-      </button>
-      <button className="p-1 rounded-lg border-4 border-gray-600">
-        <HiViewGrid className="w-7 h-7 fill-gray-700" />
-      </button>
-    </div>
+    <RadioGroup value={subView} onChange={setSubView} className="flex flex-row">
+      <RadioGroup.Option className="cursor-pointer" value="grid">
+        {({ checked }) => (
+          <HiViewGrid
+            className={clsx(
+              "w-9 h-9 rounded-l-xl fill-gray-700",
+              "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
+              checked && "border-gradient-br-purple-white"
+            )}
+          />
+        )}
+      </RadioGroup.Option>
+      <RadioGroup.Option className="cursor-pointer" value="table">
+        {({ checked }) => (
+          <HiMenu
+            className={clsx(
+              "w-9 h-9 rounded-r-xl fill-gray-700",
+              "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
+              checked && "border-gradient-br-purple-white"
+            )}
+          />
+        )}
+      </RadioGroup.Option>
+    </RadioGroup>
   );
 };
