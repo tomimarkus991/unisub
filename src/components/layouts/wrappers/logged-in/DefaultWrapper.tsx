@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import { NavbarBottom, NavbarTop, Sidebar } from "components";
 import { useIsMobile } from "hooks";
 
@@ -8,11 +10,17 @@ interface Props {
 
 export const DefaultWrapper = ({ children, rightSide }: Props) => {
   const { isMobile } = useIsMobile();
+  // const { sidebarState } = useSidebar();
   return (
     <>
       {isMobile ? (
         <>
-          <div className="flex justify-center min-w-full min-h-screen bg-slate-50">
+          <div
+            className={clsx(
+              "flex justify-center min-w-full min-h-screen bg-slate-50"
+              // sidebarState === "openWithOverlay" && "overflow-hidden h-[100vh]"
+            )}
+          >
             <div className="flex flex-col w-full h-full">
               <NavbarTop
                 user={{ id: "1", username: "Galaxy", email: "galaxy@gmail.com", avatar: null }}
