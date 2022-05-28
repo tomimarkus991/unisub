@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { AnimatePresence } from "framer-motion";
 
 import clsx from "clsx";
@@ -54,12 +55,12 @@ export const LayoutSubscriptionCardPopOver = ({
             tabIndex={0}
             onClick={() => setIsSubCardPopoverOpen(false)}
             className={clsx(
-              "overflow-hidden absolute inset-0 w-[100%] opacity-100 cursor-default",
+              "overflow-hidden absolute inset-0 h-full opacity-100 cursor-default",
               "z-[998]"
               // `h-[1672px]`
             )}
           />,
-          document.body
+          document.getElementById("main-content")!
         )}
       <AnimatePresence>
         {isSubCardPopoverOpen && (

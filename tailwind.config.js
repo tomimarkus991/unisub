@@ -34,7 +34,6 @@ module.exports = {
       },
       background: {
         white: "#fff",
-        transparent: "transparent",
       },
     }),
   },
