@@ -13,7 +13,7 @@ export const ToggleViewButton = () => {
         {({ checked }) => (
           <HiViewGrid
             className={clsx(
-              "w-9 h-9 rounded-l-xl fill-gray-700",
+              "w-10 h-10 rounded-l-xl fill-gray-700",
               "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
               checked && "border-gradient-br-purple-white"
             )}
@@ -24,7 +24,7 @@ export const ToggleViewButton = () => {
         {({ checked }) => (
           <HiMenu
             className={clsx(
-              "w-9 h-9 rounded-r-xl fill-gray-700",
+              "w-10 h-10 rounded-r-xl fill-gray-700",
               "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
               checked && "border-gradient-br-purple-white"
             )}
