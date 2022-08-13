@@ -15,34 +15,28 @@ export const ActiveInactiveTab = () => {
     <Tab.Group defaultIndex={0}>
       <Tab.List
         className={clsx(
-          "flex justify-center items-center my-4 md:max-w-[50rem] lg:max-w-none xs2:justify-between",
-          "lg:important-justify-center"
+          "flex justify-center items-center my-4 sm:justify-start md:max-w-[50rem] lg:max-w-none"
         )}
       >
-        <div className="lg:hidden">
-          <div className="hidden opacity-0 xs2:block">
-            <ToggleViewButton />
-          </div>
-        </div>
-        <div>
+        <div className="mr-2 whitespace-nowrap">
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "py-1 px-3 text-lg font-semibold bg-white rounded-l-xl",
+                "py-1 px-3 font-semibold bg-white rounded-l-xl lg:text-lg text-md",
                 "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 selected && "border-gradient-br-purple-white"
               )
             }
           >
             <div className="flex flex-row justify-center items-center">
-              <p className="mr-2">Active</p>
-              <p className="text-xl font-bold">{countActiveSubs}</p>
+              <p className="mr-1 lg:mr-2">Active</p>
+              <p className="font-bold lg:text-xl text-md">{countActiveSubs}</p>
             </div>
           </Tab>
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "py-1 px-3 text-lg font-semibold bg-white rounded-r-xl",
+                "py-1 px-3 font-semibold bg-white rounded-r-xl lg:text-lg text-md",
                 "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 selected && "border-gradient-br-purple-white",
                 countInactiveSubs === 0 && "cursor-not-allowed"
@@ -51,15 +45,13 @@ export const ActiveInactiveTab = () => {
             disabled={countInactiveSubs === 0}
           >
             <div className="flex flex-row justify-center items-center">
-              <p className="mr-2">Inactive</p>
-              <p className="text-xl font-bold">{countInactiveSubs}</p>
+              <p className="mr-1 lg:mr-2">Inactive</p>
+              <p className="font-bold lg:text-xl text-md">{countInactiveSubs}</p>
             </div>
           </Tab>
         </div>
-        <div className="lg:hidden">
-          <div className="hidden xs2:block">
-            <ToggleViewButton />
-          </div>
+        <div id="toggleView inactivetab" className="">
+          <ToggleViewButton />
         </div>
       </Tab.List>
       <Tab.Panels>

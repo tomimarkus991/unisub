@@ -1,4 +1,4 @@
-import { ChooseSubModal, DefaultWrapper, QuickStatsPanel, ToggleViewButton } from "components";
+import { ChooseSubModal, DefaultWrapper, QuickStatsPanel } from "components";
 
 import { ActiveInactiveTab } from ".";
 
@@ -17,14 +17,8 @@ export const HomePage = () => {
           <ChooseSubModal buttonType="regular" />
         </div>
       </div>
-      <div className="hidden justify-end my-4 lg:flex">
-        <ToggleViewButton />
-      </div>
       <div className="flex justify-center items-center mb-3 md:mt-4 xl:hidden">
         <QuickStatsPanel />
-      </div>
-      <div className="flex justify-center xs2:hidden">
-        <ToggleViewButton />
       </div>
       <ActiveInactiveTab />
     </DefaultWrapper>
