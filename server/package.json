@@ -1,0 +1,39 @@
+{
+  "name": "unisub-server",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ts-node-dev src/main.ts",
+    "lint:fix": "eslint --fix --ext .js,.ts,.tsx ./src --ignore-path .gitignore",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
+    "clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn && yarn start",
+    "prepare": "cd .. && husky install server/.husky"
+  },
+  "dependencies": {
+    "apollo-server-core": "^3.10.1",
+    "apollo-server-express": "^3.10.1",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node16-strictest-esm": "^1.0.3",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^18.7.4",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.4.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest-dom": "^4.0.2",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.6.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.7.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  }
+}
