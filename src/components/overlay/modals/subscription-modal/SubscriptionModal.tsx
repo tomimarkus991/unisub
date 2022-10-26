@@ -1,3 +1,13 @@
+import {
+  AnimationWrapper,
+  Button,
+  Modal,
+  ModalFooterContainer,
+  ModalHeaderContainer,
+  ModalTitle,
+  RealButton,
+  animations,
+} from "@redlotus/ui";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import moment from "moment";
@@ -12,19 +22,7 @@ import {
   currencies,
   SubModalYupSchema,
 } from "app-constants";
-import {
-  animations,
-  AnimationWrapper,
-  BillingSection,
-  Button,
-  GeneralSection,
-  Modal,
-  ModalFooterContainer,
-  ModalHeaderContainer,
-  ModalTitle,
-  RealButton,
-  SubscriptionModalCard,
-} from "components";
+import { BillingSection, GeneralSection, SubscriptionModalCard } from "components";
 import { useSub, useSubModal } from "context";
 import { CardColorType, CategoryCardItem, Subscription, SubFormValues } from "types";
 import { generateAllCosts } from "utils";

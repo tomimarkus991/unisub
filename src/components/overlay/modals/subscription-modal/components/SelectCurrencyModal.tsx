@@ -1,10 +1,16 @@
 import { RadioGroup } from "@headlessui/react";
+import {
+  InputErrorText,
+  Modal,
+  ModalHeader,
+  RealIconButton,
+  RadioButtonWrapper,
+} from "@redlotus/ui";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
 
 import { currencies } from "app-constants";
-import { InputErrorText, Modal, ModalHeader, RadioButtonWrapper, RealIconButton } from "components";
 import { CurrencyType } from "types";
 
 export const SelectCurrencyModal = () => {

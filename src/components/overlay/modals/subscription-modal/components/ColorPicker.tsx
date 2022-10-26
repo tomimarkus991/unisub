@@ -1,9 +1,9 @@
 import { RadioGroup } from "@headlessui/react";
+import { AnimationWrapper, InputErrorText } from "@redlotus/ui";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 
 import { cardColors } from "app-constants";
-import { AnimationWrapper, InputErrorText } from "components";
 import { CardColorType } from "types";
 
 interface Props {

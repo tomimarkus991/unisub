@@ -1,21 +1,20 @@
+import {
+  FormikInput,
+  RealButton,
+  ModalHeader,
+  Modal,
+  ModalFooterContainer,
+  AnimationWrapper,
+  Button,
+  animations,
+} from "@redlotus/ui";
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence } from "framer-motion";
 import { HiPlusCircle } from "react-icons/all";
 
 import { createPresetSubs, SearchSubYupSchema } from "app-constants";
-import {
-  Input,
-  PresetSubscriptionCard,
-  RealButton,
-  SubscriptionModal,
-  animations,
-  ModalHeader,
-  Modal,
-  ModalFooterContainer,
-  AnimationWrapper,
-  Button,
-} from "components";
+import { PresetSubscriptionCard, SubscriptionModal } from "components";
 import { useSubModal } from "context";
 
 interface FormValues {
@@ -86,7 +85,7 @@ export const ChooseSubModal = ({
                   Add a new Sub
                 </ModalHeader>
 
-                <Input
+                <FormikInput
                   name="searchString"
                   type="text"
                   placeholder="Search"

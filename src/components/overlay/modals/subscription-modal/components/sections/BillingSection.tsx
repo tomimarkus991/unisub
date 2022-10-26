@@ -1,12 +1,7 @@
+import { FormikInput, ModalSubTitle } from "@redlotus/ui";
 import clsx from "clsx";
 
-import {
-  Input,
-  ModalSubTitle,
-  SelectBillingTypeModal,
-  SelectCurrencyModal,
-  DatePicker,
-} from "components";
+import { SelectBillingTypeModal, SelectCurrencyModal, DatePicker } from "components";
 import { CurrencyIconType } from "types";
 
 interface Props {
@@ -20,7 +15,7 @@ export const BillingSection = ({ currencyIcon }: Props) => {
       <div className="mt-4">
         <div className="flex flex-row">
           <div className="w-6/12">
-            <Input
+            <FormikInput
               name="cost"
               inputPrefix={currencyIcon}
               type="number"

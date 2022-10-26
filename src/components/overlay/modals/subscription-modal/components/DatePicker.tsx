@@ -1,9 +1,8 @@
 import { DesktopDatePicker } from "@mui/lab";
+import { InputErrorText } from "@redlotus/ui";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { HiCalendar } from "react-icons/all";
-
-import { InputErrorText } from "components";
 
 interface Props {
   name: string;

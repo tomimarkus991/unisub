@@ -2,6 +2,7 @@ import "./index.css";
 
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import { SidebarProvider } from "@redlotus/ui";
 import AOS from "aos";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
@@ -9,11 +10,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import { SidebarProvider, SubModalProvider, SubProvider, SubViewProvider } from "context";
+import { SubModalProvider, SubProvider, SubViewProvider } from "context";
 import { Router } from "routes";
 
 import "aos/dist/aos.css";
 import "simplebar/dist/simplebar.min.css";
+import "@redlotus/ui/dist/style.css";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 

@@ -1,8 +1,8 @@
+import { useIsMobile } from "@redlotus/ui";
 import clsx from "clsx";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 
 import { cardColors } from "app-constants";
-import { useIsMobile } from "hooks";
 import { CardColorType } from "types";
 
 interface Props {

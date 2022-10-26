@@ -1,11 +1,11 @@
-import { ChooseSubModal, DefaultWrapper, QuickStatsPanel } from "components";
+import { ChooseSubModal, DefaultPageWrapper, QuickStatsPanel } from "components";
 
 import { ActiveInactiveTab } from ".";
 
 export const HomePage = () => {
   return (
-    <DefaultWrapper
-      rightSide={
+    <DefaultPageWrapper
+      RightSide={
         <>
           <QuickStatsPanel className="xl:max-w-[18rem] 2xl:max-w-[20rem]" />
         </>
@@ -21,6 +21,6 @@ export const HomePage = () => {
         <QuickStatsPanel />
       </div>
       <ActiveInactiveTab />
-    </DefaultWrapper>
+    </DefaultPageWrapper>
   );
 };

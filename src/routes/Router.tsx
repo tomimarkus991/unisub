@@ -30,6 +30,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/stats" element={<StatsPage />} />
+      <Route path="/settings" element={<StatsPage />} />
     </Routes>
   );
 };
