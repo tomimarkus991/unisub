@@ -1,8 +1,6 @@
 import { Dialog } from "@headlessui/react";
-
-import { AnimatePresence, motion } from "framer-motion";
-
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
 import { animations, AnimationWrapper } from "components";
@@ -59,7 +57,7 @@ export const Modal = ({ children, modalButton, open, setOpen, maxWidth = "xl" }:
               animateOnAllScreens
               className={clsx(
                 modalMaxWidth[maxWidth],
-                "z-[1020] min-w-[95%] max-w-[94%] bg-white rounded-xl min:min-w-[20rem]"
+                "min:min-w-[20rem] z-[1020] min-w-[95%] max-w-[94%] bg-white rounded-xl"
               )}
             >
               {children}

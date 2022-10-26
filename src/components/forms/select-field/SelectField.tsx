@@ -1,7 +1,5 @@
 import { Listbox } from "@headlessui/react";
-
 import { useField, useFormikContext } from "formik";
-
 import { HiCheck, HiSelector } from "react-icons/all";
 
 import { AnimationWrapper, InputErrorText, animations } from "components";
@@ -29,7 +27,7 @@ export const SelectField = ({ name, options, title }: Props) => {
             className="relative py-3 pr-10 pl-3 w-full text-left bg-white rounded-lg focus-visible:border-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 
         focus-visible:ring-offset-purple-300 shadow-md cursor-pointer sm:py-2"
           >
-            <span className="block font-semibold truncate sm:text-lg text-md">
+            <span className="text-md block font-semibold truncate sm:text-lg">
               {field?.value.name}
             </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">

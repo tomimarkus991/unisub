@@ -1,5 +1,4 @@
 import { Tab } from "@headlessui/react";
-
 import clsx from "clsx";
 
 import { LayoutSubscriptionCard, SubLayout, ToggleViewButton } from "components";
@@ -22,7 +21,7 @@ export const ActiveInactiveTab = () => {
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "py-1 px-3 font-semibold bg-white rounded-l-xl lg:text-lg text-md",
+                "text-md py-1 px-3 font-semibold bg-white rounded-l-xl lg:text-lg",
                 "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 selected && "border-gradient-br-purple-white"
               )
@@ -30,13 +29,13 @@ export const ActiveInactiveTab = () => {
           >
             <div className="flex flex-row justify-center items-center">
               <p className="mr-1 lg:mr-2">Active</p>
-              <p className="font-bold lg:text-xl text-md">{countActiveSubs}</p>
+              <p className="text-md font-bold lg:text-xl">{countActiveSubs}</p>
             </div>
           </Tab>
           <Tab
             className={({ selected }: { selected: boolean }) =>
               clsx(
-                "py-1 px-3 font-semibold bg-white rounded-r-xl lg:text-lg text-md",
+                "text-md py-1 px-3 font-semibold bg-white rounded-r-xl lg:text-lg",
                 "border-4 border-transparent border-solid outline-none shadow-lg focus:border-gradient-br-purple-white",
                 selected && "border-gradient-br-purple-white",
                 countInactiveSubs === 0 && "cursor-not-allowed"
@@ -46,7 +45,7 @@ export const ActiveInactiveTab = () => {
           >
             <div className="flex flex-row justify-center items-center">
               <p className="mr-1 lg:mr-2">Inactive</p>
-              <p className="font-bold lg:text-xl text-md">{countInactiveSubs}</p>
+              <p className="text-md font-bold lg:text-xl">{countInactiveSubs}</p>
             </div>
           </Tab>
         </div>

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { AnimatePresence } from "framer-motion";
-
 import clsx from "clsx";
+import { AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 

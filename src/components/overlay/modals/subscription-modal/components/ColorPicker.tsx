@@ -1,8 +1,6 @@
 import { RadioGroup } from "@headlessui/react";
-
-import { useField, useFormikContext } from "formik";
-
 import clsx from "clsx";
+import { useField, useFormikContext } from "formik";
 
 import { cardColors } from "app-constants";
 import { AnimationWrapper, InputErrorText } from "components";
