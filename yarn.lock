@@ -1302,7 +1302,7 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@headlessui/react@^1.7.1":
+"@headlessui/react@^1.7.3":
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.3.tgz#853c598ff47b37cdd192c5cbee890d9b610c3ec0"
   integrity sha512-LGp06SrGv7BMaIQlTs8s2G06moqkI0cb0b8stgq7KZ3xcHdH3qMP+cRyV7qe5x4XEW/IGY48BW4fLesD6NQLng==
@@ -1712,24 +1712,24 @@
   resolved "https://registry.yarnpkg.com/@redlotus/typescript-config/-/typescript-config-1.0.0.tgz#ba044f6143685b7400be36f1af0e5ea7ae45631b"
   integrity sha512-Kg0V4Gw9lordd4oEic0A5Nos5inr7dFXXGujAuJKk756cRLL/UfoB4TOjuhR+hSuyxzbbx/XZ7b4GqRxSYMi5g==
 
-"@redlotus/ui@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.1.tgz#80aa556d57c13a98dd667a5c0e3a6696a82f2182"
-  integrity sha512-jl0bygLVOpq0VVoMyAY/por4/K+7nq3Qg/GY0yOrM8AIOv8n40ZLb7zQFWdjNKdockmuqaUZBj+VEjnaUrBZOA==
+"@redlotus/ui@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.2.tgz#4eee579c6c8a0cc00f6845d89fbad158c6d10d88"
+  integrity sha512-HwlvzkoIgx03ObeHhqikjm6xPi/gherh+DDsVZ0Z6NqgDy1wg0tVuQSGEr7Ab2wwiWiqNlaXREQ7D5ZLT+3/sA==
   dependencies:
     "@emotion/react" "^11.10.4"
     "@emotion/styled" "^11.10.4"
-    "@headlessui/react" "^1.7.1"
+    "@headlessui/react" "^1.7.3"
     "@react-hook/window-size" "^3.1.1"
     "@storybook/builder-vite" "^0.2.4"
     clsx "^1.2.1"
-    date-fns "^2.29.2"
+    date-fns "^2.29.3"
     formik "^2.2.9"
-    framer-motion "^7.3.2"
+    framer-motion "^7.6.1"
     react "^18.2.0"
     react-dom "^18.2.0"
     react-icons "4.3.1"
-    react-router-dom "^6.3.0"
+    react-router-dom "^6.4.2"
     tailwindcss "^3.2.1"
     tailwindcss-border-gradient-radius "^3.0.1"
     yup "^0.32.11"
@@ -3874,7 +3874,7 @@ data-urls@^3.0.2:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-date-fns@^2.29.2:
+date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
@@ -5239,7 +5239,7 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^7.3.2:
+framer-motion@^7.6.1:
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-7.6.1.tgz#45356eb5519275bce42121a3b3849a6243d45a22"
   integrity sha512-8US03IWJKrLoSb81l5OahNzB9Sv7Jo1RhIwUoTG/25BRUdO9lOqq/klsdZqNmNG0ua9IEJJQ8hkYpETJ4N6VSw==
@@ -8045,7 +8045,7 @@ react-refresh@^0.14.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
   integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
 
-react-router-dom@^6.3.0, react-router-dom@^6.4.2:
+react-router-dom@^6.4.2:
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.4.2.tgz#115b37d501d6d8ac870683694978c51c43e6c0d2"
   integrity sha512-yM1kjoTkpfjgczPrcyWrp+OuQMyB1WleICiiGfstnQYo/S8hPEEnVjr/RdmlH6yKK4Tnj1UGXFSa7uwAtmDoLQ==
