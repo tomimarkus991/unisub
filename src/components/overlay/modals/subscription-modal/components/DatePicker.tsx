@@ -25,10 +25,10 @@ export const DatePicker = ({ name, label }: Props) => {
       <DesktopDatePicker
         value={field.value}
         inputFormat="DD/MM/YYYY"
-        onChange={value => {
+        onChange={(value: any) => {
           setFieldValue(name, value);
         }}
-        renderInput={({ inputRef, inputProps }) => (
+        renderInput={({ inputRef, inputProps }: any) => (
           <>
             <div className="relative">
               <input
