@@ -1,7 +1,7 @@
 import "./index.css";
 
-import { LocalizationProvider } from "@mui/lab";
-import AdapterMoment from "@mui/lab/AdapterMoment";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import AOS from "aos";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
