@@ -38,12 +38,12 @@ export const QuickStatsPanel = ({ className }: Props) => {
     <div
       className={clsx(
         className,
-        "min:px-8 min:w-[20rem] flex flex-row px-4 h-36 bg-white rounded-xl shadow-lg cursor-default select-none"
+        "minscreen:px-8 minscreen:w-[20rem] flex flex-row px-4 h-36 bg-white rounded-xl shadow-lg cursor-default select-none"
       )}
     >
-      <div className="min:mr-0 flex flex-col justify-center items-center mr-2 min-w-[5rem] xs:mr-4">
+      <div className="minscreen:mr-0 flex flex-col justify-center items-center mr-2 min-w-[5rem] xs:mr-4">
         <div className="max-w-[5rem]">
-          <img className="min:w-24 min:h-24 w-16 h-16" alt="user" src={`/stats/stats.svg`} />
+          <img className="minscreen:w-24 minscreen:h-24 w-16 h-16" alt="user" src={`/stats/stats.svg`} />
         </div>
       </div>
       <div className="flex flex-col flex-1 justify-center items-center">
@@ -54,16 +54,16 @@ export const QuickStatsPanel = ({ className }: Props) => {
         >
           <CountUp start={totalValue - 3} end={totalValue} duration={0.3} decimals={decimals}>
             {({ countUpRef }) => (
-              <p ref={countUpRef as any} className="min:text-4xl text-3xl font-bold" />
+              <p ref={countUpRef as any} className="minscreen:text-4xl text-3xl font-bold" />
             )}
           </CountUp>
-          <p className="min:text-4xl text-3xl font-semibold cursor-pointer">€</p>
+          <p className="minscreen:text-4xl text-3xl font-semibold cursor-pointer">€</p>
         </div>
 
         <div className="flex flex-row justify-center items-center">
-          <p className="min:text-2xl mr-2 text-lg font-medium">{subPanelBillingType}</p>
+          <p className="minscreen:text-2xl mr-2 text-lg font-medium">{subPanelBillingType}</p>
           <div
-            className="min:text-2xl text-lg text-gray-800 cursor-pointer"
+            className="minscreen:text-2xl text-lg text-gray-800 cursor-pointer"
             onClick={() =>
               setSubPanelBillingType(currentType => {
                 const index = billingTypeValues.indexOf(currentType) + 1;

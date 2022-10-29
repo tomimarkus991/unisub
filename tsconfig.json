@@ -3,6 +3,6 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": ["src", "**/*.ts", "**/*.tsx", "vite.config.ts"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "vite.config.ts", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }
