@@ -10,13 +10,13 @@ module.exports = {
       screens: {
         minscreen: "340px",
         xs: "460px",
-        xs2: "500px",
+        "2xs": "500px",
         // sm	640px
-        sm2: "700px",
+        "2sm": "700px",
         // md	768px
-        md2: "915px",
+        "2md": "915px",
         // lg	1024px
-        lg2: "1200px",
+        "2lg": "1200px",
         // xl	1280px
         // 2xl 1536px
         "3xl": "1700px",

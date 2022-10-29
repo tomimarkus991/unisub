@@ -61,7 +61,7 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
     <div
       className={clsx(
         "relative justify-self-center self-center w-full cursor-pointer",
-        "md2:max-w-[24rem] md2:min-w-[24rem] min-w-[20rem] max-w-[27rem] sm2:min-w-[100%] sm2:max-w-[100%]"
+        "2sm:min-w-[100%] 2sm:max-w-[100%] 2md:min-w-[24rem] 2md:max-w-[24rem] min-w-[20rem] max-w-[27rem]"
       )}
     >
       <div
