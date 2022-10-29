@@ -14,7 +14,7 @@ export const ActiveInactiveTab = () => {
     <Tab.Group defaultIndex={0}>
       <Tab.List
         className={clsx(
-          "flex justify-center items-center my-4 sm:justify-start md:max-w-[50rem] lg:max-w-none"
+          "flex justify-center items-center my-4 sm:justify-start md:max-w-[50rem] lg:max-w-none 2sm:mb-6 xl:mb-12"
         )}
       >
         <div className="mr-2 whitespace-nowrap">
