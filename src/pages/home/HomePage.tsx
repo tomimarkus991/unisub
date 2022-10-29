@@ -5,7 +5,7 @@ import { ActiveInactiveTab } from ".";
 export const HomePage = () => {
   return (
     <DefaultPageWrapper
-      RightSide={<QuickStatsPanel className="2xl:min-w-[18rem] xl:max-w-[18rem]" />}
+      RightSide={<QuickStatsPanel className="2xl:min-w-[18rem] xl:max-w-[18rem] fixed top-auto" />}
     >
       <div className="flex flex-col">
         <div className="hidden justify-between md:flex">

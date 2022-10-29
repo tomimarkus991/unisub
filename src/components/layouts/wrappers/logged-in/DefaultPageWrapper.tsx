@@ -77,7 +77,11 @@ export const DefaultPageWrapper = ({ children, RightSide }: Props) => {
           }
         />
       }
-      RightSide={RightSide}
+      RightSide={
+        <div className="minscreen:hidden min-w-[20rem] flex-col items-center py-8 px-4 xl:flex 2xl:min-w-[24rem]">
+          {RightSide}
+        </div>
+      }
     >
       {children}
     </PartialPageWrapper>

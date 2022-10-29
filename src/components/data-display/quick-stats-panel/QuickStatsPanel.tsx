@@ -43,7 +43,11 @@ export const QuickStatsPanel = ({ className }: Props) => {
     >
       <div className="minscreen:mr-0 flex flex-col justify-center items-center mr-2 min-w-[5rem] xs:mr-4">
         <div className="max-w-[5rem]">
-          <img className="minscreen:w-24 minscreen:h-24 w-16 h-16" alt="user" src={`/stats/stats.svg`} />
+          <img
+            className="minscreen:w-24 minscreen:h-24 w-16 h-16"
+            alt="user"
+            src={`/stats/stats.svg`}
+          />
         </div>
       </div>
       <div className="flex flex-col flex-1 justify-center items-center">
