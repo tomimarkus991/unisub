@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require("tailwindcss/colors");
 
@@ -7,14 +8,18 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        min: "340px",
+        minscreen: "340px",
         xs: "460px",
-        xs2: "500px",
+        "2xs": "500px",
         // sm	640px
+        "2sm": "700px",
         // md	768px
+        "2md": "915px",
         // lg	1024px
+        "2lg": "1200px",
         // xl	1280px
         // 2xl 1536px
+        "3xl": "1700px",
       },
       gridRow: {
         "span-12": "span 12 / span 12",

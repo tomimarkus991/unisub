@@ -1,10 +1,8 @@
-import { useField, useFormikContext } from "formik";
-
 import { DesktopDatePicker } from "@mui/lab";
+import { InputErrorText } from "@redlotus/ui";
 import clsx from "clsx";
+import { useField, useFormikContext } from "formik";
 import { HiCalendar } from "react-icons/all";
-
-import { InputErrorText } from "components";
 
 interface Props {
   name: string;
@@ -26,10 +24,10 @@ export const DatePicker = ({ name, label }: Props) => {
       <DesktopDatePicker
         value={field.value}
         inputFormat="DD/MM/YYYY"
-        onChange={value => {
+        onChange={(value: any) => {
           setFieldValue(name, value);
         }}
-        renderInput={({ inputRef, inputProps }) => (
+        renderInput={({ inputRef, inputProps }: any) => (
           <>
             <div className="relative">
               <input
@@ -44,7 +42,7 @@ export const DatePicker = ({ name, label }: Props) => {
                     : ""
                 )}
               />
-              <div className="flex absolute inset-y-0 right-7 items-center sm:right-14 xs:right-10 xs2:right-9">
+              <div className="flex absolute inset-y-0 right-7 items-center sm:right-14 xs:right-10 2xs:right-9">
                 <HiCalendar className="w-5 h-5 text-gray-500" />
               </div>
             </div>

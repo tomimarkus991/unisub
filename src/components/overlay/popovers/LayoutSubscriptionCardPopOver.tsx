@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { AnimatePresence } from "framer-motion";
-
+import { animations, AnimationWrapper } from "@redlotus/ui";
 import clsx from "clsx";
+import { AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
 import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
 
-import { animations, AnimationWrapper, SubscriptionModal } from "components";
+import { SubscriptionModal } from "components";
 import { useSub } from "context";
 import { Subscription } from "types";
 

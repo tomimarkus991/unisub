@@ -1,6 +1,7 @@
+import { ModalSubTitle, FormikInput } from "@redlotus/ui";
 import clsx from "clsx";
 
-import { ModalSubTitle, ColorPicker, SelectCategoryModal, Input } from "components";
+import { ColorPicker, SelectCategoryModal } from "components";
 
 export const GeneralSection = () => {
   return (
@@ -10,7 +11,7 @@ export const GeneralSection = () => {
         <ColorPicker name="selectedColor" />
         <div className="flex flex-row">
           <div className="w-6/12 sm:w-full">
-            <Input
+            <FormikInput
               name="title"
               type="text"
               placeholder="Sub name"

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 // eslint-disable-next-line import/no-unresolved
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-import { HomePage, StatsPage } from "pages";
+import { routes } from ".";
 
 export const Router = () => {
   const root = document.documentElement;
@@ -28,8 +28,9 @@ export const Router = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/stats" element={<StatsPage />} />
+      {routes.map(({ to, element }) => (
+        <Route path={to} element={element} />
+      ))}
     </Routes>
   );
 };

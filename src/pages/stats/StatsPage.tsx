@@ -1,8 +1,8 @@
-import { DefaultWrapper } from "components";
+import { DefaultPageWrapper } from "components";
 
 export const StatsPage = () => {
   return (
-    <DefaultWrapper>
+    <DefaultPageWrapper>
       <div className="flex flex-col w-full h-full cursor-pointer">
         {/* <iframe
           src="https://my.spline.design/coloredcompositioncopy-d28da28d59a2caaa2250f66cc4d7df95/"
@@ -17,6 +17,6 @@ export const StatsPage = () => {
           height="100%"
         />
       </div>
-    </DefaultWrapper>
+    </DefaultPageWrapper>
   );
 };

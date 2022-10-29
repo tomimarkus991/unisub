@@ -168,9 +168,8 @@ export const createPresetSubs = (): Subscription[] => {
   return presetSubs.sort((a, b) => {
     if (a.title && b.title) {
       return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
-    } else {
-      return 0;
     }
+    return 0;
   });
 };
 
