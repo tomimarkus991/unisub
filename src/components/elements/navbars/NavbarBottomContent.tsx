@@ -1,6 +1,7 @@
 import { animations, AnimationWrapper } from "@redlotus/ui";
 import { HiChartBar, HiHome } from "react-icons/all";
 import { Link } from "react-router-dom";
+
 import { ChooseSubModal } from "components";
 
 export const NavbarBottomContent = () => {
