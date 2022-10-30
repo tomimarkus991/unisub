@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useThemeUtils } from "@redlotus/ui";
 import { Route, Routes } from "react-router-dom";
 // eslint-disable-next-line import/no-unresolved
 import { useRegisterSW } from "virtual:pwa-register/react";
@@ -6,15 +6,7 @@ import { useRegisterSW } from "virtual:pwa-register/react";
 import { routes } from ".";
 
 export const Router = () => {
-  const root = document.documentElement;
-  useEffect(() => {
-    if (localStorage.theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  useThemeUtils();
   const intervalMS = 60 * 60 * 1000;
 
   useRegisterSW({
@@ -29,7 +21,7 @@ export const Router = () => {
   return (
     <Routes>
       {routes.map(({ to, element }) => (
-        <Route path={to} element={element} />
+        <Route key={to} path={to} element={element} />
       ))}
     </Routes>
   );
