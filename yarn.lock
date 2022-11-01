@@ -1712,10 +1712,10 @@
   resolved "https://registry.yarnpkg.com/@redlotus/typescript-config/-/typescript-config-1.0.0.tgz#ba044f6143685b7400be36f1af0e5ea7ae45631b"
   integrity sha512-Kg0V4Gw9lordd4oEic0A5Nos5inr7dFXXGujAuJKk756cRLL/UfoB4TOjuhR+hSuyxzbbx/XZ7b4GqRxSYMi5g==
 
-"@redlotus/ui@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.15.tgz#2e15434ef9322a49bf4362eb98abd35c5a1a96f3"
-  integrity sha512-57mjUqlaROp5tWFzBgGciQoH1vySHQtnza2m8vhoAQhXXg3xpTVyD/xHxxOdKs0VCdsPGFCY12svoY0OeJzKrA==
+"@redlotus/ui@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.16.tgz#63073520351dcaad85360a0d848745df8799afdc"
+  integrity sha512-ACv5rBqdNArogQ5T1kjqo2qx7uXOHp3x+ZZl0XVX3PnWMBtwYciZeetZpo8qM1S3I/za1pAb+obEjgMKpPpayQ==
   dependencies:
     "@emotion/react" "^11.10.4"
     "@emotion/styled" "^11.10.4"

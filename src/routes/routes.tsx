@@ -28,6 +28,5 @@ export const routes: Router[] = [
     element: <StatsPage />,
     smallIcon: <IoMdSettings className={clsx(smallIconCss)} />,
     bigIcon: <IoMdSettings className={clsx(bigIconCss)} />,
-    tooltip: "si settings",
   },
 ];
