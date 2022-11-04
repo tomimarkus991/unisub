@@ -39,7 +39,7 @@ export const ColorPicker = ({ name }: Props) => {
                   times: [0.1, 0.2, 0.5],
                 }}
                 animate={checked ? { scale: 1.25 } : { scale: 1 }}
-                keyIndex={color}
+                key={color}
                 className={clsx(
                   "inline-block mr-3 mb-2 w-8 h-8 rounded-full ring-1 ring-black ring-opacity-20 cursor-pointer",
                   cardColors[color as CardColorType]

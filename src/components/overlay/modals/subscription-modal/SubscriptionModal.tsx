@@ -96,8 +96,9 @@ export const SubscriptionModal = ({
         <>
           {buttonType === "icon" && (
             <AnimationWrapper
-              keyIndex="create-modal-plus-icon"
+              key="create-modal-plus-icon"
               variants={animations.scaleAndRotation}
+              animateOnMobile={false}
             >
               <HiPlusCircle
                 className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
@@ -189,10 +190,7 @@ export const SubscriptionModal = ({
                   <HiArrowLeft className="w-8 h-8 opacity-0" />
                 ) : (
                   <div role="button" tabIndex={0} onClick={() => setIsSubscriptionModalOpen(false)}>
-                    <AnimationWrapper
-                      keyIndex="sub-modal-left-icon"
-                      variants={animations.rotate360}
-                    >
+                    <AnimationWrapper key="sub-modal-left-icon" variants={animations.rotate360}>
                       <HiArrowLeft className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                     </AnimationWrapper>
                   </div>
@@ -200,7 +198,7 @@ export const SubscriptionModal = ({
 
                 <ModalTitle>{subValues ? "Edit sub" : "Create sub"}</ModalTitle>
                 <div role="button" tabIndex={0} onClick={closeModal}>
-                  <AnimationWrapper keyIndex="sub-modal-x-icon" variants={animations.rotate360}>
+                  <AnimationWrapper key="sub-modal-x-icon" variants={animations.rotate360}>
                     <HiX className="w-8 h-8 fill-slate-700 hover:fill-slate-800" />
                   </AnimationWrapper>
                 </div>

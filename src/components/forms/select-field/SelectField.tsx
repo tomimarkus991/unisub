@@ -31,7 +31,11 @@ export const SelectField = ({ name, options, title }: Props) => {
               {field?.value.name}
             </span>
             <span className="flex absolute inset-y-0 right-0 items-center pr-2 pointer-events-none">
-              <AnimationWrapper keyIndex="selector" variants={animations.rotateInFromLeft}>
+              <AnimationWrapper
+                animateOnMobile={false}
+                key="selector-icon"
+                variants={animations.rotateInFromLeft}
+              >
                 <HiSelector className="w-5 h-5 fill-gray-400" aria-hidden="true" />
               </AnimationWrapper>
             </span>

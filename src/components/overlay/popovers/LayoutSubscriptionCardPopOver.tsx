@@ -64,11 +64,7 @@ export const LayoutSubscriptionCardPopOver = ({
         )}
       <AnimatePresence>
         {isSubCardPopoverOpen && (
-          <AnimationWrapper
-            keyIndex="layout-sub-popover"
-            variants={animations.popOverEffect}
-            animateOnAllScreens
-          >
+          <AnimationWrapper key="layout-sub-popover" variants={animations.popOverEffect}>
             <div
               className={clsx(
                 "overflow-hidden absolute min-w-[12rem] max-w-[12rem] sm:px-0",
@@ -77,7 +73,7 @@ export const LayoutSubscriptionCardPopOver = ({
             >
               <div className="flex overflow-hidden relative flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg">
                 {/* <div className="flex justify-end items-center">
-                  <AnimationWrapper keyIndex="popover-x" variants={animations.rotate360}>
+                  <AnimationWrapper key="popover-x" variants={animations.rotate360}>
                     <HiX
                       className="w-6 h-6 fill-slate-800"
                       onClick={() => setIsSubCardPopoverOpen(false)}

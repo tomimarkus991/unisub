@@ -44,7 +44,8 @@ export const ChooseSubModal = ({
         <>
           {buttonType === "icon" && (
             <AnimationWrapper
-              keyIndex="choose-modal-plus-icon"
+              animateOnMobile={false}
+              key="choose-modal-plus-icon"
               variants={animations.scaleAndRotation}
             >
               <HiPlusCircle
@@ -106,10 +107,9 @@ export const ChooseSubModal = ({
                     return (
                       sub.title.toLowerCase().includes(values.searchString.toLowerCase()) && (
                         <AnimationWrapper
-                          keyIndex={sub.title}
+                          key={`sub${sub.title}`}
                           className="mb-2 sm:w-[25rem]"
                           variants={animations.springInFromTop}
-                          animateOnAllScreens
                         >
                           <PresetSubscriptionCard sub={sub} />
                         </AnimationWrapper>
