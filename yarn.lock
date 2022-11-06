@@ -1712,10 +1712,10 @@
   resolved "https://registry.yarnpkg.com/@redlotus/typescript-config/-/typescript-config-1.0.0.tgz#ba044f6143685b7400be36f1af0e5ea7ae45631b"
   integrity sha512-Kg0V4Gw9lordd4oEic0A5Nos5inr7dFXXGujAuJKk756cRLL/UfoB4TOjuhR+hSuyxzbbx/XZ7b4GqRxSYMi5g==
 
-"@redlotus/ui@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.17.tgz#ebb5847f5a6a89a26b030cfb13b405abbef39f6e"
-  integrity sha512-DsUD+9VNtIh/U5Vx1j+9IFfhfUH50XAJQkDnkqLdTF1wsC1LeuLFrR22AseY0Ohzu9ragElGhTL/wbBKuHq6Ow==
+"@redlotus/ui@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@redlotus/ui/-/ui-0.0.18.tgz#9cd33e51ccbb8829c815f1c7ca5d239ef3121207"
+  integrity sha512-9y5uGtcbBQNvnHiECeycAmen8WlBb+W1cUZimD4bM7uJ68n+NiR5Im7pnRu7SkrPCUk12HN86Ea8fLCQ5eGHGw==
   dependencies:
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11.10.5"
@@ -1732,6 +1732,7 @@
     react-router-dom "^6.4.3"
     tailwindcss "^3.2.1"
     tailwindcss-border-gradient-radius "^3.0.1"
+    vite-plugin-pwa "^0.13.2"
     yup "^0.32.11"
 
 "@remix-run/router@1.0.3":

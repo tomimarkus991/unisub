@@ -17,12 +17,11 @@ interface Props {
 export const LayoutSubscriptionCard = ({ sub }: Props) => {
   const { title, color: cardColor, nextPaymentDate, category, id } = sub;
 
-  const [isSubCardPopoverOpen, setIsSubCardPopoverOpen] = useState(false);
-
   const { setSubs } = useSub();
 
   const textColor = cardColor === "white" ? "text-gray-800" : "text-white";
   const price = createSubPrice(sub);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   // useEffect(() => {
   //   if (daysUntilResub === 0) {
@@ -65,7 +64,8 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
       )}
     >
       <div
-        onClick={() => setIsSubCardPopoverOpen(value => !value)}
+        id="popoverCreator"
+        onClick={() => setIsPopoverOpen(value => !value)}
         role="button"
         tabIndex={0}
         className="w-full"
@@ -102,8 +102,8 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
       </div>
       <LayoutSubscriptionCardPopOver
         sub={sub}
-        isSubCardPopoverOpen={isSubCardPopoverOpen}
-        setIsSubCardPopoverOpen={setIsSubCardPopoverOpen}
+        isPopoverOpen={isPopoverOpen}
+        setIsPopoverOpen={setIsPopoverOpen}
       />
     </div>
   );
