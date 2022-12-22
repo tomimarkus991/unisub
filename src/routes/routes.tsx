@@ -2,7 +2,7 @@ import { Router } from "@redlotus/ui";
 import clsx from "clsx";
 import { IoMdSettings, HiChartBar, HiHome } from "react-icons/all";
 
-import { HomePage, StatsPage } from "pages";
+import { HomePage, StatisticsPage } from "pages";
 
 const smallIconCss = "h-8 w-8 fill-inherit";
 const bigIconCss = "mr-3 h-8 w-8 fill-inherit";
@@ -16,16 +16,16 @@ export const routes: Router[] = [
     bigIcon: <HiHome className={clsx(bigIconCss)} />,
   },
   {
-    to: "/stats",
-    routeName: "Stats",
-    element: <StatsPage />,
+    to: "/statistics",
+    routeName: "Statistics",
+    element: <StatisticsPage />,
     smallIcon: <HiChartBar className={clsx(smallIconCss)} />,
     bigIcon: <HiChartBar className={clsx(bigIconCss)} />,
   },
   {
     to: "/settings",
     routeName: "Settings",
-    element: <StatsPage />,
+    element: <StatisticsPage />,
     smallIcon: <IoMdSettings className={clsx(smallIconCss)} />,
     bigIcon: <IoMdSettings className={clsx(bigIconCss)} />,
   },

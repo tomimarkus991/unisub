@@ -1,1 +1,1 @@
-export * from "./StatsPage";
+export * from "./StatisticsPage";
