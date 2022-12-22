@@ -1,5 +1,6 @@
 import moment from "moment";
 import React, { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import { mapSubTypeToMomentType } from "app-constants";
 import { Subscription } from "types";
@@ -41,7 +42,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
 
   const [subs, setSubs] = useState<Subscription[]>([
     // {
-    //   id: "1",
+    //   id: uuidv4(),
     //   title: "Disney+",
     //   category: "Streaming",
     //   color: "darkBlue",
@@ -56,7 +57,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
     //   cost: 10,
     // },
     // {
-    //   id: "2",
+    //   id: uuidv4(),
     //   title: "Netflix",
     //   category: "Streaming",
     //   color: "red",
@@ -71,7 +72,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
     //   cost: 15,
     // },
     // {
-    //   id: "3",
+    //   id: uuidv4(),
     //   title: "Spotify",
     //   category: "Music",
     //   color: "green",
@@ -83,7 +84,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
     //   cost: 12,
     // },
     {
-      id: "4",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -95,7 +96,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -107,7 +108,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -119,7 +120,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -131,7 +132,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -143,7 +144,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "purpleBlue",
@@ -155,7 +156,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -167,7 +168,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -179,7 +180,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -191,7 +192,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -203,7 +204,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -215,7 +216,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "gray",
@@ -227,7 +228,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -239,7 +240,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -251,7 +252,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -263,7 +264,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -275,7 +276,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -287,7 +288,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "green",
@@ -299,7 +300,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "white",
@@ -311,7 +312,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "white",
@@ -323,7 +324,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "white",
@@ -335,7 +336,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "orange",
@@ -347,7 +348,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "orange",
@@ -359,7 +360,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "orange",
@@ -371,7 +372,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "red",
@@ -383,7 +384,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "red",
@@ -395,7 +396,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "red",
@@ -407,7 +408,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -419,7 +420,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -431,7 +432,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -443,7 +444,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -455,7 +456,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -467,7 +468,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "darkBlue",
@@ -479,7 +480,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "indigo",
@@ -491,7 +492,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "indigo",
@@ -503,7 +504,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "indigo",
@@ -515,7 +516,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "pink",
@@ -527,7 +528,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "pink",
@@ -539,7 +540,7 @@ export const SubProvider = ({ children }: ProviderProps) => {
       cost: 12,
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Spotify",
       category: "Music",
       color: "pink",

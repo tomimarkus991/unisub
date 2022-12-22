@@ -58,18 +58,16 @@ export const LayoutSubscriptionCard = ({ sub }: Props) => {
 
   return (
     <div
+      id="popoverCreator"
+      onClick={() => setIsPopoverOpen(value => !value)}
+      role="button"
+      tabIndex={0}
       className={clsx(
         "relative justify-self-center self-center w-full cursor-pointer",
         "2sm:min-w-[100%] 2sm:max-w-[100%] 2md:min-w-[24rem] 2md:max-w-[24rem] min-w-[20rem] max-w-[27rem]"
       )}
     >
-      <div
-        id="popoverCreator"
-        onClick={() => setIsPopoverOpen(value => !value)}
-        role="button"
-        tabIndex={0}
-        className="w-full"
-      >
+      <div role="button" tabIndex={0} className="w-full">
         <div
           className={clsx(
             "flex overflow-hidden relative flex-row items-center py-2 px-6 mb-2 w-full h-24 rounded-full",
