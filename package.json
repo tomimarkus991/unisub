@@ -33,7 +33,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.0",
     "react-time-ago": "^7.2.1",
-    "simplebar-react": "^2.4.3",
+    "simplebar-react": "^3.0.0",
     "tailwindcss-border-gradient-radius": "^3.0.1",
     "uuid": "^9.0.0",
     "vite-plugin-checker": "^0.5.1",
