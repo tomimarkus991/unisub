@@ -32,7 +32,7 @@ const Popover = ({ children, action, animKey }: any) => {
               >
                 <HeadlessPopover.Panel
                   static
-                  className="absolute flex overflow-hidden flex-col p-3 text-2xl font-bold bg-white rounded-lg shadow-lg"
+                  className="absolute flex flex-col p-3 overflow-hidden text-2xl font-bold bg-white rounded-lg shadow-lg"
                 >
                   {children}
                 </HeadlessPopover.Panel>
@@ -108,20 +108,20 @@ export const SubscriptionCard = ({ sub }: Props) => {
             >
               {/* <CardAnimations cardColor={cardColor} durationModifier={3} /> */}
               <CardCircleLayer cardColor={cardColor} />
-              <div className="flex z-10 flex-col ml-2 w-7/12">
+              <div className="z-10 flex flex-col w-7/12 ml-2">
                 <SimpleBar
                   className={clsx(
-                    "flex overflow-x-auto flex-row justify-start pb-2 whitespace-nowrap"
+                    "flex overflow-x-auto flex-row justify-start items-start pb-2 whitespace-nowrap"
                   )}
                 >
-                  <p className={clsx("text-xl font-semibold", textColor)}>{title}</p>
+                  <p className={clsx("text-xl font-semibold text-left", textColor)}>{title}</p>
                 </SimpleBar>
                 <div className="flex flex-row justify-start">
                   <p className={clsx("", textColor)}>{category}</p>
                 </div>
               </div>
               {/* @todo fix glitch */}
-              {/* <div className="flex z-10 flex-col ml-4 w-5/12 justify-center">
+              {/* <div className="z-10 flex flex-col justify-center w-5/12 ml-4">
                 <p className={clsx("mb-1", textColor)}>{price}</p>
 
                 <p className={clsx(textColor)}>

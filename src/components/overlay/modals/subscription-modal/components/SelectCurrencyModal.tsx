@@ -1,11 +1,5 @@
 import { RadioGroup } from "@headlessui/react";
-import {
-  InputErrorText,
-  Modal,
-  ModalHeader,
-  RealIconButton,
-  RadioButtonWrapper,
-} from "@redlotus/ui";
+import { InputErrorText, Modal, ModalHeader, RealButton, RadioButtonWrapper } from "@redlotus/ui";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useEffect, useState } from "react";
@@ -42,16 +36,17 @@ export const SelectCurrencyModal = () => {
         maxWidth="sm"
         modalButton={
           <>
-            <RealIconButton
+            <RealButton
               id="currency-input"
+              size="icon"
               variant="light"
               className="rounded-lg cursor-not-allowed"
               onClick={() => {
                 setOpen(false);
               }}
             >
-              <div className="flex flex-row justify-center items-center">
-                <div className="flex justify-start items-center mr-2">
+              <div className="flex flex-row items-center justify-center">
+                <div className="flex items-center justify-start mr-2">
                   <img
                     className="w-5 h-5 sm:w-7 sm:h-7"
                     src={`/flags/${activeCurrency.image}`}
@@ -60,7 +55,7 @@ export const SelectCurrencyModal = () => {
                 </div>
                 {field.value.name}
               </div>
-            </RealIconButton>
+            </RealButton>
             <InputErrorText touched={touched} error={error} />
           </>
         }
@@ -74,9 +69,9 @@ export const SelectCurrencyModal = () => {
             "flex overflow-y-auto items-start py-2 px-4 h-[7vh] min-h-[7rem] xs:min-w-[24rem]"
           )}
         >
-          <div className="flex justify-center items-center w-full">
+          <div className="flex items-center justify-center w-full">
             <RadioGroup
-              className="grid grid-cols-2 gap-2 w-full"
+              className="grid w-full grid-cols-2 gap-2"
               value={field.value}
               onChange={value => {
                 setFieldValue("billing", value);

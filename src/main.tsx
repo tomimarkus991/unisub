@@ -14,7 +14,7 @@ import { SubModalProvider, SubProvider, SubViewProvider } from "context";
 import { Router } from "routes";
 
 import "aos/dist/aos.css";
-import "simplebar/dist/simplebar.min.css";
+import "simplebar-react/dist/simplebar.min.css";
 import "@redlotus/ui/dist/style.css";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);

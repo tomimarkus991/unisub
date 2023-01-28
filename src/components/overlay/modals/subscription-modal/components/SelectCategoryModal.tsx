@@ -1,11 +1,5 @@
 import { RadioGroup } from "@headlessui/react";
-import {
-  InputErrorText,
-  Modal,
-  ModalHeader,
-  RealIconButton,
-  RadioButtonWrapper,
-} from "@redlotus/ui";
+import { InputErrorText, Modal, ModalHeader, RealButton, RadioButtonWrapper } from "@redlotus/ui";
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useState } from "react";
@@ -33,21 +27,22 @@ export const SelectCategoryModal = ({ name }: Props) => {
         maxWidth="md"
         modalButton={
           <>
-            <RealIconButton
+            <RealButton
               id="category-input"
               variant="light"
+              size="icon"
               className="rounded-lg"
               onClick={() => {
                 setOpen(true);
               }}
             >
-              <div className="flex flex-row justify-center items-center">
+              <div className="flex flex-row items-center justify-center">
                 <div className="flex justify-start items-center mr-1 max-h-[1.5rem] xs:w-8 xs:h-8">
                   {field.value.icon}
                 </div>
                 {field.value.name}
               </div>
-            </RealIconButton>
+            </RealButton>
             <InputErrorText touched={touched} error={error} />
           </>
         }
@@ -61,9 +56,9 @@ export const SelectCategoryModal = ({ name }: Props) => {
             "flex overflow-y-auto items-start py-2 px-4 h-[36vh] min-h-[15rem] xs:min-w-[27rem]"
           )}
         >
-          <div className="flex justify-center items-center w-full">
+          <div className="flex items-center justify-center w-full">
             <RadioGroup
-              className="grid grid-cols-2 gap-2 w-full"
+              className="grid w-full grid-cols-2 gap-2"
               value={field.value}
               onChange={value => {
                 setFieldValue(name, value);
