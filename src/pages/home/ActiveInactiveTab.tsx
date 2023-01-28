@@ -1,7 +1,7 @@
 import { Tab } from "@headlessui/react";
 import clsx from "clsx";
 
-import { LayoutSubscriptionCard, SubLayout, ToggleViewButton } from "components";
+import { SubscriptionCard, SubLayout, ToggleViewButton } from "components";
 import { useSub, useSubView } from "context";
 
 export const ActiveInactiveTab = () => {
@@ -60,7 +60,7 @@ export const ActiveInactiveTab = () => {
               {subs
                 .filter(sub => sub.active)
                 .map(sub => (
-                  <LayoutSubscriptionCard key={sub.id} sub={sub} />
+                  <SubscriptionCard key={sub.id} sub={sub} />
                 ))}
             </SubLayout>
           )}
@@ -72,7 +72,7 @@ export const ActiveInactiveTab = () => {
               {subs
                 .filter(sub => !sub.active)
                 .map(sub => (
-                  <LayoutSubscriptionCard key={sub.id} sub={sub} />
+                  <SubscriptionCard key={sub.id} sub={sub} />
                 ))}
             </SubLayout>
           )}

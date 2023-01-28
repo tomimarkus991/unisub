@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
-import { BiShuffle } from "react-icons/all";
+import { BiShuffle } from "react-icons/bi";
 
 import { billingTypeValues } from "app-constants";
 import { useSub } from "context";

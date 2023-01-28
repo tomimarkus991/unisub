@@ -1,7 +1,7 @@
 import { Listbox } from "@headlessui/react";
 import { AnimationWrapper, InputErrorText, animations } from "@redlotus/ui";
 import { useField, useFormikContext } from "formik";
-import { HiCheck, HiSelector } from "react-icons/all";
+import { HiCheck, HiSelector } from "react-icons/hi";
 
 import { SelectOption, SubscriptionBillingType } from "types";
 

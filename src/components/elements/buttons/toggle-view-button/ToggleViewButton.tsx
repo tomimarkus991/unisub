@@ -1,6 +1,6 @@
 import { RadioGroup } from "@headlessui/react";
 import clsx from "clsx";
-import { HiMenu, HiViewGrid } from "react-icons/all";
+import { HiMenu, HiViewGrid } from "react-icons/hi";
 
 import { useSubView } from "context";
 

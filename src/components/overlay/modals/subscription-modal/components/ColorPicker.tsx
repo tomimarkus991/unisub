@@ -34,15 +34,16 @@ export const ColorPicker = ({ name }: Props) => {
                 }}
                 whileTap={{ scale: 0.8 }}
                 transition={{
-                  duration: 1,
+                  duration: 0.5,
                   ease: "easeInOut",
-                  times: [0.1, 0.2, 0.5],
+                  times: [0.5, 0.2, 0.5],
                 }}
                 animate={checked ? { scale: 1.25 } : { scale: 1 }}
                 key={color}
                 className={clsx(
-                  "inline-block mr-3 mb-2 w-8 h-8 rounded-full ring-1 ring-black ring-opacity-20 cursor-pointer",
-                  cardColors[color as CardColorType]
+                  "inline-block mr-3 mb-2 w-8 h-8 rounded-full cursor-pointer",
+                  cardColors[color as CardColorType],
+                  color === "white" && "ring-1 ring-gray-500 ring-opacity-30"
                 )}
               />
             )}

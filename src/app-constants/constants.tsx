@@ -1,4 +1,5 @@
 import moment from "moment";
+import { FaDumbbell } from "react-icons/fa";
 import {
   HiBeaker,
   HiCake,
@@ -8,8 +9,7 @@ import {
   HiMusicNote,
   HiPuzzle,
   HiChip,
-  FaDumbbell,
-} from "react-icons/all";
+} from "react-icons/hi";
 
 import {
   CategoryCardItem,

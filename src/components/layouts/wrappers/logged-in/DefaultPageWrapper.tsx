@@ -8,7 +8,7 @@ import {
   SidebarLink,
   SidebarIconLink,
 } from "@redlotus/ui";
-import { HiLogout } from "react-icons/all";
+import { HiLogout } from "react-icons/hi";
 
 import { NavbarBottomContent } from "components";
 import { routes } from "routes";

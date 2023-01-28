@@ -1,6 +1,7 @@
 import { Router } from "@redlotus/ui";
 import clsx from "clsx";
-import { IoMdSettings, HiChartBar, HiHome } from "react-icons/all";
+import { HiChartBar, HiHome } from "react-icons/hi";
+import { IoMdSettings } from "react-icons/io";
 
 import { HomePage, StatisticsPage } from "pages";
 

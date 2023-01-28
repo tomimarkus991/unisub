@@ -9,7 +9,7 @@ import {
 import clsx from "clsx";
 import { useField, useFormikContext } from "formik";
 import { useState } from "react";
-import { HiCalendar } from "react-icons/all";
+import { HiCalendar } from "react-icons/hi";
 
 import { billingTypeValues } from "app-constants";
 import { SubscriptionBillingType } from "types";

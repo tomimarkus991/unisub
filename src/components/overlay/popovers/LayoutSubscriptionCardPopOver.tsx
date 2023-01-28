@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Popover } from "@redlotus/ui";
-import { useState } from "react";
-import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/all";
+import { HiCheck, HiPencil, HiTrash, HiX } from "react-icons/hi";
 
 import { SubscriptionModal } from "components";
 import { useSub } from "context";
@@ -9,17 +7,13 @@ import { Subscription } from "types";
 
 interface Props {
   sub: Subscription;
-  isPopoverOpen: boolean;
-  setIsPopoverOpen: (isPopoverOpen: boolean) => void;
 }
 
 export const LayoutSubscriptionCardPopOver = ({ sub }: Props) => {
   const { active: isSubActive } = sub;
   const { subs, setSubs } = useSub();
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   const handleActivate = () => {
-    setIsPopoverOpen(false);
     setSubs(
       subs.map(mappedSub => {
         if (mappedSub.id === sub.id) {
@@ -31,7 +25,6 @@ export const LayoutSubscriptionCardPopOver = ({ sub }: Props) => {
   };
 
   const handleDelete = () => {
-    setIsPopoverOpen(false);
     setSubs(
       subs.filter(mappedSub => {
         return mappedSub.id !== sub.id;
@@ -40,13 +33,8 @@ export const LayoutSubscriptionCardPopOver = ({ sub }: Props) => {
   };
 
   return (
-    <Popover animKey={sub.id} isPopoverOpen={isPopoverOpen} setIsPopoverOpen={setIsPopoverOpen}>
-      <SubscriptionModal
-        buttonType="children"
-        subValues={sub}
-        isEditing
-        // setIsSubCardPopoverOpen={setIsSubCardPopoverOpen}
-      >
+    <div className="z-[1330]">
+      <SubscriptionModal buttonType="children" subValues={sub} isEditing>
         <div
           role="button"
           tabIndex={0}
@@ -74,6 +62,6 @@ export const LayoutSubscriptionCardPopOver = ({ sub }: Props) => {
         <HiTrash className="mr-2 w-5 h-5 fill-red-500 hover:fill-red-600" />
         <p>Delete</p>
       </button>
-    </Popover>
+    </div>
   );
 };

@@ -12,7 +12,7 @@ import clsx from "clsx";
 import { Form, Formik } from "formik";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { HiArrowLeft, HiPlusCircle, HiX } from "react-icons/all";
+import { HiArrowLeft, HiPlusCircle, HiX } from "react-icons/hi";
 
 import {
   billingTypes,

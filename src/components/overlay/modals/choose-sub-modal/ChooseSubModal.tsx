@@ -11,7 +11,7 @@ import {
 import clsx from "clsx";
 import { Form, Formik } from "formik";
 import { AnimatePresence } from "framer-motion";
-import { HiPlusCircle } from "react-icons/all";
+import { HiPlusCircle } from "react-icons/hi";
 
 import { createPresetSubs, SearchSubYupSchema } from "app-constants";
 import { PresetSubscriptionCard, SubscriptionModal } from "components";
@@ -36,52 +36,54 @@ export const ChooseSubModal = ({
   };
 
   return (
-    <Modal
-      open={isChooseSubModalOpen}
-      setOpen={setIsChooseSubModalOpen}
-      maxWidth="lg"
-      modalButton={
-        <>
-          {buttonType === "icon" && (
-            <AnimationWrapper
-              animateOnMobile={false}
-              key="choose-modal-plus-icon"
-              variants={animations.scaleAndRotation}
-            >
-              <HiPlusCircle
-                className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
-                onClick={() => setIsChooseSubModalOpen(true)}
-              />
-            </AnimationWrapper>
-          )}
-          {buttonType === "real" && (
-            <RealButton onClick={() => setIsChooseSubModalOpen(true)}>{buttonTitle}</RealButton>
-          )}
-          {buttonType === "regular" && (
-            <Button size="md" variant="dark" onClick={() => setIsChooseSubModalOpen(true)}>
-              {buttonTitle}
-            </Button>
-          )}
-        </>
-      }
+    <Formik
+      initialValues={initialValues}
+      validationSchema={SearchSubYupSchema}
+      // validateOnMount
+      validateOnChange={false}
+      onSubmit={(_, { setSubmitting, resetForm }) => {
+        setSubmitting(true);
+
+        resetForm();
+
+        setSubmitting(false);
+      }}
     >
-      <Formik
-        initialValues={initialValues}
-        validationSchema={SearchSubYupSchema}
-        // validateOnMount
-        validateOnChange={false}
-        onSubmit={(_, { setSubmitting, resetForm }) => {
-          setSubmitting(true);
-
-          resetForm();
-
-          setSubmitting(false);
-        }}
-      >
-        {({ values }) => {
-          return (
+      {({ values }) => {
+        return (
+          <Modal
+            open={isChooseSubModalOpen}
+            setOpen={setIsChooseSubModalOpen}
+            maxWidth="md"
+            modalButton={
+              <>
+                {buttonType === "icon" && (
+                  <AnimationWrapper
+                    animateOnMobile={false}
+                    key="choose-modal-plus-icon"
+                    variants={animations.scaleAndRotation}
+                  >
+                    <HiPlusCircle
+                      className="w-14 h-14 cursor-pointer fill-slate-700 hover:fill-slate-800"
+                      onClick={() => setIsChooseSubModalOpen(true)}
+                    />
+                  </AnimationWrapper>
+                )}
+                {buttonType === "real" && (
+                  <RealButton onClick={() => setIsChooseSubModalOpen(true)}>
+                    {buttonTitle}
+                  </RealButton>
+                )}
+                {buttonType === "regular" && (
+                  <Button size="md" variant="dark" onClick={() => setIsChooseSubModalOpen(true)}>
+                    {buttonTitle}
+                  </Button>
+                )}
+              </>
+            }
+          >
             <Form className="flex flex-col">
-              <div className="flex sticky z-40 flex-col items-center px-4 pb-3 min-h-[9rem]">
+              <div className="flex sticky z-[1202] flex-col items-center px-4 pb-3 min-h-[9rem]">
                 <ModalHeader setOpen={setIsChooseSubModalOpen} type="close">
                   Add a new Sub
                 </ModalHeader>
@@ -99,7 +101,7 @@ export const ChooseSubModal = ({
               <div
                 className={clsx(
                   "scrollbar-hide",
-                  "flex overflow-y-auto flex-col px-2 h-[40vh] min-h-[15rem]"
+                  "flex overflow-y-auto flex-col px-2 h-[40vh] min-h-[15rem] items-center"
                 )}
               >
                 <AnimatePresence initial={false} exitBeforeEnter>
@@ -122,9 +124,9 @@ export const ChooseSubModal = ({
                 <SubscriptionModal buttonType="real" buttonTitle="Create New" />
               </ModalFooterContainer>
             </Form>
-          );
-        }}
-      </Formik>
-    </Modal>
+          </Modal>
+        );
+      }}
+    </Formik>
   );
 };
