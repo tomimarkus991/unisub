@@ -37,7 +37,7 @@
     "tailwindcss-border-gradient-radius": "^3.0.1",
     "uuid": "^9.0.0",
     "vite-plugin-checker": "^0.5.5",
-    "yup": "^0.32.11"
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@redlotus/typescript-config": "^1.0.0",
